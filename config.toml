@@ -108,7 +108,7 @@ enableGitInfo = true
 
   # Font style.
   #   Choose from `default`, `classic`, or `playfair`.
-  font = "playfair"
+  font = "classic"
 
   # Description for social sharing and search engines. If undefined, author role is used in place.
   description = ""
@@ -293,6 +293,11 @@ enableGitInfo = true
   name = "Publications"
   url = "#publications_selected"
   weight = 2
+
+[[menu.main]]
+  name = "Talks"
+  url = "#talks"
+  weight = 3
 
 [[menu.main]]
   name = "Posts"
