@@ -8,6 +8,7 @@
 # End your URL with a `/` trailing slash, e.g. `https://example.com/`.
 baseurl = "/"
 
+
 # Title of your site
 title = "seandavi(s12)"
 
@@ -46,6 +47,10 @@ enableGitInfo = true
   hrefTargetBlank = true  # `true` opens external links in a new tab.
   fractions = true  # `false` disables smart fractions (e.g. 5/12 formatted as a fraction).
   smartypants = true  # `false` disables all smart punctuation substitutions (e.g. smart quotes, dashes, fractions).
+
+[permalinks]
+    talk = "/:year/:month/:day/:slug"
+    post = "/:year/:month/:slug"
 
 [params]
   # AUTHOR SETUP
