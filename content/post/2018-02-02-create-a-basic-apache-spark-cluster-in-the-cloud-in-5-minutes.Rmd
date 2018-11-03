@@ -21,14 +21,10 @@ interactive mode using command-line programming style or in popular
 notebook style of coding. While [scala] is the native language for
 Spark, language bindings exist for python, R, and Java as well. 
 
-<!--more-->
-
-
-
 <a href="https://spark.apache.org" >
 <img
 src="https://www.onlinebooksreview.com/uploads/blog_images/2017/11/27_file.png"
- style="width:250px;float:left;" />
+ style="width:300px;float:left;padding-right:10px" />
 </a>
 
 Spark is built around an underlying data abstraction called Resilient
