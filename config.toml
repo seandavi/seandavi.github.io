@@ -68,9 +68,9 @@ enableGitInfo = true
 
   # Details for the Contact Widget
   email = "seandavi@gmail.com"
-  address = "37 Convent Drive, Bethesda, MD 20892"
-  office_hours = "Monday 10:00 to 13:00 or email for appointment"
-  phone = "888 888 88 88"
+  address = "Bldg 37, Room 6138, 37 Convent Drive, Bethesda, MD 20892"
+  office_hours = "Email me for appointment"
+  phone = ""
   skype = "seandavi_2"
   telegram = ""
   keybase = ""  # Your keybase.io username.
