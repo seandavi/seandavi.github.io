@@ -10,27 +10,30 @@ weight = 5
 # List your academic interests.
 [interests]
   interests = [
-    "Artificial Intelligence",
-    "Computational Linguistics",
-    "Information Retrieval"
+	"Biomedical Informatics and Data Science",
+	"Software Development",
+    "Open Data",
+    "Reproducible Research",
+    "Education",
+	"Cloud and Distributed Computing"
   ]
 
 # List your qualifications (such as academic degrees).
 [[education.courses]]
-  course = "PhD in Artificial Intelligence"
-  institution = "Stanford University"
-  year = 2012
+  course = "MD"
+  institution = "University of Pittsburgh, Pittsburgh, PA"
+  year = 1999
 
 [[education.courses]]
-  course = "MEng in Artificial Intelligence"
-  institution = "Massachusetts Institute of Technology"
-  year = 2009
+  course = "PhD, Human Genetics"
+  institution = "University of Pittsburgh, Pittsburgh, PA"
+  year = 1997
 
 [[education.courses]]
-  course = "BSc in Artificial Intelligence"
-  institution = "Massachusetts Institute of Technology"
-  year = 2008
- 
+  course = "BS, Mechanical and Aerospace Engineering"
+  institution = "Princeton University, Princeton, NJ"
+  year = 1993
+
 +++
 
 # Biography

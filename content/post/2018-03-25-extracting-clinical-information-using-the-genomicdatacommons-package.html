@@ -1,0 +1,238 @@
+---
+title: "Extracting Clinical Information Using the Genomicdatacommons Package"
+date: 2018-03-25T11:18:36-04:00
+abstract : ""
+abstract_short : ""
+categories:
+  - Bioconductor
+tags:
+  - Cancer Genomics
+  - GenomicDataCommons
+draft: false
+---
+
+
+
+<p>This short post introducds the <code>gdc_clinical()</code> function recently
+added to the GenomicDataCommons package.</p>
+<p>The
+<a href="https://gdc.cancer.gov/developers/gdc-data-model">rich data model</a> at
+the NCI Genomic Data Commons (GDC) includes clinical and biospecimen
+details. A recently added feature to the NCI GDC Data Portal is the
+ability to download tab-delimited files or JSON files for clinical and
+biospecimen details of samples. The details available in these
+simplified formats are also available via the GDC API.</p>
+<pre class="r"><code>library(GenomicDataCommons)</code></pre>
+<p>The clinical
+infomation at the GDC is encapsulated in the <code>cases</code> records. Here, I
+introduce the <code>gdc_clinical()</code> function from
+the
+<a href="https://bioconductor.org/packages/GenomicDataCommons">GenomicDataCommons</a> package that
+takes as input
+GDC case IDs and returns a set of four related <code>data.frame</code>s:</p>
+<ul>
+<li>main: important case metadata</li>
+<li>demographics: basic demographic information</li>
+<li>exposures: zero or more documented exposures</li>
+<li>diagnoses: zero or more diagnoses per case</li>
+</ul>
+<p>As an example application, we will examine the clinical details for
+100 lung adenocarcinoma patients from TCGA (“TCGA-LUAD”). The case ids
+are available through a basic <code>cases()</code> query, <code>filter</code>ed to include
+only samples that belong to the project from <code>TCGA-LUAD</code> (stored in
+the <code>project.project_id</code> field). The query to get these case_ids,
+then, looks like:</p>
+<pre class="r"><code>case_ids = cases() %&gt;%
+    filter(~ project.project_id == &#39;TCGA-LUAD&#39;) %&gt;%
+    results(size=100) %&gt;%
+    ids()
+head(case_ids)</code></pre>
+<pre><code>## [1] &quot;ffb0c0b7-165e-4439-b3e6-62431f40b7fe&quot;
+## [2] &quot;f98ecd8a-b878-4f53-b911-20cd8e17281c&quot;
+## [3] &quot;ccfdad76-cc45-447f-bed8-ede8f6a8844d&quot;
+## [4] &quot;9fcdccae-676e-4071-93c3-23d2d3ab0c00&quot;
+## [5] &quot;0232d299-4cdf-4fd7-9a5e-8d13c208b40c&quot;
+## [6] &quot;bc4c4079-b449-485d-84e4-a40496e563e8&quot;</code></pre>
+<p>These case_ids, each representing a single case (patient) in the GDC,
+can be be fed directly to <code>gdc_clinical</code>.</p>
+<pre class="r"><code>clin_res = gdc_clinical(case_ids)</code></pre>
+<p>The result is a list of data.frames:</p>
+<pre class="r"><code>names(clin_res)</code></pre>
+<pre><code>## [1] &quot;demographic&quot; &quot;diagnoses&quot;   &quot;exposures&quot;   &quot;main&quot;</code></pre>
+<p>The the dimensions of these data.frames is instructive.</p>
+<pre class="r"><code>sapply(clin_res, dim) %&gt;%
+    t() %&gt;%
+    data.frame() %&gt;%
+    set_names(c(&#39;rows&#39;,&#39;columns&#39;))</code></pre>
+<pre><code>##             rows columns
+## demographic  100      11
+## diagnoses     82      23
+## exposures     82      13
+## main         100       8</code></pre>
+<p>And the column names for each are helpful to examine:</p>
+<pre class="r"><code>sapply(clin_res, colnames)</code></pre>
+<pre><code>## $demographic
+##  [1] &quot;updated_datetime&quot; &quot;created_datetime&quot; &quot;gender&quot;          
+##  [4] &quot;year_of_birth&quot;    &quot;submitter_id&quot;     &quot;state&quot;           
+##  [7] &quot;race&quot;             &quot;demographic_id&quot;   &quot;ethnicity&quot;       
+## [10] &quot;year_of_death&quot;    &quot;case_id&quot;         
+## 
+## $diagnoses
+##  [1] &quot;case_id&quot;                          
+##  [2] &quot;classification_of_tumor&quot;          
+##  [3] &quot;last_known_disease_status&quot;        
+##  [4] &quot;updated_datetime&quot;                 
+##  [5] &quot;primary_diagnosis&quot;                
+##  [6] &quot;submitter_id&quot;                     
+##  [7] &quot;tumor_stage&quot;                      
+##  [8] &quot;age_at_diagnosis&quot;                 
+##  [9] &quot;vital_status&quot;                     
+## [10] &quot;morphology&quot;                       
+## [11] &quot;days_to_death&quot;                    
+## [12] &quot;days_to_last_known_disease_status&quot;
+## [13] &quot;created_datetime&quot;                 
+## [14] &quot;state&quot;                            
+## [15] &quot;days_to_recurrence&quot;               
+## [16] &quot;diagnosis_id&quot;                     
+## [17] &quot;tumor_grade&quot;                      
+## [18] &quot;tissue_or_organ_of_origin&quot;        
+## [19] &quot;days_to_birth&quot;                    
+## [20] &quot;progression_or_recurrence&quot;        
+## [21] &quot;prior_malignancy&quot;                 
+## [22] &quot;site_of_resection_or_biopsy&quot;      
+## [23] &quot;days_to_last_follow_up&quot;           
+## 
+## $exposures
+##  [1] &quot;case_id&quot;            &quot;cigarettes_per_day&quot; &quot;weight&quot;            
+##  [4] &quot;updated_datetime&quot;   &quot;alcohol_history&quot;    &quot;alcohol_intensity&quot; 
+##  [7] &quot;bmi&quot;                &quot;years_smoked&quot;       &quot;submitter_id&quot;      
+## [10] &quot;created_datetime&quot;   &quot;state&quot;              &quot;exposure_id&quot;       
+## [13] &quot;height&quot;            
+## 
+## $main
+## [1] &quot;updated_datetime&quot; &quot;submitter_id&quot;     &quot;case_id&quot;         
+## [4] &quot;id&quot;               &quot;disease_type&quot;     &quot;created_datetime&quot;
+## [7] &quot;state&quot;            &quot;primary_site&quot;</code></pre>
+<p>Note the each data.frame contains a <code>case_id</code> column by design to
+allow arbitrary joining of the tables to each other. In this case, the
+data relationships are not too complicated, but one might imagine
+situations arising that include many-to-many relationships that are
+hard to handle in a fully general way without some understanding of
+downstream use (what do we want to do with the clinical
+information?). In this relatively simple case, we can create a
+“master” data.frame by joining all the records from each data.frame.</p>
+<pre class="r"><code>library(dplyr)
+full_clin = with(clin_res,
+     main %&gt;%
+     left_join(demographic, by = &quot;case_id&quot;) %&gt;%
+     left_join(exposures, by = &quot;case_id&quot;) %&gt;%
+     left_join(diagnoses, by = &quot;case_id&quot;))</code></pre>
+<p>Above, I have used the tidyverse approach, applying <code>dplyr</code>
+<code>left_join()</code>s. Using base R <code>merge</code> would also work.</p>
+<pre class="r"><code>dim(full_clin)</code></pre>
+<pre><code>## [1] 100  52</code></pre>
+<pre class="r"><code>colnames(full_clin)</code></pre>
+<pre><code>##  [1] &quot;updated_datetime.x&quot;               
+##  [2] &quot;submitter_id.x&quot;                   
+##  [3] &quot;case_id&quot;                          
+##  [4] &quot;id&quot;                               
+##  [5] &quot;disease_type&quot;                     
+##  [6] &quot;created_datetime.x&quot;               
+##  [7] &quot;state.x&quot;                          
+##  [8] &quot;primary_site&quot;                     
+##  [9] &quot;updated_datetime.y&quot;               
+## [10] &quot;created_datetime.y&quot;               
+## [11] &quot;gender&quot;                           
+## [12] &quot;year_of_birth&quot;                    
+## [13] &quot;submitter_id.y&quot;                   
+## [14] &quot;state.y&quot;                          
+## [15] &quot;race&quot;                             
+## [16] &quot;demographic_id&quot;                   
+## [17] &quot;ethnicity&quot;                        
+## [18] &quot;year_of_death&quot;                    
+## [19] &quot;cigarettes_per_day&quot;               
+## [20] &quot;weight&quot;                           
+## [21] &quot;updated_datetime.x.x&quot;             
+## [22] &quot;alcohol_history&quot;                  
+## [23] &quot;alcohol_intensity&quot;                
+## [24] &quot;bmi&quot;                              
+## [25] &quot;years_smoked&quot;                     
+## [26] &quot;submitter_id.x.x&quot;                 
+## [27] &quot;created_datetime.x.x&quot;             
+## [28] &quot;state.x.x&quot;                        
+## [29] &quot;exposure_id&quot;                      
+## [30] &quot;height&quot;                           
+## [31] &quot;classification_of_tumor&quot;          
+## [32] &quot;last_known_disease_status&quot;        
+## [33] &quot;updated_datetime.y.y&quot;             
+## [34] &quot;primary_diagnosis&quot;                
+## [35] &quot;submitter_id.y.y&quot;                 
+## [36] &quot;tumor_stage&quot;                      
+## [37] &quot;age_at_diagnosis&quot;                 
+## [38] &quot;vital_status&quot;                     
+## [39] &quot;morphology&quot;                       
+## [40] &quot;days_to_death&quot;                    
+## [41] &quot;days_to_last_known_disease_status&quot;
+## [42] &quot;created_datetime.y.y&quot;             
+## [43] &quot;state.y.y&quot;                        
+## [44] &quot;days_to_recurrence&quot;               
+## [45] &quot;diagnosis_id&quot;                     
+## [46] &quot;tumor_grade&quot;                      
+## [47] &quot;tissue_or_organ_of_origin&quot;        
+## [48] &quot;days_to_birth&quot;                    
+## [49] &quot;progression_or_recurrence&quot;        
+## [50] &quot;prior_malignancy&quot;                 
+## [51] &quot;site_of_resection_or_biopsy&quot;      
+## [52] &quot;days_to_last_follow_up&quot;</code></pre>
+<p>In conclusion, the <code>gdc_clinical</code> functionality from the
+GenomicDataCommons is a high-level function for capturing unified and
+harmonized clinical information for <em>any</em> case in the NCI GDC
+repository.</p>
+<pre class="r"><code>sessionInfo()</code></pre>
+<pre><code>## R version 3.5.1 (2018-07-02)
+## Platform: x86_64-apple-darwin15.6.0 (64-bit)
+## Running under: macOS Sierra 10.12.6
+## 
+## Matrix products: default
+## BLAS: /Library/Frameworks/R.framework/Versions/3.5/Resources/lib/libRblas.0.dylib
+## LAPACK: /Library/Frameworks/R.framework/Versions/3.5/Resources/lib/libRlapack.dylib
+## 
+## locale:
+## [1] en_US.UTF-8/en_US.UTF-8/en_US.UTF-8/C/en_US.UTF-8/en_US.UTF-8
+## 
+## attached base packages:
+## [1] stats     graphics  grDevices utils     datasets  methods   base     
+## 
+## other attached packages:
+## [1] dplyr_0.7.7              GenomicDataCommons_1.4.3
+## [3] magrittr_1.5             knitr_1.20              
+## 
+## loaded via a namespace (and not attached):
+##  [1] SummarizedExperiment_1.10.1 tidyselect_0.2.5           
+##  [3] xfun_0.3                    purrr_0.2.5                
+##  [5] lattice_0.20-35             htmltools_0.3.6            
+##  [7] stats4_3.5.1                yaml_2.2.0                 
+##  [9] rlang_0.3.0.1               pillar_1.3.0               
+## [11] glue_1.3.0                  BiocParallel_1.14.2        
+## [13] rappdirs_0.3.1              BiocGenerics_0.26.0        
+## [15] bindrcpp_0.2.2              matrixStats_0.54.0         
+## [17] GenomeInfoDbData_1.1.0      bindr_0.1.1                
+## [19] stringr_1.3.1               zlibbioc_1.26.0            
+## [21] blogdown_0.8                codetools_0.2-15           
+## [23] evaluate_0.12               Biobase_2.40.0             
+## [25] IRanges_2.14.12             GenomeInfoDb_1.16.0        
+## [27] parallel_3.5.1              curl_3.2                   
+## [29] Rcpp_0.12.19                readr_1.1.1                
+## [31] backports_1.1.2             DelayedArray_0.6.6         
+## [33] S4Vectors_0.18.3            jsonlite_1.5               
+## [35] XVector_0.20.0              hms_0.4.2                  
+## [37] digest_0.6.18               stringi_1.2.4              
+## [39] bookdown_0.7                GenomicRanges_1.32.7       
+## [41] grid_3.5.1                  rprojroot_1.3-2            
+## [43] tools_3.5.1                 bitops_1.0-6               
+## [45] RCurl_1.95-4.11             lazyeval_0.2.1             
+## [47] tibble_1.4.2                crayon_1.3.4               
+## [49] pkgconfig_2.0.2             Matrix_1.2-14              
+## [51] xml2_1.2.0                  assertthat_0.2.0           
+## [53] rmarkdown_1.10              httr_1.3.1                 
+## [55] R6_2.3.0                    compiler_3.5.1</code></pre>

@@ -1,2 +1,6 @@
 public/
 .idea/
+*~
+virt
+blogdown
+public
