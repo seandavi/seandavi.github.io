@@ -38,7 +38,7 @@ weight = 5
 
 # Biography
 
-Sean Davis is a Senior Associate Scientist at the [Center for Cancer
+I am a Senior Associate Scientist at the [Center for Cancer
 Research](https://ccr.cancer.gov/) at the [National Cancer
 Institute](https://www.cancer.gov/), part of the [Intramural Research
 Program at the National Institutes of Health](https://irp.nih.gov/).
