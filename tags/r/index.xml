@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>R on seandavi(s12)</title>
+    <link>/tags/r/</link>
+    <description>Recent content in R on seandavi(s12)</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>&amp;copy; 2018</copyright>
+    <lastBuildDate>Mon, 03 Dec 2018 00:00:00 -0500</lastBuildDate>
+    
+	<atom:link href="/tags/r/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Bioconductor: software for interpreting high-throughput biological data</title>
+      <link>/2018/12/03/bioconductor-software-for-interpreting-high-throughput-biological-data/</link>
+      <pubDate>Mon, 03 Dec 2018 00:00:00 -0500</pubDate>
+      
+      <guid>/2018/12/03/bioconductor-software-for-interpreting-high-throughput-biological-data/</guid>
+      <description>  </description>
+    </item>
+    
+    <item>
+      <title>Practical Data Science and Informatics Training</title>
+      <link>/2018/12/03/practical-data-science-and-informatics-training/</link>
+      <pubDate>Mon, 03 Dec 2018 00:00:00 -0500</pubDate>
+      
+      <guid>/2018/12/03/practical-data-science-and-informatics-training/</guid>
+      <description>  </description>
+    </item>
+    
+    <item>
+      <title>A computable Bioconductor build report</title>
+      <link>/2017/11/a-computable-bioconductor-build-report/</link>
+      <pubDate>Fri, 17 Nov 2017 00:00:00 +0000</pubDate>
+      
+      <guid>/2017/11/a-computable-bioconductor-build-report/</guid>
+      <description>Bioconductor spends a substantial amount of effort to build its catalog of software each day. Reporting of these results is critical for developers, users, and project leaders to understand the software “health” of the project.
+The Bioconductor build reports are generally available as html pages that are navigable with bookmarks and link out to detailed reports of errors, etc. However, the build reports are not readily computable, so mining the reports, automated processing by developers, and learning about failure modes automatically is challenging.</description>
+    </item>
+    
+    <item>
+      <title>Matched tumor/normal pairs--a use case for the GenomicDataCommons Bioconductor package</title>
+      <link>/2017/03/matched-tumor-normal-pairs-a-use-case-for-the-genomicdatacommons-bioconductor-package/</link>
+      <pubDate>Sat, 04 Mar 2017 00:00:00 +0000</pubDate>
+      
+      <guid>/2017/03/matched-tumor-normal-pairs-a-use-case-for-the-genomicdatacommons-bioconductor-package/</guid>
+      <description>Introduction The NCI Genomic Data Commons (GDC) is a reboot of the approach that NCI uses to manage and expose genomic and associated clinical and experimental metadata. I have been working on a Bioconductor package that interfaces with the GDC API to provide search and data retrieval from within R.
+testing In the first of what will likely be a set of use cases for the GenomicDataCommons, I am going to address a question that came up on twitter from @sleight82</description>
+    </item>
+    
+  </channel>
+</rss>

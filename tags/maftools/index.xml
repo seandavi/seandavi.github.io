@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>maftools on seandavi(s12)</title>
+    <link>/tags/maftools/</link>
+    <description>Recent content in maftools on seandavi(s12)</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>&amp;copy; 2018</copyright>
+    <lastBuildDate>Fri, 26 Jan 2018 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="/tags/maftools/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Leveraging Bioconductor for somatic variant analysis of TCGA data</title>
+      <link>/2018/01/leveraging-bioconductor-for-somatic-variant-analysis-of-tcga-datarmd/</link>
+      <pubDate>Fri, 26 Jan 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/2018/01/leveraging-bioconductor-for-somatic-variant-analysis-of-tcga-datarmd/</guid>
+      <description>The NCI Genomic Data Commons (GDC) now contains the authoritative source of data from The Cancer Genome Atlas (TCGA) as well as several other projects of import to the cancer research community. One of the available assays produces somatic variant calls, formally identified by comparing tumor reads and normal reads to identify variants relative to the human reference genome that are not present in the normal genome of the patient.</description>
+    </item>
+    
+  </channel>
+</rss>

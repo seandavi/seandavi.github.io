@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Bioconductor on seandavi(s12)</title>
+    <link>/tags/bioconductor/</link>
+    <description>Recent content in Bioconductor on seandavi(s12)</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>&amp;copy; 2018</copyright>
+    <lastBuildDate>Mon, 03 Dec 2018 00:00:00 -0500</lastBuildDate>
+    
+	<atom:link href="/tags/bioconductor/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Bioconductor: software for interpreting high-throughput biological data</title>
+      <link>/2018/12/03/bioconductor-software-for-interpreting-high-throughput-biological-data/</link>
+      <pubDate>Mon, 03 Dec 2018 00:00:00 -0500</pubDate>
+      
+      <guid>/2018/12/03/bioconductor-software-for-interpreting-high-throughput-biological-data/</guid>
+      <description>  </description>
+    </item>
+    
+    <item>
+      <title>Orchestrating a community-developed computational workshop and accompanying training materials</title>
+      <link>/publication/10.12688__f1000research.16516.1/</link>
+      <pubDate>Sun, 07 Oct 2018 00:00:00 -0400</pubDate>
+      
+      <guid>/publication/10.12688__f1000research.16516.1/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Infrastructure-as-Code: Building the Bioconductor Conference AMI With Packer</title>
+      <link>/2018/07/infrastructure-as-code-building-the-bioconductor-conference-ami-with-packer/</link>
+      <pubDate>Thu, 19 Jul 2018 14:35:47 -0400</pubDate>
+      
+      <guid>/2018/07/infrastructure-as-code-building-the-bioconductor-conference-ami-with-packer/</guid>
+      <description>One of the main features of the annual Bioconductor Conference is the proportion of time spent working with code in the form of workshops. To support these workshops, we ask workshop presenters to supply Rmarkdown materials which we collate into workshop materials. Using literate programming approaches like Rmarkdown ensures that the workflows are self-consistent and work as expected.
+In addition to the Rmarkdown workshop materials, we also need a consistent computing environment that can support reasonably large computation, provide high-performance network and file system access, and is essentially unlimited in scale (we expect to have &amp;gt;150 participants, each with his/her own machine).</description>
+    </item>
+    
+    <item>
+      <title>A computable Bioconductor build report</title>
+      <link>/2017/11/a-computable-bioconductor-build-report/</link>
+      <pubDate>Fri, 17 Nov 2017 00:00:00 +0000</pubDate>
+      
+      <guid>/2017/11/a-computable-bioconductor-build-report/</guid>
+      <description>Bioconductor spends a substantial amount of effort to build its catalog of software each day. Reporting of these results is critical for developers, users, and project leaders to understand the software “health” of the project.
+The Bioconductor build reports are generally available as html pages that are navigable with bookmarks and link out to detailed reports of errors, etc. However, the build reports are not readily computable, so mining the reports, automated processing by developers, and learning about failure modes automatically is challenging.</description>
+    </item>
+    
+    <item>
+      <title>Matched tumor/normal pairs--a use case for the GenomicDataCommons Bioconductor package</title>
+      <link>/2017/03/matched-tumor-normal-pairs-a-use-case-for-the-genomicdatacommons-bioconductor-package/</link>
+      <pubDate>Sat, 04 Mar 2017 00:00:00 +0000</pubDate>
+      
+      <guid>/2017/03/matched-tumor-normal-pairs-a-use-case-for-the-genomicdatacommons-bioconductor-package/</guid>
+      <description>Introduction The NCI Genomic Data Commons (GDC) is a reboot of the approach that NCI uses to manage and expose genomic and associated clinical and experimental metadata. I have been working on a Bioconductor package that interfaces with the GDC API to provide search and data retrieval from within R.
+testing In the first of what will likely be a set of use cases for the GenomicDataCommons, I am going to address a question that came up on twitter from @sleight82</description>
+    </item>
+    
+  </channel>
+</rss>

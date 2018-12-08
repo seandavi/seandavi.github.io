@@ -1,0 +1,295 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Tags on seandavi(s12)</title>
+    <link>/tags/</link>
+    <description>Recent content in Tags on seandavi(s12)</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>&amp;copy; 2018</copyright>
+    <lastBuildDate>Sat, 04 Mar 2017 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="/tags/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>API</title>
+      <link>/tags/api/</link>
+      <pubDate>Sat, 04 Mar 2017 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/api/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>AWS</title>
+      <link>/tags/aws/</link>
+      <pubDate>Thu, 19 Jul 2018 14:35:47 -0400</pubDate>
+      
+      <guid>/tags/aws/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Big Data</title>
+      <link>/tags/big-data/</link>
+      <pubDate>Fri, 02 Feb 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/big-data/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>BiocPkgTools</title>
+      <link>/tags/biocpkgtools/</link>
+      <pubDate>Fri, 17 Nov 2017 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/biocpkgtools/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Bioconductor</title>
+      <link>/tags/bioconductor/</link>
+      <pubDate>Mon, 03 Dec 2018 00:00:00 -0500</pubDate>
+      
+      <guid>/tags/bioconductor/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>CSHL</title>
+      <link>/tags/cshl/</link>
+      <pubDate>Mon, 03 Dec 2018 00:00:00 -0500</pubDate>
+      
+      <guid>/tags/cshl/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Cancer Genomics</title>
+      <link>/tags/cancer-genomics/</link>
+      <pubDate>Sun, 25 Mar 2018 11:18:36 -0400</pubDate>
+      
+      <guid>/tags/cancer-genomics/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Cloud</title>
+      <link>/tags/cloud/</link>
+      <pubDate>Tue, 16 Oct 2018 00:00:00 -0400</pubDate>
+      
+      <guid>/tags/cloud/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Data Science</title>
+      <link>/tags/data-science/</link>
+      <pubDate>Mon, 03 Dec 2018 00:00:00 -0500</pubDate>
+      
+      <guid>/tags/data-science/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Education</title>
+      <link>/tags/education/</link>
+      <pubDate>Mon, 03 Dec 2018 00:00:00 -0500</pubDate>
+      
+      <guid>/tags/education/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>GenomicDataCommons</title>
+      <link>/tags/genomicdatacommons/</link>
+      <pubDate>Sun, 25 Mar 2018 11:18:36 -0400</pubDate>
+      
+      <guid>/tags/genomicdatacommons/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>IT</title>
+      <link>/tags/it/</link>
+      <pubDate>Thu, 19 Jul 2018 14:35:47 -0400</pubDate>
+      
+      <guid>/tags/it/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Open Data</title>
+      <link>/tags/open-data/</link>
+      <pubDate>Mon, 03 Dec 2018 00:00:00 -0500</pubDate>
+      
+      <guid>/tags/open-data/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>R</title>
+      <link>/tags/r/</link>
+      <pubDate>Mon, 03 Dec 2018 00:00:00 -0500</pubDate>
+      
+      <guid>/tags/r/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>R Markdown</title>
+      <link>/tags/r-markdown/</link>
+      <pubDate>Thu, 23 Jul 2015 21:13:14 -0500</pubDate>
+      
+      <guid>/tags/r-markdown/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Software</title>
+      <link>/tags/software/</link>
+      <pubDate>Fri, 17 Nov 2017 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/software/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Spark</title>
+      <link>/tags/spark/</link>
+      <pubDate>Fri, 02 Feb 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/spark/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>TCGA</title>
+      <link>/tags/tcga/</link>
+      <pubDate>Fri, 29 Dec 2017 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/tcga/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>bioinformatics</title>
+      <link>/tags/bioinformatics/</link>
+      <pubDate>Fri, 29 Dec 2017 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/bioinformatics/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>cancer informatics</title>
+      <link>/tags/cancer-informatics/</link>
+      <pubDate>Fri, 29 Dec 2017 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/cancer-informatics/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>cloud</title>
+      <link>/tags/cloud/</link>
+      <pubDate>Thu, 19 Jul 2018 14:35:47 -0400</pubDate>
+      
+      <guid>/tags/cloud/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>devops</title>
+      <link>/tags/devops/</link>
+      <pubDate>Thu, 19 Jul 2018 14:35:47 -0400</pubDate>
+      
+      <guid>/tags/devops/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>emacs</title>
+      <link>/tags/emacs/</link>
+      <pubDate>Sat, 08 Dec 2018 10:00:00 -0500</pubDate>
+      
+      <guid>/tags/emacs/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>fungal infection</title>
+      <link>/tags/fungal-infection/</link>
+      <pubDate>Sun, 01 Jan 2017 00:00:00 -0500</pubDate>
+      
+      <guid>/tags/fungal-infection/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>maftools</title>
+      <link>/tags/maftools/</link>
+      <pubDate>Fri, 26 Jan 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/maftools/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>open data</title>
+      <link>/tags/open-data/</link>
+      <pubDate>Fri, 29 Dec 2017 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/open-data/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>packer</title>
+      <link>/tags/packer/</link>
+      <pubDate>Thu, 19 Jul 2018 14:35:47 -0400</pubDate>
+      
+      <guid>/tags/packer/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>plot</title>
+      <link>/tags/plot/</link>
+      <pubDate>Thu, 23 Jul 2015 21:13:14 -0500</pubDate>
+      
+      <guid>/tags/plot/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>programming</title>
+      <link>/tags/programming/</link>
+      <pubDate>Sat, 08 Dec 2018 10:00:00 -0500</pubDate>
+      
+      <guid>/tags/programming/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>python</title>
+      <link>/tags/python/</link>
+      <pubDate>Sat, 08 Dec 2018 10:00:00 -0500</pubDate>
+      
+      <guid>/tags/python/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>regression</title>
+      <link>/tags/regression/</link>
+      <pubDate>Thu, 23 Jul 2015 21:13:14 -0500</pubDate>
+      
+      <guid>/tags/regression/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>

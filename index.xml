@@ -1,0 +1,422 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>seandavi(s12) on seandavi(s12)</title>
+    <link>/</link>
+    <description>Recent content in seandavi(s12) on seandavi(s12)</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>&amp;copy; 2018</copyright>
+    <lastBuildDate>Sun, 15 Oct 2017 00:00:00 -0400</lastBuildDate>
+    <atom:link href="/" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Using directory-local variables to customize the emacs project experience</title>
+      <link>/2018/12/using-directory-local-variables-to-customize-the-emacs-project-experience/</link>
+      <pubDate>Sat, 08 Dec 2018 10:00:00 -0500</pubDate>
+      
+      <guid>/2018/12/using-directory-local-variables-to-customize-the-emacs-project-experience/</guid>
+      <description>&lt;p&gt;I use &lt;a href=&#34;https://www.gnu.org/software/emacs/&#34; target=&#34;_blank&#34;&gt;emacs&lt;/a&gt; for nearly all my editing and interactive analysis. As
+one typically does, more than one project is the norm, not the
+exception. Discovering &lt;a href=&#34;https://github.com/bbatsov/projectile&#34; target=&#34;_blank&#34;&gt;projectile&lt;/a&gt; for project-specific buffers and
+controls, combined with &lt;a href=&#34;https://emacs-helm.github.io/helm/&#34; target=&#34;_blank&#34;&gt;helm&lt;/a&gt; for very fast, fuzzy completions, makes
+emacs a very convenient and efficient environment for most task.&lt;/p&gt;
+
+&lt;p&gt;One challenge I ran into was the need to have multiple interactive
+python buffers, typically one per project. However, the out-of-the-box
+behavior of &lt;a href=&#34;https://www.emacswiki.org/emacs/PythonProgrammingInEmacs&#34; target=&#34;_blank&#34;&gt;python-mode&lt;/a&gt; is to have only one python interactive
+buffer named &amp;ldquo;Python&amp;rdquo;. In order to localize the python interactive
+shell, I found it necessary to assign a custom name to the python
+buffer and to associate that name with the project. Using
+&lt;a href=&#34;https://www.gnu.org/software/emacs/manual/html_node/emacs/Directory-Variables.html&#34; target=&#34;_blank&#34;&gt;directory-local variables&lt;/a&gt; turned out to be the trick. It is also the
+current &lt;a href=&#34;https://github.com/bbatsov/projectile/issues/139#issuecomment-48897066&#34; target=&#34;_blank&#34;&gt;recommendation from the projectile project&lt;/a&gt; for customizing
+things in the current project.&lt;/p&gt;
+
+&lt;p&gt;To set a directory variable, one first needs to know what variable to
+set. A simple way to see what is available for customization is to
+perform &lt;code&gt;M-x customize&lt;/code&gt; followed by the mode to customize. In this
+case, &lt;code&gt;python&lt;/code&gt; suffices. The variable of interest is the
+&lt;code&gt;python-shell-buffer-name&lt;/code&gt;. With projectile-mode active and in a
+project, &lt;code&gt;C-c p E&lt;/code&gt; will prompt for the variable to customize.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;python-shell-buffer-name
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Then, supply the custom name. In my case, I am going with the
+convention of &amp;ldquo;Python[PROJECT_NAME]&amp;ldquo;. Note that no &lt;code&gt;*&lt;/code&gt; are used around
+the name. The result will be a new &lt;code&gt;.dir-locals.el&lt;/code&gt; file in the
+project root directory. This new variable will only become active on
+opening new files; it does not affect previously-opened files.&lt;/p&gt;
+
+&lt;p&gt;After this process, activating a new python shell will result in that
+shell taking on the customized name and all python editor buffers in
+the project will use the same project-specific&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Bioconductor: software for interpreting high-throughput biological data</title>
+      <link>/2018/12/03/bioconductor-software-for-interpreting-high-throughput-biological-data/</link>
+      <pubDate>Mon, 03 Dec 2018 00:00:00 -0500</pubDate>
+      
+      <guid>/2018/12/03/bioconductor-software-for-interpreting-high-throughput-biological-data/</guid>
+      <description>&lt;div class=&#34;responsive-wrap&#34;&gt;
+  &lt;iframe src=&#34;https://docs.google.com/presentation/d/e/2PACX-1vQI77sKlJSlFIjaF-c7CjXDaaCoB5wA_ly63ObRkGS2I2NDSTTLV-crI5XgjfefnFQ_QM4wRe2eAqh2/embed?start=true&amp;amp;loop=false&amp;amp;delayms=3000&#34; frameborder=&#34;0&#34; width=&#34;960&#34; height=&#34;569&#34; allowfullscreen=&#34;true&#34; mozallowfullscreen=&#34;true&#34; webkitallowfullscreen=&#34;true&#34;&gt;&lt;/iframe&gt;
+&lt;/div&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Practical Data Science and Informatics Training</title>
+      <link>/2018/12/03/practical-data-science-and-informatics-training/</link>
+      <pubDate>Mon, 03 Dec 2018 00:00:00 -0500</pubDate>
+      
+      <guid>/2018/12/03/practical-data-science-and-informatics-training/</guid>
+      <description>&lt;div class=&#34;responsive-wrap&#34;&gt;
+  &lt;iframe src=&#34;https://docs.google.com/presentation/d/e/2PACX-1vRGJiv0PbsSpytcoiPClSlZs7JhztGPiKOd-GptnFDaOemA6KPpYac71ATSDsDtdhOLk1Cm10-f4bBA/embed?start=false&amp;amp;loop=false&amp;amp;delayms=3000&#34; frameborder=&#34;0&#34; width=&#34;960&#34; height=&#34;569&#34; allowfullscreen=&#34;true&#34; mozallowfullscreen=&#34;true&#34; webkitallowfullscreen=&#34;true&#34;&gt;&lt;/iframe&gt;
+&lt;/div&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>The cancer data ecosystem: data and cloud resources for cancer genomic data science</title>
+      <link>/2018/10/16/the-cancer-data-ecosystem-data-and-cloud-resources-for-cancer-genomic-data-science/</link>
+      <pubDate>Tue, 16 Oct 2018 00:00:00 -0400</pubDate>
+      
+      <guid>/2018/10/16/the-cancer-data-ecosystem-data-and-cloud-resources-for-cancer-genomic-data-science/</guid>
+      <description>&lt;div class=&#34;responsive-wrap&#34;&gt;
+  &lt;iframe src=&#34;https://docs.google.com/presentation/d/e/2PACX-1vSksBmgOBEjIdxxATW3fWG-EZoULxDc-tg94y8QdNdKa6NPnDWI6el8yHRSrXDLr09wDRNy4n-xeEqR/embed?start=true&amp;amp;loop=true&amp;amp;delayms=3000&#34; frameborder=&#34;0&#34; width=&#34;960&#34; height=&#34;569&#34; allowfullscreen=&#34;true&#34; mozallowfullscreen=&#34;true&#34; webkitallowfullscreen=&#34;true&#34;&gt;&lt;/iframe&gt;
+&lt;/div&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Orchestrating a community-developed computational workshop and accompanying training materials</title>
+      <link>/publication/10.12688__f1000research.16516.1/</link>
+      <pubDate>Sun, 07 Oct 2018 00:00:00 -0400</pubDate>
+      
+      <guid>/publication/10.12688__f1000research.16516.1/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Cloud Computing Approaches to Genomic Data Science</title>
+      <link>/2018/07/31/cloud-computing-approaches-to-genomic-data-science/</link>
+      <pubDate>Tue, 31 Jul 2018 00:00:00 -0400</pubDate>
+      
+      <guid>/2018/07/31/cloud-computing-approaches-to-genomic-data-science/</guid>
+      <description>&lt;div class=&#34;responsive-wrap&#34;&gt;
+  &lt;iframe src=&#34;https://docs.google.com/presentation/d/e/2PACX-1vSnqvGFO5ozLu2g2KfaKJwWF3ndJMJmoAzNww6wc0F3Tkryxkgvc0ZqV5I3ATZYYr2715EDwHbr2UZS/embed?start=false&amp;amp;loop=false&amp;amp;delayms=3000&#34; frameborder=&#34;0&#34; width=&#34;960&#34; height=&#34;569&#34; allowfullscreen=&#34;true&#34; mozallowfullscreen=&#34;true&#34; webkitallowfullscreen=&#34;true&#34;&gt;&lt;/iframe&gt;
+&lt;/div&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Accessing and Using Public Data Resources with Bioconductor</title>
+      <link>/2018/07/28/accessing-and-using-public-data-resources-with-bioconductor/</link>
+      <pubDate>Sat, 28 Jul 2018 00:00:00 -0400</pubDate>
+      
+      <guid>/2018/07/28/accessing-and-using-public-data-resources-with-bioconductor/</guid>
+      <description>
+
+&lt;h2 id=&#34;workshop-description&#34;&gt;Workshop Description&lt;/h2&gt;
+
+&lt;p&gt;The goal of this workshop is to introduce Bioconductor packages for finding,
+accessing, and using large-scale public data resources including the
+Gene Expression Omnibus &lt;a href=&#34;https://www.ncbi.nlm.nih.gov/geo&#34; target=&#34;_blank&#34;&gt;GEO&lt;/a&gt;, Sequence
+Read Archive &lt;a href=&#34;https://www.ncbi.nlm.nih.gov/sra&#34; target=&#34;_blank&#34;&gt;SRA&lt;/a&gt;, the Genomic Data
+Commons &lt;a href=&#34;https://portal.gdc.cancer.gov/&#34; target=&#34;_blank&#34;&gt;GDC&lt;/a&gt;, and Bioconductor-hosted
+curated data resources for metagenomics, pharmacogenomics &lt;a href=&#34;http://pharmacodb.ca/&#34; target=&#34;_blank&#34;&gt;PharmacoDB&lt;/a&gt;, and The Cancer
+Genome Atlas.&lt;/p&gt;
+
+&lt;h2 id=&#34;instructor-names-and-contact-information&#34;&gt;Instructor names and contact information&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Levi Waldron (City University of New York, New York, NY, USA)&lt;/li&gt;
+&lt;li&gt;Benjamin Haibe-Kains (Princess Margaret Cancer Center, Toronto, Canada)&lt;/li&gt;
+&lt;li&gt;Sean Davis (Center for Cancer Research, National Cancer Institute, National Institutes of Health, Bethesda, MD, USA)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;pre-requisites&#34;&gt;Pre-requisites&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Basic knowledge of R syntax&lt;/li&gt;
+&lt;li&gt;Familiarity with the ExpressionSet and SummarizedExperiment classes&lt;/li&gt;
+&lt;li&gt;Basic familiarity with &amp;lsquo;omics technologies such as microarray and NGS sequencing&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Infrastructure-as-Code: Building the Bioconductor Conference AMI With Packer</title>
+      <link>/2018/07/infrastructure-as-code-building-the-bioconductor-conference-ami-with-packer/</link>
+      <pubDate>Thu, 19 Jul 2018 14:35:47 -0400</pubDate>
+      
+      <guid>/2018/07/infrastructure-as-code-building-the-bioconductor-conference-ami-with-packer/</guid>
+      <description>
+
+
+&lt;p&gt;One of the main features of the annual &lt;a href=&#34;https://bioc2018.bioconductor.org&#34;&gt;Bioconductor Conference&lt;/a&gt; is the
+proportion of time spent working with code in the form of &lt;a href=&#34;https://github.com/bioconductor/BiocWorkshops&#34;&gt;workshops&lt;/a&gt;.
+To support these workshops, we ask workshop presenters to supply &lt;a href=&#34;https://rmarkdown.rstudio.com/&#34;&gt;Rmarkdown&lt;/a&gt;
+materials which we collate into workshop materials. Using literate programming
+approaches like Rmarkdown ensures that the workflows are self-consistent
+and work as expected.&lt;/p&gt;
+&lt;p&gt;In addition to the Rmarkdown workshop materials, we also need a consistent
+computing environment that can support reasonably large computation, provide
+high-performance network and file system access, and is essentially unlimited
+in scale (we expect to have &amp;gt;150 participants, each with his/her own machine).
+To do so, we use &lt;a href=&#34;https://aws.amazon.com/ec2&#34;&gt;Amazon Web Services EC2&lt;/a&gt;. The EC2 system allows us to prepare
+a &lt;a href=&#34;https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/AMIs.html&#34;&gt;Amazon machine “image”&lt;/a&gt;, or AMI, that contains the operating system, libraries,
+the newest version of R, and all packages needed for the workshops. In the past,
+creating the “image” was a manual process. This year, thanks to the work
+of the workshop organizers, we had a single DESCRIPTION file that contained
+all the necessary packages, allowing us to automate the process of building
+and keeping updated the AMI that would be used by all participants.&lt;/p&gt;
+&lt;p&gt;The &lt;a href=&#34;https://www.packer.io/&#34;&gt;Packer project&lt;/a&gt; is an open source tool for creating identical
+machine images for multiple platforms from a single source
+configuration. Packer is lightweight, runs on every major operating
+system, and is highly performant, creating machine images for multiple
+platforms in parallel. In this context, a machine image is a single
+static unit that contains a pre-configured operating system and
+installed software which is used to quickly create new running
+machines. Machine image formats change for each platform. Some
+examples include AMIs for EC2, VMDK/VMX files for VMware, OVF exports
+for VirtualBox, etc.&lt;/p&gt;
+&lt;p&gt;Biocoductor is cloud-ready and maintains &lt;a href=&#34;https://bioconductor.org/help/bioconductor-cloud-ami/&#34;&gt;basic AMIs for Bioconductor&lt;/a&gt;. Rather
+than needing to start with a generic Linux AMI as the “base” for our
+Bioconductor conference AMI, I will use
+the most recent &lt;a href=&#34;https://bioconductor.org/help/bioconductor-cloud-ami/#ami_ids&#34;&gt;Bioc-devel AMI&lt;/a&gt; as the base. Packer uses a &lt;a href=&#34;https://www.packer.io/intro/getting-started/build-image.html#the-template&#34;&gt;json format file&lt;/a&gt;
+to describe, &lt;em&gt;in code&lt;/em&gt;, the AMI that we want to build. The file for building the image
+is listed below in its entirety. The current version of the packer json file
+is available in this &lt;a href=&#34;https://github.com/seandavi/terraform-can/tree/master/packer&#34;&gt;github repo&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;To build the image, first &lt;a href=&#34;https://www.packer.io/docs/builders/amazon.html#authentication&#34;&gt;set up AWS authentication&lt;/a&gt; as outlined on the
+packer website. If you do not have an AWS account, you will not be able
+to actually build the AMI. Next, &lt;a href=&#34;https://www.packer.io/intro/getting-started/install.html&#34;&gt;install packer&lt;/a&gt; and ensure that it is in the path.
+Finally, save the file below as, for example, &lt;code&gt;bioc_2018.json&lt;/code&gt;. In the
+directory containing the json file, execute packer:&lt;/p&gt;
+&lt;pre class=&#34;sh&#34;&gt;&lt;code&gt;packer build bioc_2018.json&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;This build takes quite some time (perhaps 20 minutes or so).&lt;/p&gt;
+&lt;p&gt;In terms of details, briefly, the &lt;code&gt;instance_type&lt;/code&gt;
+below was chosen to allow multicore installation using 16 threads. AWS [spot pricing]
+is used to minimize costs (see &lt;code&gt;spot_pricing&lt;/code&gt; and &lt;code&gt;spot_pricing_auto_product&lt;/code&gt; below).
+Adding the &lt;code&gt;ami_groups&lt;/code&gt; set to &lt;code&gt;all&lt;/code&gt; will enable public access to the AMI. The &lt;code&gt;source_ami_filter&lt;/code&gt;
+section below chooses the “base” image. In this case, I used the AMI &lt;code&gt;name&lt;/code&gt; and
+specified that the AMI was “owned” by the Bioconductor organization (&lt;code&gt;&amp;quot;owners&amp;quot;: [&amp;quot;555219204010&amp;quot;]&lt;/code&gt;).
+I set the disk size to 128GB of SSD storage in the &lt;code&gt;launch_block_device_mappings&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;The real work is done in the &lt;code&gt;provisioners&lt;/code&gt; block. In this case, the provisioner
+block specifies just two shell commands that install the necessary packages. Note
+that the installation of the “Bioconductor/Biocworkshops” github package will
+install all packages in the &lt;a href=&#34;https://github.com/Bioconductor/BiocWorkshops/blob/master/DESCRIPTION&#34;&gt;DESCRIPTION&lt;/a&gt; file. The final line of the packer
+output will list the AMI ID that can be shared with others (since we made it public).
+The AMI may take a few minutes to become fully public.&lt;/p&gt;
+&lt;pre class=&#34;js&#34;&gt;&lt;code&gt;{
+    &amp;quot;variables&amp;quot;: {
+        &amp;quot;profile&amp;quot;: &amp;quot;default&amp;quot;,
+        &amp;quot;region&amp;quot;:  &amp;quot;us-east-1&amp;quot;
+    },
+    &amp;quot;builders&amp;quot;: [
+        {
+            &amp;quot;access_key&amp;quot;: &amp;quot;{{user `aws_access_key`}}&amp;quot;,
+            &amp;quot;ami_name&amp;quot;: &amp;quot;Bioconductor_Conference_2018-{{timestamp}}&amp;quot;,
+            &amp;quot;instance_type&amp;quot;: &amp;quot;c5.4xlarge&amp;quot;,
+            &amp;quot;region&amp;quot;: &amp;quot;us-east-1&amp;quot;,
+            &amp;quot;secret_key&amp;quot;: &amp;quot;{{user `aws_secret_key`}}&amp;quot;,
+            &amp;quot;source_ami_filter&amp;quot;: {
+                &amp;quot;filters&amp;quot;: {
+                    &amp;quot;virtualization-type&amp;quot;: &amp;quot;hvm&amp;quot;,
+                    &amp;quot;name&amp;quot;: &amp;quot;Bioc 3.8 R 3.5.1&amp;quot;,
+                    &amp;quot;root-device-type&amp;quot;: &amp;quot;ebs&amp;quot;
+                },
+                &amp;quot;owners&amp;quot;: [&amp;quot;555219204010&amp;quot;],
+                &amp;quot;most_recent&amp;quot;: true
+            },
+            &amp;quot;ssh_username&amp;quot;: &amp;quot;ubuntu&amp;quot;,
+            &amp;quot;spot_price&amp;quot;: &amp;quot;auto&amp;quot;,
+            &amp;quot;spot_price_auto_product&amp;quot;: &amp;quot;Linux/UNIX&amp;quot;,
+            &amp;quot;type&amp;quot;: &amp;quot;amazon-ebs&amp;quot;,
+            &amp;quot;ami_groups&amp;quot;: [&amp;quot;all&amp;quot;],
+            &amp;quot;launch_block_device_mappings&amp;quot;: [
+                {
+                    &amp;quot;device_name&amp;quot;: &amp;quot;/dev/sda1&amp;quot;,
+                    &amp;quot;volume_size&amp;quot;: 128,
+                    &amp;quot;volume_type&amp;quot;: &amp;quot;gp2&amp;quot;,
+                    &amp;quot;delete_on_termination&amp;quot;: true
+                }
+            ]
+        }
+    ],
+    &amp;quot;provisioners&amp;quot;: [
+        {
+            &amp;quot;type&amp;quot;: &amp;quot;shell&amp;quot;,
+            &amp;quot;inline&amp;quot;:[
+                &amp;quot;Rscript -e &amp;#39;BiocManager::install(\&amp;quot;remotes\&amp;quot;)&amp;#39;&amp;quot;,
+                &amp;quot;Rscript -e &amp;#39;options(Ncpus=16); BiocManager::install(\&amp;quot;Bioconductor/BiocWorkshops\&amp;quot;)&amp;#39;&amp;quot;,
+            ]
+        }
+    ]
+}
+    &lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;By maintaining the AMI description as code, we can ensure that the AMI is
+fully reproducible (no manual installations, etc.) and, therefore, highly
+reproducible and even reusable.&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://github.com/seandavi/terraform-can/tree/master/packer&#34;&gt;The current version of the packer file is available on github&lt;/a&gt;. Thanks to Levi
+Waldron, Lori Shepherd, Marcel Ramos, Martin Morgan, and multiple workshop
+authors for their contributions.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>The NCI SevenBridges Cancer Genomics Cloud Resource</title>
+      <link>/2018/07/07/the-nci-sevenbridges-cancer-genomics-cloud-resource/</link>
+      <pubDate>Sat, 07 Jul 2018 00:00:00 -0400</pubDate>
+      
+      <guid>/2018/07/07/the-nci-sevenbridges-cancer-genomics-cloud-resource/</guid>
+      <description>
+
+&lt;h2 id=&#34;introduction&#34;&gt;Introduction&lt;/h2&gt;
+
+&lt;p&gt;In this guided workshop, we will use the &lt;a href=&#34;https://cgc.sbgenomics.com&#34; target=&#34;_blank&#34;&gt;SevenBridges Cancer Genomics Cloud Resource&lt;/a&gt; to run simple RNA-seq
+workflow on cloud resources. Each participant will:&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;Get an account on the platform.&lt;/li&gt;
+&lt;li&gt;Learn to navigate through the features includes with the platform.&lt;/li&gt;
+&lt;li&gt;Load the example date (below) into the platform.&lt;/li&gt;
+&lt;li&gt;Use an existing RNA-seq pipeline to run analysis on the example data.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h2 id=&#34;example-data&#34;&gt;Example Data&lt;/h2&gt;
+
+&lt;p&gt;RNA-seq&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://starbuck1.s3.amazonaws.com/rnaseq-examples/G41676_pe_1.fastq.gz&#34; target=&#34;_blank&#34;&gt;http://starbuck1.s3.amazonaws.com/rnaseq-examples/G41676_pe_1.fastq.gz&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://starbuck1.s3.amazonaws.com/rnaseq-examples/G41676_pe_2.fastq.gz&#34; target=&#34;_blank&#34;&gt;http://starbuck1.s3.amazonaws.com/rnaseq-examples/G41676_pe_2.fastq.gz&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://starbuck1.s3.amazonaws.com/rnaseq-examples/G41707_pe_1.fastq.gz&#34; target=&#34;_blank&#34;&gt;http://starbuck1.s3.amazonaws.com/rnaseq-examples/G41707_pe_1.fastq.gz&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://starbuck1.s3.amazonaws.com/rnaseq-examples/G41707_pe_2.fastq.gz&#34; target=&#34;_blank&#34;&gt;http://starbuck1.s3.amazonaws.com/rnaseq-examples/G41707_pe_2.fastq.gz&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;DNAse-seq&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://starbuck1.s3.amazonaws.com/dnase-examples/ENCFF000SWA.fastq.gz&#34; target=&#34;_blank&#34;&gt;http://starbuck1.s3.amazonaws.com/dnase-examples/ENCFF000SWA.fastq.gz&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class=&#34;responsive-wrap&#34;&gt;
+  &lt;iframe src=&#34;https://docs.google.com/presentation/d/e/2PACX-1vS35-3t9RF63vEEiET7q2gAIzRW2D3Lq_W6sfj8utiwX_luj7fv8866VsddiolN2uBA18JzVD88o835/embed?start=true&amp;amp;loop=true&amp;amp;delayms=3000&#34; frameborder=&#34;0&#34; width=&#34;960&#34; height=&#34;569&#34; allowfullscreen=&#34;true&#34; mozallowfullscreen=&#34;true&#34; webkitallowfullscreen=&#34;true&#34;&gt;&lt;/iframe&gt;
+&lt;/div&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Bioconductor: software for reproducible genomic data science</title>
+      <link>/2018/07/02/bioconductor-software-for-reproducible-genomic-data-science/</link>
+      <pubDate>Mon, 02 Jul 2018 00:00:00 -0400</pubDate>
+      
+      <guid>/2018/07/02/bioconductor-software-for-reproducible-genomic-data-science/</guid>
+      <description>&lt;div class=&#34;responsive-wrap&#34;&gt;
+  &lt;iframe src=&#34;https://docs.google.com/presentation/d/e/2PACX-1vRsIHPF4CHMhGj0W9K416_JcA3VL4EDOc03KC3CiwyeXeytGWNxr8xxTlGB4VJB8J6WoqagFvAMlK9k/embed?start=false&amp;amp;loop=false&amp;amp;delayms=3000&#34; frameborder=&#34;0&#34; width=&#34;960&#34; height=&#34;569&#34; allowfullscreen=&#34;true&#34; mozallowfullscreen=&#34;true&#34; webkitallowfullscreen=&#34;true&#34;&gt;&lt;/iframe&gt;
+&lt;/div&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Brief Introduction to Machine Learning in Biomedical Informatics</title>
+      <link>/2018/06/18/brief-introduction-to-machine-learning-in-biomedical-informatics/</link>
+      <pubDate>Mon, 18 Jun 2018 00:00:00 -0400</pubDate>
+      
+      <guid>/2018/06/18/brief-introduction-to-machine-learning-in-biomedical-informatics/</guid>
+      <description>&lt;div class=&#34;responsive-wrap&#34;&gt;
+  &lt;iframe src=&#34;https://docs.google.com/presentation/d/e/2PACX-1vTUFAHt5r_E6qA86qORNfEnFB4bxDQ11LH9QgtKwqHBD1tyUWmeQ9LbI6lxUdltiU0GZqShjcj7g-XH/embed?start=false&amp;amp;loop=false&amp;amp;delayms=3000&#34; frameborder=&#34;0&#34; width=&#34;960&#34; height=&#34;569&#34; allowfullscreen=&#34;true&#34; mozallowfullscreen=&#34;true&#34; webkitallowfullscreen=&#34;true&#34;&gt;&lt;/iframe&gt;
+&lt;/div&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Tutorial: Using the NCI SevenBridges Cancer Genomics Cloud Resources</title>
+      <link>/2018/06/18/tutorial-using-the-nci-sevenbridges-cancer-genomics-cloud-resources/</link>
+      <pubDate>Mon, 18 Jun 2018 00:00:00 -0400</pubDate>
+      
+      <guid>/2018/06/18/tutorial-using-the-nci-sevenbridges-cancer-genomics-cloud-resources/</guid>
+      <description>
+
+&lt;h2 id=&#34;introduction&#34;&gt;Introduction&lt;/h2&gt;
+
+&lt;p&gt;In this guided workshop, we will use the &lt;a href=&#34;https://cgc.sbgenomics.com&#34; target=&#34;_blank&#34;&gt;SevenBridges Cancer Genomics Cloud Resource&lt;/a&gt; to run simple RNA-seq
+workflow on cloud resources. Each participant will:&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;Get an account on the platform.&lt;/li&gt;
+&lt;li&gt;Learn to navigate through the features includes with the platform.&lt;/li&gt;
+&lt;li&gt;Load the example date (below) into the platform.&lt;/li&gt;
+&lt;li&gt;Use an existing RNA-seq pipeline to run analysis on the example data.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h2 id=&#34;example-data&#34;&gt;Example Data&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://starbuck1.s3.amazonaws.com/rnaseq-examples/G41676_pe_1.fastq.gz&#34; target=&#34;_blank&#34;&gt;http://starbuck1.s3.amazonaws.com/rnaseq-examples/G41676_pe_1.fastq.gz&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://starbuck1.s3.amazonaws.com/rnaseq-examples/G41676_pe_2.fastq.gz&#34; target=&#34;_blank&#34;&gt;http://starbuck1.s3.amazonaws.com/rnaseq-examples/G41676_pe_2.fastq.gz&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://starbuck1.s3.amazonaws.com/rnaseq-examples/G41707_pe_1.fastq.gz&#34; target=&#34;_blank&#34;&gt;http://starbuck1.s3.amazonaws.com/rnaseq-examples/G41707_pe_1.fastq.gz&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://starbuck1.s3.amazonaws.com/rnaseq-examples/G41707_pe_2.fastq.gz&#34; target=&#34;_blank&#34;&gt;http://starbuck1.s3.amazonaws.com/rnaseq-examples/G41707_pe_2.fastq.gz&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class=&#34;responsive-wrap&#34;&gt;
+  &lt;iframe src=&#34;https://docs.google.com/presentation/d/e/2PACX-1vSnuY5oXgkCTgYenpq33DUck5H_IaEWM3Mr3Ql9rg7SmbaGMfckwYmxpwmNMIJmL0xKcgpZQHrIQqVE/embed?start=false&amp;amp;loop=false&amp;amp;delayms=3000&#34; frameborder=&#34;0&#34; width=&#34;960&#34; height=&#34;569&#34; allowfullscreen=&#34;true&#34; mozallowfullscreen=&#34;true&#34; webkitallowfullscreen=&#34;true&#34;&gt;&lt;/iframe&gt;
+&lt;/div&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Cancer Bioinformatics Primer -- Papillary Renal Cell Carcinoma Hackathon</title>
+      <link>/2018/05/19/cancer-bioinformatics-primer-papillary-renal-cell-carcinoma-hackathon/</link>
+      <pubDate>Sat, 19 May 2018 00:00:00 -0400</pubDate>
+      
+      <guid>/2018/05/19/cancer-bioinformatics-primer-papillary-renal-cell-carcinoma-hackathon/</guid>
+      <description>&lt;p&gt;This talk serves as a very short primer on cancer genomics for non-biologists. Topics covered include:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Basic principles of cancer biology and genomics&lt;/li&gt;
+&lt;li&gt;Data resources for cancer genomics
+
+&lt;ul&gt;
+&lt;li&gt;The Genomic Data Commons&lt;/li&gt;
+&lt;li&gt;The Cancer Imaging Archive&lt;/li&gt;
+&lt;li&gt;Google BigQuery cancer data warehouse&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;Bioconductor as a toolkit for cancer genomic data science&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class=&#34;responsive-wrap&#34;&gt;
+  &lt;iframe src=&#34;https://docs.google.com/presentation/d/e/2PACX-1vQvG8gFBnhlo2u9JOauqt4RC8704MFm9kTo6FbdZNR-Ntwi6xu-RkYTCrta2gTWv06ZwTdNYeJ_t4_7/embed?start=true&amp;amp;loop=true&amp;amp;delayms=3000&#34; frameborder=&#34;0&#34; width=&#34;960&#34; height=&#34;569&#34; allowfullscreen=&#34;true&#34; mozallowfullscreen=&#34;true&#34; webkitallowfullscreen=&#34;true&#34;&gt;&lt;/iframe&gt;
+&lt;/div&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Bioconductor: A Hub in the Cancer Data Ecosystem</title>
+      <link>/2018/04/26/bioconductor-a-hub-in-the-cancer-data-ecosystem/</link>
+      <pubDate>Thu, 26 Apr 2018 00:00:00 -0400</pubDate>
+      
+      <guid>/2018/04/26/bioconductor-a-hub-in-the-cancer-data-ecosystem/</guid>
+      <description>&lt;div class=&#34;responsive-wrap&#34;&gt;
+  &lt;iframe src=&#34;https://docs.google.com/presentation/d/e/2PACX-1vTceB6vR4SV-yAjH_cxPr3f7p6utPALtJjQylRs142qGPg_2zdYv-io8PH7ZnxsaoEzUeETJHW9i0Ra/embed?start=true&amp;amp;loop=false&amp;amp;delayms=3000&#34; frameborder=&#34;0&#34; width=&#34;960&#34; height=&#34;569&#34; allowfullscreen=&#34;true&#34; mozallowfullscreen=&#34;true&#34; webkitallowfullscreen=&#34;true&#34;&gt;&lt;/iframe&gt;
+&lt;/div&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>The GenomicDataCommons Package: The bridge between the NCI Genomic Data Commons and Bioconductor</title>
+      <link>/2018/04/25/the-genomicdatacommons-package-the-bridge-between-the-nci-genomic-data-commons-and-bioconductor/</link>
+      <pubDate>Wed, 25 Apr 2018 00:00:00 -0400</pubDate>
+      
+      <guid>/2018/04/25/the-genomicdatacommons-package-the-bridge-between-the-nci-genomic-data-commons-and-bioconductor/</guid>
+      <description>&lt;div class=&#34;responsive-wrap&#34;&gt;
+  &lt;iframe src=&#34;https://docs.google.com/presentation/d/e/2PACX-1vTCg8DLAvQdf0TZ0CcfoFarbp72frA-pCt_lB0GSy8w5J45cK9Y0e7ZLFDiq29C_jKzf5416iXwFtZ6/embed?start=false&amp;amp;loop=false&amp;amp;delayms=3000&#34; frameborder=&#34;0&#34; width=&#34;960&#34; height=&#34;569&#34; allowfullscreen=&#34;true&#34; mozallowfullscreen=&#34;true&#34; webkitallowfullscreen=&#34;true&#34;&gt;&lt;/iframe&gt;
+&lt;/div&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

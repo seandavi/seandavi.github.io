@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>open data on seandavi(s12)</title>
+    <link>/tags/open-data/</link>
+    <description>Recent content in open data on seandavi(s12)</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>&amp;copy; 2018</copyright>
+    <lastBuildDate>Fri, 29 Dec 2017 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="/tags/open-data/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>GenomicDataCommons Example: UUID to TCGA and TARGET Barcode Translation</title>
+      <link>/2017/12/genomicdatacommons-example-uuid-to-tcga-and-target-barcode-translation/</link>
+      <pubDate>Fri, 29 Dec 2017 00:00:00 +0000</pubDate>
+      
+      <guid>/2017/12/genomicdatacommons-example-uuid-to-tcga-and-target-barcode-translation/</guid>
+      <description>One of the features of the NCI Genomic Data Commons is that everything has a unique identifier in the form of a UUID. However, because many legacy projects and much of the literature do not use UUIDs but instead use TCGA sample barcodes, one simple use case for the GenomicDataCommons package is to map from the UUID for a file or a set of files back to the associated TCGA barcode(s).</description>
+    </item>
+    
+  </channel>
+</rss>

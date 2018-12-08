@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>emacs on seandavi(s12)</title>
+    <link>/tags/emacs/</link>
+    <description>Recent content in emacs on seandavi(s12)</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>&amp;copy; 2018</copyright>
+    <lastBuildDate>Sat, 08 Dec 2018 10:00:00 -0500</lastBuildDate>
+    
+	<atom:link href="/tags/emacs/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Using directory-local variables to customize the emacs project experience</title>
+      <link>/2018/12/using-directory-local-variables-to-customize-the-emacs-project-experience/</link>
+      <pubDate>Sat, 08 Dec 2018 10:00:00 -0500</pubDate>
+      
+      <guid>/2018/12/using-directory-local-variables-to-customize-the-emacs-project-experience/</guid>
+      <description>I use emacs for nearly all my editing and interactive analysis. As one typically does, more than one project is the norm, not the exception. Discovering projectile for project-specific buffers and controls, combined with helm for very fast, fuzzy completions, makes emacs a very convenient and efficient environment for most task.
+One challenge I ran into was the need to have multiple interactive python buffers, typically one per project. However, the out-of-the-box behavior of python-mode is to have only one python interactive buffer named &amp;ldquo;Python&amp;rdquo;.</description>
+    </item>
+    
+  </channel>
+</rss>

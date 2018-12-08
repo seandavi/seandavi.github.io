@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Posts on seandavi(s12)</title>
+    <link>/post/</link>
+    <description>Recent content in Posts on seandavi(s12)</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>&amp;copy; 2018</copyright>
+    <lastBuildDate>Sun, 01 Jan 2017 00:00:00 -0500</lastBuildDate>
+    
+	<atom:link href="/post/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Using directory-local variables to customize the emacs project experience</title>
+      <link>/2018/12/using-directory-local-variables-to-customize-the-emacs-project-experience/</link>
+      <pubDate>Sat, 08 Dec 2018 10:00:00 -0500</pubDate>
+      
+      <guid>/2018/12/using-directory-local-variables-to-customize-the-emacs-project-experience/</guid>
+      <description>I use emacs for nearly all my editing and interactive analysis. As one typically does, more than one project is the norm, not the exception. Discovering projectile for project-specific buffers and controls, combined with helm for very fast, fuzzy completions, makes emacs a very convenient and efficient environment for most task.
+One challenge I ran into was the need to have multiple interactive python buffers, typically one per project. However, the out-of-the-box behavior of python-mode is to have only one python interactive buffer named &amp;ldquo;Python&amp;rdquo;.</description>
+    </item>
+    
+    <item>
+      <title>Infrastructure-as-Code: Building the Bioconductor Conference AMI With Packer</title>
+      <link>/2018/07/infrastructure-as-code-building-the-bioconductor-conference-ami-with-packer/</link>
+      <pubDate>Thu, 19 Jul 2018 14:35:47 -0400</pubDate>
+      
+      <guid>/2018/07/infrastructure-as-code-building-the-bioconductor-conference-ami-with-packer/</guid>
+      <description>One of the main features of the annual Bioconductor Conference is the proportion of time spent working with code in the form of workshops. To support these workshops, we ask workshop presenters to supply Rmarkdown materials which we collate into workshop materials. Using literate programming approaches like Rmarkdown ensures that the workflows are self-consistent and work as expected.
+In addition to the Rmarkdown workshop materials, we also need a consistent computing environment that can support reasonably large computation, provide high-performance network and file system access, and is essentially unlimited in scale (we expect to have &amp;gt;150 participants, each with his/her own machine).</description>
+    </item>
+    
+    <item>
+      <title>Extracting Clinical Information Using the Genomicdatacommons Package</title>
+      <link>/2018/03/extracting-clinical-information-using-the-genomicdatacommons-package/</link>
+      <pubDate>Sun, 25 Mar 2018 11:18:36 -0400</pubDate>
+      
+      <guid>/2018/03/extracting-clinical-information-using-the-genomicdatacommons-package/</guid>
+      <description>This short post introducds the gdc_clinical() function recently added to the GenomicDataCommons package.
+The rich data model at the NCI Genomic Data Commons (GDC) includes clinical and biospecimen details. A recently added feature to the NCI GDC Data Portal is the ability to download tab-delimited files or JSON files for clinical and biospecimen details of samples. The details available in these simplified formats are also available via the GDC API.</description>
+    </item>
+    
+    <item>
+      <title>Create a basic Apache Spark cluster in the cloud (in 5 minutes)</title>
+      <link>/2018/02/create-a-basic-apache-spark-cluster-in-the-cloud-in-5-minutes/</link>
+      <pubDate>Fri, 02 Feb 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/2018/02/create-a-basic-apache-spark-cluster-in-the-cloud-in-5-minutes/</guid>
+      <description>Apache Spark in a few words Apache Spark is a software and data science platform that is purpose-built for large- to massive-scale data processing. Spark supports processing of data in batch mode (run as a pipeline) or in interactive mode using command-line programming style or in popular notebook style of coding. While scala is the native language for Spark, language bindings exist for python, R, and Java as well.</description>
+    </item>
+    
+    <item>
+      <title>Leveraging Bioconductor for somatic variant analysis of TCGA data</title>
+      <link>/2018/01/leveraging-bioconductor-for-somatic-variant-analysis-of-tcga-datarmd/</link>
+      <pubDate>Fri, 26 Jan 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/2018/01/leveraging-bioconductor-for-somatic-variant-analysis-of-tcga-datarmd/</guid>
+      <description>The NCI Genomic Data Commons (GDC) now contains the authoritative source of data from The Cancer Genome Atlas (TCGA) as well as several other projects of import to the cancer research community. One of the available assays produces somatic variant calls, formally identified by comparing tumor reads and normal reads to identify variants relative to the human reference genome that are not present in the normal genome of the patient.</description>
+    </item>
+    
+    <item>
+      <title>GenomicDataCommons Example: UUID to TCGA and TARGET Barcode Translation</title>
+      <link>/2017/12/genomicdatacommons-example-uuid-to-tcga-and-target-barcode-translation/</link>
+      <pubDate>Fri, 29 Dec 2017 00:00:00 +0000</pubDate>
+      
+      <guid>/2017/12/genomicdatacommons-example-uuid-to-tcga-and-target-barcode-translation/</guid>
+      <description>One of the features of the NCI Genomic Data Commons is that everything has a unique identifier in the form of a UUID. However, because many legacy projects and much of the literature do not use UUIDs but instead use TCGA sample barcodes, one simple use case for the GenomicDataCommons package is to map from the UUID for a file or a set of files back to the associated TCGA barcode(s).</description>
+    </item>
+    
+    <item>
+      <title>A computable Bioconductor build report</title>
+      <link>/2017/11/a-computable-bioconductor-build-report/</link>
+      <pubDate>Fri, 17 Nov 2017 00:00:00 +0000</pubDate>
+      
+      <guid>/2017/11/a-computable-bioconductor-build-report/</guid>
+      <description>Bioconductor spends a substantial amount of effort to build its catalog of software each day. Reporting of these results is critical for developers, users, and project leaders to understand the software “health” of the project.
+The Bioconductor build reports are generally available as html pages that are navigable with bookmarks and link out to detailed reports of errors, etc. However, the build reports are not readily computable, so mining the reports, automated processing by developers, and learning about failure modes automatically is challenging.</description>
+    </item>
+    
+    <item>
+      <title>Matched tumor/normal pairs--a use case for the GenomicDataCommons Bioconductor package</title>
+      <link>/2017/03/matched-tumor-normal-pairs-a-use-case-for-the-genomicdatacommons-bioconductor-package/</link>
+      <pubDate>Sat, 04 Mar 2017 00:00:00 +0000</pubDate>
+      
+      <guid>/2017/03/matched-tumor-normal-pairs-a-use-case-for-the-genomicdatacommons-bioconductor-package/</guid>
+      <description>Introduction The NCI Genomic Data Commons (GDC) is a reboot of the approach that NCI uses to manage and expose genomic and associated clinical and experimental metadata. I have been working on a Bioconductor package that interfaces with the GDC API to provide search and data retrieval from within R.
+testing In the first of what will likely be a set of use cases for the GenomicDataCommons, I am going to address a question that came up on twitter from @sleight82</description>
+    </item>
+    
+    <item>
+      <title>Hello R Markdown</title>
+      <link>/2015/07/hello-r-markdown/</link>
+      <pubDate>Thu, 23 Jul 2015 21:13:14 -0500</pubDate>
+      
+      <guid>/2015/07/hello-r-markdown/</guid>
+      <description>R Markdown This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see http://rmarkdown.rstudio.com.
+You can embed an R code chunk like this:
+summary(cars) ## speed dist ## Min. : 4.0 Min. : 2.00 ## 1st Qu.:12.0 1st Qu.: 26.00 ## Median :15.0 Median : 36.00 ## Mean :15.4 Mean : 42.98 ## 3rd Qu.</description>
+    </item>
+    
+  </channel>
+</rss>

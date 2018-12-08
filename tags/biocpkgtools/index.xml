@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>BiocPkgTools on seandavi(s12)</title>
+    <link>/tags/biocpkgtools/</link>
+    <description>Recent content in BiocPkgTools on seandavi(s12)</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>&amp;copy; 2018</copyright>
+    <lastBuildDate>Fri, 17 Nov 2017 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="/tags/biocpkgtools/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>A computable Bioconductor build report</title>
+      <link>/2017/11/a-computable-bioconductor-build-report/</link>
+      <pubDate>Fri, 17 Nov 2017 00:00:00 +0000</pubDate>
+      
+      <guid>/2017/11/a-computable-bioconductor-build-report/</guid>
+      <description>Bioconductor spends a substantial amount of effort to build its catalog of software each day. Reporting of these results is critical for developers, users, and project leaders to understand the software “health” of the project.
+The Bioconductor build reports are generally available as html pages that are navigable with bookmarks and link out to detailed reports of errors, etc. However, the build reports are not readily computable, so mining the reports, automated processing by developers, and learning about failure modes automatically is challenging.</description>
+    </item>
+    
+  </channel>
+</rss>

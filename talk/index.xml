@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Recent &amp; Upcoming Talks on seandavi(s12)</title>
+    <link>/talk/</link>
+    <description>Recent content in Recent &amp; Upcoming Talks on seandavi(s12)</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>&amp;copy; 2018</copyright>
+    <lastBuildDate>Sun, 01 Jan 2017 00:00:00 -0500</lastBuildDate>
+    
+	<atom:link href="/talk/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Bioconductor: software for interpreting high-throughput biological data</title>
+      <link>/2018/12/03/bioconductor-software-for-interpreting-high-throughput-biological-data/</link>
+      <pubDate>Mon, 03 Dec 2018 00:00:00 -0500</pubDate>
+      
+      <guid>/2018/12/03/bioconductor-software-for-interpreting-high-throughput-biological-data/</guid>
+      <description>  </description>
+    </item>
+    
+    <item>
+      <title>Practical Data Science and Informatics Training</title>
+      <link>/2018/12/03/practical-data-science-and-informatics-training/</link>
+      <pubDate>Mon, 03 Dec 2018 00:00:00 -0500</pubDate>
+      
+      <guid>/2018/12/03/practical-data-science-and-informatics-training/</guid>
+      <description>  </description>
+    </item>
+    
+    <item>
+      <title>The cancer data ecosystem: data and cloud resources for cancer genomic data science</title>
+      <link>/2018/10/16/the-cancer-data-ecosystem-data-and-cloud-resources-for-cancer-genomic-data-science/</link>
+      <pubDate>Tue, 16 Oct 2018 00:00:00 -0400</pubDate>
+      
+      <guid>/2018/10/16/the-cancer-data-ecosystem-data-and-cloud-resources-for-cancer-genomic-data-science/</guid>
+      <description>  </description>
+    </item>
+    
+    <item>
+      <title>Cloud Computing Approaches to Genomic Data Science</title>
+      <link>/2018/07/31/cloud-computing-approaches-to-genomic-data-science/</link>
+      <pubDate>Tue, 31 Jul 2018 00:00:00 -0400</pubDate>
+      
+      <guid>/2018/07/31/cloud-computing-approaches-to-genomic-data-science/</guid>
+      <description>  </description>
+    </item>
+    
+    <item>
+      <title>Accessing and Using Public Data Resources with Bioconductor</title>
+      <link>/2018/07/28/accessing-and-using-public-data-resources-with-bioconductor/</link>
+      <pubDate>Sat, 28 Jul 2018 00:00:00 -0400</pubDate>
+      
+      <guid>/2018/07/28/accessing-and-using-public-data-resources-with-bioconductor/</guid>
+      <description> Workshop Description The goal of this workshop is to introduce Bioconductor packages for finding, accessing, and using large-scale public data resources including the Gene Expression Omnibus GEO, Sequence Read Archive SRA, the Genomic Data Commons GDC, and Bioconductor-hosted curated data resources for metagenomics, pharmacogenomics PharmacoDB, and The Cancer Genome Atlas.
+Instructor names and contact information  Levi Waldron (City University of New York, New York, NY, USA) Benjamin Haibe-Kains (Princess Margaret Cancer Center, Toronto, Canada) Sean Davis (Center for Cancer Research, National Cancer Institute, National Institutes of Health, Bethesda, MD, USA)  Pre-requisites  Basic knowledge of R syntax Familiarity with the ExpressionSet and SummarizedExperiment classes Basic familiarity with &amp;lsquo;omics technologies such as microarray and NGS sequencing  </description>
+    </item>
+    
+    <item>
+      <title>The NCI SevenBridges Cancer Genomics Cloud Resource</title>
+      <link>/2018/07/07/the-nci-sevenbridges-cancer-genomics-cloud-resource/</link>
+      <pubDate>Sat, 07 Jul 2018 00:00:00 -0400</pubDate>
+      
+      <guid>/2018/07/07/the-nci-sevenbridges-cancer-genomics-cloud-resource/</guid>
+      <description>Introduction In this guided workshop, we will use the SevenBridges Cancer Genomics Cloud Resource to run simple RNA-seq workflow on cloud resources. Each participant will:
+ Get an account on the platform. Learn to navigate through the features includes with the platform. Load the example date (below) into the platform. Use an existing RNA-seq pipeline to run analysis on the example data.  Example Data RNA-seq
+ http://starbuck1.s3.amazonaws.com/rnaseq-examples/G41676_pe_1.fastq.gz http://starbuck1.s3.amazonaws.com/rnaseq-examples/G41676_pe_2.fastq.gz http://starbuck1.</description>
+    </item>
+    
+    <item>
+      <title>Bioconductor: software for reproducible genomic data science</title>
+      <link>/2018/07/02/bioconductor-software-for-reproducible-genomic-data-science/</link>
+      <pubDate>Mon, 02 Jul 2018 00:00:00 -0400</pubDate>
+      
+      <guid>/2018/07/02/bioconductor-software-for-reproducible-genomic-data-science/</guid>
+      <description>  </description>
+    </item>
+    
+    <item>
+      <title>Brief Introduction to Machine Learning in Biomedical Informatics</title>
+      <link>/2018/06/18/brief-introduction-to-machine-learning-in-biomedical-informatics/</link>
+      <pubDate>Mon, 18 Jun 2018 00:00:00 -0400</pubDate>
+      
+      <guid>/2018/06/18/brief-introduction-to-machine-learning-in-biomedical-informatics/</guid>
+      <description>  </description>
+    </item>
+    
+    <item>
+      <title>Tutorial: Using the NCI SevenBridges Cancer Genomics Cloud Resources</title>
+      <link>/2018/06/18/tutorial-using-the-nci-sevenbridges-cancer-genomics-cloud-resources/</link>
+      <pubDate>Mon, 18 Jun 2018 00:00:00 -0400</pubDate>
+      
+      <guid>/2018/06/18/tutorial-using-the-nci-sevenbridges-cancer-genomics-cloud-resources/</guid>
+      <description>Introduction In this guided workshop, we will use the SevenBridges Cancer Genomics Cloud Resource to run simple RNA-seq workflow on cloud resources. Each participant will:
+ Get an account on the platform. Learn to navigate through the features includes with the platform. Load the example date (below) into the platform. Use an existing RNA-seq pipeline to run analysis on the example data.  Example Data  http://starbuck1.s3.amazonaws.com/rnaseq-examples/G41676_pe_1.fastq.gz http://starbuck1.s3.amazonaws.com/rnaseq-examples/G41676_pe_2.fastq.gz http://starbuck1.s3.amazonaws.com/rnaseq-examples/G41707_pe_1.fastq.gz http://starbuck1.</description>
+    </item>
+    
+    <item>
+      <title>Cancer Bioinformatics Primer -- Papillary Renal Cell Carcinoma Hackathon</title>
+      <link>/2018/05/19/cancer-bioinformatics-primer-papillary-renal-cell-carcinoma-hackathon/</link>
+      <pubDate>Sat, 19 May 2018 00:00:00 -0400</pubDate>
+      
+      <guid>/2018/05/19/cancer-bioinformatics-primer-papillary-renal-cell-carcinoma-hackathon/</guid>
+      <description>This talk serves as a very short primer on cancer genomics for non-biologists. Topics covered include:
+ Basic principles of cancer biology and genomics Data resources for cancer genomics  The Genomic Data Commons The Cancer Imaging Archive Google BigQuery cancer data warehouse  Bioconductor as a toolkit for cancer genomic data science    </description>
+    </item>
+    
+    <item>
+      <title>Bioconductor: A Hub in the Cancer Data Ecosystem</title>
+      <link>/2018/04/26/bioconductor-a-hub-in-the-cancer-data-ecosystem/</link>
+      <pubDate>Thu, 26 Apr 2018 00:00:00 -0400</pubDate>
+      
+      <guid>/2018/04/26/bioconductor-a-hub-in-the-cancer-data-ecosystem/</guid>
+      <description>  </description>
+    </item>
+    
+    <item>
+      <title>The GenomicDataCommons Package: The bridge between the NCI Genomic Data Commons and Bioconductor</title>
+      <link>/2018/04/25/the-genomicdatacommons-package-the-bridge-between-the-nci-genomic-data-commons-and-bioconductor/</link>
+      <pubDate>Wed, 25 Apr 2018 00:00:00 -0400</pubDate>
+      
+      <guid>/2018/04/25/the-genomicdatacommons-package-the-bridge-between-the-nci-genomic-data-commons-and-bioconductor/</guid>
+      <description>  </description>
+    </item>
+    
+    <item>
+      <title>Bioconductor: A Potential Hub in the Cancer Biomarker Data Ecosystem</title>
+      <link>/2018/02/08/bioconductor-a-potential-hub-in-the-cancer-biomarker-data-ecosystem/</link>
+      <pubDate>Thu, 08 Feb 2018 00:00:00 -0500</pubDate>
+      
+      <guid>/2018/02/08/bioconductor-a-potential-hub-in-the-cancer-biomarker-data-ecosystem/</guid>
+      <description>  </description>
+    </item>
+    
+    <item>
+      <title>A quick tour of the cancer genomics landscape (in 45 minutes)</title>
+      <link>/2018/01/18/a-quick-tour-of-the-cancer-genomics-landscape-in-45-minutes/</link>
+      <pubDate>Thu, 18 Jan 2018 00:00:00 -0500</pubDate>
+      
+      <guid>/2018/01/18/a-quick-tour-of-the-cancer-genomics-landscape-in-45-minutes/</guid>
+      <description>  </description>
+    </item>
+    
+    <item>
+      <title>Bioconductor: orchestrating high-throughput biological data analysis</title>
+      <link>/2017/12/04/bioconductor-orchestrating-high-throughput-biological-data-analysis/</link>
+      <pubDate>Mon, 04 Dec 2017 00:00:00 -0500</pubDate>
+      
+      <guid>/2017/12/04/bioconductor-orchestrating-high-throughput-biological-data-analysis/</guid>
+      <description>Click in the window below and hit &amp;ldquo;f&amp;rdquo; to go to full screen.
+ Progress in biotechnology is continually leading to new types of data, resulting in data sets that are rapidly increasing in volume, resolution and diversity. The promise of unprecedented advances in our understanding of biological systems and in medicine is challenged by complexity and volume of data also challenge scientists’ ability to analyze them. Meeting this challenge requires continuous improvements in analytical methods and capable, usable software tools implementing them.</description>
+    </item>
+    
+    <item>
+      <title>Thoughts on an Agricultural Data Ecosystem</title>
+      <link>/2017/11/15/thoughts-on-an-agricultural-data-ecosystem/</link>
+      <pubDate>Wed, 15 Nov 2017 00:00:00 -0500</pubDate>
+      
+      <guid>/2017/11/15/thoughts-on-an-agricultural-data-ecosystem/</guid>
+      <description>  </description>
+    </item>
+    
+    <item>
+      <title>Data Visualization Per Karl Broman and Rafa Irizzary</title>
+      <link>/2017/09/12/data-visualization-per-karl-broman-and-rafa-irizzary/</link>
+      <pubDate>Tue, 12 Sep 2017 12:00:00 -0400</pubDate>
+      
+      <guid>/2017/09/12/data-visualization-per-karl-broman-and-rafa-irizzary/</guid>
+      <description>Link to slideshow
+ -- </description>
+    </item>
+    
+    <item>
+      <title>Machine Learning in Biomedicine</title>
+      <link>/2017/07/09/machine-learning-in-biomedicine/</link>
+      <pubDate>Sun, 09 Jul 2017 00:00:00 -0400</pubDate>
+      
+      <guid>/2017/07/09/machine-learning-in-biomedicine/</guid>
+      <description>The accompanying hands-on exercises are available at the code link.
+  </description>
+    </item>
+    
+  </channel>
+</rss>

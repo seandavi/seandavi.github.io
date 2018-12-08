@@ -1,0 +1,808 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="generator" content="Source Themes Academic 3.0.0">
+  <meta name="generator" content="Hugo 0.50" />
+  <meta name="author" content="Sean Davis">
+
+  
+  
+  
+  
+    
+  
+  <meta name="description" content="One of the main features of the annual Bioconductor Conference is the proportion of time spent working with code in the form of workshops. To support these workshops, we ask workshop presenters to supply Rmarkdown materials which we collate into workshop materials. Using literate programming approaches like Rmarkdown ensures that the workflows are self-consistent and work as expected.
+In addition to the Rmarkdown workshop materials, we also need a consistent computing environment that can support reasonably large computation, provide high-performance network and file system access, and is essentially unlimited in scale (we expect to have &gt;150 participants, each with his/her own machine).">
+
+  
+  <link rel="alternate" hreflang="en-us" href="/2018/07/infrastructure-as-code-building-the-bioconductor-conference-ami-with-packer/">
+
+  
+
+
+  
+
+  
+
+  
+
+  
+  
+  
+  <meta name="theme-color" content="#795548">
+  
+
+  
+  
+  
+  
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha256-eSi1q2PG6J7g7ib17yAaWMcrr5GrtohYChqibrV7PBE=" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/academicons/1.8.6/css/academicons.min.css" integrity="sha256-uFVgMKfistnJAfoCUQigIl+JfUaP47GrRKjf6CTPVmw=" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.css" integrity="sha256-ygkqlh3CYSUri3LhQxzdcm0n1EQvH2Y+U5S2idbLtxs=" crossorigin="anonymous">
+
+    
+    
+    
+      
+    
+    
+      
+      
+        
+          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css" crossorigin="anonymous">
+        
+      
+    
+
+    
+
+    
+
+  
+
+  
+  
+  <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Lato:400,700|Merriweather|Roboto+Mono">
+  
+
+  <link rel="stylesheet" href="/styles.css">
+  
+
+  
+  
+    <script>
+      window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+      ga('create', 'UA-93043521-1', 'auto');
+      
+      ga('require', 'eventTracker');
+      ga('require', 'outboundLinkTracker');
+      ga('require', 'urlChangeTracker');
+      ga('send', 'pageview');
+    </script>
+    <script async src="//www.google-analytics.com/analytics.js"></script>
+    
+    <script async src="https://cdnjs.cloudflare.com/ajax/libs/autotrack/2.4.1/autotrack.js" integrity="sha512-HUmooslVKj4m6OBu0OgzjXXr+QuFYy/k7eLI5jdeEy/F4RSgMn6XRWRGkFi5IFaFgy7uFTkegp3Z0XnJf3Jq+g==" crossorigin="anonymous"></script>
+    
+  
+  
+
+  
+  <link rel="alternate" href="/index.xml" type="application/rss+xml" title="seandavi(s12)">
+  <link rel="feed" href="/index.xml" type="application/rss+xml" title="seandavi(s12)">
+  
+
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="icon" type="image/png" href="/img/icon.png">
+  <link rel="apple-touch-icon" type="image/png" href="/img/icon-192.png">
+
+  <link rel="canonical" href="/2018/07/infrastructure-as-code-building-the-bioconductor-conference-ami-with-packer/">
+
+  <meta property="twitter:card" content="summary_large_image">
+  
+  <meta property="twitter:site" content="@seandavis12">
+  <meta property="twitter:creator" content="@seandavis12">
+  
+  <meta property="og:site_name" content="seandavi(s12)">
+  <meta property="og:url" content="/2018/07/infrastructure-as-code-building-the-bioconductor-conference-ami-with-packer/">
+  <meta property="og:title" content="Infrastructure-as-Code: Building the Bioconductor Conference AMI With Packer | seandavi(s12)">
+  <meta property="og:description" content="One of the main features of the annual Bioconductor Conference is the proportion of time spent working with code in the form of workshops. To support these workshops, we ask workshop presenters to supply Rmarkdown materials which we collate into workshop materials. Using literate programming approaches like Rmarkdown ensures that the workflows are self-consistent and work as expected.
+In addition to the Rmarkdown workshop materials, we also need a consistent computing environment that can support reasonably large computation, provide high-performance network and file system access, and is essentially unlimited in scale (we expect to have &gt;150 participants, each with his/her own machine).">
+  
+  
+    
+  <meta property="og:image" content="/img/icon-192.png">
+  <meta property="og:locale" content="en-us">
+  
+  <meta property="article:published_time" content="2018-07-19T14:35:47-04:00">
+  
+  <meta property="article:modified_time" content="2018-11-03T11:28:09-04:00">
+  
+
+  
+
+  
+
+  <title>Infrastructure-as-Code: Building the Bioconductor Conference AMI With Packer | seandavi(s12)</title>
+
+</head>
+<body id="top" data-spy="scroll" data-target="#TableOfContents" data-offset="71" >
+
+<nav class="navbar navbar-light fixed-top navbar-expand-lg py-0" id="navbar-main">
+  <div class="container">
+
+    
+      <a class="navbar-brand" href="/">seandavi(s12)</a>
+      
+      <button type="button" class="navbar-toggler" data-toggle="collapse"
+              data-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
+        <span><i class="fas fa-bars"></i></span>
+      </button>
+      
+
+    
+    <div class="collapse navbar-collapse" id="navbar">
+
+      
+      
+      <ul class="navbar-nav ml-auto">
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link" href="/#about">
+            
+            <span>Home</span>
+            
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link" href="/#publications">
+            
+            <span>Publications</span>
+            
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link" href="/#posts">
+            
+            <span>Posts</span>
+            
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link" href="/#talks">
+            
+            <span>Talks</span>
+            
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link" href="/#contact">
+            
+            <span>Contact</span>
+            
+          </a>
+        </li>
+
+        
+        
+
+      
+
+        
+
+        
+      </ul>
+
+    </div>
+  </div>
+</nav>
+
+
+<article class="article" itemscope itemtype="http://schema.org/Article">
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+  
+  
+<div class="article-container pt-3">
+  <h1 itemprop="name">Infrastructure-as-Code: Building the Bioconductor Conference AMI With Packer</h1>
+
+  
+
+  
+    
+
+<div class="article-metadata">
+
+  
+  
+  <span itemscope itemprop="author" itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="Sean Davis">
+  </span>
+  
+
+  <span class="article-date">
+    
+        Last updated on
+    
+    <meta content="2018-07-19 14:35:47 -0400 EDT" itemprop="datePublished">
+    <time datetime="2018-11-03 11:28:09 -0400 EDT" itemprop="dateModified">
+      Sat, Nov 3, 2018
+    </time>
+  </span>
+  <span itemscope itemprop="publisher" itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="Sean Davis">
+  </span>
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    4 min read
+  </span>
+  
+
+  
+  
+  <span class="middot-divider"></span>
+  <a href="/2018/07/infrastructure-as-code-building-the-bioconductor-conference-ami-with-packer/#disqus_thread"></a>
+  
+
+  
+  
+  
+  <span class="middot-divider"></span>
+  <span class="article-categories">
+    <i class="fas fa-folder"></i>
+    
+    <a href="/categories/it/">IT</a>
+    
+  </span>
+  
+  
+
+  
+  
+<div class="share-box" aria-hidden="true">
+  <ul class="share">
+    <li>
+      <a class="twitter"
+         href="https://twitter.com/intent/tweet?text=Infrastructure-as-Code%3a%20Building%20the%20Bioconductor%20Conference%20AMI%20With%20Packer&amp;url=%2f2018%2f07%2finfrastructure-as-code-building-the-bioconductor-conference-ami-with-packer%2f"
+         target="_blank" rel="noopener">
+        <i class="fab fa-twitter"></i>
+      </a>
+    </li>
+    <li>
+      <a class="facebook"
+         href="https://www.facebook.com/sharer.php?u=%2f2018%2f07%2finfrastructure-as-code-building-the-bioconductor-conference-ami-with-packer%2f"
+         target="_blank" rel="noopener">
+        <i class="fab fa-facebook-f"></i>
+      </a>
+    </li>
+    <li>
+      <a class="linkedin"
+         href="https://www.linkedin.com/shareArticle?mini=true&amp;url=%2f2018%2f07%2finfrastructure-as-code-building-the-bioconductor-conference-ami-with-packer%2f&amp;title=Infrastructure-as-Code%3a%20Building%20the%20Bioconductor%20Conference%20AMI%20With%20Packer"
+         target="_blank" rel="noopener">
+        <i class="fab fa-linkedin-in"></i>
+      </a>
+    </li>
+    <li>
+      <a class="weibo"
+         href="http://service.weibo.com/share/share.php?url=%2f2018%2f07%2finfrastructure-as-code-building-the-bioconductor-conference-ami-with-packer%2f&amp;title=Infrastructure-as-Code%3a%20Building%20the%20Bioconductor%20Conference%20AMI%20With%20Packer"
+         target="_blank" rel="noopener">
+        <i class="fab fa-weibo"></i>
+      </a>
+    </li>
+    <li>
+      <a class="email"
+         href="mailto:?subject=Infrastructure-as-Code%3a%20Building%20the%20Bioconductor%20Conference%20AMI%20With%20Packer&amp;body=%2f2018%2f07%2finfrastructure-as-code-building-the-bioconductor-conference-ami-with-packer%2f">
+        <i class="fas fa-envelope"></i>
+      </a>
+    </li>
+  </ul>
+</div>
+
+
+  
+
+</div>
+
+  
+</div>
+
+
+
+  <div class="article-container">
+
+    <div class="article-style" itemprop="articleBody">
+      
+
+
+<p>One of the main features of the annual <a href="https://bioc2018.bioconductor.org">Bioconductor Conference</a> is the
+proportion of time spent working with code in the form of <a href="https://github.com/bioconductor/BiocWorkshops">workshops</a>.
+To support these workshops, we ask workshop presenters to supply <a href="https://rmarkdown.rstudio.com/">Rmarkdown</a>
+materials which we collate into workshop materials. Using literate programming
+approaches like Rmarkdown ensures that the workflows are self-consistent
+and work as expected.</p>
+<p>In addition to the Rmarkdown workshop materials, we also need a consistent
+computing environment that can support reasonably large computation, provide
+high-performance network and file system access, and is essentially unlimited
+in scale (we expect to have &gt;150 participants, each with his/her own machine).
+To do so, we use <a href="https://aws.amazon.com/ec2">Amazon Web Services EC2</a>. The EC2 system allows us to prepare
+a <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/AMIs.html">Amazon machine “image”</a>, or AMI, that contains the operating system, libraries,
+the newest version of R, and all packages needed for the workshops. In the past,
+creating the “image” was a manual process. This year, thanks to the work
+of the workshop organizers, we had a single DESCRIPTION file that contained
+all the necessary packages, allowing us to automate the process of building
+and keeping updated the AMI that would be used by all participants.</p>
+<p>The <a href="https://www.packer.io/">Packer project</a> is an open source tool for creating identical
+machine images for multiple platforms from a single source
+configuration. Packer is lightweight, runs on every major operating
+system, and is highly performant, creating machine images for multiple
+platforms in parallel. In this context, a machine image is a single
+static unit that contains a pre-configured operating system and
+installed software which is used to quickly create new running
+machines. Machine image formats change for each platform. Some
+examples include AMIs for EC2, VMDK/VMX files for VMware, OVF exports
+for VirtualBox, etc.</p>
+<p>Biocoductor is cloud-ready and maintains <a href="https://bioconductor.org/help/bioconductor-cloud-ami/">basic AMIs for Bioconductor</a>. Rather
+than needing to start with a generic Linux AMI as the “base” for our
+Bioconductor conference AMI, I will use
+the most recent <a href="https://bioconductor.org/help/bioconductor-cloud-ami/#ami_ids">Bioc-devel AMI</a> as the base. Packer uses a <a href="https://www.packer.io/intro/getting-started/build-image.html#the-template">json format file</a>
+to describe, <em>in code</em>, the AMI that we want to build. The file for building the image
+is listed below in its entirety. The current version of the packer json file
+is available in this <a href="https://github.com/seandavi/terraform-can/tree/master/packer">github repo</a>.</p>
+<p>To build the image, first <a href="https://www.packer.io/docs/builders/amazon.html#authentication">set up AWS authentication</a> as outlined on the
+packer website. If you do not have an AWS account, you will not be able
+to actually build the AMI. Next, <a href="https://www.packer.io/intro/getting-started/install.html">install packer</a> and ensure that it is in the path.
+Finally, save the file below as, for example, <code>bioc_2018.json</code>. In the
+directory containing the json file, execute packer:</p>
+<pre class="sh"><code>packer build bioc_2018.json</code></pre>
+<p>This build takes quite some time (perhaps 20 minutes or so).</p>
+<p>In terms of details, briefly, the <code>instance_type</code>
+below was chosen to allow multicore installation using 16 threads. AWS [spot pricing]
+is used to minimize costs (see <code>spot_pricing</code> and <code>spot_pricing_auto_product</code> below).
+Adding the <code>ami_groups</code> set to <code>all</code> will enable public access to the AMI. The <code>source_ami_filter</code>
+section below chooses the “base” image. In this case, I used the AMI <code>name</code> and
+specified that the AMI was “owned” by the Bioconductor organization (<code>&quot;owners&quot;: [&quot;555219204010&quot;]</code>).
+I set the disk size to 128GB of SSD storage in the <code>launch_block_device_mappings</code>.</p>
+<p>The real work is done in the <code>provisioners</code> block. In this case, the provisioner
+block specifies just two shell commands that install the necessary packages. Note
+that the installation of the “Bioconductor/Biocworkshops” github package will
+install all packages in the <a href="https://github.com/Bioconductor/BiocWorkshops/blob/master/DESCRIPTION">DESCRIPTION</a> file. The final line of the packer
+output will list the AMI ID that can be shared with others (since we made it public).
+The AMI may take a few minutes to become fully public.</p>
+<pre class="js"><code>{
+    &quot;variables&quot;: {
+        &quot;profile&quot;: &quot;default&quot;,
+        &quot;region&quot;:  &quot;us-east-1&quot;
+    },
+    &quot;builders&quot;: [
+        {
+            &quot;access_key&quot;: &quot;{{user `aws_access_key`}}&quot;,
+            &quot;ami_name&quot;: &quot;Bioconductor_Conference_2018-{{timestamp}}&quot;,
+            &quot;instance_type&quot;: &quot;c5.4xlarge&quot;,
+            &quot;region&quot;: &quot;us-east-1&quot;,
+            &quot;secret_key&quot;: &quot;{{user `aws_secret_key`}}&quot;,
+            &quot;source_ami_filter&quot;: {
+                &quot;filters&quot;: {
+                    &quot;virtualization-type&quot;: &quot;hvm&quot;,
+                    &quot;name&quot;: &quot;Bioc 3.8 R 3.5.1&quot;,
+                    &quot;root-device-type&quot;: &quot;ebs&quot;
+                },
+                &quot;owners&quot;: [&quot;555219204010&quot;],
+                &quot;most_recent&quot;: true
+            },
+            &quot;ssh_username&quot;: &quot;ubuntu&quot;,
+            &quot;spot_price&quot;: &quot;auto&quot;,
+            &quot;spot_price_auto_product&quot;: &quot;Linux/UNIX&quot;,
+            &quot;type&quot;: &quot;amazon-ebs&quot;,
+            &quot;ami_groups&quot;: [&quot;all&quot;],
+            &quot;launch_block_device_mappings&quot;: [
+                {
+                    &quot;device_name&quot;: &quot;/dev/sda1&quot;,
+                    &quot;volume_size&quot;: 128,
+                    &quot;volume_type&quot;: &quot;gp2&quot;,
+                    &quot;delete_on_termination&quot;: true
+                }
+            ]
+        }
+    ],
+    &quot;provisioners&quot;: [
+        {
+            &quot;type&quot;: &quot;shell&quot;,
+            &quot;inline&quot;:[
+                &quot;Rscript -e &#39;BiocManager::install(\&quot;remotes\&quot;)&#39;&quot;,
+                &quot;Rscript -e &#39;options(Ncpus=16); BiocManager::install(\&quot;Bioconductor/BiocWorkshops\&quot;)&#39;&quot;,
+            ]
+        }
+    ]
+}
+    </code></pre>
+<p>By maintaining the AMI description as code, we can ensure that the AMI is
+fully reproducible (no manual installations, etc.) and, therefore, highly
+reproducible and even reusable.</p>
+<p><a href="https://github.com/seandavi/terraform-can/tree/master/packer">The current version of the packer file is available on github</a>. Thanks to Levi
+Waldron, Lori Shepherd, Marcel Ramos, Martin Morgan, and multiple workshop
+authors for their contributions.</p>
+
+    </div>
+
+    
+
+
+<div class="article-tags">
+  
+  <a class="badge badge-light" href="/tags/bioconductor/">Bioconductor</a>
+  
+  <a class="badge badge-light" href="/tags/devops/">devops</a>
+  
+  <a class="badge badge-light" href="/tags/cloud/">cloud</a>
+  
+  <a class="badge badge-light" href="/tags/it/">IT</a>
+  
+  <a class="badge badge-light" href="/tags/aws/">AWS</a>
+  
+  <a class="badge badge-light" href="/tags/packer/">packer</a>
+  
+</div>
+
+
+
+    
+
+
+
+
+
+
+<div class="media author-card" itemscope itemtype="http://schema.org/Person">
+  
+  <img class="portrait mr-3" src="/img/portrait.jpg" itemprop="image" alt="Avatar">
+  
+  <div class="media-body">
+    <h5 class="card-title" itemprop="name"><a href="/">Sean Davis</a></h5>
+    <h6 class="card-subtitle">National Cancer Institute, NIH</h6>
+    
+    <ul class="network-icon" aria-hidden="true">
+      
+      
+      
+      
+        
+      
+      
+      
+        
+      
+      <li>
+        <a itemprop="sameAs" href="/#contact" >
+          <i class="fas fa-envelope"></i>
+        </a>
+      </li>
+      
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a itemprop="sameAs" href="https://twitter.com/seandavis12" target="_blank" rel="noopener">
+          <i class="fab fa-twitter"></i>
+        </a>
+      </li>
+      
+      
+      
+      
+      
+      
+      <li>
+        <a itemprop="sameAs" href="https://scholar.google.com/citations?user=hLFc29kAAAAJ" target="_blank" rel="noopener">
+          <i class="ai ai-google-scholar"></i>
+        </a>
+      </li>
+      
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a itemprop="sameAs" href="https://github.com/seandavi" target="_blank" rel="noopener">
+          <i class="fab fa-github"></i>
+        </a>
+      </li>
+      
+      
+      
+      
+      
+      
+      <li>
+        <a itemprop="sameAs" href="https://seandavi.github.io/files/CV.pdf" target="_blank" rel="noopener">
+          <i class="ai ai-cv"></i>
+        </a>
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+
+
+
+    
+    
+    <div class="article-widget">
+      <div class="hr-light"></div>
+      <h3>Related</h3>
+      <ul>
+        
+        <li><a href="/2018/02/create-a-basic-apache-spark-cluster-in-the-cloud-in-5-minutes/">Create a basic Apache Spark cluster in the cloud (in 5 minutes)</a></li>
+        
+        <li><a href="/2017/11/a-computable-bioconductor-build-report/">A computable Bioconductor build report</a></li>
+        
+        <li><a href="/2017/03/matched-tumor-normal-pairs-a-use-case-for-the-genomicdatacommons-bioconductor-package/">Matched tumor/normal pairs--a use case for the GenomicDataCommons Bioconductor package</a></li>
+        
+      </ul>
+    </div>
+    
+
+    
+
+    
+<section id="comments">
+  <div id="disqus_thread"></div>
+<script type="application/javascript">
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "seandavi-github-io" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+</section>
+
+
+
+  </div>
+</article>
+
+<div class="container">
+  <footer class="site-footer">
+  
+
+  <p class="powered-by">
+    &copy; 2018 &middot; 
+
+    Powered by the
+    <a href="https://sourcethemes.com/academic/" target="_blank" rel="noopener">Academic theme</a> for
+    <a href="https://gohugo.io" target="_blank" rel="noopener">Hugo</a>.
+
+    
+    <span class="float-right" aria-hidden="true">
+      <a href="#" id="back_to_top">
+        <span class="button_icon">
+          <i class="fas fa-chevron-up fa-2x"></i>
+        </span>
+      </a>
+    </span>
+    
+  </p>
+</footer>
+
+</div>
+
+
+<div id="modal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Cite</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <pre><code class="tex hljs"></code></pre>
+      </div>
+      <div class="modal-footer">
+        <a class="btn btn-outline-primary my-1 js-copy-cite" href="#" target="_blank">
+          <i class="fas fa-copy"></i> Copy
+        </a>
+        <a class="btn btn-outline-primary my-1 js-download-cite" href="#" target="_blank">
+          <i class="fas fa-download"></i> Download
+        </a>
+        <div id="modal-error"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+    
+
+    
+    
+    
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" integrity="sha512-+NqPlbbtM1QqiK8ZAo4Yrj2c4lNQoGv8P79DPtKzj++l5jnN39rHA/xsqn8zE9l0uSoxaCdrOgFs6yjyfbBxSg==" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.imagesloaded/4.1.3/imagesloaded.pkgd.min.js" integrity="sha512-umsR78NN0D23AzgoZ11K7raBD+R6hqKojyBZs1w8WvYlsI+QuKRGBx3LFCwhatzBunCjDuJpDHwxD13sLMbpRA==" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha256-VsEqElsCHSGmnmHXGQzvoWjWwoznFSZc6hs7ARLRacQ=" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.isotope/3.0.4/isotope.pkgd.min.js" integrity="sha512-VDBOIlDbuC4VWxGJNmuFRQ0Li0SKkDpmGyuhAG5LTDLd/dJ/S0WMVxriR2Y+CyPL5gzjpN4f/6iqWVBJlht0tQ==" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.js" integrity="sha256-X5PoE3KU5l+JcX+w09p/wHl9AzK333C4hJ2I9S5mD4M=" crossorigin="anonymous"></script>
+
+      
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js" integrity="sha256-/BfiIkHlHoVihZdc6TFuj7MmJ0TWcWsMXkeDFwhi0zw=" crossorigin="anonymous"></script>
+        
+        <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/r.min.js"></script>
+        
+        <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/python.min.js"></script>
+        
+        <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/javascript.min.js"></script>
+        
+      
+
+      
+      
+    
+
+    <script src="/js/hugo-academic.js"></script>
+    
+
+    
+    
+
+    
+    
+    
+    <script id="dsq-count-scr" src="//seandavi-github-io.disqus.com/count.js" async></script>
+    
+
+    
+    
+    <script>hljs.initHighlightingOnLoad();</script>
+    
+
+    
+    
+    <script>
+      const search_index_filename = "/index.json";
+      const i18n = {
+        'placeholder': "Search...",
+        'results': "Search Results",
+        'no_results': "No results found"
+      };
+      const content_type = {
+        'post': "Posts",
+        'project': "Projects",
+        'publication' : "Publications",
+        'talk' : "Talks"
+        };
+    </script>
+    
+
+    
+    
+
+    
+    
+    <script id="search-hit-fuse-template" type="text/x-template">
+      <div class="search-hit" id="summary-{{key}}">
+      <div class="search-hit-content">
+        <div class="search-hit-name">
+          <a href="{{relpermalink}}">{{title}}</a>
+          <div class="article-metadata search-hit-type">{{type}}</div>
+          <p class="search-hit-description">{{snippet}}</p>
+        </div>
+      </div>
+      </div>
+    </script>
+    
+
+    
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/3.2.1/fuse.min.js" integrity="sha256-VzgmKYmhsGNNN4Ph1kMW+BjoYJM2jV5i4IlFoeZA9XI=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/jquery.mark.min.js" integrity="sha256-4HLtjeVgH0eIB3aZ9mLYF6E8oU5chNdjU6p6rrXpl9U=" crossorigin="anonymous"></script>
+    <script src="/js/search.js"></script>
+    
+
+    
+    
+
+  </body>
+</html>
+
