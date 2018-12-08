@@ -409,20 +409,26 @@ set. A simple way to see what is available for customization is to
 perform <code>M-x customize</code> followed by the mode to customize. In this
 case, <code>python</code> suffices. The variable of interest is the
 <code>python-shell-buffer-name</code>. With projectile-mode active and in a
-project, <code>C-c p E</code> will prompt for the variable to customize.</p>
-
-<pre><code>python-shell-buffer-name
-</code></pre>
+project, <code>C-c p E</code> will prompt for the variable to customize, in this
+case <code>python-shell-buffer-name</code>.</p>
 
 <p>Then, supply the custom name. In my case, I am going with the
-convention of &ldquo;Python[PROJECT_NAME]&ldquo;. Note that no <code>*</code> are used around
+convention of &ldquo;Python[MyProjectName]&ldquo;. Note that no <code>*</code> are used around
 the name. The result will be a new <code>.dir-locals.el</code> file in the
 project root directory. This new variable will only become active on
-opening new files; it does not affect previously-opened files.</p>
-
-<p>After this process, activating a new python shell will result in that
+opening new files; it does not affect previously-opened files.
+After this process, activating a new python shell will result in that
 shell taking on the customized name and all python editor buffers in
 the project will use the same project-specific</p>
+
+<p>The resulting <code>.dir-locals.el</code> file will look like:</p>
+
+<pre><code>;;; Directory Local Variables
+;;; For more information see (info &quot;(emacs) Directory Variables&quot;)
+
+((python-mode
+  (python-shell-buffer-name . &quot;Python[MyProjectName]&quot;)))
+</code></pre>
 
     </div>
 

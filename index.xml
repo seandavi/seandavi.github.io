@@ -37,20 +37,26 @@ set. A simple way to see what is available for customization is to
 perform &lt;code&gt;M-x customize&lt;/code&gt; followed by the mode to customize. In this
 case, &lt;code&gt;python&lt;/code&gt; suffices. The variable of interest is the
 &lt;code&gt;python-shell-buffer-name&lt;/code&gt;. With projectile-mode active and in a
-project, &lt;code&gt;C-c p E&lt;/code&gt; will prompt for the variable to customize.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;python-shell-buffer-name
-&lt;/code&gt;&lt;/pre&gt;
+project, &lt;code&gt;C-c p E&lt;/code&gt; will prompt for the variable to customize, in this
+case &lt;code&gt;python-shell-buffer-name&lt;/code&gt;.&lt;/p&gt;
 
 &lt;p&gt;Then, supply the custom name. In my case, I am going with the
-convention of &amp;ldquo;Python[PROJECT_NAME]&amp;ldquo;. Note that no &lt;code&gt;*&lt;/code&gt; are used around
+convention of &amp;ldquo;Python[MyProjectName]&amp;ldquo;. Note that no &lt;code&gt;*&lt;/code&gt; are used around
 the name. The result will be a new &lt;code&gt;.dir-locals.el&lt;/code&gt; file in the
 project root directory. This new variable will only become active on
-opening new files; it does not affect previously-opened files.&lt;/p&gt;
-
-&lt;p&gt;After this process, activating a new python shell will result in that
+opening new files; it does not affect previously-opened files.
+After this process, activating a new python shell will result in that
 shell taking on the customized name and all python editor buffers in
 the project will use the same project-specific&lt;/p&gt;
+
+&lt;p&gt;The resulting &lt;code&gt;.dir-locals.el&lt;/code&gt; file will look like:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;;;; Directory Local Variables
+;;; For more information see (info &amp;quot;(emacs) Directory Variables&amp;quot;)
+
+((python-mode
+  (python-shell-buffer-name . &amp;quot;Python[MyProjectName]&amp;quot;)))
+&lt;/code&gt;&lt;/pre&gt;
 </description>
     </item>
     
