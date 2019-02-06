@@ -1,6 +1,25 @@
 [
   {
     "authors": null,
+    "categories": null,
+    "content": " Background Container technologies like [docker] enable quick and easy encapsulation of software, dependencies, and operating systems. One or more containers can render entire software ecosystems portable, enhance reproducibility and reusability, and facilitate sharing of software, tools, and even infrastructure.\nWhile DockerHub is perhaps the most well-known registry where such docker images can be housed, others such as quay.io are also available. Commercial cloud environments, such as the Google Cloud Platform often offer their own registries that use the same secure access controls as other cloud services. They are also typically quite integrated with commercial cloud services (gcr docs).\nI am experimenting with the Google Container Registry (GCR) for a bioinformatics project that I plan to perform in on Google Cloud. This blog post simply serves as notes to myself about details of using that system.\n Preliminaries A Google Cloud account and project is required to follow along here.\n Install the Google Cloud SDK Install Docker  In order to allow docker to use google for authorization, we need to do this one-time command to get tie docker to google.\ngcloud auth configure-docker Answer “yes” to the prompt.\n Building docker image and adding to GCR We are going to build a simple docker file that includes the sra-tools package, import a private key for downloading files that are protected, and then store that image to GCR.\nThe Dockerfile is given below. Note that I am not including the dbGaP key file, as it is private, but you could modify the Dockerfile to include your own key file(s) or simply remove the dbGaP access details entirely.\n Building the container is one line:\ndocker build -t sratoolkit . At this point, the docker image has been created. Run it locally to test, for example.\ndocker run -ti sratoolkit /bin/bash Inside the docker container, all the sra-toolkit binaries are available.\nEach Google Cloud Project has a private GCR. Therefore, GCR urls include the PROJECT-ID.\ndocker tag sratoolkit gcr.io/isb-cgc-01-0006/sratoolkit:2.9.2 docker push gcr.io/isb-cgc-01-0006/sratoolkit:2.9.2  Usage For fun, we can use the image and the fastq-dump utility to download a single SRA run. The docker image will only run as long as necessary to perform the fastq dump and then will terminate. This post is not about the details of running docker, but note that the following will result in the fastq file from the fastq-dump command ending up in the /tmp directory on your machine.\ndocker run -v /tmp:/data -ti gcr.io/isb-cgc-01-0006/sratoolkit:2.9.2\\ /bin/bash -c \u0026quot;cd /root/ncbi/dbGaP-16049/ \\ \u0026amp;\u0026amp; fastq-dump --split-files --gzip \\ --skip-technical -X 10000 SRR390728\u0026quot; This will result in:\nRead 10000 spots for SRR390728 Written 10000 spots for SRR390728  From here At this point, we have created an environment for building docker images, stored a proprietary docker image in the Google Cloud Registry, and successfully used the image to run a simple command to perform a fastq-dump with the files ending up on the docker host machine. This image can be used anywhere a docker image can run, but only if google authentication has been tied into docker.\nThe Google Genomics Pipeline API is built around scalable genomic workflows and uses docker images for workflow tasks. The image here can be used for dbGaP genomic data extraction as part of such a workflow, all within the secure environment of google cloud.\n ",
+    "date": 1549476774,
+    "expirydate": -62135596800,
+    "kind": "page",
+    "lang": "en",
+    "lastmod": 1549476774,
+    "objectID": "6d8e74fdcf04fff1903812c44c846fc5",
+    "permalink": "/2019/02/using-google-cloud-registry/",
+    "publishdate": "2019-02-06T13:12:54-05:00",
+    "relpermalink": "/2019/02/using-google-cloud-registry/",
+    "section": "post",
+    "summary": "Background Container technologies like [docker] enable quick and easy encapsulation of software, dependencies, and operating systems. One or more containers can render entire software ecosystems portable, enhance reproducibility and reusability, and facilitate sharing of software, tools, and even infrastructure.\nWhile DockerHub is perhaps the most well-known registry where such docker images can be housed, others such as quay.io are also available. Commercial cloud environments, such as the Google Cloud Platform often offer their own registries that use the same secure access controls as other cloud services.",
+    "tags": null,
+    "title": "Using Google Cloud Registry",
+    "type": "post"
+  },
+  {
+    "authors": null,
     "categories": [
       "Notes"
     ],

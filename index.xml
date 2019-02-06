@@ -11,6 +11,100 @@
     <atom:link href="/" rel="self" type="application/rss+xml" />
     
     <item>
+      <title>Using Google Cloud Registry</title>
+      <link>/2019/02/using-google-cloud-registry/</link>
+      <pubDate>Wed, 06 Feb 2019 13:12:54 -0500</pubDate>
+      
+      <guid>/2019/02/using-google-cloud-registry/</guid>
+      <description>
+
+
+&lt;div id=&#34;background&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Background&lt;/h2&gt;
+&lt;p&gt;Container technologies like [docker] enable quick and easy
+encapsulation of software, dependencies, and operating systems. One or
+more containers can render entire software ecosystems portable,
+enhance reproducibility and reusability, and facilitate sharing of
+software, tools, and even infrastructure.&lt;/p&gt;
+&lt;p&gt;While &lt;a href=&#34;https://hub.docker.com/&#34;&gt;DockerHub&lt;/a&gt; is perhaps the most well-known registry where such
+docker images can be housed, others such as &lt;a href=&#34;https://quay.io/&#34;&gt;quay.io&lt;/a&gt; are also
+available. Commercial cloud environments, such as the &lt;a href=&#34;https://cloud.google.com/&#34;&gt;Google Cloud
+Platform&lt;/a&gt; often offer their own registries that use the same secure
+access controls as other cloud services. They are also typically quite
+integrated with commercial cloud services (&lt;a href=&#34;https://cloud.google.com/container-registry/docs/&#34;&gt;gcr docs&lt;/a&gt;).&lt;/p&gt;
+&lt;p&gt;I am experimenting with the &lt;a href=&#34;https://cloud.google.com/container-registry/&#34;&gt;Google Container Registry&lt;/a&gt; (GCR) for a
+bioinformatics project that I plan to perform in on Google Cloud. This
+blog post simply serves as notes to myself about details of using that
+system.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;preliminaries&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Preliminaries&lt;/h2&gt;
+&lt;p&gt;A Google Cloud &lt;a href=&#34;https://cloud.google.com/container-registry/docs/quickstart&#34;&gt;account and project&lt;/a&gt; is required to follow along here.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://cloud.google.com/sdk/docs/&#34;&gt;Install the Google Cloud SDK&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://docs.docker.com/install/linux/docker-ce/ubuntu/&#34;&gt;Install
+Docker&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;In order to allow docker to use google for authorization, we need to
+do this one-time command to get tie docker to google.&lt;/p&gt;
+&lt;pre class=&#34;bash&#34;&gt;&lt;code&gt;gcloud auth configure-docker&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Answer “yes” to the prompt.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;building-docker-image-and-adding-to-gcr&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Building docker image and adding to GCR&lt;/h2&gt;
+&lt;p&gt;We are going to build a simple docker file that includes the
+&lt;a href=&#34;https://github.com/ncbi/sra-tools&#34;&gt;sra-tools&lt;/a&gt; package, import a private key for downloading files that
+are protected, and then store that image to GCR.&lt;/p&gt;
+&lt;p&gt;The Dockerfile is given below. Note that I &lt;strong&gt;am not including the dbGaP
+key file, as it is private&lt;/strong&gt;, but you could modify the Dockerfile to
+include your own key file(s) or simply remove the dbGaP access details
+entirely.&lt;/p&gt;
+&lt;script src=&#34;https://gist.github.com/seandavi/410cfbbed6b8db0b4928eb36236e7dda.js&#34;&gt;&lt;/script&gt;
+&lt;p&gt;Building the container is one line:&lt;/p&gt;
+&lt;pre class=&#34;bash&#34;&gt;&lt;code&gt;docker build -t sratoolkit .&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;At this point, the docker image has been created. Run it locally to
+test, for example.&lt;/p&gt;
+&lt;pre class=&#34;bash&#34;&gt;&lt;code&gt;docker run -ti sratoolkit /bin/bash&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Inside the docker container, all the sra-toolkit binaries are
+available.&lt;/p&gt;
+&lt;p&gt;Each Google Cloud Project has a private GCR. Therefore, GCR urls
+include the &lt;code&gt;PROJECT-ID&lt;/code&gt;.&lt;/p&gt;
+&lt;pre class=&#34;bash&#34;&gt;&lt;code&gt;docker tag sratoolkit gcr.io/isb-cgc-01-0006/sratoolkit:2.9.2
+docker push gcr.io/isb-cgc-01-0006/sratoolkit:2.9.2&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;div id=&#34;usage&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Usage&lt;/h2&gt;
+&lt;p&gt;For fun, we can use the image and the &lt;code&gt;fastq-dump&lt;/code&gt; utility to download
+a single SRA run. The docker image will only run as long as necessary
+to perform the fastq dump and then will terminate. This post is not
+about the details of running docker, but note that the following will
+result in the fastq file from the &lt;code&gt;fastq-dump&lt;/code&gt; command ending up in
+the &lt;code&gt;/tmp&lt;/code&gt; directory on your machine.&lt;/p&gt;
+&lt;pre class=&#34;bash&#34;&gt;&lt;code&gt;docker run -v /tmp:/data -ti  gcr.io/isb-cgc-01-0006/sratoolkit:2.9.2\
+    /bin/bash -c &amp;quot;cd /root/ncbi/dbGaP-16049/ \
+    &amp;amp;&amp;amp; fastq-dump   --split-files --gzip \
+    --skip-technical -X 10000   SRR390728&amp;quot;&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;This will result in:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;Read 10000 spots for SRR390728
+Written 10000 spots for SRR390728&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;div id=&#34;from-here&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;From here&lt;/h2&gt;
+&lt;p&gt;At this point, we have created an environment for building docker
+images, stored a proprietary docker image in the Google Cloud
+Registry, and successfully used the image to run a simple command to
+perform a &lt;code&gt;fastq-dump&lt;/code&gt; with the files ending up on the docker host
+machine. This image can be used anywhere a docker image can run, but
+only if google authentication &lt;a href=&#34;#preliminaries&#34;&gt;has been tied into docker&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;The &lt;a href=&#34;https://cloud.google.com/genomics/docs/quickstart&#34;&gt;Google Genomics Pipeline API&lt;/a&gt; is built around scalable genomic
+workflows and uses docker images for workflow tasks. The image here
+can be used for dbGaP genomic data extraction as part of such a
+workflow, all within the secure environment of google cloud.&lt;/p&gt;
+&lt;/div&gt;
+</description>
+    </item>
+    
+    <item>
       <title>Using directory-local variables to customize the emacs project experience</title>
       <link>/2018/12/using-directory-local-variables-to-customize-the-emacs-project-experience/</link>
       <pubDate>Sat, 08 Dec 2018 10:00:00 -0500</pubDate>
@@ -408,18 +502,6 @@ workflow on cloud resources. Each participant will:&lt;/p&gt;
       <guid>/2018/04/26/bioconductor-a-hub-in-the-cancer-data-ecosystem/</guid>
       <description>&lt;div class=&#34;responsive-wrap&#34;&gt;
   &lt;iframe src=&#34;https://docs.google.com/presentation/d/e/2PACX-1vTceB6vR4SV-yAjH_cxPr3f7p6utPALtJjQylRs142qGPg_2zdYv-io8PH7ZnxsaoEzUeETJHW9i0Ra/embed?start=true&amp;amp;loop=false&amp;amp;delayms=3000&#34; frameborder=&#34;0&#34; width=&#34;960&#34; height=&#34;569&#34; allowfullscreen=&#34;true&#34; mozallowfullscreen=&#34;true&#34; webkitallowfullscreen=&#34;true&#34;&gt;&lt;/iframe&gt;
-&lt;/div&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>The GenomicDataCommons Package: The bridge between the NCI Genomic Data Commons and Bioconductor</title>
-      <link>/2018/04/25/the-genomicdatacommons-package-the-bridge-between-the-nci-genomic-data-commons-and-bioconductor/</link>
-      <pubDate>Wed, 25 Apr 2018 00:00:00 -0400</pubDate>
-      
-      <guid>/2018/04/25/the-genomicdatacommons-package-the-bridge-between-the-nci-genomic-data-commons-and-bioconductor/</guid>
-      <description>&lt;div class=&#34;responsive-wrap&#34;&gt;
-  &lt;iframe src=&#34;https://docs.google.com/presentation/d/e/2PACX-1vTCg8DLAvQdf0TZ0CcfoFarbp72frA-pCt_lB0GSy8w5J45cK9Y0e7ZLFDiq29C_jKzf5416iXwFtZ6/embed?start=false&amp;amp;loop=false&amp;amp;delayms=3000&#34; frameborder=&#34;0&#34; width=&#34;960&#34; height=&#34;569&#34; allowfullscreen=&#34;true&#34; mozallowfullscreen=&#34;true&#34; webkitallowfullscreen=&#34;true&#34;&gt;&lt;/iframe&gt;
 &lt;/div&gt;
 </description>
     </item>

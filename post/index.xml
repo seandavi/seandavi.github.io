@@ -13,6 +13,16 @@
     
     
     <item>
+      <title>Using Google Cloud Registry</title>
+      <link>/2019/02/using-google-cloud-registry/</link>
+      <pubDate>Wed, 06 Feb 2019 13:12:54 -0500</pubDate>
+      
+      <guid>/2019/02/using-google-cloud-registry/</guid>
+      <description>Background Container technologies like [docker] enable quick and easy encapsulation of software, dependencies, and operating systems. One or more containers can render entire software ecosystems portable, enhance reproducibility and reusability, and facilitate sharing of software, tools, and even infrastructure.
+While DockerHub is perhaps the most well-known registry where such docker images can be housed, others such as quay.io are also available. Commercial cloud environments, such as the Google Cloud Platform often offer their own registries that use the same secure access controls as other cloud services.</description>
+    </item>
+    
+    <item>
       <title>Using directory-local variables to customize the emacs project experience</title>
       <link>/2018/12/using-directory-local-variables-to-customize-the-emacs-project-experience/</link>
       <pubDate>Sat, 08 Dec 2018 10:00:00 -0500</pubDate>
