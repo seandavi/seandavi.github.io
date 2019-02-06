@@ -175,6 +175,15 @@
     </item>
     
     <item>
+      <title>aws</title>
+      <link>/tags/aws/</link>
+      <pubDate>Sat, 02 Dec 2017 07:50:15 -0500</pubDate>
+      
+      <guid>/tags/aws/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>bioinformatics</title>
       <link>/tags/bioinformatics/</link>
       <pubDate>Fri, 29 Dec 2017 00:00:00 +0000</pubDate>
@@ -225,6 +234,15 @@
       <pubDate>Sun, 01 Jan 2017 00:00:00 -0500</pubDate>
       
       <guid>/tags/fungal-infection/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>git</title>
+      <link>/tags/git/</link>
+      <pubDate>Sat, 02 Dec 2017 07:50:15 -0500</pubDate>
+      
+      <guid>/tags/git/</guid>
       <description></description>
     </item>
     
@@ -288,6 +306,15 @@
       <pubDate>Thu, 23 Jul 2015 21:13:14 -0500</pubDate>
       
       <guid>/tags/regression/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>security</title>
+      <link>/tags/security/</link>
+      <pubDate>Sat, 02 Dec 2017 07:50:15 -0500</pubDate>
+      
+      <guid>/tags/security/</guid>
       <description></description>
     </item>
     

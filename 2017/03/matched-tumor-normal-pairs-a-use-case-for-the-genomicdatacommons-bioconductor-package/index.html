@@ -471,13 +471,13 @@ head(matched_tn_ge_file_info)</code></pre>
 <pre><code>## # A tibble: 6 x 17
 ##   data_type updated_datetime file_name submitter_id file_id file_size cases
 ##   &lt;chr&gt;     &lt;chr&gt;            &lt;chr&gt;     &lt;chr&gt;        &lt;chr&gt;       &lt;int&gt; &lt;lis&gt;
-## 1 Gene Exp… 2018-09-08T01:0… 6598740f… 6598740f-64… 7d62fa…    261441 &lt;dat…
-## 2 Gene Exp… 2018-09-08T01:0… d7047346… d7047346-49… ec3848…    258388 &lt;dat…
-## 3 Gene Exp… 2018-09-08T01:0… e84e835c… e84e835c-ce… af091e…    252106 &lt;dat…
-## 4 Gene Exp… 2018-09-08T01:0… 2c6a02ee… 2c6a02ee-c8… eed6ce…    258278 &lt;dat…
-## 5 Gene Exp… 2018-09-08T01:0… 73bcbb60… 73bcbb60-38… bde7dd…    253859 &lt;dat…
-## 6 Gene Exp… 2018-09-08T01:0… f1afa28b… f1afa28b-fa… 61da65…    259028 &lt;dat…
-## # ... with 10 more variables: id &lt;chr&gt;, created_datetime &lt;chr&gt;,
+## 1 Gene Exp… 2018-11-30T04:4… f1afa28b… f1afa28b-fa… 61da65…    259028 &lt;dat…
+## 2 Gene Exp… 2018-11-30T04:4… dc0592cf… dc0592cf-5a… fe8b97…    256421 &lt;dat…
+## 3 Gene Exp… 2018-11-30T04:4… 73bcbb60… 73bcbb60-38… bde7dd…    253859 &lt;dat…
+## 4 Gene Exp… 2018-11-30T04:4… 2c6a02ee… 2c6a02ee-c8… eed6ce…    258278 &lt;dat…
+## 5 Gene Exp… 2018-11-30T04:4… f4a128be… f4a128be-69… aaad18…    259279 &lt;dat…
+## 6 Gene Exp… 2018-11-30T04:4… 05eb3daf… 05eb3daf-d3… 7d970a…    259031 &lt;dat…
+## # … with 10 more variables: id &lt;chr&gt;, created_datetime &lt;chr&gt;,
 ## #   md5sum &lt;chr&gt;, data_format &lt;chr&gt;, acl &lt;list&gt;, access &lt;chr&gt;,
 ## #   state &lt;chr&gt;, data_category &lt;chr&gt;, type &lt;chr&gt;,
 ## #   experimental_strategy &lt;chr&gt;</code></pre>
@@ -490,13 +490,13 @@ files will be used.</p>
                   })</code></pre>
 <p>Now, <code>fnames</code> should be a list of file names that can be read into and processed with R.</p>
 <pre class="r"><code>sessionInfo()</code></pre>
-<pre><code>## R version 3.5.1 (2018-07-02)
+<pre><code>## R Under development (unstable) (2019-01-14 r75992)
 ## Platform: x86_64-apple-darwin15.6.0 (64-bit)
-## Running under: macOS Sierra 10.12.6
+## Running under: macOS Mojave 10.14.2
 ## 
 ## Matrix products: default
-## BLAS: /Library/Frameworks/R.framework/Versions/3.5/Resources/lib/libRblas.0.dylib
-## LAPACK: /Library/Frameworks/R.framework/Versions/3.5/Resources/lib/libRlapack.dylib
+## BLAS: /Library/Frameworks/R.framework/Versions/3.6/Resources/lib/libRblas.0.dylib
+## LAPACK: /Library/Frameworks/R.framework/Versions/3.6/Resources/lib/libRlapack.dylib
 ## 
 ## locale:
 ## [1] en_US.UTF-8/en_US.UTF-8/en_US.UTF-8/C/en_US.UTF-8/en_US.UTF-8
@@ -505,40 +505,38 @@ files will be used.</p>
 ## [1] stats     graphics  grDevices utils     datasets  methods   base     
 ## 
 ## other attached packages:
-## [1] dplyr_0.7.7              GenomicDataCommons_1.4.3
+## [1] dplyr_0.7.8              GenomicDataCommons_1.7.3
 ## [3] magrittr_1.5            
 ## 
 ## loaded via a namespace (and not attached):
-##  [1] SummarizedExperiment_1.10.1 tidyselect_0.2.5           
-##  [3] xfun_0.3                    purrr_0.2.5                
-##  [5] lattice_0.20-35             htmltools_0.3.6            
-##  [7] stats4_3.5.1                yaml_2.2.0                 
-##  [9] utf8_1.1.4                  rlang_0.3.0.1              
-## [11] pillar_1.3.0                glue_1.3.0                 
-## [13] BiocParallel_1.14.2         rappdirs_0.3.1             
-## [15] BiocGenerics_0.26.0         bindrcpp_0.2.2             
-## [17] matrixStats_0.54.0          GenomeInfoDbData_1.1.0     
-## [19] bindr_0.1.1                 stringr_1.3.1              
-## [21] zlibbioc_1.26.0             blogdown_0.8               
-## [23] evaluate_0.12               Biobase_2.40.0             
-## [25] knitr_1.20                  IRanges_2.14.12            
-## [27] GenomeInfoDb_1.16.0         parallel_3.5.1             
-## [29] curl_3.2                    fansi_0.4.0                
-## [31] Rcpp_0.12.19                readr_1.1.1                
-## [33] backports_1.1.2             DelayedArray_0.6.6         
-## [35] S4Vectors_0.18.3            jsonlite_1.5               
-## [37] XVector_0.20.0              hms_0.4.2                  
-## [39] digest_0.6.18               stringi_1.2.4              
-## [41] bookdown_0.7                GenomicRanges_1.32.7       
-## [43] grid_3.5.1                  rprojroot_1.3-2            
-## [45] cli_1.0.1                   tools_3.5.1                
-## [47] bitops_1.0-6                RCurl_1.95-4.11            
-## [49] lazyeval_0.2.1              tibble_1.4.2               
-## [51] crayon_1.3.4                pkgconfig_2.0.2            
-## [53] Matrix_1.2-14               xml2_1.2.0                 
-## [55] assertthat_0.2.0            rmarkdown_1.10             
-## [57] httr_1.3.1                  R6_2.3.0                   
-## [59] compiler_3.5.1</code></pre>
+##  [1] Rcpp_1.0.0                  pillar_1.3.1               
+##  [3] compiler_3.6.0              GenomeInfoDb_1.19.1        
+##  [5] XVector_0.23.0              bindr_0.1.1                
+##  [7] bitops_1.0-6                tools_3.6.0                
+##  [9] zlibbioc_1.29.0             digest_0.6.18              
+## [11] jsonlite_1.6                tibble_2.0.1               
+## [13] evaluate_0.12               lattice_0.20-38            
+## [15] pkgconfig_2.0.2             rlang_0.3.1                
+## [17] Matrix_1.2-15               cli_1.0.1                  
+## [19] DelayedArray_0.9.6          curl_3.3                   
+## [21] yaml_2.2.0                  parallel_3.6.0             
+## [23] blogdown_0.10               xfun_0.4                   
+## [25] bindrcpp_0.2.2              GenomeInfoDbData_1.2.0     
+## [27] xml2_1.2.0                  httr_1.4.0                 
+## [29] stringr_1.3.1               knitr_1.21                 
+## [31] hms_0.4.2                   rappdirs_0.3.1             
+## [33] S4Vectors_0.21.10           IRanges_2.17.4             
+## [35] tidyselect_0.2.5            stats4_3.6.0               
+## [37] grid_3.6.0                  glue_1.3.0                 
+## [39] Biobase_2.43.1              R6_2.3.0                   
+## [41] fansi_0.4.0                 BiocParallel_1.17.6        
+## [43] rmarkdown_1.11              bookdown_0.9               
+## [45] readr_1.3.1                 purrr_0.2.5                
+## [47] htmltools_0.3.6             matrixStats_0.54.0         
+## [49] BiocGenerics_0.29.1         GenomicRanges_1.35.1       
+## [51] assertthat_0.2.0            SummarizedExperiment_1.13.0
+## [53] utf8_1.1.4                  stringi_1.2.4              
+## [55] RCurl_1.95-4.11             crayon_1.3.4</code></pre>
 </div>
 </div>
 

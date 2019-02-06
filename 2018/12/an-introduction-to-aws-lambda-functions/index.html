@@ -15,10 +15,19 @@
   
     
   
-  <meta name="description" content="One of the features of the NCI Genomic Data Commons is that everything has a unique identifier in the form of a UUID. However, because many legacy projects and much of the literature do not use UUIDs but instead use TCGA sample barcodes, one simple use case for the GenomicDataCommons package is to map from the UUID for a file or a set of files back to the associated TCGA barcode(s).">
+  <meta name="description" content="AWS lambda
+create need to zip up dependencies
+zip lambdas.zip lambda_handlers.py sra_parsers.py
+aws lambda create-function &ndash;function-name sra_to_json &ndash;zip-file fileb://lambdas.zip &ndash;handler lambda_handlers.lambda_return_full_experiment_json &ndash;runtime python3.6 &ndash;role arn:aws:iam::377200973048:role/lambda_s3_exec_role
+Invoke aws lambda invoke &ndash;function-name sra_to_json &ndash;log-type Tail &ndash;payload &lsquo;{&ldquo;accession&rdquo;:&ldquo;SRX000273&rdquo;}&rsquo; /tmp/abc.txt
+Concurrency 1000 total, reserve for certain functions to limit, etc.
+aws lambda put-function-concurrency &ndash;function-name sra_to_json &ndash;reserved-concurrent-executions 20
+timeout and memory aws lambda update-function-configuration &ndash;function-name sra_to_json &ndash;timeout 15
+logging https://github.com/jorgebastida/awslogs
+awslogs get /aws/lambda/sra_to_json ALL &ndash;watch">
 
   
-  <link rel="alternate" hreflang="en-us" href="/2017/12/genomicdatacommons-example-uuid-to-tcga-and-target-barcode-translation/">
+  <link rel="alternate" hreflang="en-us" href="/2018/12/an-introduction-to-aws-lambda-functions/">
 
   
 
@@ -100,7 +109,7 @@
   <link rel="icon" type="image/png" href="/img/icon.png">
   <link rel="apple-touch-icon" type="image/png" href="/img/icon-192.png">
 
-  <link rel="canonical" href="/2017/12/genomicdatacommons-example-uuid-to-tcga-and-target-barcode-translation/">
+  <link rel="canonical" href="/2018/12/an-introduction-to-aws-lambda-functions/">
 
   <meta property="twitter:card" content="summary_large_image">
   
@@ -108,25 +117,34 @@
   <meta property="twitter:creator" content="@seandavis12">
   
   <meta property="og:site_name" content="seandavi(s12)">
-  <meta property="og:url" content="/2017/12/genomicdatacommons-example-uuid-to-tcga-and-target-barcode-translation/">
-  <meta property="og:title" content="GenomicDataCommons Example: UUID to TCGA and TARGET Barcode Translation | seandavi(s12)">
-  <meta property="og:description" content="One of the features of the NCI Genomic Data Commons is that everything has a unique identifier in the form of a UUID. However, because many legacy projects and much of the literature do not use UUIDs but instead use TCGA sample barcodes, one simple use case for the GenomicDataCommons package is to map from the UUID for a file or a set of files back to the associated TCGA barcode(s).">
+  <meta property="og:url" content="/2018/12/an-introduction-to-aws-lambda-functions/">
+  <meta property="og:title" content="An introduction to AWS Lambda functions | seandavi(s12)">
+  <meta property="og:description" content="AWS lambda
+create need to zip up dependencies
+zip lambdas.zip lambda_handlers.py sra_parsers.py
+aws lambda create-function &ndash;function-name sra_to_json &ndash;zip-file fileb://lambdas.zip &ndash;handler lambda_handlers.lambda_return_full_experiment_json &ndash;runtime python3.6 &ndash;role arn:aws:iam::377200973048:role/lambda_s3_exec_role
+Invoke aws lambda invoke &ndash;function-name sra_to_json &ndash;log-type Tail &ndash;payload &lsquo;{&ldquo;accession&rdquo;:&ldquo;SRX000273&rdquo;}&rsquo; /tmp/abc.txt
+Concurrency 1000 total, reserve for certain functions to limit, etc.
+aws lambda put-function-concurrency &ndash;function-name sra_to_json &ndash;reserved-concurrent-executions 20
+timeout and memory aws lambda update-function-configuration &ndash;function-name sra_to_json &ndash;timeout 15
+logging https://github.com/jorgebastida/awslogs
+awslogs get /aws/lambda/sra_to_json ALL &ndash;watch">
   
   
     
   <meta property="og:image" content="/img/icon-192.png">
   <meta property="og:locale" content="en-us">
   
-  <meta property="article:published_time" content="2017-12-29T00:00:00&#43;00:00">
+  <meta property="article:published_time" content="2018-12-10T00:00:00&#43;00:00">
   
-  <meta property="article:modified_time" content="2018-11-03T11:28:09-04:00">
-  
-
+  <meta property="article:modified_time" content="2018-12-10T00:00:00&#43;00:00">
   
 
   
 
-  <title>GenomicDataCommons Example: UUID to TCGA and TARGET Barcode Translation | seandavi(s12)</title>
+  
+
+  <title>An introduction to AWS Lambda functions | seandavi(s12)</title>
 
 </head>
 <body id="top" data-spy="scroll" data-target="#TableOfContents" data-offset="71" >
@@ -279,7 +297,7 @@
   
   
 <div class="article-container pt-3">
-  <h1 itemprop="name">GenomicDataCommons Example: UUID to TCGA and TARGET Barcode Translation</h1>
+  <h1 itemprop="name">An introduction to AWS Lambda functions</h1>
 
   
 
@@ -297,11 +315,9 @@
 
   <span class="article-date">
     
-        Last updated on
-    
-    <meta content="2017-12-29 00:00:00 &#43;0000 UTC" itemprop="datePublished">
-    <time datetime="2018-11-03 11:28:09 -0400 EDT" itemprop="dateModified">
-      Sat, Nov 3, 2018
+    <meta content="2018-12-10 00:00:00 &#43;0000 UTC" itemprop="datePublished">
+    <time datetime="2018-12-10 00:00:00 &#43;0000 UTC" itemprop="dateModified">
+      Mon, Dec 10, 2018
     </time>
   </span>
   <span itemscope itemprop="publisher" itemtype="http://schema.org/Person">
@@ -311,16 +327,29 @@
   
   <span class="middot-divider"></span>
   <span class="article-reading-time">
-    3 min read
+    1 min read
   </span>
   
 
   
   
   <span class="middot-divider"></span>
-  <a href="/2017/12/genomicdatacommons-example-uuid-to-tcga-and-target-barcode-translation/#disqus_thread"></a>
+  <a href="/2018/12/an-introduction-to-aws-lambda-functions/#disqus_thread"></a>
   
 
+  
+  
+  
+  <span class="middot-divider"></span>
+  <span class="article-categories">
+    <i class="fas fa-folder"></i>
+    
+    <a href="/categories/notes/">Notes</a>, 
+    
+    <a href="/categories/it/">IT</a>
+    
+  </span>
+  
   
 
   
@@ -329,35 +358,35 @@
   <ul class="share">
     <li>
       <a class="twitter"
-         href="https://twitter.com/intent/tweet?text=GenomicDataCommons%20Example%3a%20UUID%20to%20TCGA%20and%20TARGET%20Barcode%20Translation&amp;url=%2f2017%2f12%2fgenomicdatacommons-example-uuid-to-tcga-and-target-barcode-translation%2f"
+         href="https://twitter.com/intent/tweet?text=An%20introduction%20to%20AWS%20Lambda%20functions&amp;url=%2f2018%2f12%2fan-introduction-to-aws-lambda-functions%2f"
          target="_blank" rel="noopener">
         <i class="fab fa-twitter"></i>
       </a>
     </li>
     <li>
       <a class="facebook"
-         href="https://www.facebook.com/sharer.php?u=%2f2017%2f12%2fgenomicdatacommons-example-uuid-to-tcga-and-target-barcode-translation%2f"
+         href="https://www.facebook.com/sharer.php?u=%2f2018%2f12%2fan-introduction-to-aws-lambda-functions%2f"
          target="_blank" rel="noopener">
         <i class="fab fa-facebook-f"></i>
       </a>
     </li>
     <li>
       <a class="linkedin"
-         href="https://www.linkedin.com/shareArticle?mini=true&amp;url=%2f2017%2f12%2fgenomicdatacommons-example-uuid-to-tcga-and-target-barcode-translation%2f&amp;title=GenomicDataCommons%20Example%3a%20UUID%20to%20TCGA%20and%20TARGET%20Barcode%20Translation"
+         href="https://www.linkedin.com/shareArticle?mini=true&amp;url=%2f2018%2f12%2fan-introduction-to-aws-lambda-functions%2f&amp;title=An%20introduction%20to%20AWS%20Lambda%20functions"
          target="_blank" rel="noopener">
         <i class="fab fa-linkedin-in"></i>
       </a>
     </li>
     <li>
       <a class="weibo"
-         href="http://service.weibo.com/share/share.php?url=%2f2017%2f12%2fgenomicdatacommons-example-uuid-to-tcga-and-target-barcode-translation%2f&amp;title=GenomicDataCommons%20Example%3a%20UUID%20to%20TCGA%20and%20TARGET%20Barcode%20Translation"
+         href="http://service.weibo.com/share/share.php?url=%2f2018%2f12%2fan-introduction-to-aws-lambda-functions%2f&amp;title=An%20introduction%20to%20AWS%20Lambda%20functions"
          target="_blank" rel="noopener">
         <i class="fab fa-weibo"></i>
       </a>
     </li>
     <li>
       <a class="email"
-         href="mailto:?subject=GenomicDataCommons%20Example%3a%20UUID%20to%20TCGA%20and%20TARGET%20Barcode%20Translation&amp;body=%2f2017%2f12%2fgenomicdatacommons-example-uuid-to-tcga-and-target-barcode-translation%2f">
+         href="mailto:?subject=An%20introduction%20to%20AWS%20Lambda%20functions&amp;body=%2f2018%2f12%2fan-introduction-to-aws-lambda-functions%2f">
         <i class="fas fa-envelope"></i>
       </a>
     </li>
@@ -379,83 +408,35 @@
     <div class="article-style" itemprop="articleBody">
       
 
+<p>AWS lambda</p>
 
-<p>One of the features of the NCI Genomic Data Commons is that
-<em>everything</em> has a unique identifier in the form of a <a href="https://en.wikipedia.org/wiki/Universally_unique_identifier">UUID</a>. However,
-because <em>many</em> legacy projects and much of the literature do not use
-UUIDs but instead use <a href="https://wiki.nci.nih.gov/display/TCGA/TCGA+barcode">TCGA sample barcodes</a>, one simple use case for the
-GenomicDataCommons package is to map from the UUID for a file or a set
-of files back to the associated TCGA barcode(s).</p>
-<p>Given a set of file ids (which I simulate here by fetching some from
-the GDC API), I build a small function that maps those file UUIDs back
-to the associated TCGA barcodes. Because the GDC also contains data
-from TARGET as well as Foundation Medicine, the same code will return
-associated legacy identifiers for those types of samples as well.</p>
-<p>Get started by loading the <a href="https://bioconductor.org/packages/GenomicDataCommons">GenomicDataCommons</a> library:</p>
-<pre class="r"><code>library(GenomicDataCommons)</code></pre>
-<p>Fetch some file IDs:</p>
-<pre class="r"><code>file_uuids = files() %&gt;% results(size=15) %&gt;% ids()
-head(file_uuids)</code></pre>
-<pre><code>## [1] &quot;440e9ec5-8e61-4f75-b1d1-616941d9456d&quot;
-## [2] &quot;978d124d-ae39-4fbb-9796-58babc948acb&quot;
-## [3] &quot;3b13b023-0325-4d6c-850f-0f5534f7d42b&quot;
-## [4] &quot;228f601c-b657-479b-bcf4-f25bb2c823e4&quot;
-## [5] &quot;b245bdab-a585-4a55-8fb3-d92e1d12fb6b&quot;
-## [6] &quot;25bcb389-4435-4365-a771-1e220086402f&quot;</code></pre>
-<p>The TCGA barcodes are nested in the file records, but we can access
-them in the <code>cases.samples.submitter_id</code>. The
-<code>available_fields</code> and <code>available_values</code> functions are useful
-GenomicDataCommons package functions for examining available fields
-and their associated values to find information of interest. Another
-common approach is to fetch all available fields and then examine the
-results using <code>str</code>.</p>
-<pre class="r"><code>fres = files() %&gt;%
-    select(available_fields(&#39;files&#39;)) %&gt;%
-    results()
-str(fres)</code></pre>
-<p>In the code below, I simply start with a <code>files()</code> query against the
-GenomicDataCommons API, filter to include only those files that match
-the supplied <code>file_ids</code>, and then gather the
-<code>cases.samples.submitter_id</code> and file UUIDs into a data frame. The
-most complicated (and fragile, since it will break if the GDC changes
-its data model) iw the lapply statement that accesses the barcodes in
-the nested results returned.</p>
-<pre class="r"><code>library(GenomicDataCommons)
-library(magrittr)
+<h1 id="create">create</h1>
 
-TCGAtranslateID = function(file_ids, legacy = FALSE) {
-    info = files(legacy = legacy) %&gt;%
-        filter( ~ file_id %in% file_ids) %&gt;%
-        select(&#39;cases.samples.submitter_id&#39;) %&gt;%
-        results_all()
-    # The mess of code below is to extract TCGA barcodes
-    # id_list will contain a list (one item for each file_id)
-    # of TCGA barcodes of the form &#39;TCGA-XX-YYYY-ZZZ&#39;
-    id_list = lapply(info$cases,function(a) {
-        a[[1]][[1]][[1]]})
-    # so we can later expand to a data.frame of the right size
-    barcodes_per_file = sapply(id_list,length)
-    # And build the data.frame
-    return(data.frame(file_id = rep(ids(info),barcodes_per_file),
-                      submitter_id = unlist(id_list)))
-    }</code></pre>
-<p>Now, we can translate our example <code>file_uuids</code>:</p>
-<pre class="r"><code>res = TCGAtranslateID(file_uuids)</code></pre>
-<pre class="r"><code>head(res)</code></pre>
-<pre><code>##                                file_id     submitter_id
-## 1 440e9ec5-8e61-4f75-b1d1-616941d9456d TCGA-24-1467-01A
-## 2 978d124d-ae39-4fbb-9796-58babc948acb TCGA-13-1496-10A
-## 3 978d124d-ae39-4fbb-9796-58babc948acb TCGA-13-1496-01A
-## 4 3b13b023-0325-4d6c-850f-0f5534f7d42b TCGA-13-0908-10A
-## 5 228f601c-b657-479b-bcf4-f25bb2c823e4 TCGA-61-2097-01A
-## 6 b245bdab-a585-4a55-8fb3-d92e1d12fb6b TCGA-61-1998-10A</code></pre>
-<p>This little function is a bit “niche”, but it does illustrate how one
-can leverage GenomicDataCommons package functionality to create useful
-higher-level functionality like ID mapping.</p>
-<ul>
-<li>EDIT [01-02-2018]: Added <code>legacy</code> flag to function to allow mapping
-of legacy file UUIDs. See <a href="http://disq.us/p/1ozinq7">comment below</a> for rationale.</li>
-</ul>
+<p>need to zip up dependencies</p>
+
+<p>zip lambdas.zip lambda_handlers.py sra_parsers.py</p>
+
+<p>aws lambda create-function &ndash;function-name sra_to_json &ndash;zip-file fileb://lambdas.zip &ndash;handler lambda_handlers.lambda_return_full_experiment_json &ndash;runtime python3.6 &ndash;role arn:aws:iam::377200973048:role/lambda_s3_exec_role</p>
+
+<h1 id="invoke">Invoke</h1>
+
+<p>aws lambda invoke &ndash;function-name sra_to_json &ndash;log-type Tail &ndash;payload &lsquo;{&ldquo;accession&rdquo;:&ldquo;SRX000273&rdquo;}&rsquo; /tmp/abc.txt</p>
+
+<h1 id="concurrency">Concurrency</h1>
+
+<p>1000 total, reserve for certain functions to limit, etc.</p>
+
+<p>aws lambda put-function-concurrency &ndash;function-name sra_to_json &ndash;reserved-concurrent-executions 20</p>
+
+<h1 id="timeout-and-memory">timeout and memory</h1>
+
+<p>aws lambda update-function-configuration &ndash;function-name sra_to_json &ndash;timeout 15</p>
+
+<h1 id="logging">logging</h1>
+
+<p><a href="https://github.com/jorgebastida/awslogs" target="_blank">https://github.com/jorgebastida/awslogs</a></p>
+
+<p>awslogs get /aws/lambda/sra_to_json ALL &ndash;watch</p>
 
     </div>
 
@@ -464,13 +445,13 @@ of legacy file UUIDs. See <a href="http://disq.us/p/1ozinq7">comment below</a> f
 
 <div class="article-tags">
   
-  <a class="badge badge-light" href="/tags/cancer-informatics/">cancer informatics</a>
+  <a class="badge badge-light" href="/tags/cloud/">cloud</a>
   
-  <a class="badge badge-light" href="/tags/bioinformatics/">bioinformatics</a>
+  <a class="badge badge-light" href="/tags/it/">IT</a>
   
-  <a class="badge badge-light" href="/tags/open-data/">open data</a>
+  <a class="badge badge-light" href="/tags/aws/">AWS</a>
   
-  <a class="badge badge-light" href="/tags/tcga/">TCGA</a>
+  <a class="badge badge-light" href="/tags/lambda/">lambda</a>
   
 </div>
 
@@ -564,6 +545,20 @@ of legacy file UUIDs. See <a href="http://disq.us/p/1ozinq7">comment below</a> f
 
 
     
+    
+    <div class="article-widget">
+      <div class="hr-light"></div>
+      <h3>Related</h3>
+      <ul>
+        
+        <li><a href="/2018/07/infrastructure-as-code-building-the-bioconductor-conference-ami-with-packer/">Infrastructure-as-Code: Building the Bioconductor Conference AMI With Packer</a></li>
+        
+        <li><a href="/2018/02/create-a-basic-apache-spark-cluster-in-the-cloud-in-5-minutes/">Create a basic Apache Spark cluster in the cloud (in 5 minutes)</a></li>
+        
+        <li><a href="/2017/12/protect-against-secrets-in-git-repositories/">Protect Against Secrets in Git Repositories</a></li>
+        
+      </ul>
+    </div>
     
 
     

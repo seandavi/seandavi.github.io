@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>lambda on seandavi(s12)</title>
+    <link>/tags/lambda/</link>
+    <description>Recent content in lambda on seandavi(s12)</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>&amp;copy; 2018</copyright>
+    <lastBuildDate>Mon, 10 Dec 2018 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="/tags/lambda/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>An introduction to AWS Lambda functions</title>
+      <link>/2018/12/an-introduction-to-aws-lambda-functions/</link>
+      <pubDate>Mon, 10 Dec 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/2018/12/an-introduction-to-aws-lambda-functions/</guid>
+      <description>AWS lambda
+create need to zip up dependencies
+zip lambdas.zip lambda_handlers.py sra_parsers.py
+aws lambda create-function &amp;ndash;function-name sra_to_json &amp;ndash;zip-file fileb://lambdas.zip &amp;ndash;handler lambda_handlers.lambda_return_full_experiment_json &amp;ndash;runtime python3.6 &amp;ndash;role arn:aws:iam::377200973048:role/lambda_s3_exec_role
+Invoke aws lambda invoke &amp;ndash;function-name sra_to_json &amp;ndash;log-type Tail &amp;ndash;payload &amp;lsquo;{&amp;ldquo;accession&amp;rdquo;:&amp;ldquo;SRX000273&amp;rdquo;}&amp;rsquo; /tmp/abc.txt
+Concurrency 1000 total, reserve for certain functions to limit, etc.
+aws lambda put-function-concurrency &amp;ndash;function-name sra_to_json &amp;ndash;reserved-concurrent-executions 20
+timeout and memory aws lambda update-function-configuration &amp;ndash;function-name sra_to_json &amp;ndash;timeout 15
+logging https://github.com/jorgebastida/awslogs
+awslogs get /aws/lambda/sra_to_json ALL &amp;ndash;watch</description>
+    </item>
+    
+  </channel>
+</rss>

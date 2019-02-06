@@ -15,10 +15,13 @@
   
     
   
-  <meta name="description" content="One of the features of the NCI Genomic Data Commons is that everything has a unique identifier in the form of a UUID. However, because many legacy projects and much of the literature do not use UUIDs but instead use TCGA sample barcodes, one simple use case for the GenomicDataCommons package is to map from the UUID for a file or a set of files back to the associated TCGA barcode(s).">
+  <meta name="description" content="I recently got burned by inadvertently committing
+secrets to a github repository. This post just outlines 
+one potential solution to avoiding repeating that experience.
+">
 
   
-  <link rel="alternate" hreflang="en-us" href="/2017/12/genomicdatacommons-example-uuid-to-tcga-and-target-barcode-translation/">
+  <link rel="alternate" hreflang="en-us" href="/2017/12/protect-against-secrets-in-git-repositories/">
 
   
 
@@ -100,7 +103,7 @@
   <link rel="icon" type="image/png" href="/img/icon.png">
   <link rel="apple-touch-icon" type="image/png" href="/img/icon-192.png">
 
-  <link rel="canonical" href="/2017/12/genomicdatacommons-example-uuid-to-tcga-and-target-barcode-translation/">
+  <link rel="canonical" href="/2017/12/protect-against-secrets-in-git-repositories/">
 
   <meta property="twitter:card" content="summary_large_image">
   
@@ -108,25 +111,28 @@
   <meta property="twitter:creator" content="@seandavis12">
   
   <meta property="og:site_name" content="seandavi(s12)">
-  <meta property="og:url" content="/2017/12/genomicdatacommons-example-uuid-to-tcga-and-target-barcode-translation/">
-  <meta property="og:title" content="GenomicDataCommons Example: UUID to TCGA and TARGET Barcode Translation | seandavi(s12)">
-  <meta property="og:description" content="One of the features of the NCI Genomic Data Commons is that everything has a unique identifier in the form of a UUID. However, because many legacy projects and much of the literature do not use UUIDs but instead use TCGA sample barcodes, one simple use case for the GenomicDataCommons package is to map from the UUID for a file or a set of files back to the associated TCGA barcode(s).">
+  <meta property="og:url" content="/2017/12/protect-against-secrets-in-git-repositories/">
+  <meta property="og:title" content="Protect Against Secrets in Git Repositories | seandavi(s12)">
+  <meta property="og:description" content="I recently got burned by inadvertently committing
+secrets to a github repository. This post just outlines 
+one potential solution to avoiding repeating that experience.
+">
   
   
     
   <meta property="og:image" content="/img/icon-192.png">
   <meta property="og:locale" content="en-us">
   
-  <meta property="article:published_time" content="2017-12-29T00:00:00&#43;00:00">
+  <meta property="article:published_time" content="2017-12-02T07:50:15-05:00">
   
-  <meta property="article:modified_time" content="2018-11-03T11:28:09-04:00">
-  
-
+  <meta property="article:modified_time" content="2018-12-08T12:13:57-05:00">
   
 
   
 
-  <title>GenomicDataCommons Example: UUID to TCGA and TARGET Barcode Translation | seandavi(s12)</title>
+  
+
+  <title>Protect Against Secrets in Git Repositories | seandavi(s12)</title>
 
 </head>
 <body id="top" data-spy="scroll" data-target="#TableOfContents" data-offset="71" >
@@ -279,7 +285,7 @@
   
   
 <div class="article-container pt-3">
-  <h1 itemprop="name">GenomicDataCommons Example: UUID to TCGA and TARGET Barcode Translation</h1>
+  <h1 itemprop="name">Protect Against Secrets in Git Repositories</h1>
 
   
 
@@ -299,9 +305,9 @@
     
         Last updated on
     
-    <meta content="2017-12-29 00:00:00 &#43;0000 UTC" itemprop="datePublished">
-    <time datetime="2018-11-03 11:28:09 -0400 EDT" itemprop="dateModified">
-      Sat, Nov 3, 2018
+    <meta content="2017-12-02 07:50:15 -0500 EST" itemprop="datePublished">
+    <time datetime="2018-12-08 12:13:57 -0500 EST" itemprop="dateModified">
+      Sat, Dec 8, 2018
     </time>
   </span>
   <span itemscope itemprop="publisher" itemtype="http://schema.org/Person">
@@ -311,16 +317,27 @@
   
   <span class="middot-divider"></span>
   <span class="article-reading-time">
-    3 min read
+    5 min read
   </span>
   
 
   
   
   <span class="middot-divider"></span>
-  <a href="/2017/12/genomicdatacommons-example-uuid-to-tcga-and-target-barcode-translation/#disqus_thread"></a>
+  <a href="/2017/12/protect-against-secrets-in-git-repositories/#disqus_thread"></a>
   
 
+  
+  
+  
+  <span class="middot-divider"></span>
+  <span class="article-categories">
+    <i class="fas fa-folder"></i>
+    
+    <a href="/categories/notes/">Notes</a>
+    
+  </span>
+  
   
 
   
@@ -329,35 +346,35 @@
   <ul class="share">
     <li>
       <a class="twitter"
-         href="https://twitter.com/intent/tweet?text=GenomicDataCommons%20Example%3a%20UUID%20to%20TCGA%20and%20TARGET%20Barcode%20Translation&amp;url=%2f2017%2f12%2fgenomicdatacommons-example-uuid-to-tcga-and-target-barcode-translation%2f"
+         href="https://twitter.com/intent/tweet?text=Protect%20Against%20Secrets%20in%20Git%20Repositories&amp;url=%2f2017%2f12%2fprotect-against-secrets-in-git-repositories%2f"
          target="_blank" rel="noopener">
         <i class="fab fa-twitter"></i>
       </a>
     </li>
     <li>
       <a class="facebook"
-         href="https://www.facebook.com/sharer.php?u=%2f2017%2f12%2fgenomicdatacommons-example-uuid-to-tcga-and-target-barcode-translation%2f"
+         href="https://www.facebook.com/sharer.php?u=%2f2017%2f12%2fprotect-against-secrets-in-git-repositories%2f"
          target="_blank" rel="noopener">
         <i class="fab fa-facebook-f"></i>
       </a>
     </li>
     <li>
       <a class="linkedin"
-         href="https://www.linkedin.com/shareArticle?mini=true&amp;url=%2f2017%2f12%2fgenomicdatacommons-example-uuid-to-tcga-and-target-barcode-translation%2f&amp;title=GenomicDataCommons%20Example%3a%20UUID%20to%20TCGA%20and%20TARGET%20Barcode%20Translation"
+         href="https://www.linkedin.com/shareArticle?mini=true&amp;url=%2f2017%2f12%2fprotect-against-secrets-in-git-repositories%2f&amp;title=Protect%20Against%20Secrets%20in%20Git%20Repositories"
          target="_blank" rel="noopener">
         <i class="fab fa-linkedin-in"></i>
       </a>
     </li>
     <li>
       <a class="weibo"
-         href="http://service.weibo.com/share/share.php?url=%2f2017%2f12%2fgenomicdatacommons-example-uuid-to-tcga-and-target-barcode-translation%2f&amp;title=GenomicDataCommons%20Example%3a%20UUID%20to%20TCGA%20and%20TARGET%20Barcode%20Translation"
+         href="http://service.weibo.com/share/share.php?url=%2f2017%2f12%2fprotect-against-secrets-in-git-repositories%2f&amp;title=Protect%20Against%20Secrets%20in%20Git%20Repositories"
          target="_blank" rel="noopener">
         <i class="fab fa-weibo"></i>
       </a>
     </li>
     <li>
       <a class="email"
-         href="mailto:?subject=GenomicDataCommons%20Example%3a%20UUID%20to%20TCGA%20and%20TARGET%20Barcode%20Translation&amp;body=%2f2017%2f12%2fgenomicdatacommons-example-uuid-to-tcga-and-target-barcode-translation%2f">
+         href="mailto:?subject=Protect%20Against%20Secrets%20in%20Git%20Repositories&amp;body=%2f2017%2f12%2fprotect-against-secrets-in-git-repositories%2f">
         <i class="fas fa-envelope"></i>
       </a>
     </li>
@@ -379,82 +396,179 @@
     <div class="article-style" itemprop="articleBody">
       
 
+<p>I made a mistake and am going to share it here. Please be gentle when
+judging me. As penance, I spent some time to learn how to
+systematically avoid making the same mistake and share that solution
+here.</p>
 
-<p>One of the features of the NCI Genomic Data Commons is that
-<em>everything</em> has a unique identifier in the form of a <a href="https://en.wikipedia.org/wiki/Universally_unique_identifier">UUID</a>. However,
-because <em>many</em> legacy projects and much of the literature do not use
-UUIDs but instead use <a href="https://wiki.nci.nih.gov/display/TCGA/TCGA+barcode">TCGA sample barcodes</a>, one simple use case for the
-GenomicDataCommons package is to map from the UUID for a file or a set
-of files back to the associated TCGA barcode(s).</p>
-<p>Given a set of file ids (which I simulate here by fetching some from
-the GDC API), I build a small function that maps those file UUIDs back
-to the associated TCGA barcodes. Because the GDC also contains data
-from TARGET as well as Foundation Medicine, the same code will return
-associated legacy identifiers for those types of samples as well.</p>
-<p>Get started by loading the <a href="https://bioconductor.org/packages/GenomicDataCommons">GenomicDataCommons</a> library:</p>
-<pre class="r"><code>library(GenomicDataCommons)</code></pre>
-<p>Fetch some file IDs:</p>
-<pre class="r"><code>file_uuids = files() %&gt;% results(size=15) %&gt;% ids()
-head(file_uuids)</code></pre>
-<pre><code>## [1] &quot;440e9ec5-8e61-4f75-b1d1-616941d9456d&quot;
-## [2] &quot;978d124d-ae39-4fbb-9796-58babc948acb&quot;
-## [3] &quot;3b13b023-0325-4d6c-850f-0f5534f7d42b&quot;
-## [4] &quot;228f601c-b657-479b-bcf4-f25bb2c823e4&quot;
-## [5] &quot;b245bdab-a585-4a55-8fb3-d92e1d12fb6b&quot;
-## [6] &quot;25bcb389-4435-4365-a771-1e220086402f&quot;</code></pre>
-<p>The TCGA barcodes are nested in the file records, but we can access
-them in the <code>cases.samples.submitter_id</code>. The
-<code>available_fields</code> and <code>available_values</code> functions are useful
-GenomicDataCommons package functions for examining available fields
-and their associated values to find information of interest. Another
-common approach is to fetch all available fields and then examine the
-results using <code>str</code>.</p>
-<pre class="r"><code>fres = files() %&gt;%
-    select(available_fields(&#39;files&#39;)) %&gt;%
-    results()
-str(fres)</code></pre>
-<p>In the code below, I simply start with a <code>files()</code> query against the
-GenomicDataCommons API, filter to include only those files that match
-the supplied <code>file_ids</code>, and then gather the
-<code>cases.samples.submitter_id</code> and file UUIDs into a data frame. The
-most complicated (and fragile, since it will break if the GDC changes
-its data model) iw the lapply statement that accesses the barcodes in
-the nested results returned.</p>
-<pre class="r"><code>library(GenomicDataCommons)
-library(magrittr)
+<h2 id="the-prelude">The prelude</h2>
 
-TCGAtranslateID = function(file_ids, legacy = FALSE) {
-    info = files(legacy = legacy) %&gt;%
-        filter( ~ file_id %in% file_ids) %&gt;%
-        select(&#39;cases.samples.submitter_id&#39;) %&gt;%
-        results_all()
-    # The mess of code below is to extract TCGA barcodes
-    # id_list will contain a list (one item for each file_id)
-    # of TCGA barcodes of the form &#39;TCGA-XX-YYYY-ZZZ&#39;
-    id_list = lapply(info$cases,function(a) {
-        a[[1]][[1]][[1]]})
-    # so we can later expand to a data.frame of the right size
-    barcodes_per_file = sapply(id_list,length)
-    # And build the data.frame
-    return(data.frame(file_id = rep(ids(info),barcodes_per_file),
-                      submitter_id = unlist(id_list)))
-    }</code></pre>
-<p>Now, we can translate our example <code>file_uuids</code>:</p>
-<pre class="r"><code>res = TCGAtranslateID(file_uuids)</code></pre>
-<pre class="r"><code>head(res)</code></pre>
-<pre><code>##                                file_id     submitter_id
-## 1 440e9ec5-8e61-4f75-b1d1-616941d9456d TCGA-24-1467-01A
-## 2 978d124d-ae39-4fbb-9796-58babc948acb TCGA-13-1496-10A
-## 3 978d124d-ae39-4fbb-9796-58babc948acb TCGA-13-1496-01A
-## 4 3b13b023-0325-4d6c-850f-0f5534f7d42b TCGA-13-0908-10A
-## 5 228f601c-b657-479b-bcf4-f25bb2c823e4 TCGA-61-2097-01A
-## 6 b245bdab-a585-4a55-8fb3-d92e1d12fb6b TCGA-61-1998-10A</code></pre>
-<p>This little function is a bit “niche”, but it does illustrate how one
-can leverage GenomicDataCommons package functionality to create useful
-higher-level functionality like ID mapping.</p>
+<p>I had been working on some code that I thought was
+going to be throw-away example code for loading a large dataset into
+<a href="https://elastic.co/" target="_blank">ElasticSearch</a>. That said, I have been saved often enough by using a
+version control system (now, <em>always</em> <a href="https://git-scm.com/" target="_blank">git</a>), that I use it all the
+time. &ldquo;Knowing&rdquo; that this code would never be shared, I was careless
+and included my [Amazon Web Service (AWS)] [keys] in the code while I sorted out whether
+[logstash] would pick up the keys from a central config file. At some
+point, I committed the file that included the keys to git. As these
+things go, several days passed and I found that I had a useful project
+worthy of a push to github. No keys
+present in the code, etc.&ndash;I checked.</p>
+
+<p>Within minutes (or maybe it was an hour&ndash;not sure) of when I pushed the code
+to github, I got an email from <a href="https://aws.amazon.com/" target="_blank">AWS</a> that, paraphrased, read:</p>
+
+<blockquote>
+<p>&ldquo;We have
+found your AWS keys in a github repository. Please fix
+the problem and <strong>DON&rsquo;T DO THAT AGAIN</strong>.&rdquo;</p>
+</blockquote>
+
+<p>Almost immediately after, I
+got another email from AWS thanking me for deleting my keys. AWS
+apparently scans GitHub repositories for AWS keys and has a system (I
+suspect somewhat automated) for removing the exposed keys. I deleted
+the GitHub repo and did some local checking and, in
+retrospect, realized my mistake. Git had dutifully saved the entire
+history of my project including a version of one file with AWS keys in
+it. Upon pushing to GitHub, the keys were there in the history. I
+breathed a sigh of relief that no harm had been done.</p>
+
+<p>Thankfully, I use AWS often. I logged in the next day and found that I
+had about 100 servers running, in many different regions even, that I
+hadn&rsquo;t started. In the short period of time that the keys had been
+exposed, someone had been able to create two ssh keypairs and started
+the machines. Needless to say, I spent quite a bit of time working to
+clean up any instances and to remove keys, etc. that could have been
+exposed (all of them, of course). The speed with which someone was
+able to capitalize on my mistake was simply astonishing to me. That
+said, I do want to hand it to the AWS folks who take a proactive role
+in protecting my account security.</p>
+
+<h2 id="don-t-do-that-again">Don&rsquo;t do that again</h2>
+
+<p>While I probably will not forget to check my code for &ldquo;secrets&rdquo; again
+anytime soon, I started to look into ways to systematically check and
+then preempt such occurrences. Ironically (or not), the folks at <a href="https://github.com/awslabs" target="_blank">AWS
+Labs</a> have created a nice little project called <a href="https://github.com/awslabs/git-secrets" target="_blank">git-secrets</a> that
+purports to:</p>
+
+<blockquote>
+<p>Prevent you from committing secrets and credentials into git repositories</p>
+</blockquote>
+
+<p>And in more detail:</p>
+
+<blockquote>
+<p><code>git-secrets</code> scans commits, commit messages, and <code>--no-ff</code> merges
+to prevent adding secrets into your git repositories. If a commit,
+commit message, or any commit in a <code>--no-ff</code> merge history matches
+one of your configured prohibited regular expression patterns, then
+the commit is rejected.</p>
+</blockquote>
+
+<p>In other words, <em>prevent</em> keys and secrets from <em>ever</em> entering the git history.</p>
+
+<h2 id="example-walkthrough-with-git-secrets">Example walkthrough with git-secrets</h2>
+
+<p>In this section, I just document for myself what it takes to get and
+use <code>git-secrets</code> to protect a repository from inadvertently
+committing keys to a git repository.</p>
+
+<p><a href="https://github.com/awslabs/git-secrets#installing-git-secrets" target="_blank">Installation instructions</a> include both simple <code>Makefile</code>-based installation or using <a href="https://brew.sh/" target="_blank">homebrew</a> on my Mac.</p>
+
+<pre><code class="language-sh">brew install git-secrets
+</code></pre>
+
+<p>At this point, the <code>git-secrets</code> executable should be in the
+<code>PATH</code>. In typical git style, one can use either <code>git-secrets</code> or <code>git
+secrets</code> to access functionality.</p>
+
+<p>To play, I create a simple git repo and &ldquo;install&rdquo; the <code>git-secrets</code>
+<a href="https://git-scm.com/book/gr/v2/Customizing-Git-Git-Hooks" target="_blank">git hooks</a>. Before any commit can succeed, these hook
+scripts must exit successfully.</p>
+
+<pre><code class="language-sh"># create an example git repo
+mkdir secrets_example
+cd secrets_example
+git init
+# now &quot;install&quot; the git-secrets hook
+git secrets --install
+</code></pre>
+
+<p>And the result:</p>
+
+<pre><code class="language-sh">Installed commit-msg hook to .git/hooks/commit-msg
+Installed pre-commmit hook to .git/hooks/pre-commit
+Installed prepare-commit-msg hook to .git/hooks/prepare-commit-msg
+</code></pre>
+
+<p>At this point, the <code>secrets_example</code> git repository has been created
+and the <code>git-secrets</code> pre-commit hook added. However, <code>git-secrets</code>
+needs to be told about what secrets to look for. We can check what
+<code>git-secrets</code> thinks is a secret.</p>
+
+<pre><code class="language-sh">git secrets --list
+</code></pre>
+
+<p>This will return &ldquo;nothing&rdquo; at this poing. In my case, I want to
+have <code>git-secrets</code> check for AWS keys. <code>git-secrets</code> has a special
+function for doing just that</p>
+
+<pre><code class="language-sh">git secrets --register-aws
+git secrets --list
+</code></pre>
+
+<p>And now the result:</p>
+
+<pre><code class="language-sh">secrets.providers git secrets --aws-provider
+secrets.patterns [A-Z0-9]{20}
+secrets.patterns (&quot;|')?(AWS|aws|Aws)?_?(SECRET|secret|Secret)?_?(ACCESS|access|Access)?_?(KEY|key|Key)(&quot;|')?\s*(:|=&gt;|=)\s*(&quot;|')?[A-Za-z0-9/\+=]{40}(&quot;|')?
+secrets.patterns (&quot;|')?(AWS|aws|Aws)?_?(ACCOUNT|account|Account)_?(ID|id|Id)?(&quot;|')?\s*(:|=&gt;|=)\s*(&quot;|')?[0-9]{4}\-?[0-9]{4}\-?[0-9]{4}(&quot;|')?
+secrets.allowed AKIAIOSFODNN7EXAMPLE
+secrets.allowed wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY
+</code></pre>
+
+<p><code>git-secrets</code> has added a set of patterns (regular expressions) that
+will be matched against text before a commit can succeed. Adding a
+specific pattern for another password is also straightford.</p>
+
+<pre><code class="language-sh">git secrets --add 'MyPASSWORD[0-9]+'
+</code></pre>
+
+<p>Trying to commit a file with <code>MyPASSWORD123</code> fails.</p>
+
+<pre><code class="language-sh">echo 'MyPASSWORD123' &gt;&gt; test.file
+git add test.file
+git commit -m 'test file with password'
+</code></pre>
+
+<p>And the output</p>
+
+<pre><code class="language-sh">test.file:1:MyPASSWORD123
+
+[ERROR] Matched one or more prohibited patterns
+
+Possible mitigations:
+- Mark false positives as allowed using: git config --add secrets.allowed ...
+- Mark false positives as allowed by adding regular expressions to .gitallowed at repository's root directory
+- List your configured patterns: git config --get-all secrets.patterns
+- List your configured allowed patterns: git config --get-all secrets.allowed
+- List your configured allowed patterns in .gitallowed at repository's root directory
+- Use --no-verify if this is a one-time false positive
+</code></pre>
+
+<p><code>git-secrets</code> has a number of other <a href="https://github.com/awslabs/git-secrets#options" target="_blank">features and functions</a>, but the
+walkthrough above is enought to get me started.</p>
+
+<h2 id="additional-links">Additional links</h2>
+
 <ul>
-<li>EDIT [01-02-2018]: Added <code>legacy</code> flag to function to allow mapping
-of legacy file UUIDs. See <a href="http://disq.us/p/1ozinq7">comment below</a> for rationale.</li>
+<li><a href="https://console.aws.amazon.com/cloudwatch/home" target="_blank">Cloudwatch alarms</a> can be set to alert you about spending above a
+threshold.</li>
+<li>The ironically-named <a href="https://github.com/michenriksen/gitrob" target="_blank">gitrob tool</a> can scan existing GitHub repositories</li>
+<li><a href="http://docs.aws.amazon.com/general/latest/gr/aws-access-keys-best-practices.html" target="_blank">AWS access keys best practices</a></li>
+<li>Follow the principle of <a href="http://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html#grant-least-privilege" target="_blank">least privileges</a> on cloud accounts</li>
 </ul>
 
     </div>
@@ -464,13 +578,15 @@ of legacy file UUIDs. See <a href="http://disq.us/p/1ozinq7">comment below</a> f
 
 <div class="article-tags">
   
-  <a class="badge badge-light" href="/tags/cancer-informatics/">cancer informatics</a>
+  <a class="badge badge-light" href="/tags/security/">security</a>
   
-  <a class="badge badge-light" href="/tags/bioinformatics/">bioinformatics</a>
+  <a class="badge badge-light" href="/tags/git/">git</a>
   
-  <a class="badge badge-light" href="/tags/open-data/">open data</a>
+  <a class="badge badge-light" href="/tags/programming/">programming</a>
   
-  <a class="badge badge-light" href="/tags/tcga/">TCGA</a>
+  <a class="badge badge-light" href="/tags/aws/">aws</a>
+  
+  <a class="badge badge-light" href="/tags/cloud/">cloud</a>
   
 </div>
 

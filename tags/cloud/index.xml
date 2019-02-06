@@ -22,5 +22,15 @@
 In addition to the Rmarkdown workshop materials, we also need a consistent computing environment that can support reasonably large computation, provide high-performance network and file system access, and is essentially unlimited in scale (we expect to have &amp;gt;150 participants, each with his/her own machine).</description>
     </item>
     
+    <item>
+      <title>Protect Against Secrets in Git Repositories</title>
+      <link>/2017/12/protect-against-secrets-in-git-repositories/</link>
+      <pubDate>Sat, 02 Dec 2017 07:50:15 -0500</pubDate>
+      
+      <guid>/2017/12/protect-against-secrets-in-git-repositories/</guid>
+      <description>I made a mistake and am going to share it here. Please be gentle when judging me. As penance, I spent some time to learn how to systematically avoid making the same mistake and share that solution here.
+The prelude I had been working on some code that I thought was going to be throw-away example code for loading a large dataset into ElasticSearch. That said, I have been saved often enough by using a version control system (now, always git), that I use it all the time.</description>
+    </item>
+    
   </channel>
 </rss>

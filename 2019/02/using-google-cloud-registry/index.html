@@ -15,10 +15,11 @@
   
     
   
-  <meta name="description" content="One of the features of the NCI Genomic Data Commons is that everything has a unique identifier in the form of a UUID. However, because many legacy projects and much of the literature do not use UUIDs but instead use TCGA sample barcodes, one simple use case for the GenomicDataCommons package is to map from the UUID for a file or a set of files back to the associated TCGA barcode(s).">
+  <meta name="description" content="Background Container technologies like [docker] enable quick and easy encapsulation of software, dependencies, and operating systems. One or more containers can render entire software ecosystems portable, enhance reproducibility and reusability, and facilitate sharing of software, tools, and even infrastructure.
+While DockerHub is perhaps the most well-known registry where such docker images can be housed, others such as quay.io are also available. Commercial cloud environments, such as the Google Cloud Platform often offer their own registries that use the same secure access controls as other cloud services.">
 
   
-  <link rel="alternate" hreflang="en-us" href="/2017/12/genomicdatacommons-example-uuid-to-tcga-and-target-barcode-translation/">
+  <link rel="alternate" hreflang="en-us" href="/2019/02/using-google-cloud-registry/">
 
   
 
@@ -100,7 +101,7 @@
   <link rel="icon" type="image/png" href="/img/icon.png">
   <link rel="apple-touch-icon" type="image/png" href="/img/icon-192.png">
 
-  <link rel="canonical" href="/2017/12/genomicdatacommons-example-uuid-to-tcga-and-target-barcode-translation/">
+  <link rel="canonical" href="/2019/02/using-google-cloud-registry/">
 
   <meta property="twitter:card" content="summary_large_image">
   
@@ -108,25 +109,26 @@
   <meta property="twitter:creator" content="@seandavis12">
   
   <meta property="og:site_name" content="seandavi(s12)">
-  <meta property="og:url" content="/2017/12/genomicdatacommons-example-uuid-to-tcga-and-target-barcode-translation/">
-  <meta property="og:title" content="GenomicDataCommons Example: UUID to TCGA and TARGET Barcode Translation | seandavi(s12)">
-  <meta property="og:description" content="One of the features of the NCI Genomic Data Commons is that everything has a unique identifier in the form of a UUID. However, because many legacy projects and much of the literature do not use UUIDs but instead use TCGA sample barcodes, one simple use case for the GenomicDataCommons package is to map from the UUID for a file or a set of files back to the associated TCGA barcode(s).">
+  <meta property="og:url" content="/2019/02/using-google-cloud-registry/">
+  <meta property="og:title" content="Using Google Cloud Registry | seandavi(s12)">
+  <meta property="og:description" content="Background Container technologies like [docker] enable quick and easy encapsulation of software, dependencies, and operating systems. One or more containers can render entire software ecosystems portable, enhance reproducibility and reusability, and facilitate sharing of software, tools, and even infrastructure.
+While DockerHub is perhaps the most well-known registry where such docker images can be housed, others such as quay.io are also available. Commercial cloud environments, such as the Google Cloud Platform often offer their own registries that use the same secure access controls as other cloud services.">
   
   
     
   <meta property="og:image" content="/img/icon-192.png">
   <meta property="og:locale" content="en-us">
   
-  <meta property="article:published_time" content="2017-12-29T00:00:00&#43;00:00">
+  <meta property="article:published_time" content="2019-02-06T13:12:54-05:00">
   
-  <meta property="article:modified_time" content="2018-11-03T11:28:09-04:00">
-  
-
+  <meta property="article:modified_time" content="2019-02-06T13:12:54-05:00">
   
 
   
 
-  <title>GenomicDataCommons Example: UUID to TCGA and TARGET Barcode Translation | seandavi(s12)</title>
+  
+
+  <title>Using Google Cloud Registry | seandavi(s12)</title>
 
 </head>
 <body id="top" data-spy="scroll" data-target="#TableOfContents" data-offset="71" >
@@ -279,7 +281,7 @@
   
   
 <div class="article-container pt-3">
-  <h1 itemprop="name">GenomicDataCommons Example: UUID to TCGA and TARGET Barcode Translation</h1>
+  <h1 itemprop="name">Using Google Cloud Registry</h1>
 
   
 
@@ -297,11 +299,9 @@
 
   <span class="article-date">
     
-        Last updated on
-    
-    <meta content="2017-12-29 00:00:00 &#43;0000 UTC" itemprop="datePublished">
-    <time datetime="2018-11-03 11:28:09 -0400 EDT" itemprop="dateModified">
-      Sat, Nov 3, 2018
+    <meta content="2019-02-06 13:12:54 -0500 EST" itemprop="datePublished">
+    <time datetime="2019-02-06 13:12:54 -0500 EST" itemprop="dateModified">
+      Wed, Feb 6, 2019
     </time>
   </span>
   <span itemscope itemprop="publisher" itemtype="http://schema.org/Person">
@@ -318,7 +318,7 @@
   
   
   <span class="middot-divider"></span>
-  <a href="/2017/12/genomicdatacommons-example-uuid-to-tcga-and-target-barcode-translation/#disqus_thread"></a>
+  <a href="/2019/02/using-google-cloud-registry/#disqus_thread"></a>
   
 
   
@@ -329,35 +329,35 @@
   <ul class="share">
     <li>
       <a class="twitter"
-         href="https://twitter.com/intent/tweet?text=GenomicDataCommons%20Example%3a%20UUID%20to%20TCGA%20and%20TARGET%20Barcode%20Translation&amp;url=%2f2017%2f12%2fgenomicdatacommons-example-uuid-to-tcga-and-target-barcode-translation%2f"
+         href="https://twitter.com/intent/tweet?text=Using%20Google%20Cloud%20Registry&amp;url=%2f2019%2f02%2fusing-google-cloud-registry%2f"
          target="_blank" rel="noopener">
         <i class="fab fa-twitter"></i>
       </a>
     </li>
     <li>
       <a class="facebook"
-         href="https://www.facebook.com/sharer.php?u=%2f2017%2f12%2fgenomicdatacommons-example-uuid-to-tcga-and-target-barcode-translation%2f"
+         href="https://www.facebook.com/sharer.php?u=%2f2019%2f02%2fusing-google-cloud-registry%2f"
          target="_blank" rel="noopener">
         <i class="fab fa-facebook-f"></i>
       </a>
     </li>
     <li>
       <a class="linkedin"
-         href="https://www.linkedin.com/shareArticle?mini=true&amp;url=%2f2017%2f12%2fgenomicdatacommons-example-uuid-to-tcga-and-target-barcode-translation%2f&amp;title=GenomicDataCommons%20Example%3a%20UUID%20to%20TCGA%20and%20TARGET%20Barcode%20Translation"
+         href="https://www.linkedin.com/shareArticle?mini=true&amp;url=%2f2019%2f02%2fusing-google-cloud-registry%2f&amp;title=Using%20Google%20Cloud%20Registry"
          target="_blank" rel="noopener">
         <i class="fab fa-linkedin-in"></i>
       </a>
     </li>
     <li>
       <a class="weibo"
-         href="http://service.weibo.com/share/share.php?url=%2f2017%2f12%2fgenomicdatacommons-example-uuid-to-tcga-and-target-barcode-translation%2f&amp;title=GenomicDataCommons%20Example%3a%20UUID%20to%20TCGA%20and%20TARGET%20Barcode%20Translation"
+         href="http://service.weibo.com/share/share.php?url=%2f2019%2f02%2fusing-google-cloud-registry%2f&amp;title=Using%20Google%20Cloud%20Registry"
          target="_blank" rel="noopener">
         <i class="fab fa-weibo"></i>
       </a>
     </li>
     <li>
       <a class="email"
-         href="mailto:?subject=GenomicDataCommons%20Example%3a%20UUID%20to%20TCGA%20and%20TARGET%20Barcode%20Translation&amp;body=%2f2017%2f12%2fgenomicdatacommons-example-uuid-to-tcga-and-target-barcode-translation%2f">
+         href="mailto:?subject=Using%20Google%20Cloud%20Registry&amp;body=%2f2019%2f02%2fusing-google-cloud-registry%2f">
         <i class="fas fa-envelope"></i>
       </a>
     </li>
@@ -380,101 +380,92 @@
       
 
 
-<p>One of the features of the NCI Genomic Data Commons is that
-<em>everything</em> has a unique identifier in the form of a <a href="https://en.wikipedia.org/wiki/Universally_unique_identifier">UUID</a>. However,
-because <em>many</em> legacy projects and much of the literature do not use
-UUIDs but instead use <a href="https://wiki.nci.nih.gov/display/TCGA/TCGA+barcode">TCGA sample barcodes</a>, one simple use case for the
-GenomicDataCommons package is to map from the UUID for a file or a set
-of files back to the associated TCGA barcode(s).</p>
-<p>Given a set of file ids (which I simulate here by fetching some from
-the GDC API), I build a small function that maps those file UUIDs back
-to the associated TCGA barcodes. Because the GDC also contains data
-from TARGET as well as Foundation Medicine, the same code will return
-associated legacy identifiers for those types of samples as well.</p>
-<p>Get started by loading the <a href="https://bioconductor.org/packages/GenomicDataCommons">GenomicDataCommons</a> library:</p>
-<pre class="r"><code>library(GenomicDataCommons)</code></pre>
-<p>Fetch some file IDs:</p>
-<pre class="r"><code>file_uuids = files() %&gt;% results(size=15) %&gt;% ids()
-head(file_uuids)</code></pre>
-<pre><code>## [1] &quot;440e9ec5-8e61-4f75-b1d1-616941d9456d&quot;
-## [2] &quot;978d124d-ae39-4fbb-9796-58babc948acb&quot;
-## [3] &quot;3b13b023-0325-4d6c-850f-0f5534f7d42b&quot;
-## [4] &quot;228f601c-b657-479b-bcf4-f25bb2c823e4&quot;
-## [5] &quot;b245bdab-a585-4a55-8fb3-d92e1d12fb6b&quot;
-## [6] &quot;25bcb389-4435-4365-a771-1e220086402f&quot;</code></pre>
-<p>The TCGA barcodes are nested in the file records, but we can access
-them in the <code>cases.samples.submitter_id</code>. The
-<code>available_fields</code> and <code>available_values</code> functions are useful
-GenomicDataCommons package functions for examining available fields
-and their associated values to find information of interest. Another
-common approach is to fetch all available fields and then examine the
-results using <code>str</code>.</p>
-<pre class="r"><code>fres = files() %&gt;%
-    select(available_fields(&#39;files&#39;)) %&gt;%
-    results()
-str(fres)</code></pre>
-<p>In the code below, I simply start with a <code>files()</code> query against the
-GenomicDataCommons API, filter to include only those files that match
-the supplied <code>file_ids</code>, and then gather the
-<code>cases.samples.submitter_id</code> and file UUIDs into a data frame. The
-most complicated (and fragile, since it will break if the GDC changes
-its data model) iw the lapply statement that accesses the barcodes in
-the nested results returned.</p>
-<pre class="r"><code>library(GenomicDataCommons)
-library(magrittr)
-
-TCGAtranslateID = function(file_ids, legacy = FALSE) {
-    info = files(legacy = legacy) %&gt;%
-        filter( ~ file_id %in% file_ids) %&gt;%
-        select(&#39;cases.samples.submitter_id&#39;) %&gt;%
-        results_all()
-    # The mess of code below is to extract TCGA barcodes
-    # id_list will contain a list (one item for each file_id)
-    # of TCGA barcodes of the form &#39;TCGA-XX-YYYY-ZZZ&#39;
-    id_list = lapply(info$cases,function(a) {
-        a[[1]][[1]][[1]]})
-    # so we can later expand to a data.frame of the right size
-    barcodes_per_file = sapply(id_list,length)
-    # And build the data.frame
-    return(data.frame(file_id = rep(ids(info),barcodes_per_file),
-                      submitter_id = unlist(id_list)))
-    }</code></pre>
-<p>Now, we can translate our example <code>file_uuids</code>:</p>
-<pre class="r"><code>res = TCGAtranslateID(file_uuids)</code></pre>
-<pre class="r"><code>head(res)</code></pre>
-<pre><code>##                                file_id     submitter_id
-## 1 440e9ec5-8e61-4f75-b1d1-616941d9456d TCGA-24-1467-01A
-## 2 978d124d-ae39-4fbb-9796-58babc948acb TCGA-13-1496-10A
-## 3 978d124d-ae39-4fbb-9796-58babc948acb TCGA-13-1496-01A
-## 4 3b13b023-0325-4d6c-850f-0f5534f7d42b TCGA-13-0908-10A
-## 5 228f601c-b657-479b-bcf4-f25bb2c823e4 TCGA-61-2097-01A
-## 6 b245bdab-a585-4a55-8fb3-d92e1d12fb6b TCGA-61-1998-10A</code></pre>
-<p>This little function is a bit “niche”, but it does illustrate how one
-can leverage GenomicDataCommons package functionality to create useful
-higher-level functionality like ID mapping.</p>
+<div id="background" class="section level2">
+<h2>Background</h2>
+<p>Container technologies like [docker] enable quick and easy
+encapsulation of software, dependencies, and operating systems. One or
+more containers can render entire software ecosystems portable,
+enhance reproducibility and reusability, and facilitate sharing of
+software, tools, and even infrastructure.</p>
+<p>While <a href="https://hub.docker.com/">DockerHub</a> is perhaps the most well-known registry where such
+docker images can be housed, others such as <a href="https://quay.io/">quay.io</a> are also
+available. Commercial cloud environments, such as the <a href="https://cloud.google.com/">Google Cloud
+Platform</a> often offer their own registries that use the same secure
+access controls as other cloud services. They are also typically quite
+integrated with commercial cloud services (<a href="https://cloud.google.com/container-registry/docs/">gcr docs</a>).</p>
+<p>I am experimenting with the <a href="https://cloud.google.com/container-registry/">Google Container Registry</a> (GCR) for a
+bioinformatics project that I plan to perform in on Google Cloud. This
+blog post simply serves as notes to myself about details of using that
+system.</p>
+</div>
+<div id="preliminaries" class="section level2">
+<h2>Preliminaries</h2>
+<p>A Google Cloud <a href="https://cloud.google.com/container-registry/docs/quickstart">account and project</a> is required to follow along here.</p>
 <ul>
-<li>EDIT [01-02-2018]: Added <code>legacy</code> flag to function to allow mapping
-of legacy file UUIDs. See <a href="http://disq.us/p/1ozinq7">comment below</a> for rationale.</li>
+<li><a href="https://cloud.google.com/sdk/docs/">Install the Google Cloud SDK</a></li>
+<li><a href="https://docs.docker.com/install/linux/docker-ce/ubuntu/">Install
+Docker</a></li>
 </ul>
+<p>In order to allow docker to use google for authorization, we need to
+do this one-time command to get tie docker to google.</p>
+<pre class="bash"><code>gcloud auth configure-docker</code></pre>
+<p>Answer “yes” to the prompt.</p>
+</div>
+<div id="building-docker-image-and-adding-to-gcr" class="section level2">
+<h2>Building docker image and adding to GCR</h2>
+<p>We are going to build a simple docker file that includes the
+<a href="https://github.com/ncbi/sra-tools">sra-tools</a> package, import a private key for downloading files that
+are protected, and then store that image to GCR.</p>
+<p>The Dockerfile is given below. Note that I <strong>am not including the dbGaP
+key file, as it is private</strong>, but you could modify the Dockerfile to
+include your own key file(s) or simply remove the dbGaP access details
+entirely.</p>
+<script src="https://gist.github.com/seandavi/410cfbbed6b8db0b4928eb36236e7dda.js"></script>
+<p>Building the container is one line:</p>
+<pre class="bash"><code>docker build -t sratoolkit .</code></pre>
+<p>At this point, the docker image has been created. Run it locally to
+test, for example.</p>
+<pre class="bash"><code>docker run -ti sratoolkit /bin/bash</code></pre>
+<p>Inside the docker container, all the sra-toolkit binaries are
+available.</p>
+<p>Each Google Cloud Project has a private GCR. Therefore, GCR urls
+include the <code>PROJECT-ID</code>.</p>
+<pre class="bash"><code>docker tag sratoolkit gcr.io/isb-cgc-01-0006/sratoolkit:2.9.2
+docker push gcr.io/isb-cgc-01-0006/sratoolkit:2.9.2</code></pre>
+</div>
+<div id="usage" class="section level2">
+<h2>Usage</h2>
+<p>For fun, we can use the image and the <code>fastq-dump</code> utility to download
+a single SRA run. The docker image will only run as long as necessary
+to perform the fastq dump and then will terminate. This post is not
+about the details of running docker, but note that the following will
+result in the fastq file from the <code>fastq-dump</code> command ending up in
+the <code>/tmp</code> directory on your machine.</p>
+<pre class="bash"><code>docker run -v /tmp:/data -ti  gcr.io/isb-cgc-01-0006/sratoolkit:2.9.2\
+    /bin/bash -c &quot;cd /root/ncbi/dbGaP-16049/ \
+    &amp;&amp; fastq-dump   --split-files --gzip \
+    --skip-technical -X 10000   SRR390728&quot;</code></pre>
+<p>This will result in:</p>
+<pre><code>Read 10000 spots for SRR390728
+Written 10000 spots for SRR390728</code></pre>
+</div>
+<div id="from-here" class="section level2">
+<h2>From here</h2>
+<p>At this point, we have created an environment for building docker
+images, stored a proprietary docker image in the Google Cloud
+Registry, and successfully used the image to run a simple command to
+perform a <code>fastq-dump</code> with the files ending up on the docker host
+machine. This image can be used anywhere a docker image can run, but
+only if google authentication <a href="#preliminaries">has been tied into docker</a>.</p>
+<p>The <a href="https://cloud.google.com/genomics/docs/quickstart">Google Genomics Pipeline API</a> is built around scalable genomic
+workflows and uses docker images for workflow tasks. The image here
+can be used for dbGaP genomic data extraction as part of such a
+workflow, all within the secure environment of google cloud.</p>
+</div>
 
     </div>
 
     
-
-
-<div class="article-tags">
-  
-  <a class="badge badge-light" href="/tags/cancer-informatics/">cancer informatics</a>
-  
-  <a class="badge badge-light" href="/tags/bioinformatics/">bioinformatics</a>
-  
-  <a class="badge badge-light" href="/tags/open-data/">open data</a>
-  
-  <a class="badge badge-light" href="/tags/tcga/">TCGA</a>
-  
-</div>
-
-
 
     
 
