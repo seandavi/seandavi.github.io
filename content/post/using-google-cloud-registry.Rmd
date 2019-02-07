@@ -1,0 +1,145 @@
+---
+title: "Using google cloud registry for private docker images"
+date: 2019-02-06T13:12:54-05:00
+tags:
+  - IT
+  - Cloud
+  - Google
+  - Docker
+  - Google Genomics
+  - Genomics
+  - SRA
+categories:
+  - IT
+  - Bioinformatics
+---
+
+In this post, I will quickly build a docker image containing the
+sra-toolkit and a key for dbGaP downloads. Because the key file is
+private, I will be using the secure Google Container Registry to store
+the image for later use in genomics workflows.
+
+## Background
+
+Container technologies like [docker] enable quick and easy
+encapsulation of software, dependencies, and operating systems. One or
+more containers can render entire software ecosystems portable,
+enhance reproducibility and reusability, and facilitate sharing of
+software, tools, and even infrastructure. 
+
+While [DockerHub] is perhaps the most well-known registry where such
+docker images can be housed, others such as [quay.io] are also
+available. Commercial cloud environments, such as the [Google Cloud
+Platform] often offer their own registries that use the same secure
+access controls as other cloud services, *allowing docker images with
+proprietary or private information to be stored and accessed
+securely*. They are also typically quite integrated with commercial
+cloud services ([gcr docs]).
+
+I am experimenting with the [Google Container Registry] (GCR) for a
+bioinformatics project that I plan to perform in on Google Cloud. This
+blog post simply serves as notes to myself about details of using that
+system. 
+
+
+[docker]: https://docker.io/
+[DockerHub]: https://hub.docker.com/
+[quay.io]: https://quay.io/
+[Google Cloud Platform]: https://cloud.google.com/
+[gcr docs]: https://cloud.google.com/container-registry/docs/
+[Google Container Registry]: https://cloud.google.com/container-registry/
+
+
+## Preliminaries
+
+A Google Cloud [account and project](https://cloud.google.com/container-registry/docs/quickstart) is required to follow along here. 
+
+- [Install the Google Cloud SDK](https://cloud.google.com/sdk/docs/)
+- [Install
+  Docker](https://docs.docker.com/install/linux/docker-ce/ubuntu/)
+
+In order to allow docker to use google for authorization, we need to
+do this one-time command to get tie docker to google.
+
+```bash
+gcloud auth configure-docker
+```
+
+Answer "yes" to the prompt. 
+
+## Building docker image and adding to GCR
+
+We are going to build a simple docker file that includes the
+[sra-tools] package, import a private key for downloading files that
+are protected, and then store that image to GCR.
+
+The Dockerfile is given below. Note that I **am not including the dbGaP
+key file, as it is private**, but you could modify the Dockerfile to
+include your own key file(s) or simply remove the dbGaP access details
+entirely.  
+
+<script src="https://gist.github.com/seandavi/410cfbbed6b8db0b4928eb36236e7dda.js"></script>
+
+Building the container is one line:
+
+```bash
+docker build -t sratoolkit .
+```
+
+At this point, the docker image has been created. Run it locally to
+test, for example.
+
+```bash
+docker run -ti sratoolkit /bin/bash
+```
+
+Inside the docker container, all the sra-toolkit binaries are
+available.
+
+Each Google Cloud Project has a private GCR. Therefore, GCR urls
+include the `PROJECT-ID`.
+
+```bash
+docker tag sratoolkit gcr.io/isb-cgc-01-0006/sratoolkit:2.9.2
+docker push gcr.io/isb-cgc-01-0006/sratoolkit:2.9.2
+```
+
+## Usage
+
+For fun, we can use the image and the `fastq-dump` utility to download
+a single SRA run. The docker image will only run as long as necessary
+to perform the fastq dump and then will terminate.  This post is not
+about the details of running docker, but note that the following will
+result in the fastq file from the `fastq-dump` command ending up in
+the `/tmp` directory on your machine.
+
+```bash
+docker run -v /tmp:/data -ti  gcr.io/isb-cgc-01-0006/sratoolkit:2.9.2\
+    /bin/bash -c "cd /root/ncbi/dbGaP-16049/ \
+    && fastq-dump   --split-files --gzip \
+    --skip-technical -X 10000   SRR390728"
+```
+
+This will result in:
+
+```
+Read 10000 spots for SRR390728
+Written 10000 spots for SRR390728
+```
+
+## From here
+
+At this point, we have created an environment for building docker
+images, stored a proprietary docker image in the Google Cloud
+Registry, and successfully used the image to run a simple command to
+perform a `fastq-dump` with the files ending up on the docker host
+machine. This image can be used anywhere a docker image can run, but
+only if google authentication [has been tied into docker](#preliminaries).
+
+The [Google Genomics Pipeline API](https://cloud.google.com/genomics/docs/quickstart) is built around scalable genomic
+workflows and uses docker images for workflow tasks. The image here
+can be used for dbGaP genomic data extraction as part of such a
+workflow, all within the secure environment of google cloud. 
+
+
+[sra-tools]: https://github.com/ncbi/sra-tools
