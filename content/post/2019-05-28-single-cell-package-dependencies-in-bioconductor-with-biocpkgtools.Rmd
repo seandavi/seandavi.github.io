@@ -1,0 +1,48 @@
+---
+title: Single cell packages and dependencies in Bioconductor using BiocPkgTools
+author: Sean Davis
+date: '2019-05-28'
+categories:
+  - bioconductor
+tags:
+  - single-cell
+  - bioinformatics
+  - data visualiztion
+  - rstats
+  - r
+---
+
+The Bioconductor package ecosystem continues to grow at an exponential
+rate (check it--I am right). We have recently completed the
+[BiocPkgtools package](https://bioconductor.org/packages/BiocPkgTools)
+that can mine package metadata, build reports, dependencies and can
+produce interesting plots of package dependencies. I was recently
+asked about the dependency structure of packages labeled by the
+package authors (using
+[biocViews](https://bioconductor.org/developers/how-to/biocViews/)) as
+["SingleCell"](https://bioconductor.org/packages/release/BiocViews.html#___SingleCell). 
+I am posting the code here, just for fun.
+
+```{r message=FALSE, warning=FALSE, fig.cap='Bioconductor packages (nodes) related to SingleCell biocViews term and their dependencies edges. The plot is *interactive* (zoom, pan, etc.).'}
+library(BiocPkgTools)
+library(igraph)
+library(visNetwork)
+bpl = biocPkgList()
+bpl_sc = bpl[grepl('SingleCell', bpl$biocViews),]
+dep_df = buildPkgDependencyDataFrame()
+dep_graph = buildPkgDependencyIgraph(dep_df)
+dep_graph_sc = inducedSubgraphByPkgs(dep_graph, bpl_sc$Package )
+ledges <- data.frame(color = c("green", "lightblue", "red"),
+                     label = c("Depends", "Suggests", "Imports"), arrows =c("from", "from", "from"))
+visnet_data = toVisNetworkData(dep_graph_sc)
+visnet_data$nodes$color=NULL
+visNetwork(nodes = visnet_data$nodes, edges = visnet_data$edges, height = "500px") %>% 
+  visNodes(size=50, font = list(size=50)) %>% 
+  visIgraphLayout("layout_with_dh", weight.node.dist=15)
+```
+
+And the package needed:
+
+```{r}
+devtools::session_info()
+```
