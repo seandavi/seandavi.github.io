@@ -41,7 +41,9 @@ visNetwork(nodes = visnet_data$nodes, edges = visnet_data$edges, height = "500px
   visIgraphLayout("layout_with_dh", weight.node.dist=15)
 ```
 
-And the package needed:
+The [F1000Research publication](https://doi.org/10.12688/f1000research.19410.1) is now available.
+
+And the packages needed:
 
 ```{r}
 devtools::session_info()

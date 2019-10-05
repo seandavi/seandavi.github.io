@@ -1,7 +1,11 @@
+
 ---
 title: "OmicIDX on BigQuery"
 date: "2019-06-04"
 ---
+
+*Availability*: This ipython notebook is available at https://github.com/seandavi/omicidx_examples.
+
 OmicIDX is a project to democratize access to omics *metadata*. As the sizes of omics
 repositories have grown into the millions of available samples, thinking of the 
 metadata themselves as **Big Data** seems reasonable. Additionally, by making the 
@@ -9,8 +13,8 @@ metadata more fit-for-use for text mining, natural language processing, ingestio
 machine learning or search engines, OmicIDX aims to facilitate augmentation and analysis
 of these metadata. 
 
-In practice, the OmicIDX mines data from the NCBI [Sequence Read Archive (SRA)], updated monthly, and the
-NCBI [Biosample] database, updated daily. 
+In practice, the OmicIDX mines data from the NCBI [Sequence Read Archive (SRA)] (updated monthly) and
+NCBI [Biosample] databases (updated daily). 
 
 [Biosample]: https://www.ncbi.nlm.nih.gov/biosample/
 [Sequence Read Archive (SRA)]: https://trace.ncbi.nlm.nih.gov/Traces/sra/sra.cgi?
@@ -20,8 +24,6 @@ NCBI [Biosample] database, updated daily.
 [BigQuery] is an enterprise data warehouse and database. It is managed by Google, meaning
 there are no servers to set up, storage to manage, or configuration. Access to data stored in 
 BigQuery can be public, limited to individuals, or to just the owner. 
-
-[BigQuery]: https://cloud.google.com/bigquery/
 
 In the case of OmicIDX, the data in BigQuery are publicly accessible. Querying the data
 still requires an account and billing to be activated, but Google offers free credits to 
@@ -80,12 +82,12 @@ client = bigquery.Client()
 sql_query = """
 SELECT 
     DATE(
-    EXTRACT(YEAR FROM publish_date),
-    EXTRACT(MONTH FROM publish_date),
+    EXTRACT(YEAR FROM published),
+    EXTRACT(MONTH FROM published),
     1) as month,
     count(*) as studies
 FROM `isb-cgc-01-0006.omicidx.sra_study` 
-where publish_date <= CURRENT_TIMESTAMP()
+where published <= CURRENT_TIMESTAMP()
 GROUP BY month
 ORDER BY month desc;
 """
@@ -131,28 +133,28 @@ res.head()
   <tbody>
     <tr>
       <th>0</th>
-      <td>2019-06-01</td>
-      <td>219</td>
+      <td>2019-08-01</td>
+      <td>319</td>
     </tr>
     <tr>
       <th>1</th>
-      <td>2019-05-01</td>
-      <td>4762</td>
+      <td>2019-07-01</td>
+      <td>4946</td>
     </tr>
     <tr>
       <th>2</th>
-      <td>2019-04-01</td>
-      <td>4230</td>
+      <td>2019-06-01</td>
+      <td>2800</td>
     </tr>
     <tr>
       <th>3</th>
-      <td>2019-03-01</td>
-      <td>2796</td>
+      <td>2019-05-01</td>
+      <td>5595</td>
     </tr>
     <tr>
       <th>4</th>
-      <td>2019-02-01</td>
-      <td>4132</td>
+      <td>2019-04-01</td>
+      <td>4227</td>
     </tr>
   </tbody>
 </table>
@@ -173,7 +175,7 @@ sns.scatterplot(x = "month", y = "studies", data = res)
 
 
 
-    <matplotlib.axes._subplots.AxesSubplot at 0x11f613160>
+    <matplotlib.axes._subplots.AxesSubplot at 0x11ee4ba20>
 
 
 
@@ -230,77 +232,77 @@ res.head(15)
     <tr>
       <th>0</th>
       <td>WGS</td>
-      <td>1839830</td>
+      <td>1964510</td>
     </tr>
     <tr>
       <th>1</th>
       <td>AMPLICON</td>
-      <td>1499138</td>
+      <td>1628660</td>
     </tr>
     <tr>
       <th>2</th>
       <td>RNA-Seq</td>
-      <td>1397258</td>
+      <td>1470370</td>
     </tr>
     <tr>
       <th>3</th>
       <td>OTHER</td>
-      <td>591845</td>
+      <td>606406</td>
     </tr>
     <tr>
       <th>4</th>
       <td>WXS</td>
-      <td>316378</td>
+      <td>322459</td>
     </tr>
     <tr>
       <th>5</th>
-      <td>CLONE</td>
-      <td>134435</td>
+      <td>ChIP-Seq</td>
+      <td>142978</td>
     </tr>
     <tr>
       <th>6</th>
-      <td>ChIP-Seq</td>
-      <td>127278</td>
+      <td>CLONE</td>
+      <td>135932</td>
     </tr>
     <tr>
       <th>7</th>
       <td>RAD-Seq</td>
-      <td>68102</td>
+      <td>78845</td>
     </tr>
     <tr>
       <th>8</th>
-      <td>POOLCLONE</td>
-      <td>57751</td>
+      <td>Targeted-Capture</td>
+      <td>62990</td>
     </tr>
     <tr>
       <th>9</th>
-      <td>Targeted-Capture</td>
-      <td>55953</td>
+      <td>POOLCLONE</td>
+      <td>57912</td>
     </tr>
     <tr>
       <th>10</th>
       <td>Bisulfite-Seq</td>
-      <td>51813</td>
+      <td>52425</td>
     </tr>
     <tr>
       <th>11</th>
       <td>miRNA-Seq</td>
-      <td>42797</td>
+      <td>45051</td>
     </tr>
     <tr>
       <th>12</th>
-      <td>WGA</td>
-      <td>34278</td>
+      <td>ATAC-seq</td>
+      <td>37000</td>
     </tr>
     <tr>
       <th>13</th>
-      <td>ATAC-seq</td>
-      <td>33992</td>
+      <td>WGA</td>
+      <td>36621</td>
     </tr>
     <tr>
       <th>14</th>
       <td>SELEX</td>
-      <td>30109</td>
+      <td>30146</td>
     </tr>
   </tbody>
 </table>
@@ -337,7 +339,7 @@ res = client.query(sql_query).to_dataframe()
 print("There are {0} studies in which `cancer`  appears in the title, abstract, or description".format( res['count'][0]))
 ```
 
-    There are 734 studies in which `cancer`  appears in the title, abstract, or description
+    There are 770 studies in which `cancer`  appears in the title, abstract, or description
 
 
 ## Distribution of number of attributes per sample
@@ -389,3 +391,8 @@ java, as well as a simple command-line client, access to OmicIDX in BigQuery
 is well-supported.
 
 Other approaches to accessing OmicIDX data are forthcoming. 
+
+
+```python
+
+```

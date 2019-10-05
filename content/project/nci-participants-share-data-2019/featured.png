@@ -1,0 +1,16 @@
+--2019-10-04 17:51:19--  https://events.cancer.gov/sites/default/files/assets/cbiit-dccps-pcgdr/home_banner2.png
+Resolving events.cancer.gov (events.cancer.gov)... 3.216.13.244, 52.72.239.29
+Connecting to events.cancer.gov (events.cancer.gov)|3.216.13.244|:443... connected.
+HTTP request sent, awaiting response... 200 OK
+Length: 280606 (274K) [image/png]
+Saving to: ‘home_banner2.png’
+
+     0K .......... .......... .......... .......... .......... 18% 1.21M 0s
+    50K .......... .......... .......... .......... .......... 36% 2.74M 0s
+   100K .......... .......... .......... .......... .......... 54% 7.40M 0s
+   150K .......... .......... .......... .......... .......... 72% 10.9M 0s
+   200K .......... .......... .......... .......... .......... 91% 1.04M 0s
+   250K .......... .......... ....                            100% 39.1M=0.1s
+
+2019-10-04 17:51:19 (2.28 MB/s) - ‘home_banner2.png’ saved [280606/280606]
+

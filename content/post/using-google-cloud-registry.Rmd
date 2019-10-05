@@ -127,6 +127,17 @@ Read 10000 spots for SRR390728
 Written 10000 spots for SRR390728
 ```
 
+## Best practices
+
+Storing keys, key files, and any other private information in a docker
+image is a risky operation and is not a best practice. Leveraging the
+security model of GCR mitigates these issues. However, it is **really
+easy** to forget about the information that might be leaked if this
+image were shared or pushed to a public repository like DockerHub.
+
+For a discussion of other models for accessing private information
+inside a docker container, see [this blog post, for example](https://www.ctl.io/developers/blog/post/tutorial-protecting-sensitive-info-docker).
+
 ## From here
 
 At this point, we have created an environment for building docker

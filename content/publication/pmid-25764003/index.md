@@ -1,0 +1,11 @@
+---
+title: "Characterization of genomic alterations in radiation-associated breast cancer among childhood cancer survivors, using comparative genomic hybridization (CGH) arrays"
+date: 2015-01-01
+publishDate: 2019-10-04T21:24:26.628534Z
+authors: ["X. R. Yang", "J. K. Killian", "S. Hammond", "L. S. Burke", "H. Bennett", "Y. Wang", "S. R. Davis", "L. C. Strong", "J. Neglia", "M. Stovall", "R. E. Weathers", "L. L. Robison", "S. Bhatia", "K. Mabuchi", "P. D. Inskip", "P. Meltzer"]
+publication_types: ["2"]
+abstract: "Ionizing radiation is an established risk factor for breast cancer. Epidemiologic studies of radiation-exposed cohorts have been primarily descriptive; molecular events responsible for the development of radiation-associated breast cancer have not been elucidated. In this study, we used array comparative genomic hybridization (array-CGH) to characterize genome-wide copy number changes in breast tumors collected in the Childhood Cancer Survivor Study (CCSS). Array-CGH data were obtained from 32 cases who developed a second primary breast cancer following chest irradiation at early ages for the treatment of their first cancers, mostly Hodgkin lymphoma. The majority of these cases developed breast cancer before age 45 (91%, n = 29), had invasive ductal tumors (81%, n = 26), estrogen receptor (ER)-positive staining (68%, n = 19 out of 28), and high proliferation as indicated by high Ki-67 staining (77%, n = 17 out of 22). Genomic regions with low-copy number gains and losses and high-level amplifications were similar to what has been reported in sporadic breast tumors, however, the frequency of amplifications of the 17q12 region containing human epidermal growth factor receptor 2 (HER2) was much higher among CCSS cases (38%, n = 12). Our findings suggest that second primary breast cancers in CCSS were enriched for an \"amplifier\" genomic subgroup with highly proliferative breast tumors. Future investigation in a larger irradiated cohort will be needed to confirm our findings."
+featured: false
+publication: "*PLoS ONE*"
+---
+

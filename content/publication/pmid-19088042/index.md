@@ -1,0 +1,11 @@
+---
+title: "Molecular grading of ductal carcinoma in situ of the breast"
+date: 2008-12-01
+publishDate: 2019-10-04T21:24:27.180752Z
+authors: ["R. L. Balleine", "L. R. Webster", "S. Davis", "E. L. Salisbury", "J. P. Palazzo", "G. F. Schwartz", "D. B. Cornfield", "R. L. Walker", "K. Byth", "C. L. Clarke", "P. S. Meltzer"]
+publication_types: ["2"]
+abstract: "Increased incidence of ductal carcinoma in situ (DCIS) associated with mammographic screening for breast cancer has emphasized the challenges of managing this condition. The aim of this study was to identify informative clinical indicators of DCIS biology by molecular profiling. Areas of in situ carcinoma, atypical ductal hyperplasia, and benign epithelium were microdissected from 46 invasive breast cancers. Oligonucleotide probes showing differential expression between DCIS associated with grade 1 and 3 invasive cancer were identified by microarray-based gene expression profiling. Expression at these probes was used to define a \"molecular grade\" subcategorization of all samples. The genomic basis of molecular grade was examined by array-based comparative genomic hybridization. Clinical course was examined in a cohort of 134 patients with DCIS treated by surgery alone. DCIS samples were designated as low or high molecular grade based on expression at 173 probes. The low molecular grade subgroup included low (n = 10) and intermediate (n = 11) nuclear grade DCIS as well as all samples of atypical ductal hyperplasia (n = 4) and benign epithelium (n = 7). The high molecular grade subgroup included DCIS of intermediate (n = 7) and high (n = 19) nuclear grade. The character and degree of genomic aberration were distinct between molecular grade subgroups. A classification tree model including nuclear grade and Ki67 score accurately predicted molecular grade for 95.7% of samples. In an independent cohort, this showed a pattern of rapid disease recurrence for high molecular grade DCIS. Molecular profiling indicates a binary grading scheme for DCIS. This practical approach has potential to improve clinical evaluation of DCIS."
+featured: false
+publication: "*Clin. Cancer Res.*"
+---
+

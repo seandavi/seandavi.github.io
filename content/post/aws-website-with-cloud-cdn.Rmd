@@ -1,0 +1,17 @@
+---
+author: "Sean Davis"
+title: "Setting up an s3 website for distributing data globally"
+date: "Tue Mar 26 17:32:29 2019"
+draft: true
+tags:
+  - cloud
+  - s3
+  - aws
+  - devops
+  - data engineering
+  - data sharing
+categories:
+  - cloud
+  - IT
+---
+
