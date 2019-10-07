@@ -1,0 +1,214 @@
+---
+title: "Elasticsearch Strings Runthrough"
+date: 2019-10-07T09:49:24-04:00
+draft: false
+keywords:
+  - elasticsearch
+  - data science
+---
+
+This little post is just a brain-dump post on [elasticsearch] 
+testing and searching. I am writing it to allow easy testing 
+of elasticsearch searching and querying for my own purposes.
+
+[elasticsearch]: https://www.elastic.co/products/elasticsearch
+
+## Preliminaries
+
+Install two useful utility programs, [httpie] and [jq], for curl-like interactions with
+web APIs and for manipulating javascript on the command line.
+
+[httpie]: https://httpie.org/
+[jq]: https://stedolan.github.io/jq/
+
+- httpie:
+  - `apt-get install httpie`
+  - `brew install httpie`
+
+- jq:
+  - `apt-get install jq`
+  - `brew install jq`
+
+## Getting elasticsearch running
+
+Here, I am using a docker single-node configuration for elasticsearch. 
+Any elasticsearch installation will work below.
+
+```{bash eval=FALSE}
+docker run -p 9200:9200 -p 9300:9300 \
+    -e "discovery.type=single-node" docker.elastic.co/elasticsearch/elasticsearch:7.4.0
+```
+
+## Walkthrough
+
+### Create indexed documents
+
+```{bash}
+http POST localhost:9200/test_index/_bulk <<EOF |
+{"index":{"_id":1}}
+{"states":["New York","New Jersey","California"]}
+{"index":{"_id":2}}
+{"states":["New York","North Carolina","North Dakota"]}
+EOF
+ jq .
+```
+
+### check mapping
+
+```{bash}
+http --body GET localhost:9200/test_index/_mapping | jq .
+```
+
+### Search
+
+#### Get all documents
+
+```{bash}
+http --body GET localhost:9200/test_index/_search | jq .
+```
+
+#### `keyword` searches
+
+```{bash}
+http POST localhost:9200/test_index/_search <<EOF 
+{
+  "query": {
+    "term": {
+      "states.keyword": {
+	    "value" : "North Carolina"
+	  }
+    }
+  } 
+}
+EOF
+```
+
+{{% alert note %}}
+Doing a `term` or related `term` searches on a full text field will
+typically not work as expected.
+{{% /alert %}}
+
+```{bash}
+http POST localhost:9200/test_index/_count <<EOF
+{
+  "query": {
+    "term": {
+      "states": {
+	    "value" : "North Carolina"
+	  }
+    }
+  } 
+}
+EOF
+
+```
+
+{{% alert note %}}
+Keyword fields are indexed *as-is*, so trying to do a term 
+search on just part of the term will return no records. 
+{{% /alert %}}
+
+Here is an example of a `term` search on a *keyword* field that will
+fail to return results because "North Carolina" is indexed as *a single term*.
+
+```{bash}
+http POST localhost:9200/test_index/_count <<EOF |
+{
+  "query": {
+    "term": {
+      "states.keyword": {
+	    "value" : "Carolina"
+	  }
+    }
+  } 
+}
+EOF
+ jq .count
+```
+
+
+
+#### `Wildcard` and `prefix` searches
+
+```{bash}
+http POST localhost:9200/test_index/_search <<EOF |
+{
+  "query": {
+    "wildcard": {
+      "states.keyword": {
+	    "value" : "New*"
+	  }
+    }
+  } 
+}
+EOF
+ jq .hits
+```
+
+The following `prefix` query is equivalent to the `wildcard` query above.
+
+```{bash}
+http POST localhost:9200/test_index/_search <<EOF |
+{
+  "query": {
+    "prefix": {
+      "states.keyword": {
+	    "value" : "New"
+	  }
+    }
+  } 
+}
+EOF
+ jq .hits
+```
+#### Full text searching
+
+The `match` query performs full text searching for single words on 
+single fields.
+
+```{bash}
+http POST localhost:9200/test_index/_search <<EOF |
+{
+    "query": {
+        "match" : {
+            "states" : "carolina"
+        }
+    }
+}
+EOF
+ jq .hits
+```
+
+{{% alert note %}}
+Note that a full-text search by default does not do partial matching.
+{{% /alert %}}
+
+```{bash}
+http POST localhost:9200/test_index/_search <<EOF |
+{
+    "query": {
+        "match" : {
+            "states" : "carol"
+        }
+    }
+}
+EOF
+ jq .hits
+```
+
+### Aggregations
+
+```{bash}
+http POST localhost:9200/test_index/_search <<EOF |
+{
+    "aggs": {
+	    "state": {
+			"terms" : {
+				"field" : "states.keyword"
+			}
+		}
+	}
+}
+EOF
+ jq .aggregations
+```
