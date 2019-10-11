@@ -1,3 +1,4 @@
-#!/usr/bin/env Rscript
-blogdown::hugo_build()
+#!/bin/bash
+export HUGO_ENV=production
+Rscript -e 'blogdown::hugo_build()'
 
