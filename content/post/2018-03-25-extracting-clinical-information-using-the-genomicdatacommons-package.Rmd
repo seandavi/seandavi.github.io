@@ -8,6 +8,8 @@ categories:
 tags:
   - Cancer Genomics
   - GenomicDataCommons
+aliases:
+  - /post/2018/03/2018-03-25-extracting-clinical-information-using-the-genomicdatacommons-package/
 draft: false
 ---
 

@@ -1,7 +1,7 @@
 ---
 title: A computable Bioconductor build report
 author: Sean Davis
-date: '2017-11-17'
+date: 2017-11-17
 categories:
   - Software
 tags:
@@ -9,6 +9,8 @@ tags:
   - BiocPkgTools
   - Software
   - R 
+aliases:
+  - /post/2017/11/a-computable-bioconductor-build-report/    
 ---
 
 ```{r init,echo=FALSE,results='hide'}

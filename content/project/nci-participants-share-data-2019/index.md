@@ -1,7 +1,7 @@
 ---
 # Documentation: https://sourcethemes.com/academic/docs/managing-content/
 
-title: "NCI Participants Share Data 2019"
+title: "Symposium: Participants Share Data 2019"
 subtitle: ""
 summary: "The NCI organized a symposium to broadly assess the landscape of personal control of genomic data. We focused the meeting on the patient, research participant, and personal perspectives. The Symposium drew 200 in-person participants and over 300 online."
 authors: ['seandavi']
@@ -38,7 +38,7 @@ url_video: ""
 #   Simply enter your slide deck's filename without extension.
 #   E.g. `slides = "example-slides"` references `content/slides/example-slides.md`.
 #   Otherwise, set `slides = ""`.
-slides: example
+# slides: example
 
 
 # Featured image

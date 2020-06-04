@@ -13,6 +13,8 @@ tags:
   - data engineering
   - data science
   - gcp
+aliases:
+  - /post/2019-05/2019-05-21-test-driving-google-cloud-composer-a-managed-apache-airflow-service/
 ---
 
 Complex workflows are not at all uncommon in genomics work. As an

@@ -1,2 +1,1 @@
-# this is just here to satisfy blogdown
-# Actual config is in the `config` folder
+config/_default/config.toml

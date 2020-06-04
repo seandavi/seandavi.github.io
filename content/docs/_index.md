@@ -8,3 +8,5 @@ header:
   image: ""
 ---
 
+Refer to titles in the sidebar for my notes and external brain topics.
+

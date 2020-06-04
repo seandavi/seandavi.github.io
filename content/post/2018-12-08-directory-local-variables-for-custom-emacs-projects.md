@@ -1,9 +1,11 @@
-+++
-date = 2018-12-08T10:00:00
-title = "Using directory-local variables to customize the emacs project experience"
-tags = ["programming", "emacs", "python"]
-categories = ["Notes"]
-+++
+---
+date: 2018-12-08
+title: "Using directory-local variables to customize the emacs project experience"
+tags: ["programming", "emacs", "python"]
+categories: ["Notes"]
+aliases:
+  - /post/2018/12/2018-12-08-directory-local-variables-for-custom-emacs-projects
+---
 
 I use [emacs] for nearly all my editing and interactive analysis. As
 one typically does, more than one project is the norm, not the

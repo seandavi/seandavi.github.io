@@ -10,6 +10,8 @@ tags:
   - Big Data
   - Data Science
   - Spark
+aliases:
+  - /post/2018/02/create-a-basic-apache-spark-cluster-in-the-cloud-in-5-minutes/
 ---
 
 ## Apache Spark in a few words

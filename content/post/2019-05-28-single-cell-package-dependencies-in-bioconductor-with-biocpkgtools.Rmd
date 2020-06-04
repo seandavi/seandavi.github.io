@@ -10,6 +10,8 @@ tags:
   - data visualiztion
   - rstats
   - r
+aliases:
+  - /post/2019/05/2019-05-28-single-cell-package-dependencies-in-bioconductor-with-biocpkgtools/
 ---
 
 The Bioconductor package ecosystem continues to grow at an exponential

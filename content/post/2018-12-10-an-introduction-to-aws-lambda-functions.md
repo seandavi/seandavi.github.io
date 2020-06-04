@@ -15,6 +15,8 @@ draft: true
 image:
   caption: ''
   focal_point: ''
+aliases:
+  - /post/2018/12/an-introduction-to-aws-lambda-functions/    
 ---
 
 AWS lambda

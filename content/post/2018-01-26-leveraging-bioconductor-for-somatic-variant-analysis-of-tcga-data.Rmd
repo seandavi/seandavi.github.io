@@ -9,6 +9,9 @@ tags:
   - Cancer Genomics
   - GenomicDataCommons
   - maftools
+aliases:
+  - /post/2018/01/leveraging-bioconductor-for-somatic-variant-analysis-of-tcga-dataRmd/
+  - /post/2018/01/leveraging-bioconductor-for-somatic-variant-analysis-of-tcga-data/
 ---
 
 The [NCI Genomic Data Commons (GDC)] now contains the authoritative

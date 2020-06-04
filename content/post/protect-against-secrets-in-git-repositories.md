@@ -16,6 +16,8 @@ tags:
   - aws
   - cloud
 draft: false
+aliases:
+  - /post/2017/12/protect-against-secrets-in-git-repositories/
 ---
 
 

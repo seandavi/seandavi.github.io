@@ -32,7 +32,9 @@ web APIs and for manipulating javascript on the command line.
 ## Getting elasticsearch running
 
 Here, I am using a docker single-node configuration for elasticsearch. 
-Any elasticsearch installation will work below.
+Any [elasticsearch installation] will work below.
+
+[elasticsearch installation]: https://www.elastic.co/guide/en/elasticsearch/reference/current/install-elasticsearch.html
 
 ```{bash eval=FALSE}
 docker run -p 9200:9200 -p 9300:9300 \

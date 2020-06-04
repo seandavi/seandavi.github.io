@@ -12,6 +12,8 @@ tags:
 categories:
   - IT
   - Bioinformatics
+aliases:
+  - /post/2019/02/using-google-cloud-registry/
 ---
 
 In this post, I will quickly build a docker image containing the

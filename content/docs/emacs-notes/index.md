@@ -23,11 +23,12 @@ menu:
 
 # Projectile
 
-- `C-c p s s` : helm-ag search for text in project files
+- `C-c p ?` : show keybindings
 - `C-c p p` : switch project
 - `C-c p f` : open file in project
 - `C-c p ESC` : projectile other buffer (like `C-x o`)
-- `C-c p ?` : show keybindings
+- `C-c p s s` : helm-ag search for text in project files
+- `C-c p o` : occur in buffers
 - `C-c p D` : projectile-dired
 - `C-c p h` : helm-projectile
 - `C-c p r` : projectile-replace-in-project
@@ -36,4 +37,14 @@ menu:
 - `C-c p 4 g` : projectile-find-file-dwim other window
 - `C-c p 5 g` : projectile-find-file-dwim other frame
 - `C-c p !` : run shell command in root of project
+
+# Python IDE
+
+## Elpy
+
+- `C-c C-e` : multiedit (`C-c C-e` to complete)
+- `C-c <` : dedent region
+- `C-c >` : indent region
+
+## Python Mode
 

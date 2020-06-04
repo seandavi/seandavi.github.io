@@ -13,6 +13,8 @@ tags:
   - AWS
   - packer
 draft: false
+aliases:
+  - /post/2018/07/2018-07-19-infrastructure-as-code-building-the-bioconductor-conference-ami-with-packer/
 ---
 
 One of the main features of the annual [Bioconductor Conference] is the 

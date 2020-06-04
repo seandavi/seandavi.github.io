@@ -13,8 +13,7 @@ url_code = ""
 url_video = ""
 url_slides = "https://doi.org/10.6084/m9.figshare.8141768.v1"
 draft = false
-keywords = "abc"
 +++
 
-<iframe src="https://widgets.figshare.com/articles/8141768/embed?show_title=1" width="800" height="494" allowfullscreen="true" frameborder="0"></iframe>
+<iframe src="https://widgets.figshare.com/articles/8141768/embed" width="800" height="494" allowfullscreen="true" frameborder="0"></iframe>
 

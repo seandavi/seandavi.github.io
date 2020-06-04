@@ -1,0 +1,281 @@
+---
+title: "Big Data Approaches"
+subtitle: "Where to go with Bioconductor"
+event: "Bioconductor Technical Advisory Board Meeting"
+#author: Sean Davis
+date: "2020-06-04"
+url_code: "https://gist.github.com/b2a5b2a7e559289334df1cac0120ad87"
+output:
+  rmarkdown::md_document
+---
+
+```{r include=FALSE}
+knitr::opts_chunk$set(echo=FALSE, warning=FALSE, message=FALSE)
+library(BiocStyle)
+library(ggplot2)
+library(magrittr)
+library(plotly)
+library(BiocPkgTools)
+library(xaringanthemer)
+style_solarized_light()
+```
+
+```{r cache=TRUE}
+pl = biocPkgList()
+dl = biocDownloadStats()
+```
+
+# Introduction
+
+## What *Big Data* problem are we trying to solve?
+
+- Class 1: Need only part of data, so extract from the whole and then operate on extracted data; eg., extracting a few dozen genes of interest, finding all intervals that overlap with a chromosomal region, 
+- Class 2: Need to operate on all the data, but can operate independently on parts; eg., computing over 1Mb bins on the genome, modeling over independent studies
+- Class 3: Need to operate on all the data, but need to work on all at once (may be for performance reasons, also); eg., distance matrix calculations, pairwise correllations
+
+
+
+## Where do data live?
+
+- Data warehouse
+- Local disk
+- Cloud storage
+- R objects
+- http download
+- Web API
+
+
+## How does the "user" interact with data service?
+
+Data availability can be thought of as a service. The service might simply be 
+the file system, but it could be more complex. 
+
+- Local file system (`r Biocpkg('VariantAnnotation')`, `r Biocpkg('rtracklayer')`)
+- Local embedded server/client (`r Biocpkg('rhdf5')`, `r CRANpkg('RSQLite')`)
+- User-managed freestanding server/client (`r CRANpkg('dbplyr')`, `r CRANpkg('RPostgreSQL')`, `r CRANpkg('rmongodb')`)
+- Third-party managed server/client (`r CRANpkg('bigrquery')`)
+- Bioc-managed server/client (`r Biocpkg('ExperimentHub')`)
+
+
+
+## How "rich" are data services with respect to analytical capabilities?
+
+Data services vary in the complexity of operations they enable. A filesystem, for example,
+has no "smarts" in that it delivers bits-and-bytes as asked. A more complex system
+might include indexing capabilities (VCF files, hdf5). More complexity again comes with
+systems like MongoDB and PostgreSQL. At the level of Bigquery, parallelism and rudimentary
+machine learning is possible. At the extreme are projects like Apache Spark that can
+serve as distributed analysis engines over arbitrarily large datasets.
+
+
+
+## Data services cater to different forms of data.
+
+- Arbitrary data types: file systems and object storage
+- Record-based databases: NoSQL (MongoDB) and hybrid databases (PostgreSQL, Bigquery)
+- Columnar databases: Bigquery, Cassandra, good for distributing data over "nodes"
+- Arrays: TileDB, HDF5
+
+
+# Bioconductor Packages
+
+```{r fig.width=9, fig.height=6, out.width='90%'}
+plot_downloads <- function(dl, packages, log=TRUE) {
+    tmp = dl %>%
+        dplyr::filter(Package %in% packages &
+                      Date < Sys.Date()-30 &
+                      repo == 'Software' &
+                      !is.na(Date))
+    if(log==TRUE) {
+        tmp$Nb_of_distinct_IPs = log10(tmp$Nb_of_distinct_IPs)
+    }
+    p = tmp %>% ggplot(aes(x=Date,y=Nb_of_distinct_IPs, color=Package)) + geom_line()
+    p
+}
+pkgs_of_interest = c('rhdf5','DelayedArray',
+                    'restfulSE','GenomicDataCommons',
+                    'GEOquery','SummarizedExperiment',
+                    'LoomExperiment','HDF5Array',
+                    'DelayedMatrixStats','beachmat',
+                    'SQLDataFrame')
+ggplotly(plot_downloads(dl,pkgs_of_interest))
+```
+
+
+
+## `r Biocpkg('rhdf5')`
+
+```{r}
+row = pl[pl$Package=='rhdf5',]
+```
+- DependsOnMe: `r paste(sapply(row$dependsOnMe[[1]], BiocStyle::Biocpkg),collapse = ', ')`
+- importsMe: `r paste(sapply(row$importsMe[[1]], BiocStyle::Biocpkg),collapse = ', ')`
+- suggestsMe: `r paste(sapply(row$suggestsMe[[1]], BiocStyle::Biocpkg),collapse = ', ')`
+
+
+
+## `r Biocpkg('DelayedArray')`
+
+```{r}
+row = pl[pl$Package=='DelayedArray',]
+```
+- DependsOnMe: `r paste(sapply(row$dependsOnMe[[1]], BiocStyle::Biocpkg),collapse = ', ')`
+- importsMe: `r paste(sapply(row$importsMe[[1]], BiocStyle::Biocpkg),collapse = ', ')`
+- suggestsMe: `r paste(sapply(row$suggestsMe[[1]], BiocStyle::Biocpkg),collapse = ', ')`
+
+
+
+## `r Biocpkg('SQLDataFrame')`
+
+```{r}
+row = pl[pl$Package=='SQLDataFrame',]
+```
+- DependsOnMe: `r paste(sapply(row$dependsOnMe[[1]], BiocStyle::Biocpkg),collapse = ', ')`
+- importsMe: `r paste(sapply(row$importsMe[[1]], BiocStyle::Biocpkg),collapse = ', ')`
+- suggestsMe: `r paste(sapply(row$suggestsMe[[1]], BiocStyle::Biocpkg),collapse = ', ')`
+
+
+
+## `r Biocpkg('LoomExperiment')`
+
+```{r}
+row = pl[pl$Package=='LoomExperiment',]
+```
+- DependsOnMe: `r paste(sapply(row$dependsOnMe[[1]], BiocStyle::Biocpkg),collapse = ', ')`
+- importsMe: `r paste(sapply(row$importsMe[[1]], BiocStyle::Biocpkg),collapse = ', ')`
+- suggestsMe: `r paste(sapply(row$suggestsMe[[1]], BiocStyle::Biocpkg),collapse = ', ')`
+
+
+
+
+## `r Biocpkg('restfulSE')`
+
+```{r}
+row = pl[pl$Package=='restfulSE',]
+```
+- DependsOnMe: `r paste(sapply(row$dependsOnMe[[1]], BiocStyle::Biocpkg),collapse = ', ')`
+- importsMe: `r paste(sapply(row$importsMe[[1]], BiocStyle::Biocpkg),collapse = ', ')`
+- suggestsMe: `r paste(sapply(row$suggestsMe[[1]], BiocStyle::Biocpkg),collapse = ', ')`
+
+
+# Big data frameworks and toolkits
+
+
+
+
+## Loom
+
+```{r} 
+knitr::include_url("https://linnarssonlab.org/loompy/apiwalkthrough/index.html")
+```
+
+Loom is an efficient file format based on [HDF5] for very large omics datasets, consisting of a main matrix, optional additional layers, a variable number of row and column annotations, and sparse graph objects. 
+
+[HDF5]: https://www.hdfgroup.org/solutions/hdf5/
+
+
+
+## Apache Arrow
+
+[Apache Arrow](https://arrow.apache.org/) is a cross-language development platform for in-memory data. It specifies a standardized language-independent columnar memory format for flat and hierarchical data, organized for efficient analytic operations on modern hardware. It also provides computational libraries and zero-copy streaming messaging and interprocess communication. Languages currently supported include [C, C++, C#, Go, Java, JavaScript, MATLAB, Python, R, Ruby, and Rust](https://github.com/apache/arrow).
+
+```{r}
+knitr::include_graphics('https://arrow.apache.org/img/copy.png')
+```
+
+```{r}
+knitr::include_graphics('https://arrow.apache.org/img/shared.png')
+```
+
+
+
+### Performance Advantage of Columnar In-Memory
+
+Columnar memory layout allows applications to avoid unnecessary IO and accelerate analytical processing performance on modern CPUs and GPUs.
+]
+
+.right-column[
+```{r}
+knitr::include_graphics('https://arrow.apache.org/img/simd.png')
+```
+]
+
+
+
+## TileDB
+
+From the TileDB website:
+
+- TileDB efficiently supports data versioning natively built into its
+  format and storage engine. Other formats do not support data updates
+  or time-traveling; you need to build your own logic at the
+  application layer or use extra software that acts like a database on
+  top of your files.
+- TileDB implements a variety of optimizations around parallel IO on
+  cloud object stores and multi-threaded computations (such as
+  sorting, compression, etc).
+- TileDB is also “columnar”, but it offers more efficient multi-column
+  (i.e., multi-dimensional) search. *Think data.frame*.
+- With TileDB, you inherit a growing set of APIs (C, C++, Python, R,
+  Java, Go), backend support (S3, GCS, Azure, HDFS), and integrations
+  (e.g., Spark, MariaDB, PrestoDB, Dask), all developed and maintained
+  by the TileDB team.
+
+
+
+### TileDB R package
+
+```{r}
+knitr::include_url('https://tiledb-inc.github.io/TileDB-R/', height=450)
+```
+
+
+
+## Others
+
+### Bigquery
+
+### Elasticsearch
+
+### Apache Drill
+
+
+
+## Combinations
+
+Building these will usually require a custom API built and maintained centrally.
+
+### Elasticsearch + AnnotationHub
+
+- item-level indexing of genomic coordinates and attributes
+- Return objects or records, for example
+
+### Elasticsearch + ExperimentHub
+
+- Deep study and sample-level indexing such as number of samples, sample attributes (ontology?),
+  organisms, technologies
+- Return objects
+
+### TileDB + ExperimentHub (via DelayedArray and SE)
+
+### av_* and Elasticsearch/indexing
+
+
+
+
+# Questions
+
+- What are the use cases?
+- How do we measure success?
+- For client and centrally-managed server models, is there expertise to implement?
+- Should we get into the "functionality-as-a-service" game?
+- Are there simpler approaches to follow? 
+  - Bioc XSEDE allocation
+  - Document AnVIL Big Memory machines
+- How can we expose new and existing functionality?
+- What role does education (vs hands-on-keyboard) play in advancing the cause?
+
+
+# Notes
+
+- [EDAM Ontology](https://www.ebi.ac.uk/ols/ontologies/edam): EDAM is a simple ontology of well established, familiar concepts that are prevalent within bioinformatics, including types of data and data identifiers, data formats, operations and topics. EDAM provides a set of terms with synonyms and definitions - organised into an intuitive hierarchy for convenient use.
