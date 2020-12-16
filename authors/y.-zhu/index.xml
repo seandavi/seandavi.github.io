@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Y. Zhu | Academic</title>
+    <link>/authors/y.-zhu/</link>
+      <atom:link href="/authors/y.-zhu/index.xml" rel="self" type="application/rss+xml" />
+    <description>Y. Zhu</description>
+    <generator>Wowchemy (https://wowchemy.com)</generator><language>en-us</language><lastBuildDate>Tue, 01 Jan 2013 00:00:00 -0500</lastBuildDate>
+    <image>
+      <url>/images/icon_hu0b7a4cb9992c9ac0e91bd28ffd38dd00_9727_512x512_fill_lanczos_center_2.png</url>
+      <title>Y. Zhu</title>
+      <link>/authors/y.-zhu/</link>
+    </image>
+    
+    <item>
+      <title>SRAdb: query and use public next-generation sequencing data from within R</title>
+      <link>/publication/pmid23323543/</link>
+      <pubDate>Tue, 01 Jan 2013 00:00:00 -0500</pubDate>
+      <guid>/publication/pmid23323543/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>SRAdb: query and use public next-generation sequencing data from within R</title>
+      <link>/publication/pmid-23323543/</link>
+      <pubDate>Tue, 01 Jan 2013 00:00:00 +0000</pubDate>
+      <guid>/publication/pmid-23323543/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>GEOmetadb: powerful alternative search engine for the Gene Expression Omnibus</title>
+      <link>/publication/pmid18842599/</link>
+      <pubDate>Mon, 01 Dec 2008 00:00:00 -0500</pubDate>
+      <guid>/publication/pmid18842599/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>GEOmetadb: powerful alternative search engine for the Gene Expression Omnibus</title>
+      <link>/publication/pmid-18842599/</link>
+      <pubDate>Mon, 01 Dec 2008 00:00:00 +0000</pubDate>
+      <guid>/publication/pmid-18842599/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,432 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>github actions | Academic</title>
+    <link>/tag/github-actions/</link>
+      <atom:link href="/tag/github-actions/index.xml" rel="self" type="application/rss+xml" />
+    <description>github actions</description>
+    <generator>Wowchemy (https://wowchemy.com)</generator><language>en-us</language><lastBuildDate>Fri, 11 Oct 2019 11:08:16 -0400</lastBuildDate>
+    <image>
+      <url>/images/icon_hu0b7a4cb9992c9ac0e91bd28ffd38dd00_9727_512x512_fill_lanczos_center_2.png</url>
+      <title>github actions</title>
+      <link>/tag/github-actions/</link>
+    </image>
+    
+    <item>
+      <title>Experimenting with Github Actions</title>
+      <link>/post/learning-github-actions/</link>
+      <pubDate>Fri, 11 Oct 2019 11:08:16 -0400</pubDate>
+      <guid>/post/learning-github-actions/</guid>
+      <description>&lt;p&gt;&lt;a href=&#34;https://github.com/features/package-registry&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;GitHub Actions&lt;/a&gt; allow flexible and potentially complicated actions
+that comprise workflows that respond to &lt;a href=&#34;https://developer.github.com/webhooks/#events&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;repository events&lt;/a&gt; on Github. Continuous
+integration, messaging Slack, greeting new contributors, deploying
+applications, and many other templates are ready for customization and
+integration into any repo.&lt;/p&gt;
+&lt;p&gt;As of this writing, GitHub Actions are available as a &lt;em&gt;beta&lt;/em&gt; feature,
+requiring &lt;a href=&#34;https://github.com/features/actions&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;signup&lt;/a&gt;.&lt;/p&gt;
+&lt;h2 id=&#34;definitionshttpshelpgithubcomenarticlesabout-github-actionscore-concepts-for-github-actions&#34;&gt;&lt;a href=&#34;https://help.github.com/en/articles/about-github-actions#core-concepts-for-github-actions&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Definitions&lt;/a&gt;&lt;/h2&gt;
+&lt;h3 id=&#34;action&#34;&gt;Action&lt;/h3&gt;
+&lt;p&gt;An action is the smallest portable building block of a
+workflow. Actions are combined as steps to form a workflow. Actions can be
+created from scratch, modified from &lt;a href=&#34;https://github.com/actions&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;publicly available actions&lt;/a&gt;, and
+shared with others.&lt;/p&gt;
+&lt;h3 id=&#34;workflow&#34;&gt;Workflow&lt;/h3&gt;
+&lt;p&gt;A workflow is a collection of steps (actions) that describe a process
+that will execute in response to GitHub &lt;a href=&#34;https://developer.github.com/webhooks/#events&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;repository events&lt;/a&gt;. A YAML
+file that defines your workflow configuration with at least one
+job. This file lives in the root of your GitHub repository in the
+&lt;code&gt;.github/workflows&lt;/code&gt; directory. Multiple workflow files may exist and
+all will be active.&lt;/p&gt;
+&lt;h3 id=&#34;step&#34;&gt;Step&lt;/h3&gt;
+&lt;p&gt;A step is a set of tasks performed by a job. Each step in a job
+executes in the same virtual environment, allowing the actions in that
+job to share information using the filesystem. Steps can run commands
+(shell commands, etc.) or actions.&lt;/p&gt;
+&lt;h3 id=&#34;virtual-environment&#34;&gt;Virtual environment&lt;/h3&gt;
+&lt;p&gt;GitHub has hosts for Linux, macOS, and Windows that can serve as
+execution environments for workflows.&lt;/p&gt;
+&lt;h3 id=&#34;runner&#34;&gt;Runner&lt;/h3&gt;
+&lt;p&gt;Jobs run on a service that waits in virtual environment that waits for available
+jobs. The runner takes jobs one-at-a-time and runs each, reporting
+logs, etc., back to Github.&lt;/p&gt;
+&lt;h3 id=&#34;event&#34;&gt;Event&lt;/h3&gt;
+&lt;p&gt;Workflows can be triggered by a [repository event] such as a push, a
+new issue, etc.&lt;/p&gt;
+&lt;h3 id=&#34;artifact&#34;&gt;Artifact&lt;/h3&gt;
+&lt;p&gt;Artifacts are the files that are created during a workflow. These can
+be deployed, used in other workflows, published, etc. Additional
+actions allow working with artifacts.&lt;/p&gt;
+&lt;h2 id=&#34;walkthrough&#34;&gt;Walkthrough&lt;/h2&gt;
+&lt;h3 id=&#34;create-repo&#34;&gt;Create repo&lt;/h3&gt;
+&lt;p&gt;Here, I simulate creating a simple python package by forking &lt;a href=&#34;https://github.com/bast/somepackage&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;this
+example repo&lt;/a&gt; by
+&lt;a href=&#34;https://github.com/bast&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;bast&lt;/a&gt;. The package is to exemplify some best
+practices for structuring python code. However, here it serves as a
+simple example of a formal python package that we can build and test.&lt;/p&gt;
+&lt;p&gt;Login to Github, navigate to the &lt;a href=&#34;https://github.com/bast/somepackage&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;example repo&lt;/a&gt;, and &lt;a href=&#34;https://help.github.com/en/articles/fork-a-repo&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;fork the
+repo&lt;/a&gt;.&lt;/p&gt;
+
+
+
+
+
+
+  
+
+
+
+  
+  
+
+
+
+
+
+
+
+
+
+
+
+&lt;figure id=&#34;figure-fork-the-example-repohttpsgithubcombastsomepackage&#34;&gt;
+
+
+  &lt;a data-fancybox=&#34;&#34; href=&#34;/post/learning-github-actions/fork-repo_hufba7682a0eb300813e1b68b0c8690756_502006_2000x2000_fit_lanczos_2.png&#34; data-caption=&#34;Fork the &amp;lt;a href=&amp;#34;https://github.com/bast/somepackage&amp;#34;&amp;gt;example repo&amp;lt;/a&amp;gt;.&#34;&gt;
+
+
+  &lt;img data-src=&#34;/post/learning-github-actions/fork-repo_hufba7682a0eb300813e1b68b0c8690756_502006_2000x2000_fit_lanczos_2.png&#34; class=&#34;lazyload&#34; alt=&#34;&#34; width=&#34;3370&#34; height=&#34;1664&#34;&gt;
+&lt;/a&gt;
+
+
+  
+  
+  &lt;figcaption&gt;
+    Fork the &lt;a href=&#34;https://github.com/bast/somepackage&#34;&gt;example repo&lt;/a&gt;.
+  &lt;/figcaption&gt;
+
+
+&lt;/figure&gt;
+
+&lt;p&gt;After forking, a fresh package will be available in your repository.&lt;/p&gt;
+&lt;h3 id=&#34;add-a-github-action&#34;&gt;Add a github action&lt;/h3&gt;
+&lt;p&gt;After ensuring that you have [signed up] for Github Actions and have
+verified that you are &amp;ldquo;in&amp;rdquo; by noticing the &lt;code&gt;Actions&lt;/code&gt; button at the top
+of your github repository:&lt;/p&gt;
+
+
+
+
+
+
+  
+
+
+
+  
+  
+
+
+
+
+
+
+
+
+
+
+
+&lt;figure id=&#34;figure-the-github-actions-button-should-be-present-in-order-to-proceed&#34;&gt;
+
+
+  &lt;a data-fancybox=&#34;&#34; href=&#34;/post/learning-github-actions/action-button_hufca21c42c756e02db03ecac215a46111_94380_2000x2000_fit_lanczos_2.png&#34; data-caption=&#34;The Github Actions button should be present in order to proceed.&#34;&gt;
+
+
+  &lt;img data-src=&#34;/post/learning-github-actions/action-button_hufca21c42c756e02db03ecac215a46111_94380_2000x2000_fit_lanczos_2.png&#34; class=&#34;lazyload&#34; alt=&#34;&#34; width=&#34;1792&#34; height=&#34;458&#34;&gt;
+&lt;/a&gt;
+
+
+  
+  
+  &lt;figcaption&gt;
+    The Github Actions button should be present in order to proceed.
+  &lt;/figcaption&gt;
+
+
+&lt;/figure&gt;
+
+&lt;p&gt;Now, we can proceed with adding a workflow from the set of recommended
+workflow templates (or others). Clicking on the &lt;code&gt;Actions&lt;/code&gt; button will
+bring up the following screen.&lt;/p&gt;
+
+
+
+
+
+
+  
+
+
+
+  
+  
+
+
+
+
+
+
+
+
+
+
+
+&lt;figure id=&#34;figure-choose-the-python-package-workflow&#34;&gt;
+
+
+  &lt;a data-fancybox=&#34;&#34; href=&#34;/post/learning-github-actions/choose-action_hu18fe83e46e92b88e675b257dc24db559_469675_2000x2000_fit_lanczos_2.png&#34; data-caption=&#34;Choose the python package workflow.&#34;&gt;
+
+
+  &lt;img data-src=&#34;/post/learning-github-actions/choose-action_hu18fe83e46e92b88e675b257dc24db559_469675_2000x2000_fit_lanczos_2.png&#34; class=&#34;lazyload&#34; alt=&#34;&#34; width=&#34;3288&#34; height=&#34;1522&#34;&gt;
+&lt;/a&gt;
+
+
+  
+  
+  &lt;figcaption&gt;
+    Choose the python package workflow.
+  &lt;/figcaption&gt;
+
+
+&lt;/figure&gt;
+
+&lt;p&gt;Click on the &lt;code&gt;Set up this workflow&lt;/code&gt; on the &amp;ldquo;Python package&amp;rdquo;
+card. That will bring up the following screen.&lt;/p&gt;
+
+
+
+
+
+
+  
+
+
+
+  
+  
+
+
+
+
+
+
+
+
+
+
+
+&lt;figure id=&#34;figure-the-workflow-editor&#34;&gt;
+
+
+  &lt;a data-fancybox=&#34;&#34; href=&#34;/post/learning-github-actions/workflow-editor_hu22857dbc6f1f1e0dcd8dd1accc15cab9_271164_2000x2000_fit_lanczos_2.png&#34; data-caption=&#34;The workflow editor.&#34;&gt;
+
+
+  &lt;img data-src=&#34;/post/learning-github-actions/workflow-editor_hu22857dbc6f1f1e0dcd8dd1accc15cab9_271164_2000x2000_fit_lanczos_2.png&#34; class=&#34;lazyload&#34; alt=&#34;&#34; width=&#34;2240&#34; height=&#34;1312&#34;&gt;
+&lt;/a&gt;
+
+
+  
+  
+  &lt;figcaption&gt;
+    The workflow editor.
+  &lt;/figcaption&gt;
+
+
+&lt;/figure&gt;
+
+&lt;p&gt;What is happening at this point is that Github is about to add a new
+file to your repository. The file will be located at
+&lt;code&gt;somepackage/.github/workflows&lt;/code&gt;. Edit the filename as you see
+fit.&lt;/p&gt;
+&lt;p&gt;The contents of the workflow file will look like the listing below by
+default and follows &lt;a href=&#34;https://help.github.com/en/articles/workflow-syntax-for-github-actions&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;the workflow
+syntax&lt;/a&gt;.&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;name: Python package
+
+on: [push]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+    strategy:
+      max-parallel: 4
+      matrix:
+        python-version: [2.7, 3.5, 3.6, 3.7]
+
+    steps:
+    - uses: actions/checkout@v1
+    - name: Set up Python ${{ matrix.python-version }}
+      uses: actions/setup-python@v1
+      with:
+        python-version: ${{ matrix.python-version }}
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install -r requirements.txt
+    - name: Lint with flake8
+      run: |
+        pip install flake8
+        # stop the build if there are Python syntax errors or undefined names
+        flake8 . --count --select=E9,F63,F7,F82 --show-source --statistics
+        # exit-zero treats all errors as warnings. The GitHub editor is 127 chars wide
+        flake8 . --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics
+    - name: Test with pytest
+      run: |
+        pip install pytest
+        pytest
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3 id=&#34;commit-new-workflow-file&#34;&gt;Commit new workflow file&lt;/h3&gt;
+&lt;p&gt;Once you have made any edits (no need to, though), go ahead and click
+the &lt;code&gt;Start Commit&lt;/code&gt; button.&lt;/p&gt;
+
+
+
+
+
+
+  
+
+
+
+  
+  
+
+
+
+
+
+
+
+
+
+
+
+&lt;figure id=&#34;figure-make-the-first-commit&#34;&gt;
+
+
+  &lt;a data-fancybox=&#34;&#34; href=&#34;/post/learning-github-actions/first-commit_hu2a458d7651905bf4de47ef29fe24ce96_153655_2000x2000_fit_lanczos_2.png&#34; data-caption=&#34;Make the first commit.&#34;&gt;
+
+
+  &lt;img data-src=&#34;/post/learning-github-actions/first-commit_hu2a458d7651905bf4de47ef29fe24ce96_153655_2000x2000_fit_lanczos_2.png&#34; class=&#34;lazyload&#34; alt=&#34;&#34; width=&#34;1074&#34; height=&#34;1282&#34;&gt;
+&lt;/a&gt;
+
+
+  
+  
+  &lt;figcaption&gt;
+    Make the first commit.
+  &lt;/figcaption&gt;
+
+
+&lt;/figure&gt;
+
+&lt;h3 id=&#34;build-results&#34;&gt;Build results&lt;/h3&gt;
+&lt;p&gt;By navigating back to &lt;code&gt;Actions&lt;/code&gt;, you should see that the workflow is
+running or has already completed. An example of what a running
+workflow might look like is below.&lt;/p&gt;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+&lt;figure id=&#34;figure-image-credit-github-bloghttpsgithubblog2019-08-08-github-actions-now-supports-ci-cd&#34;&gt;
+
+
+  &lt;a data-fancybox=&#34;&#34; href=&#34;https://github.blog/wp-content/uploads/2019/08/streaming.gif?w=918&amp;amp;resize=918%2C802&#34; data-caption=&#34;Image Credit: &amp;lt;a href=&amp;#34;https://github.blog/2019-08-08-github-actions-now-supports-ci-cd/&amp;#34;&amp;gt;GitHub Blog&amp;lt;/a&amp;gt;&#34;&gt;
+
+
+  &lt;img src=&#34;https://github.blog/wp-content/uploads/2019/08/streaming.gif?w=918&amp;amp;resize=918%2C802&#34; alt=&#34;&#34;  &gt;
+&lt;/a&gt;
+
+
+  
+  
+  &lt;figcaption&gt;
+    Image Credit: &lt;a href=&#34;https://github.blog/2019-08-08-github-actions-now-supports-ci-cd/&#34;&gt;GitHub Blog&lt;/a&gt;
+  &lt;/figcaption&gt;
+
+
+&lt;/figure&gt;
+
+&lt;p&gt;You are free to investigate the logs, etc.&lt;/p&gt;
+&lt;h3 id=&#34;modifying-the-workflow&#34;&gt;Modifying the workflow&lt;/h3&gt;
+&lt;p&gt;Modifying the workflow is as simple as making edits to the
+&lt;code&gt;.github/workflows/...yaml&lt;/code&gt; file. For example, you might consider
+changing the name of the workflow and modifying the python versions
+that are used for testing.&lt;/p&gt;
+&lt;h3 id=&#34;workflow-status-badge&#34;&gt;Workflow status badge&lt;/h3&gt;
+&lt;p&gt;Follow &lt;a href=&#34;https://help.github.com/en/articles/configuring-a-workflow#adding-a-workflow-status-badge-to-your-repository&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;these
+instructions&lt;/a&gt;
+to add a status badge to your repo that will be updated with each
+workflow execution. Example code is here:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;[![Actions
+Status](https://github.com/seandavi/somepackage/workflows/Python%20package/badge.svg)](https://github.com/seandavi/somepackage/actions)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Note the &lt;code&gt;%20&lt;/code&gt; that represents a url-encoded &lt;code&gt;space&lt;/code&gt; character. The resulting badge looks like this:&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://github.com/seandavi/somepackage/actions&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;&lt;img src=&#34;https://github.com/seandavi/somepackage/workflows/Python%20package/badge.svg&#34; alt=&#34;Actions Status&#34;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&#34;conclusion&#34;&gt;Conclusion&lt;/h2&gt;
+&lt;p&gt;Github actions and workflows add continuous integration and other
+capabilities that are configurable via text files that are captured
+and versioned alongside code. Therefore, actions can be shared,
+modified, and manipulated with standard text editors, etc.&lt;/p&gt;
+&lt;p&gt;Many actions are &lt;a href=&#34;https://github.com/actions&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;publicly
+available&lt;/a&gt;. Example workflows are also
+&lt;a href=&#34;https://github.com/actions/starter-workflows&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;easy to find&lt;/a&gt;. For
+those who are partial to &lt;em&gt;R&lt;/em&gt;, there is the R-centric
+&lt;a href=&#34;https://r-lib.github.io/ghactions/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;ghactions&lt;/a&gt; package that 1)
+provides workflow templates for common R projects (packages,
+RMarkdown, …) with sensible defaults and 2) wraps and curates relevant
+existing external actions, such as those to deploy to GitHub Pages or
+Netlify.&lt;/p&gt;
+&lt;p&gt;Hardware available as of this writing is &lt;a href=&#34;https://help.github.com/en/articles/virtual-environments-for-github-actions#supported-virtual-environments-and-hardware-resources&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;described
+here&lt;/a&gt;
+and includes Windows, Linux, and MacOS environments. When a workflow
+is running, multiple &lt;a href=&#34;https://help.github.com/en/articles/virtual-environments-for-github-actions#environment-variables&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;environment
+variables&lt;/a&gt;
+are set and accessible to software. Github actions allow the user to
+create
+&lt;a href=&#34;https://help.github.com/en/articles/virtual-environments-for-github-actions#creating-and-using-secrets-encrypted-variables&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;secrets&lt;/a&gt;
+to securely store credentials for use inside run environments. Github
+actions are container-ready, allowing &lt;a href=&#34;https://help.github.com/en/articles/creating-a-docker-container-action&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;containerized
+actions&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;This post, like many of my posts, is very operational, but I have
+found that a worked example is usually more valuable than long
+expository posts. That said, I always appreciate comments and
+suggestions for improvements (see below).&lt;/p&gt;
+&lt;h2 id=&#34;references&#34;&gt;References&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/features/package-registry&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;GitHub Package Registry&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/features/package-registry&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;GitHub Actions&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://help.github.com/en/articles/workflow-syntax-for-github-actions&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Workflow Syntax&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://developer.github.com/webhooks/#events&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;repository events&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/actions&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;publicly available actions&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.community/t5/GitHub-Actions/bd-p/actions&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Community support site&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,268 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>cloud | Academic</title>
+    <link>/category/cloud/</link>
+      <atom:link href="/category/cloud/index.xml" rel="self" type="application/rss+xml" />
+    <description>cloud</description>
+    <generator>Wowchemy (https://wowchemy.com)</generator><language>en-us</language><lastBuildDate>Thu, 05 Mar 2020 00:00:00 +0000</lastBuildDate>
+    <image>
+      <url>/images/icon_hu0b7a4cb9992c9ac0e91bd28ffd38dd00_9727_512x512_fill_lanczos_center_2.png</url>
+      <title>cloud</title>
+      <link>/category/cloud/</link>
+    </image>
+    
+    <item>
+      <title>Build and deploy an NCBI GEO metadata fetch API</title>
+      <link>/post/cloud-run-notes/</link>
+      <pubDate>Thu, 05 Mar 2020 00:00:00 +0000</pubDate>
+      <guid>/post/cloud-run-notes/</guid>
+      <description>&lt;p&gt;In this post, I want to demonstrate building a simple web API converts
+an NCBI &lt;a href=&#34;https://ncbi.nlm.nih.gov/geo&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;GEO&lt;/a&gt; accession and associated metadata to &lt;a href=&#34;https://www.digitalocean.com/community/tutorials/an-introduction-to-json&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;json&lt;/a&gt; format, and
+then deploy that application as a web service on Google Cloud Platform
+&lt;a href=&#34;https://cloud.google.com/run&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Cloud Run&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;I hear from GEOquery users that sometimes they just want to get the
+metadata for one or more accessions rather than getting the entire GEO
+record. My &lt;a href=&#34;https://github.com/omicidx/omicidx-parsers&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;omicidx-parser&lt;/a&gt; library has functionality to do this
+conversion. We will leverage this functionality to build a small web
+application that we can deploy using &lt;a href=&#34;https://en.wikipedia.org/wiki/Serverless_computing&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;serverless&lt;/a&gt; approach to stand up
+an API that returns a &lt;a href=&#34;https://www.digitalocean.com/community/tutorials/an-introduction-to-json&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;json&lt;/a&gt; conversion of GEO metadata.&lt;/p&gt;
+&lt;h2 id=&#34;tooling&#34;&gt;Tooling&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Google cloud platform, specifically &lt;a href=&#34;https://en.wikipedia.org/wiki/Serverless_computing&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;serverless&lt;/a&gt; &lt;a href=&#34;https://cloud.google.com/run&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Cloud Run&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;python programming language&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href=&#34;https://fastapi.tiangolo.com/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;fastapi&lt;/a&gt; library for web API development&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;[docker] containers&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;git and github&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Code: &lt;a href=&#34;https://github.com/seandavi/blog-code/&#34;&gt;https://github.com/seandavi/blog-code/&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;what-will-i-learn-and-do&#34;&gt;What will I learn and do?&lt;/h2&gt;
+&lt;p&gt;In this post, we will learn the basics of &lt;a href=&#34;https://cloud.google.com/run&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Cloud Run&lt;/a&gt; through
+examples. Additionally, we will learn a bit about web app development
+using the &lt;a href=&#34;https://fastapi.tiangolo.com/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;fastapi&lt;/a&gt; python web framework.&lt;/p&gt;
+&lt;p&gt;At the end of this post, you will have a containerized web application
+running locally that can take a GEO accession and return a &lt;a href=&#34;https://www.digitalocean.com/community/tutorials/an-introduction-to-json&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;json&lt;/a&gt;
+version of the metadata.&lt;/p&gt;
+&lt;p&gt;If you have a Google Cloud Platform account that allows you to create
+projects, you should be able to run your application in Google Cloud
+Run.&lt;/p&gt;
+&lt;h2 id=&#34;what-is-cloud-run&#34;&gt;What is Cloud Run?&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://cloud.google.com/run&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Cloud Run&lt;/a&gt; is a fully managed compute platform that automatically
+scales your stateless containers. In other words, write a web
+application, place it in a &lt;a href=&#34;https://docker.io/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;docker container&lt;/a&gt;, and then deploy to the
+cloud. Cloud Run is one of a family of technologies referred to as
+&lt;a href=&#34;https://en.wikipedia.org/wiki/Serverless_computing&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;serverless&lt;/a&gt; it abstracts away all infrastructure management. Cloud
+Run is built upon an open standard, &lt;a href=&#34;https://knative.dev/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Knative&lt;/a&gt;, enabling the
+portability of your applications.&lt;/p&gt;
+&lt;h2 id=&#34;build-your-app&#34;&gt;Build your app&lt;/h2&gt;
+&lt;p&gt;Sorry, but I&amp;rsquo;m going to let the code do most of the talking here. In
+short, Google Cloud Run supports any web development language or
+framework that can be deployed as a docker container.&lt;/p&gt;
+&lt;p&gt;Here, I will use python and adopt &lt;a href=&#34;https://fastapi.tiangolo.com/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;fastapi&lt;/a&gt; a framework for building
+performant REST APIs.&lt;/p&gt;
+&lt;p&gt;The GEO parsing will leverage the &lt;a href=&#34;https://github.com/omicidx/omicidx-parsers&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;omicidx-parser&lt;/a&gt; library.&lt;/p&gt;
+&lt;h2 id=&#34;containers-are-front-and-center&#34;&gt;Containers are front-and-center&lt;/h2&gt;
+&lt;p&gt;Google&amp;rsquo;s &lt;a href=&#34;https://cloud.google.com/run&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Cloud Run&lt;/a&gt; creates a &amp;ldquo;service&amp;rdquo; that accepts http requests
+and returns responses. The requests and responses are not predefined
+by Cloud Run, allowing any approach that your chosen programming
+language supports. Once your web application is written and tested
+locally, create a &lt;a href=&#34;https://docs.docker.com/develop/develop-images/dockerfile_best-practices/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Dockerfile&lt;/a&gt; that generates a containerized version
+of it. The generated docker container is what you will pass along to
+&lt;a href=&#34;https://cloud.google.com/run&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Cloud Run&lt;/a&gt; as the application. &lt;a href=&#34;https://cloud.google.com/run&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Cloud Run&lt;/a&gt; will then create a
+&amp;ldquo;service&amp;rdquo; by setting up your docker container to run &amp;ldquo;on demand&amp;rdquo; when
+a web request is directed to it.&lt;/p&gt;
+&lt;p&gt;Any programming dependencies, operating system or system dependencies,
+or necessary software are simply included in the &lt;a href=&#34;https://docs.docker.com/develop/develop-images/dockerfile_best-practices/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Dockerfile&lt;/a&gt;
+description to be incorporated into the container. Local testing is
+straightforward by simply running the docker container locally.&lt;/p&gt;
+&lt;h2 id=&#34;example-application-and-deployment&#34;&gt;Example application and deployment&lt;/h2&gt;
+&lt;p&gt;As of today, I am using &lt;a href=&#34;https://python-poetry.org/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;poetry&lt;/a&gt; for python dependency management
+(think pip and virtualenv replacement) and package building. To get
+started with poetry, install:&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;curl -sSL https://raw.githubusercontent.com/python-poetry/poetry/master/get-poetry.py \
+  | python
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;I&amp;rsquo;ll leave the poetry parts of things out for now, but you will see
+some poetry command lines to build the cloud run environment.&lt;/p&gt;
+&lt;p&gt;Next, checkout the &lt;a href=&#34;https://github.com/seandavi/blog-code&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;example repo&lt;/a&gt;.&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;git clone https://github.com/seandavi/blog-code
+cd blog-code/geo-metadata-cloud-run/
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;To set up a local development environment and then test the app
+locally, I use a couple of poetry commands (see poetry docs for what
+these do, specifically).&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;poetry install
+poetry run uvicorn app.main:app
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Then, navigate to http://localhost:8000/docs. There, by default, you are redirected to the auto-generated &lt;a href=&#34;https://swagger.io/docs/specification/about/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;OpenAPI&lt;/a&gt; API documentation (yes, you get this &lt;em&gt;for free&lt;/em&gt;).&lt;/p&gt;
+&lt;p&gt;To see the results for a specific accession, click here: http://localhost:8000/geo/GSM48743. An example response will look like:&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-json&#34;&gt;{
+    &amp;quot;GSM48743&amp;quot;: {
+        &amp;quot;title&amp;quot;: &amp;quot;Patient sample ST163, Liposarcoma&amp;quot;,
+        &amp;quot;status&amp;quot;: &amp;quot;Public on Oct 11 2005&amp;quot;,
+        &amp;quot;submission_date&amp;quot;: &amp;quot;2005-04-21&amp;quot;,
+        &amp;quot;last_update_date&amp;quot;: &amp;quot;2005-11-22&amp;quot;,
+        &amp;quot;type&amp;quot;: &amp;quot;RNA&amp;quot;,
+        &amp;quot;anchor&amp;quot;: null,
+        &amp;quot;contact&amp;quot;: {
+            &amp;quot;city&amp;quot;: &amp;quot;Bethesda&amp;quot;,
+            &amp;quot;name&amp;quot;: {
+                &amp;quot;first&amp;quot;: &amp;quot;Sean&amp;quot;,
+                &amp;quot;middle&amp;quot;: &amp;quot;&amp;quot;,
+                &amp;quot;last&amp;quot;: &amp;quot;Davis&amp;quot;
+            },
+            &amp;quot;email&amp;quot;: &amp;quot;sdavis2@mail.nih.gov&amp;quot;,
+            &amp;quot;state&amp;quot;: &amp;quot;MD&amp;quot;,
+            &amp;quot;address&amp;quot;: &amp;quot;37 Convent Drive, Room 6138&amp;quot;,
+            &amp;quot;department&amp;quot;: null,
+            &amp;quot;country&amp;quot;: &amp;quot;USA&amp;quot;,
+            &amp;quot;web_link&amp;quot;: null,
+            &amp;quot;institute&amp;quot;: &amp;quot;National Cancer Institute&amp;quot;,
+            &amp;quot;zip_postal_code&amp;quot;: null,
+            &amp;quot;phone&amp;quot;: &amp;quot;301-435-2652&amp;quot;
+        },
+        &amp;quot;description&amp;quot;: &amp;quot;Diagnosis: Liposarcoma\nKeywords = sarcoma, cDNA, Liposarcoma&amp;quot;,
+        &amp;quot;accession&amp;quot;: &amp;quot;GSM48743&amp;quot;,
+        &amp;quot;biosample&amp;quot;: null,
+        &amp;quot;tag_count&amp;quot;: null,
+        &amp;quot;tag_length&amp;quot;: null,
+        &amp;quot;platform_id&amp;quot;: &amp;quot;GPL1977&amp;quot;,
+        &amp;quot;hyb_protocol&amp;quot;: null,
+        &amp;quot;channel_count&amp;quot;: 2,
+        &amp;quot;scan_protocol&amp;quot;: null,
+        &amp;quot;data_row_count&amp;quot;: 12600,
+        &amp;quot;library_source&amp;quot;: null,
+        &amp;quot;overall_design&amp;quot;: null,
+        &amp;quot;sra_experiment&amp;quot;: null,
+        &amp;quot;data_processing&amp;quot;: null,
+        &amp;quot;supplemental_files&amp;quot;: [
+            &amp;quot;NONE&amp;quot;
+        ],
+        &amp;quot;channels&amp;quot;: [
+            {
+                &amp;quot;label&amp;quot;: null,
+                &amp;quot;taxid&amp;quot;: [
+                    9606
+                ],
+                &amp;quot;molecule&amp;quot;: &amp;quot;total RNA&amp;quot;,
+                &amp;quot;organism&amp;quot;: &amp;quot;Homo sapiens&amp;quot;,
+                &amp;quot;source_name&amp;quot;: &amp;quot;Liposarcoma&amp;quot;,
+                &amp;quot;label_protocol&amp;quot;: null,
+                &amp;quot;growth_protocol&amp;quot;: null,
+                &amp;quot;extract_protocol&amp;quot;: null,
+                &amp;quot;treatment_protocol&amp;quot;: null,
+                &amp;quot;characteristics&amp;quot;: [
+                    
+                ]
+            },
+            {
+                &amp;quot;label&amp;quot;: null,
+                &amp;quot;taxid&amp;quot;: [
+                    9606
+                ],
+                &amp;quot;molecule&amp;quot;: &amp;quot;total RNA&amp;quot;,
+                &amp;quot;organism&amp;quot;: &amp;quot;Homo sapiens&amp;quot;,
+                &amp;quot;source_name&amp;quot;: &amp;quot;Pooled sarcoma cell lines&amp;quot;,
+                &amp;quot;label_protocol&amp;quot;: null,
+                &amp;quot;growth_protocol&amp;quot;: null,
+                &amp;quot;extract_protocol&amp;quot;: null,
+                &amp;quot;treatment_protocol&amp;quot;: null,
+                &amp;quot;characteristics&amp;quot;: [
+                    
+                ]
+            }
+        ],
+        &amp;quot;contributor&amp;quot;: [
+            
+        ]
+    }
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;At this point, the web application is running locally. We can
+&amp;ldquo;containerize&amp;rdquo; the application by building the docker container. The
+&lt;a href=&#34;https://github.com/seandavi/blog-code/blob/master/geo-metadata-cloud-run/Dockerfile&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;associated Dockerfile&lt;/a&gt; has instructions for doing so. To actually
+build the docker image, do the following, replacing &lt;code&gt;PROJECT_ID&lt;/code&gt; below with
+your GCP project ID. You can view your project ID by running the
+command.&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;gcloud config get-value project.
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;export PROJECT_ID=&#39;my-google-project-name&#39;
+docker build -t gcr.io/${PROJECT_ID}/geo-cloud-run .
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Push the docker image to the Google Cloud Project image
+repository. You can also use dockerhub name/url if you like.&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;docker push gcr.io/${PROJECT_ID}/geo-cloud-run
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Run the app as a dockerized app locally.&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;docker run -p 8000:80 gcr.io/${PROJECT_ID}/geo-cloud-run 
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Again, you should now be able to access the API at http://localhost:8000/docs.&lt;/p&gt;
+&lt;p&gt;One more step, deployment, gets us the application running in the
+cloud as a serverless application. Deploy using the following command:&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;gcloud run deploy --image gcr.io/${PROJECT_ID}/geo-cloud-run --platform managed
+&lt;/code&gt;&lt;/pre&gt;
+&lt;ul&gt;
+&lt;li&gt;You will be prompted for the service name: press Enter to accept the
+default name, geo-cloud-run&lt;/li&gt;
+&lt;li&gt;You will be prompted for region: select the region of your choice,
+for example us-central1.&lt;/li&gt;
+&lt;li&gt;You will be prompted to allow unauthenticated invocations: respond &lt;code&gt;y&lt;/code&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Then wait a few moments until the deployment is complete. On success,
+the command line displays the service URL. If you navigate to that
+service URL, you will be accessing your &lt;em&gt;entirely serverless&lt;/em&gt;
+application. Build more complicated applications by simply:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Adjust python code.&lt;/li&gt;
+&lt;li&gt;Rebuild docker image.&lt;/li&gt;
+&lt;li&gt;run &lt;code&gt;gcloud run update ....&lt;/code&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;When completed, simply run &lt;code&gt;gcloud run delete ....&lt;/code&gt; to remove your
+service and application.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>/post/google-kubernetes-autoscale-with-preemptible-instances/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/post/google-kubernetes-autoscale-with-preemptible-instances/</guid>
+      <description>&lt;pre&gt;&lt;code class=&#34;language-sh&#34;&gt;export POOL_NAME=&#39;preempt-1&#39;
+export CLUSTER_NAME=&#39;cluster-1&#39;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code class=&#34;language-sh&#34;&gt;gcloud beta container node-pools create ${POOL_NAME} --preemptible \
+	   --cluster ${CLUSTER_NAME} --enable-autoscaling \
+	   --min-nodes=0 --max-nodes=50 \
+	   --machine-type=n1-standard-2                                    
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code class=&#34;language-yaml&#34;&gt;apiVersion: v1
+kind: Job
+spec:
+  nodeSelector:
+    cloud.google.com/gke-preemptible: &amp;quot;true&amp;quot;
+  template:
+    spec:
+      containers:
+      - name: pyversion
+        image: python:3.7
+        command: [&amp;quot;python&amp;quot;,  &amp;quot;--version&amp;quot;]
+      restartPolicy: Never
+  backoffLimit: 4
+&lt;/code&gt;&lt;/pre&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

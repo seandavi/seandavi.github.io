@@ -1,0 +1,1480 @@
+<!DOCTYPE html><html lang="en-us" >
+
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  
+  
+  
+  <meta name="generator" content="Wowchemy 5.0.0-beta.1 for Hugo">
+  
+
+  
+
+  
+  
+
+  
+  
+  
+  
+  
+    
+    
+    
+  
+  
+
+  
+
+  
+  
+  
+    
+  
+  <meta name="description" content="This short post introducds the gdc_clinical() function recently added to the GenomicDataCommons package.
+The rich data model at the NCI Genomic Data Commons (GDC) includes clinical and biospecimen details. A recently added feature to the NCI GDC Data Portal is the ability to download tab-delimited files or JSON files for clinical and biospecimen details of samples.">
+
+  
+  <link rel="alternate" hreflang="en-us" href="/post/2018-03-25-extracting-clinical-information-using-the-genomicdatacommons-package/">
+
+  
+
+
+
+
+
+
+
+  
+
+
+
+
+  
+  
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  
+
+  
+  
+  
+  <meta name="theme-color" content="#2962ff">
+  
+
+  
+  
+
+  
+  
+  
+  
+    
+    
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/academicons/1.9.0/css/academicons.min.css" integrity="sha512-W4yqoT1+8NLkinBLBZko+dFB2ZbHsYLDdr50VElllRcNt2Q4/GSs6u71UHKxB7S6JEMCp5Ve4xjh3eGQl/HRvg==" crossorigin="anonymous">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" integrity="sha256-FMvZuGapsJLjouA6k7Eo2lusoAX9i0ShlWFG6qt7SLc=" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css" integrity="sha256-Vzbj7sDDS/woiFS3uNKo8eIuni59rjyNGtXfstRzStA=" crossorigin="anonymous">
+
+    
+    
+    
+      
+    
+    
+      
+      
+        
+          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.2.0/styles/github.min.css" crossorigin="anonymous" title="hl-light">
+          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.2.0/styles/dracula.min.css" crossorigin="anonymous" title="hl-dark" disabled>
+        
+      
+    
+
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/leaflet.min.css" integrity="sha512-1xoFisiGdy9nvho8EgXuXvnpR5GAMSjFwp40gSRE3NwdUdIMIKuPa7bqoUhLD0O/5tPNhteAsE5XyyMi5reQVA==" crossorigin="anonymous">
+    
+
+    
+
+    
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/lazysizes/5.2.2/lazysizes.min.js" integrity="sha512-TmDwFLhg3UA4ZG0Eb4MIyT1O1Mb+Oww5kFG0uHqXsdbyZz9DcvYQhKpGgNkamAI6h2lGGZq2X8ftOJvF/XjTUg==" crossorigin="anonymous" async></script>
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+        
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+
+  
+
+  
+  
+  
+    
+      
+      
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:400,700%7CRoboto:400,400italic,700%7CRoboto+Mono&display=swap">
+    
+  
+
+  
+  
+  
+  
+  <link rel="stylesheet" href="/css/wowchemy.min.2da9fc7ecccb62374ee4667dc6583d14.css">
+
+  
+
+
+
+
+  
+
+  
+
+
+  
+  
+
+  
+
+  <link rel="manifest" href="/index.webmanifest">
+  <link rel="icon" type="image/png" href="/images/icon_hu0b7a4cb9992c9ac0e91bd28ffd38dd00_9727_32x32_fill_lanczos_center_2.png">
+  <link rel="apple-touch-icon" type="image/png" href="/images/icon_hu0b7a4cb9992c9ac0e91bd28ffd38dd00_9727_192x192_fill_lanczos_center_2.png">
+
+  <link rel="canonical" href="/post/2018-03-25-extracting-clinical-information-using-the-genomicdatacommons-package/">
+
+  
+  
+  
+  
+  
+  
+  
+    
+    
+  
+  
+  <meta property="twitter:card" content="summary">
+  
+  <meta property="og:site_name" content="Academic">
+  <meta property="og:url" content="/post/2018-03-25-extracting-clinical-information-using-the-genomicdatacommons-package/">
+  <meta property="og:title" content="Extracting Clinical Information Using the Genomicdatacommons Package | Academic">
+  <meta property="og:description" content="This short post introducds the gdc_clinical() function recently added to the GenomicDataCommons package.
+The rich data model at the NCI Genomic Data Commons (GDC) includes clinical and biospecimen details. A recently added feature to the NCI GDC Data Portal is the ability to download tab-delimited files or JSON files for clinical and biospecimen details of samples."><meta property="og:image" content="/images/icon_hu0b7a4cb9992c9ac0e91bd28ffd38dd00_9727_512x512_fill_lanczos_center_2.png">
+  <meta property="twitter:image" content="/images/icon_hu0b7a4cb9992c9ac0e91bd28ffd38dd00_9727_512x512_fill_lanczos_center_2.png"><meta property="og:locale" content="en-us">
+  
+    
+      <meta property="article:published_time" content="2018-03-25T11:18:36-04:00">
+    
+    <meta property="article:modified_time" content="2018-03-25T11:18:36-04:00">
+  
+
+  
+
+
+    
+
+
+
+
+
+
+  
+
+
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "/post/2018-03-25-extracting-clinical-information-using-the-genomicdatacommons-package/"
+  },
+  "headline": "Extracting Clinical Information Using the Genomicdatacommons Package",
+  
+  "datePublished": "2018-03-25T11:18:36-04:00",
+  "dateModified": "2018-03-25T11:18:36-04:00",
+  
+  "publisher": {
+    "@type": "Organization",
+    "name": "Academic",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "/images/icon_hu0b7a4cb9992c9ac0e91bd28ffd38dd00_9727_192x192_fill_lanczos_center_2.png"
+    }
+  },
+  "description": "This short post introducds the gdc_clinical() function recently added to the GenomicDataCommons package.\nThe rich data model at the NCI Genomic Data Commons (GDC) includes clinical and biospecimen details. A recently added feature to the NCI GDC Data Portal is the ability to download tab-delimited files or JSON files for clinical and biospecimen details of samples."
+}
+</script>
+
+  
+
+  
+
+
+  
+
+
+  
+
+
+
+
+
+  <title>Extracting Clinical Information Using the Genomicdatacommons Package | Academic</title>
+
+</head>
+
+
+<body id="top" data-spy="scroll" data-offset="70" data-target="#TableOfContents" class="page-wrapper  ">
+
+  
+  
+  
+  
+  
+  <script src="/js/wowchemy-init.js"></script>
+
+  <aside class="search-results" id="search">
+  <div class="container">
+    <section class="search-header">
+
+      <div class="row no-gutters justify-content-between mb-3">
+        <div class="col-6">
+          <h1>Search</h1>
+        </div>
+        <div class="col-6 col-search-close">
+          <a class="js-search" href="#"><i class="fas fa-times-circle text-muted" aria-hidden="true"></i></a>
+        </div>
+      </div>
+
+      <div id="search-box">
+        
+        <input name="q" id="search-query" placeholder="Search..." autocapitalize="off"
+        autocomplete="off" autocorrect="off" spellcheck="false" type="search" class="form-control">
+        
+      </div>
+
+    </section>
+    <section class="section-search-results">
+
+      <div id="search-hits">
+        
+      </div>
+
+    </section>
+  </div>
+</aside>
+
+
+  <div class="page-header">
+    
+
+
+
+
+
+
+
+
+
+
+
+
+<nav class="navbar navbar-expand-lg navbar-light compensate-for-scrollbar" id="navbar-main">
+  <div class="container">
+
+    
+    <div class="d-none d-lg-inline-flex">
+      <a class="navbar-brand" href="/">Academic</a>
+    </div>
+    
+
+    
+    <button type="button" class="navbar-toggler" data-toggle="collapse"
+            data-target="#navbar-content" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
+    <span><i class="fas fa-bars"></i></span>
+    </button>
+    
+
+    
+    <div class="navbar-brand-mobile-wrapper d-inline-flex d-lg-none">
+      <a class="navbar-brand" href="/">Academic</a>
+    </div>
+    
+
+    
+    
+    <div class="navbar-collapse main-menu-item collapse justify-content-start" id="navbar-content">
+
+      
+      <ul class="navbar-nav d-md-inline-flex">
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+
+        
+        
+        
+        
+
+        
+          
+            
+            
+          
+          
+            
+            
+            
+              
+            
+            
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/#about"><span>Home</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+
+        
+        
+        
+        
+
+        
+          
+            
+            
+          
+          
+            
+            
+            
+              
+            
+            
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/#posts"><span>Posts</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+
+        
+        
+        
+        
+
+        
+          
+            
+            
+          
+          
+            
+            
+            
+              
+            
+            
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/#projects"><span>Projects</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+
+        
+        
+        
+        
+
+        
+          
+            
+            
+          
+          
+            
+            
+            
+              
+            
+            
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/#talks"><span>Talks</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+
+        
+        
+        
+        
+
+        
+          
+            
+            
+          
+          
+            
+            
+            
+              
+            
+            
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/#featured"><span>Publications</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+
+        
+        
+        
+        
+
+        
+          
+            
+            
+          
+          
+            
+            
+            
+              
+            
+            
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/#contact"><span>Contact</span></a>
+        </li>
+
+        
+        
+
+      
+
+        
+      </ul>
+    </div>
+
+    <ul class="nav-icons navbar-nav flex-row ml-auto d-flex pl-md-2">
+      
+      
+      <li class="nav-item">
+        <a class="nav-link js-search" href="#" aria-label="Search"><i class="fas fa-search" aria-hidden="true"></i></a>
+      </li>
+      
+
+      
+      
+      <li class="nav-item dropdown theme-dropdown">
+        <a href="#" class="nav-link" data-toggle="dropdown" aria-haspopup="true" aria-label="Display preferences">
+          <i class="fas fa-moon" aria-hidden="true"></i>
+        </a>
+        <div class="dropdown-menu">
+          <a href="#" class="dropdown-item js-set-theme-light">
+            <span>Light</span>
+          </a>
+          <a href="#" class="dropdown-item js-set-theme-dark">
+            <span>Dark</span>
+          </a>
+          <a href="#" class="dropdown-item js-set-theme-auto">
+            <span>Automatic</span>
+          </a>
+        </div>
+      </li>
+      
+
+      
+
+    </ul>
+
+  </div>
+</nav>
+
+
+  </div>
+
+  <div class="page-body">
+    <article class="article">
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+  
+  
+<div class="article-container pt-3">
+  <h1>Extracting Clinical Information Using the Genomicdatacommons Package</h1>
+
+  
+
+  
+    
+
+
+<div class="article-metadata">
+
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    Mar 25, 2018
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    5 min read
+  </span>
+  
+
+  
+  
+  
+  
+  
+
+  
+  
+  <span class="middot-divider"></span>
+  <span class="article-categories">
+    <i class="fas fa-folder mr-1"></i><a href="/category/bioconductor/">Bioconductor</a></span>
+  
+
+</div>
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+</div>
+
+
+
+  <div class="article-container">
+
+    <div class="article-style">
+      
+
+
+<p>This short post introducds the <code>gdc_clinical()</code> function recently
+added to the GenomicDataCommons package.</p>
+<p>The
+<a href="https://gdc.cancer.gov/developers/gdc-data-model">rich data model</a> at
+the NCI Genomic Data Commons (GDC) includes clinical and biospecimen
+details. A recently added feature to the NCI GDC Data Portal is the
+ability to download tab-delimited files or JSON files for clinical and
+biospecimen details of samples. The details available in these
+simplified formats are also available via the GDC API.</p>
+<pre class="r"><code>library(GenomicDataCommons)</code></pre>
+<p>The clinical
+infomation at the GDC is encapsulated in the <code>cases</code> records. Here, I
+introduce the <code>gdc_clinical()</code> function from
+the
+<a href="https://bioconductor.org/packages/GenomicDataCommons">GenomicDataCommons</a> package that
+takes as input
+GDC case IDs and returns a set of four related <code>data.frame</code>s:</p>
+<ul>
+<li>main: important case metadata</li>
+<li>demographics: basic demographic information</li>
+<li>exposures: zero or more documented exposures</li>
+<li>diagnoses: zero or more diagnoses per case</li>
+</ul>
+<p>As an example application, we will examine the clinical details for
+100 lung adenocarcinoma patients from TCGA (“TCGA-LUAD”). The case ids
+are available through a basic <code>cases()</code> query, <code>filter</code>ed to include
+only samples that belong to the project from <code>TCGA-LUAD</code> (stored in
+the <code>project.project_id</code> field). The query to get these case_ids,
+then, looks like:</p>
+<pre class="r"><code>case_ids = cases() %&gt;%
+    filter(~ project.project_id == &#39;TCGA-LUAD&#39;) %&gt;%
+    results(size=100) %&gt;%
+    ids()
+head(case_ids)</code></pre>
+<pre><code>## [1] &quot;645903b5-ba37-48a1-985b-a019b8db3236&quot;
+## [2] &quot;9e640ff7-996e-427b-b56c-519a1e23baab&quot;
+## [3] &quot;0232d299-4cdf-4fd7-9a5e-8d13c208b40c&quot;
+## [4] &quot;15340dd3-84ae-49fb-989a-eb212f3e73da&quot;
+## [5] &quot;474b86d9-d897-467d-85d4-51dfa26ea107&quot;
+## [6] &quot;e254aaeb-012c-4d92-8a03-cce1f6a2bcd6&quot;</code></pre>
+<p>These case_ids, each representing a single case (patient) in the GDC,
+can be be fed directly to <code>gdc_clinical</code>.</p>
+<pre class="r"><code>clin_res = gdc_clinical(case_ids)</code></pre>
+<p>The result is a list of data.frames:</p>
+<pre class="r"><code>names(clin_res)</code></pre>
+<pre><code>## [1] &quot;demographic&quot; &quot;diagnoses&quot;   &quot;exposures&quot;   &quot;main&quot;</code></pre>
+<p>The the dimensions of these data.frames is instructive.</p>
+<pre class="r"><code>sapply(clin_res, dim) %&gt;%
+    t() %&gt;%
+    data.frame() %&gt;%
+    set_names(c(&#39;rows&#39;,&#39;columns&#39;))</code></pre>
+<pre><code>##             rows columns
+## demographic  100      15
+## diagnoses     83      30
+## exposures     83      14
+## main         100       8</code></pre>
+<p>And the column names for each are helpful to examine:</p>
+<pre class="r"><code>sapply(clin_res, colnames)</code></pre>
+<pre><code>## $demographic
+##  [1] &quot;updated_datetime&quot; &quot;created_datetime&quot; &quot;gender&quot;          
+##  [4] &quot;year_of_birth&quot;    &quot;demographic_id&quot;   &quot;state&quot;           
+##  [7] &quot;race&quot;             &quot;age_at_index&quot;     &quot;vital_status&quot;    
+## [10] &quot;submitter_id&quot;     &quot;ethnicity&quot;        &quot;year_of_death&quot;   
+## [13] &quot;days_to_birth&quot;    &quot;days_to_death&quot;    &quot;case_id&quot;         
+## 
+## $diagnoses
+##  [1] &quot;case_id&quot;                          
+##  [2] &quot;year_of_diagnosis&quot;                
+##  [3] &quot;classification_of_tumor&quot;          
+##  [4] &quot;last_known_disease_status&quot;        
+##  [5] &quot;updated_datetime&quot;                 
+##  [6] &quot;primary_diagnosis&quot;                
+##  [7] &quot;submitter_id&quot;                     
+##  [8] &quot;tumor_stage&quot;                      
+##  [9] &quot;age_at_diagnosis&quot;                 
+## [10] &quot;morphology&quot;                       
+## [11] &quot;days_to_last_known_disease_status&quot;
+## [12] &quot;created_datetime&quot;                 
+## [13] &quot;prior_treatment&quot;                  
+## [14] &quot;ajcc_pathologic_n&quot;                
+## [15] &quot;ajcc_pathologic_m&quot;                
+## [16] &quot;state&quot;                            
+## [17] &quot;days_to_last_follow_up&quot;           
+## [18] &quot;days_to_recurrence&quot;               
+## [19] &quot;diagnosis_id&quot;                     
+## [20] &quot;tumor_grade&quot;                      
+## [21] &quot;icd_10_code&quot;                      
+## [22] &quot;tissue_or_organ_of_origin&quot;        
+## [23] &quot;progression_or_recurrence&quot;        
+## [24] &quot;prior_malignancy&quot;                 
+## [25] &quot;ajcc_staging_system_edition&quot;      
+## [26] &quot;ajcc_pathologic_stage&quot;            
+## [27] &quot;synchronous_malignancy&quot;           
+## [28] &quot;site_of_resection_or_biopsy&quot;      
+## [29] &quot;ajcc_pathologic_t&quot;                
+## [30] &quot;days_to_diagnosis&quot;                
+## 
+## $exposures
+##  [1] &quot;case_id&quot;            &quot;cigarettes_per_day&quot; &quot;weight&quot;            
+##  [4] &quot;updated_datetime&quot;   &quot;created_datetime&quot;   &quot;alcohol_intensity&quot; 
+##  [7] &quot;bmi&quot;                &quot;years_smoked&quot;       &quot;submitter_id&quot;      
+## [10] &quot;alcohol_history&quot;    &quot;state&quot;              &quot;exposure_id&quot;       
+## [13] &quot;height&quot;             &quot;pack_years_smoked&quot; 
+## 
+## $main
+## [1] &quot;updated_datetime&quot; &quot;submitter_id&quot;     &quot;case_id&quot;         
+## [4] &quot;id&quot;               &quot;disease_type&quot;     &quot;created_datetime&quot;
+## [7] &quot;state&quot;            &quot;primary_site&quot;</code></pre>
+<p>Note the each data.frame contains a <code>case_id</code> column by design to
+allow arbitrary joining of the tables to each other. In this case, the
+data relationships are not too complicated, but one might imagine
+situations arising that include many-to-many relationships that are
+hard to handle in a fully general way without some understanding of
+downstream use (what do we want to do with the clinical
+information?). In this relatively simple case, we can create a
+“master” data.frame by joining all the records from each data.frame.</p>
+<pre class="r"><code>library(dplyr)
+full_clin = with(clin_res,
+     main %&gt;%
+     left_join(demographic, by = &quot;case_id&quot;) %&gt;%
+     left_join(exposures, by = &quot;case_id&quot;) %&gt;%
+     left_join(diagnoses, by = &quot;case_id&quot;))</code></pre>
+<p>Above, I have used the tidyverse approach, applying <code>dplyr</code>
+<code>left_join()</code>s. Using base R <code>merge</code> would also work.</p>
+<pre class="r"><code>dim(full_clin)</code></pre>
+<pre><code>## [1] 100  64</code></pre>
+<pre class="r"><code>colnames(full_clin)</code></pre>
+<pre><code>##  [1] &quot;updated_datetime.x&quot;               
+##  [2] &quot;submitter_id.x&quot;                   
+##  [3] &quot;case_id&quot;                          
+##  [4] &quot;id&quot;                               
+##  [5] &quot;disease_type&quot;                     
+##  [6] &quot;created_datetime.x&quot;               
+##  [7] &quot;state.x&quot;                          
+##  [8] &quot;primary_site&quot;                     
+##  [9] &quot;updated_datetime.y&quot;               
+## [10] &quot;created_datetime.y&quot;               
+## [11] &quot;gender&quot;                           
+## [12] &quot;year_of_birth&quot;                    
+## [13] &quot;demographic_id&quot;                   
+## [14] &quot;state.y&quot;                          
+## [15] &quot;race&quot;                             
+## [16] &quot;age_at_index&quot;                     
+## [17] &quot;vital_status&quot;                     
+## [18] &quot;submitter_id.y&quot;                   
+## [19] &quot;ethnicity&quot;                        
+## [20] &quot;year_of_death&quot;                    
+## [21] &quot;days_to_birth&quot;                    
+## [22] &quot;days_to_death&quot;                    
+## [23] &quot;cigarettes_per_day&quot;               
+## [24] &quot;weight&quot;                           
+## [25] &quot;updated_datetime.x.x&quot;             
+## [26] &quot;created_datetime.x.x&quot;             
+## [27] &quot;alcohol_intensity&quot;                
+## [28] &quot;bmi&quot;                              
+## [29] &quot;years_smoked&quot;                     
+## [30] &quot;submitter_id.x.x&quot;                 
+## [31] &quot;alcohol_history&quot;                  
+## [32] &quot;state.x.x&quot;                        
+## [33] &quot;exposure_id&quot;                      
+## [34] &quot;height&quot;                           
+## [35] &quot;pack_years_smoked&quot;                
+## [36] &quot;year_of_diagnosis&quot;                
+## [37] &quot;classification_of_tumor&quot;          
+## [38] &quot;last_known_disease_status&quot;        
+## [39] &quot;updated_datetime.y.y&quot;             
+## [40] &quot;primary_diagnosis&quot;                
+## [41] &quot;submitter_id.y.y&quot;                 
+## [42] &quot;tumor_stage&quot;                      
+## [43] &quot;age_at_diagnosis&quot;                 
+## [44] &quot;morphology&quot;                       
+## [45] &quot;days_to_last_known_disease_status&quot;
+## [46] &quot;created_datetime.y.y&quot;             
+## [47] &quot;prior_treatment&quot;                  
+## [48] &quot;ajcc_pathologic_n&quot;                
+## [49] &quot;ajcc_pathologic_m&quot;                
+## [50] &quot;state.y.y&quot;                        
+## [51] &quot;days_to_last_follow_up&quot;           
+## [52] &quot;days_to_recurrence&quot;               
+## [53] &quot;diagnosis_id&quot;                     
+## [54] &quot;tumor_grade&quot;                      
+## [55] &quot;icd_10_code&quot;                      
+## [56] &quot;tissue_or_organ_of_origin&quot;        
+## [57] &quot;progression_or_recurrence&quot;        
+## [58] &quot;prior_malignancy&quot;                 
+## [59] &quot;ajcc_staging_system_edition&quot;      
+## [60] &quot;ajcc_pathologic_stage&quot;            
+## [61] &quot;synchronous_malignancy&quot;           
+## [62] &quot;site_of_resection_or_biopsy&quot;      
+## [63] &quot;ajcc_pathologic_t&quot;                
+## [64] &quot;days_to_diagnosis&quot;</code></pre>
+<p>In conclusion, the <code>gdc_clinical</code> functionality from the
+GenomicDataCommons is a high-level function for capturing unified and
+harmonized clinical information for <em>any</em> case in the NCI GDC
+repository.</p>
+<pre class="r"><code>sessionInfo()</code></pre>
+<pre><code>## R Under development (unstable) (2019-01-14 r75992)
+## Platform: x86_64-apple-darwin15.6.0 (64-bit)
+## Running under: macOS Mojave 10.14.2
+## 
+## Matrix products: default
+## BLAS: /Library/Frameworks/R.framework/Versions/3.6/Resources/lib/libRblas.0.dylib
+## LAPACK: /Library/Frameworks/R.framework/Versions/3.6/Resources/lib/libRlapack.dylib
+## 
+## locale:
+## [1] en_US.UTF-8/en_US.UTF-8/en_US.UTF-8/C/en_US.UTF-8/en_US.UTF-8
+## 
+## attached base packages:
+## [1] stats     graphics  grDevices utils     datasets  methods   base     
+## 
+## other attached packages:
+## [1] dplyr_0.8.1              GenomicDataCommons_1.9.0
+## [3] magrittr_1.5             knitr_1.23              
+## 
+## loaded via a namespace (and not attached):
+##  [1] Rcpp_1.0.1                  pillar_1.4.2               
+##  [3] compiler_3.6.0              GenomeInfoDb_1.21.1        
+##  [5] XVector_0.25.0              bitops_1.0-6               
+##  [7] tools_3.6.0                 zlibbioc_1.31.0            
+##  [9] digest_0.6.19               jsonlite_1.6               
+## [11] evaluate_0.14               tibble_2.1.3               
+## [13] lattice_0.20-38             pkgconfig_2.0.2            
+## [15] rlang_0.4.0                 Matrix_1.2-17              
+## [17] DelayedArray_0.11.2         curl_3.3                   
+## [19] yaml_2.2.0                  parallel_3.6.0             
+## [21] blogdown_0.16               xfun_0.8                   
+## [23] GenomeInfoDbData_1.2.1      xml2_1.2.0                 
+## [25] httr_1.4.0                  stringr_1.4.0              
+## [27] hms_0.4.2                   rappdirs_0.3.1             
+## [29] S4Vectors_0.23.17           IRanges_2.19.10            
+## [31] tidyselect_0.2.5            stats4_3.6.0               
+## [33] grid_3.6.0                  glue_1.3.1                 
+## [35] Biobase_2.45.0              R6_2.4.0                   
+## [37] BiocParallel_1.19.0         rmarkdown_1.13             
+## [39] bookdown_0.11               readr_1.3.1                
+## [41] purrr_0.3.2                 codetools_0.2-16           
+## [43] htmltools_0.3.6             matrixStats_0.54.0         
+## [45] BiocGenerics_0.31.4         GenomicRanges_1.37.14      
+## [47] assertthat_0.2.1            SummarizedExperiment_1.15.5
+## [49] stringi_1.4.3               RCurl_1.95-4.12            
+## [51] crayon_1.3.4</code></pre>
+
+    </div>
+
+    
+
+
+
+
+
+
+<div class="article-tags">
+  
+  <a class="badge badge-light" href="/tag/cancer-genomics/">Cancer Genomics</a>
+  
+  <a class="badge badge-light" href="/tag/genomicdatacommons/">GenomicDataCommons</a>
+  
+</div>
+
+
+
+<div class="share-box" aria-hidden="true">
+  <ul class="share">
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="https://twitter.com/intent/tweet?url=/post/2018-03-25-extracting-clinical-information-using-the-genomicdatacommons-package/&amp;text=Extracting%20Clinical%20Information%20Using%20the%20Genomicdatacommons%20Package" target="_blank" rel="noopener" class="share-btn-twitter">
+          <i class="fab fa-twitter"></i>
+        </a>
+      </li>
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="https://www.facebook.com/sharer.php?u=/post/2018-03-25-extracting-clinical-information-using-the-genomicdatacommons-package/&amp;t=Extracting%20Clinical%20Information%20Using%20the%20Genomicdatacommons%20Package" target="_blank" rel="noopener" class="share-btn-facebook">
+          <i class="fab fa-facebook"></i>
+        </a>
+      </li>
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="mailto:?subject=Extracting%20Clinical%20Information%20Using%20the%20Genomicdatacommons%20Package&amp;body=/post/2018-03-25-extracting-clinical-information-using-the-genomicdatacommons-package/" target="_blank" rel="noopener" class="share-btn-email">
+          <i class="fas fa-envelope"></i>
+        </a>
+      </li>
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="https://www.linkedin.com/shareArticle?url=/post/2018-03-25-extracting-clinical-information-using-the-genomicdatacommons-package/&amp;title=Extracting%20Clinical%20Information%20Using%20the%20Genomicdatacommons%20Package" target="_blank" rel="noopener" class="share-btn-linkedin">
+          <i class="fab fa-linkedin-in"></i>
+        </a>
+      </li>
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="whatsapp://send?text=Extracting%20Clinical%20Information%20Using%20the%20Genomicdatacommons%20Package%20/post/2018-03-25-extracting-clinical-information-using-the-genomicdatacommons-package/" target="_blank" rel="noopener" class="share-btn-whatsapp">
+          <i class="fab fa-whatsapp"></i>
+        </a>
+      </li>
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="https://service.weibo.com/share/share.php?url=/post/2018-03-25-extracting-clinical-information-using-the-genomicdatacommons-package/&amp;title=Extracting%20Clinical%20Information%20Using%20the%20Genomicdatacommons%20Package" target="_blank" rel="noopener" class="share-btn-weibo">
+          <i class="fab fa-weibo"></i>
+        </a>
+      </li>
+    
+  </ul>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+
+
+
+  
+  
+  
+    
+  
+  
+  
+  <div class="media author-card content-widget-hr">
+    
+
+    <div class="media-body">
+      <h5 class="card-title"></h5>
+      <h6 class="card-subtitle">Senior Associate Scientist</h6>
+      <p class="card-text">My interests include biomedical data science, open data, genomics, and cancer research.</p>
+      <ul class="network-icon" aria-hidden="true">
+  
+    
+    
+    
+      
+    
+    
+    
+    
+    
+    <li>
+      <a href="mailto:seandavi@gmail.com" >
+        <i class="fas fa-envelope"></i>
+      </a>
+    </li>
+  
+    
+    
+    
+      
+    
+    
+    
+    
+    
+      
+    
+    <li>
+      <a href="https://twitter.com/seandavis12" target="_blank" rel="noopener">
+        <i class="fab fa-twitter"></i>
+      </a>
+    </li>
+  
+    
+    
+    
+    
+    
+    
+    
+      
+    
+    <li>
+      <a href="https://scholar.google.co.uk/citations?user=hLFc29kAAAAJ" target="_blank" rel="noopener">
+        <i class="ai ai-google-scholar"></i>
+      </a>
+    </li>
+  
+    
+    
+    
+      
+    
+    
+    
+    
+    
+      
+    
+    <li>
+      <a href="https://github.com/seandavi" target="_blank" rel="noopener">
+        <i class="fab fa-github"></i>
+      </a>
+    </li>
+  
+    
+    
+    
+    
+    
+    
+    
+      
+    
+    <li>
+      <a href="/files/CV.pdf" >
+        <i class="ai ai-cv"></i>
+      </a>
+    </li>
+  
+</ul>
+
+    </div>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <div class="article-widget content-widget-hr">
+    <h3>Related</h3>
+    <ul>
+      
+      <li><a href="/post/leveraging-bioconductor-for-somatic-variant-analysis-of-tcga-datarmd/">Leveraging Bioconductor for somatic variant analysis of TCGA data</a></li>
+      
+      <li><a href="/post/2017-03-04-testing-the-genomicdatacommons-package/">Matched tumor/normal pairs--a use case for the GenomicDataCommons Bioconductor package</a></li>
+      
+      <li><a href="/post/build-linux-r-binary-packages/">Building R Binary Packages for Linux</a></li>
+      
+      <li><a href="/post/2019-05-28-single-cell-package-dependencies-in-bioconductor-with-biocpkgtools/">Single cell packages and dependencies in Bioconductor using BiocPkgTools</a></li>
+      
+      <li><a href="/talk/2018-12-03-wake-forest-bioconductor/">Bioconductor: software for interpreting high-throughput biological data</a></li>
+      
+    </ul>
+  </div>
+  
+
+
+
+
+
+  </div>
+</article>
+  </div>
+
+  <div class="page-footer">
+    
+    
+    <div class="container">
+      <footer class="site-footer">
+  
+
+  <p class="powered-by">
+    
+  </p>
+
+  
+  
+
+
+
+
+
+
+  <p class="powered-by">
+    
+    
+    
+    Published with
+    <a href="https://wowchemy.com/?utm_campaign=poweredby" target="_blank" rel="noopener">Wowchemy</a>  —
+    the free, <a href="https://github.com/wowchemy/wowchemy-hugo-modules" target="_blank" rel="noopener">
+    open source</a> website builder that empowers creators.
+    
+  </p>
+</footer>
+
+    </div>
+    
+  </div>
+
+  
+<div id="modal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Cite</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <pre><code class="tex hljs"></code></pre>
+      </div>
+      <div class="modal-footer">
+        <a class="btn btn-outline-primary my-1 js-copy-cite" href="#" target="_blank">
+          <i class="fas fa-copy"></i> Copy
+        </a>
+        <a class="btn btn-outline-primary my-1 js-download-cite" href="#" target="_blank">
+          <i class="fas fa-download"></i> Download
+        </a>
+        <div id="modal-error"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+      
+
+    
+    
+    
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
+
+      
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.imagesloaded/4.1.4/imagesloaded.pkgd.min.js" integrity="sha256-lqvxZrPLtfffUl2G/e7szqSvPBILGbwmsGE1MKlOi0Q=" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.isotope/3.0.6/isotope.pkgd.min.js" integrity="sha256-CBrpuqrMhXwcLLUd5tvQ4euBHCdh7wGlDfNz8vbu/iI=" crossorigin="anonymous"></script>
+      
+
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js" integrity="sha256-yt2kYMy0w8AbtF89WXb2P1rfjcP/HTHLT7097U8Y5b8=" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/instant.page/5.1.0/instantpage.min.js" integrity="sha512-1+qUtKoh9XZW7j+6LhRMAyOrgSQKenQ4mluTR+cvxXjP1Z54RxZuzstR/H9kgPXQsVB8IW7DMDFUJpzLjvhGSQ==" crossorigin="anonymous"></script>
+
+      
+
+      
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.2.0/highlight.min.js" integrity="sha512-TDKKr+IvoqZnPzc3l35hdjpHD0m+b2EC2SrLEgKDRWpxf2rFCxemkgvJ5kfU48ip+Y+m2XVKyOCD85ybtlZDmw==" crossorigin="anonymous"></script>
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.2.0/languages/r.min.js"></script>
+        
+      
+
+    
+
+    
+    
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/leaflet.min.js" integrity="sha512-SeiQaaDh73yrb56sTW/RgVdi/mMqNeM2oBwubFHagc5BkixSpP1fvqF47mKzPGWYSSy4RwbBunrJBQ4Co8fRWA==" crossorigin="anonymous"></script>
+    
+
+    
+    
+    <script>const code_highlighting = true;</script>
+    
+
+    
+    
+    
+    
+    
+    
+    <script>
+      const search_config = {"indexURI":"/index.json","minLength":1,"threshold":0.3};
+      const i18n = {"no_results":"No results found","placeholder":"Search...","results":"results found"};
+      const content_type = {
+        'post': "Posts",
+        'project': "Projects",
+        'publication' : "Publications",
+        'talk' : "Talks",
+        'slides' : "Slides"
+        };
+    </script>
+    
+
+    
+    
+
+    
+    
+    <script id="search-hit-fuse-template" type="text/x-template">
+      <div class="search-hit" id="summary-{{key}}">
+      <div class="search-hit-content">
+        <div class="search-hit-name">
+          <a href="{{relpermalink}}">{{title}}</a>
+          <div class="article-metadata search-hit-type">{{type}}</div>
+          <p class="search-hit-description">{{snippet}}</p>
+        </div>
+      </div>
+      </div>
+    </script>
+    
+
+    
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/3.2.1/fuse.min.js" integrity="sha256-VzgmKYmhsGNNN4Ph1kMW+BjoYJM2jV5i4IlFoeZA9XI=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/jquery.mark.min.js" integrity="sha256-4HLtjeVgH0eIB3aZ9mLYF6E8oU5chNdjU6p6rrXpl9U=" crossorigin="anonymous"></script>
+    
+
+    
+    
+
+    
+    
+    
+
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+      
+    
+    
+    
+    
+    <script src="/js/wowchemy.min.ffabb05383f1b16d83e7181a605e644c.js"></script>
+
+    
+
+
+
+
+
+
+</body>
+</html>

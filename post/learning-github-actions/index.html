@@ -1,0 +1,1678 @@
+<!DOCTYPE html><html lang="en-us" >
+
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  
+  
+  
+  <meta name="generator" content="Wowchemy 5.0.0-beta.1 for Hugo">
+  
+
+  
+
+  
+  
+
+  
+  
+  
+  
+  
+    
+    
+    
+  
+  
+
+  
+
+  
+  
+  
+    
+  
+  <meta name="description" content="GitHub actions allow flexible and potentially complicated `actions` that comprise `workflows` that respond to events on Github. Continuous integration, messaging Slack, greeting new contributors, deploying applications, and many other templates are ready for customization and integration into any repo. ">
+
+  
+  <link rel="alternate" hreflang="en-us" href="/post/learning-github-actions/">
+
+  
+
+
+
+
+
+
+
+  
+
+
+
+
+  
+  
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  
+
+  
+  
+  
+  <meta name="theme-color" content="#2962ff">
+  
+
+  
+  
+
+  
+  
+  
+  
+    
+    
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/academicons/1.9.0/css/academicons.min.css" integrity="sha512-W4yqoT1+8NLkinBLBZko+dFB2ZbHsYLDdr50VElllRcNt2Q4/GSs6u71UHKxB7S6JEMCp5Ve4xjh3eGQl/HRvg==" crossorigin="anonymous">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" integrity="sha256-FMvZuGapsJLjouA6k7Eo2lusoAX9i0ShlWFG6qt7SLc=" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css" integrity="sha256-Vzbj7sDDS/woiFS3uNKo8eIuni59rjyNGtXfstRzStA=" crossorigin="anonymous">
+
+    
+    
+    
+      
+    
+    
+      
+      
+        
+          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.2.0/styles/github.min.css" crossorigin="anonymous" title="hl-light">
+          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.2.0/styles/dracula.min.css" crossorigin="anonymous" title="hl-dark" disabled>
+        
+      
+    
+
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/leaflet.min.css" integrity="sha512-1xoFisiGdy9nvho8EgXuXvnpR5GAMSjFwp40gSRE3NwdUdIMIKuPa7bqoUhLD0O/5tPNhteAsE5XyyMi5reQVA==" crossorigin="anonymous">
+    
+
+    
+
+    
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/lazysizes/5.2.2/lazysizes.min.js" integrity="sha512-TmDwFLhg3UA4ZG0Eb4MIyT1O1Mb+Oww5kFG0uHqXsdbyZz9DcvYQhKpGgNkamAI6h2lGGZq2X8ftOJvF/XjTUg==" crossorigin="anonymous" async></script>
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+        
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+
+  
+
+  
+  
+  
+    
+      
+      
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:400,700%7CRoboto:400,400italic,700%7CRoboto+Mono&display=swap">
+    
+  
+
+  
+  
+  
+  
+  <link rel="stylesheet" href="/css/wowchemy.min.2da9fc7ecccb62374ee4667dc6583d14.css">
+
+  
+
+
+
+
+  
+
+  
+
+
+  
+  
+
+  
+
+  <link rel="manifest" href="/index.webmanifest">
+  <link rel="icon" type="image/png" href="/images/icon_hu0b7a4cb9992c9ac0e91bd28ffd38dd00_9727_32x32_fill_lanczos_center_2.png">
+  <link rel="apple-touch-icon" type="image/png" href="/images/icon_hu0b7a4cb9992c9ac0e91bd28ffd38dd00_9727_192x192_fill_lanczos_center_2.png">
+
+  <link rel="canonical" href="/post/learning-github-actions/">
+
+  
+  
+  
+  
+  
+  
+  
+    
+  
+  
+  <meta property="twitter:card" content="summary_large_image">
+  
+  <meta property="og:site_name" content="Academic">
+  <meta property="og:url" content="/post/learning-github-actions/">
+  <meta property="og:title" content="Experimenting with Github Actions | Academic">
+  <meta property="og:description" content="GitHub actions allow flexible and potentially complicated `actions` that comprise `workflows` that respond to events on Github. Continuous integration, messaging Slack, greeting new contributors, deploying applications, and many other templates are ready for customization and integration into any repo. "><meta property="og:image" content="/post/learning-github-actions/featured.jpg">
+  <meta property="twitter:image" content="/post/learning-github-actions/featured.jpg"><meta property="og:locale" content="en-us">
+  
+    
+      <meta property="article:published_time" content="2019-10-11T11:08:16-04:00">
+    
+    <meta property="article:modified_time" content="2019-10-11T11:08:16-04:00">
+  
+
+  
+
+
+    
+
+
+
+
+
+
+  
+
+
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "/post/learning-github-actions/"
+  },
+  "headline": "Experimenting with Github Actions",
+  
+  "image": [
+    "/post/learning-github-actions/featured.jpg"
+  ],
+  
+  "datePublished": "2019-10-11T11:08:16-04:00",
+  "dateModified": "2019-10-11T11:08:16-04:00",
+  
+  "publisher": {
+    "@type": "Organization",
+    "name": "Academic",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "/images/icon_hu0b7a4cb9992c9ac0e91bd28ffd38dd00_9727_192x192_fill_lanczos_center_2.png"
+    }
+  },
+  "description": "GitHub actions allow flexible and potentially complicated `actions` that comprise `workflows` that respond to events on Github. Continuous integration, messaging Slack, greeting new contributors, deploying applications, and many other templates are ready for customization and integration into any repo. "
+}
+</script>
+
+  
+
+  
+
+
+  
+
+
+  
+
+
+
+
+
+  <title>Experimenting with Github Actions | Academic</title>
+
+</head>
+
+
+<body id="top" data-spy="scroll" data-offset="70" data-target="#TableOfContents" class="page-wrapper  ">
+
+  
+  
+  
+  
+  
+  <script src="/js/wowchemy-init.js"></script>
+
+  <aside class="search-results" id="search">
+  <div class="container">
+    <section class="search-header">
+
+      <div class="row no-gutters justify-content-between mb-3">
+        <div class="col-6">
+          <h1>Search</h1>
+        </div>
+        <div class="col-6 col-search-close">
+          <a class="js-search" href="#"><i class="fas fa-times-circle text-muted" aria-hidden="true"></i></a>
+        </div>
+      </div>
+
+      <div id="search-box">
+        
+        <input name="q" id="search-query" placeholder="Search..." autocapitalize="off"
+        autocomplete="off" autocorrect="off" spellcheck="false" type="search" class="form-control">
+        
+      </div>
+
+    </section>
+    <section class="section-search-results">
+
+      <div id="search-hits">
+        
+      </div>
+
+    </section>
+  </div>
+</aside>
+
+
+  <div class="page-header">
+    
+
+
+
+
+
+
+
+
+
+
+
+
+<nav class="navbar navbar-expand-lg navbar-light compensate-for-scrollbar" id="navbar-main">
+  <div class="container">
+
+    
+    <div class="d-none d-lg-inline-flex">
+      <a class="navbar-brand" href="/">Academic</a>
+    </div>
+    
+
+    
+    <button type="button" class="navbar-toggler" data-toggle="collapse"
+            data-target="#navbar-content" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
+    <span><i class="fas fa-bars"></i></span>
+    </button>
+    
+
+    
+    <div class="navbar-brand-mobile-wrapper d-inline-flex d-lg-none">
+      <a class="navbar-brand" href="/">Academic</a>
+    </div>
+    
+
+    
+    
+    <div class="navbar-collapse main-menu-item collapse justify-content-start" id="navbar-content">
+
+      
+      <ul class="navbar-nav d-md-inline-flex">
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+
+        
+        
+        
+        
+
+        
+          
+            
+            
+          
+          
+            
+            
+            
+              
+            
+            
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/#about"><span>Home</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+
+        
+        
+        
+        
+
+        
+          
+            
+            
+          
+          
+            
+            
+            
+              
+            
+            
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/#posts"><span>Posts</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+
+        
+        
+        
+        
+
+        
+          
+            
+            
+          
+          
+            
+            
+            
+              
+            
+            
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/#projects"><span>Projects</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+
+        
+        
+        
+        
+
+        
+          
+            
+            
+          
+          
+            
+            
+            
+              
+            
+            
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/#talks"><span>Talks</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+
+        
+        
+        
+        
+
+        
+          
+            
+            
+          
+          
+            
+            
+            
+              
+            
+            
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/#featured"><span>Publications</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+
+        
+        
+        
+        
+
+        
+          
+            
+            
+          
+          
+            
+            
+            
+              
+            
+            
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/#contact"><span>Contact</span></a>
+        </li>
+
+        
+        
+
+      
+
+        
+      </ul>
+    </div>
+
+    <ul class="nav-icons navbar-nav flex-row ml-auto d-flex pl-md-2">
+      
+      
+      <li class="nav-item">
+        <a class="nav-link js-search" href="#" aria-label="Search"><i class="fas fa-search" aria-hidden="true"></i></a>
+      </li>
+      
+
+      
+      
+      <li class="nav-item dropdown theme-dropdown">
+        <a href="#" class="nav-link" data-toggle="dropdown" aria-haspopup="true" aria-label="Display preferences">
+          <i class="fas fa-moon" aria-hidden="true"></i>
+        </a>
+        <div class="dropdown-menu">
+          <a href="#" class="dropdown-item js-set-theme-light">
+            <span>Light</span>
+          </a>
+          <a href="#" class="dropdown-item js-set-theme-dark">
+            <span>Dark</span>
+          </a>
+          <a href="#" class="dropdown-item js-set-theme-auto">
+            <span>Automatic</span>
+          </a>
+        </div>
+      </li>
+      
+
+      
+
+    </ul>
+
+  </div>
+</nav>
+
+
+  </div>
+
+  <div class="page-body">
+    <article class="article">
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+
+<div class="article-container pt-3">
+  <h1>Experimenting with Github Actions</h1>
+
+  
+
+  
+
+
+<div class="article-metadata">
+
+  
+  
+  
+  
+  <div>
+    
+
+  <span >
+      <a href="/authors/seandavi/"></a></span>
+  </div>
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    Oct 11, 2019
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    5 min read
+  </span>
+  
+
+  
+  
+  
+  
+  
+
+  
+  
+  <span class="middot-divider"></span>
+  <span class="article-categories">
+    <i class="fas fa-folder mr-1"></i><a href="/category/it/">IT</a>, <a href="/category/programming/">programming</a></span>
+  
+
+</div>
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+
+
+<div class="article-header article-container featured-image-wrapper mt-4 mb-4" style="max-width: 720px; max-height: 480px;">
+  <div style="position: relative">
+    <img src="/post/learning-github-actions/featured_hu3d03a01dcc18bc5be0e67db3d8d209a6_1450407_720x0_resize_q75_lanczos.jpg" alt="" class="featured-image">
+    <span class="article-header-caption">Photo by Luca Bravo on <a href="https://unsplash.com/s/photos/building">Unsplash</a></span>
+  </div>
+</div>
+
+
+
+  <div class="article-container">
+
+    <div class="article-style">
+      <p><a href="https://github.com/features/package-registry" target="_blank" rel="noopener">GitHub Actions</a> allow flexible and potentially complicated actions
+that comprise workflows that respond to <a href="https://developer.github.com/webhooks/#events" target="_blank" rel="noopener">repository events</a> on Github. Continuous
+integration, messaging Slack, greeting new contributors, deploying
+applications, and many other templates are ready for customization and
+integration into any repo.</p>
+<p>As of this writing, GitHub Actions are available as a <em>beta</em> feature,
+requiring <a href="https://github.com/features/actions" target="_blank" rel="noopener">signup</a>.</p>
+<h2 id="definitionshttpshelpgithubcomenarticlesabout-github-actionscore-concepts-for-github-actions"><a href="https://help.github.com/en/articles/about-github-actions#core-concepts-for-github-actions" target="_blank" rel="noopener">Definitions</a></h2>
+<h3 id="action">Action</h3>
+<p>An action is the smallest portable building block of a
+workflow. Actions are combined as steps to form a workflow. Actions can be
+created from scratch, modified from <a href="https://github.com/actions" target="_blank" rel="noopener">publicly available actions</a>, and
+shared with others.</p>
+<h3 id="workflow">Workflow</h3>
+<p>A workflow is a collection of steps (actions) that describe a process
+that will execute in response to GitHub <a href="https://developer.github.com/webhooks/#events" target="_blank" rel="noopener">repository events</a>. A YAML
+file that defines your workflow configuration with at least one
+job. This file lives in the root of your GitHub repository in the
+<code>.github/workflows</code> directory. Multiple workflow files may exist and
+all will be active.</p>
+<h3 id="step">Step</h3>
+<p>A step is a set of tasks performed by a job. Each step in a job
+executes in the same virtual environment, allowing the actions in that
+job to share information using the filesystem. Steps can run commands
+(shell commands, etc.) or actions.</p>
+<h3 id="virtual-environment">Virtual environment</h3>
+<p>GitHub has hosts for Linux, macOS, and Windows that can serve as
+execution environments for workflows.</p>
+<h3 id="runner">Runner</h3>
+<p>Jobs run on a service that waits in virtual environment that waits for available
+jobs. The runner takes jobs one-at-a-time and runs each, reporting
+logs, etc., back to Github.</p>
+<h3 id="event">Event</h3>
+<p>Workflows can be triggered by a [repository event] such as a push, a
+new issue, etc.</p>
+<h3 id="artifact">Artifact</h3>
+<p>Artifacts are the files that are created during a workflow. These can
+be deployed, used in other workflows, published, etc. Additional
+actions allow working with artifacts.</p>
+<h2 id="walkthrough">Walkthrough</h2>
+<h3 id="create-repo">Create repo</h3>
+<p>Here, I simulate creating a simple python package by forking <a href="https://github.com/bast/somepackage" target="_blank" rel="noopener">this
+example repo</a> by
+<a href="https://github.com/bast" target="_blank" rel="noopener">bast</a>. The package is to exemplify some best
+practices for structuring python code. However, here it serves as a
+simple example of a formal python package that we can build and test.</p>
+<p>Login to Github, navigate to the <a href="https://github.com/bast/somepackage" target="_blank" rel="noopener">example repo</a>, and <a href="https://help.github.com/en/articles/fork-a-repo" target="_blank" rel="noopener">fork the
+repo</a>.</p>
+
+
+
+
+
+
+  
+
+
+
+  
+  
+
+
+
+
+
+
+
+
+
+
+
+<figure id="figure-fork-the-example-repohttpsgithubcombastsomepackage">
+
+
+  <a data-fancybox="" href="/post/learning-github-actions/fork-repo_hufba7682a0eb300813e1b68b0c8690756_502006_2000x2000_fit_lanczos_2.png" data-caption="Fork the &lt;a href=&#34;https://github.com/bast/somepackage&#34;&gt;example repo&lt;/a&gt;.">
+
+
+  <img data-src="/post/learning-github-actions/fork-repo_hufba7682a0eb300813e1b68b0c8690756_502006_2000x2000_fit_lanczos_2.png" class="lazyload" alt="" width="3370" height="1664">
+</a>
+
+
+  
+  
+  <figcaption>
+    Fork the <a href="https://github.com/bast/somepackage">example repo</a>.
+  </figcaption>
+
+
+</figure>
+
+<p>After forking, a fresh package will be available in your repository.</p>
+<h3 id="add-a-github-action">Add a github action</h3>
+<p>After ensuring that you have [signed up] for Github Actions and have
+verified that you are &ldquo;in&rdquo; by noticing the <code>Actions</code> button at the top
+of your github repository:</p>
+
+
+
+
+
+
+  
+
+
+
+  
+  
+
+
+
+
+
+
+
+
+
+
+
+<figure id="figure-the-github-actions-button-should-be-present-in-order-to-proceed">
+
+
+  <a data-fancybox="" href="/post/learning-github-actions/action-button_hufca21c42c756e02db03ecac215a46111_94380_2000x2000_fit_lanczos_2.png" data-caption="The Github Actions button should be present in order to proceed.">
+
+
+  <img data-src="/post/learning-github-actions/action-button_hufca21c42c756e02db03ecac215a46111_94380_2000x2000_fit_lanczos_2.png" class="lazyload" alt="" width="1792" height="458">
+</a>
+
+
+  
+  
+  <figcaption>
+    The Github Actions button should be present in order to proceed.
+  </figcaption>
+
+
+</figure>
+
+<p>Now, we can proceed with adding a workflow from the set of recommended
+workflow templates (or others). Clicking on the <code>Actions</code> button will
+bring up the following screen.</p>
+
+
+
+
+
+
+  
+
+
+
+  
+  
+
+
+
+
+
+
+
+
+
+
+
+<figure id="figure-choose-the-python-package-workflow">
+
+
+  <a data-fancybox="" href="/post/learning-github-actions/choose-action_hu18fe83e46e92b88e675b257dc24db559_469675_2000x2000_fit_lanczos_2.png" data-caption="Choose the python package workflow.">
+
+
+  <img data-src="/post/learning-github-actions/choose-action_hu18fe83e46e92b88e675b257dc24db559_469675_2000x2000_fit_lanczos_2.png" class="lazyload" alt="" width="3288" height="1522">
+</a>
+
+
+  
+  
+  <figcaption>
+    Choose the python package workflow.
+  </figcaption>
+
+
+</figure>
+
+<p>Click on the <code>Set up this workflow</code> on the &ldquo;Python package&rdquo;
+card. That will bring up the following screen.</p>
+
+
+
+
+
+
+  
+
+
+
+  
+  
+
+
+
+
+
+
+
+
+
+
+
+<figure id="figure-the-workflow-editor">
+
+
+  <a data-fancybox="" href="/post/learning-github-actions/workflow-editor_hu22857dbc6f1f1e0dcd8dd1accc15cab9_271164_2000x2000_fit_lanczos_2.png" data-caption="The workflow editor.">
+
+
+  <img data-src="/post/learning-github-actions/workflow-editor_hu22857dbc6f1f1e0dcd8dd1accc15cab9_271164_2000x2000_fit_lanczos_2.png" class="lazyload" alt="" width="2240" height="1312">
+</a>
+
+
+  
+  
+  <figcaption>
+    The workflow editor.
+  </figcaption>
+
+
+</figure>
+
+<p>What is happening at this point is that Github is about to add a new
+file to your repository. The file will be located at
+<code>somepackage/.github/workflows</code>. Edit the filename as you see
+fit.</p>
+<p>The contents of the workflow file will look like the listing below by
+default and follows <a href="https://help.github.com/en/articles/workflow-syntax-for-github-actions" target="_blank" rel="noopener">the workflow
+syntax</a>.</p>
+<pre><code class="language-python">name: Python package
+
+on: [push]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+    strategy:
+      max-parallel: 4
+      matrix:
+        python-version: [2.7, 3.5, 3.6, 3.7]
+
+    steps:
+    - uses: actions/checkout@v1
+    - name: Set up Python ${{ matrix.python-version }}
+      uses: actions/setup-python@v1
+      with:
+        python-version: ${{ matrix.python-version }}
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install -r requirements.txt
+    - name: Lint with flake8
+      run: |
+        pip install flake8
+        # stop the build if there are Python syntax errors or undefined names
+        flake8 . --count --select=E9,F63,F7,F82 --show-source --statistics
+        # exit-zero treats all errors as warnings. The GitHub editor is 127 chars wide
+        flake8 . --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics
+    - name: Test with pytest
+      run: |
+        pip install pytest
+        pytest
+</code></pre>
+<h3 id="commit-new-workflow-file">Commit new workflow file</h3>
+<p>Once you have made any edits (no need to, though), go ahead and click
+the <code>Start Commit</code> button.</p>
+
+
+
+
+
+
+  
+
+
+
+  
+  
+
+
+
+
+
+
+
+
+
+
+
+<figure id="figure-make-the-first-commit">
+
+
+  <a data-fancybox="" href="/post/learning-github-actions/first-commit_hu2a458d7651905bf4de47ef29fe24ce96_153655_2000x2000_fit_lanczos_2.png" data-caption="Make the first commit.">
+
+
+  <img data-src="/post/learning-github-actions/first-commit_hu2a458d7651905bf4de47ef29fe24ce96_153655_2000x2000_fit_lanczos_2.png" class="lazyload" alt="" width="1074" height="1282">
+</a>
+
+
+  
+  
+  <figcaption>
+    Make the first commit.
+  </figcaption>
+
+
+</figure>
+
+<h3 id="build-results">Build results</h3>
+<p>By navigating back to <code>Actions</code>, you should see that the workflow is
+running or has already completed. An example of what a running
+workflow might look like is below.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<figure id="figure-image-credit-github-bloghttpsgithubblog2019-08-08-github-actions-now-supports-ci-cd">
+
+
+  <a data-fancybox="" href="https://github.blog/wp-content/uploads/2019/08/streaming.gif?w=918&amp;resize=918%2C802" data-caption="Image Credit: &lt;a href=&#34;https://github.blog/2019-08-08-github-actions-now-supports-ci-cd/&#34;&gt;GitHub Blog&lt;/a&gt;">
+
+
+  <img src="https://github.blog/wp-content/uploads/2019/08/streaming.gif?w=918&amp;resize=918%2C802" alt=""  >
+</a>
+
+
+  
+  
+  <figcaption>
+    Image Credit: <a href="https://github.blog/2019-08-08-github-actions-now-supports-ci-cd/">GitHub Blog</a>
+  </figcaption>
+
+
+</figure>
+
+<p>You are free to investigate the logs, etc.</p>
+<h3 id="modifying-the-workflow">Modifying the workflow</h3>
+<p>Modifying the workflow is as simple as making edits to the
+<code>.github/workflows/...yaml</code> file. For example, you might consider
+changing the name of the workflow and modifying the python versions
+that are used for testing.</p>
+<h3 id="workflow-status-badge">Workflow status badge</h3>
+<p>Follow <a href="https://help.github.com/en/articles/configuring-a-workflow#adding-a-workflow-status-badge-to-your-repository" target="_blank" rel="noopener">these
+instructions</a>
+to add a status badge to your repo that will be updated with each
+workflow execution. Example code is here:</p>
+<pre><code>[![Actions
+Status](https://github.com/seandavi/somepackage/workflows/Python%20package/badge.svg)](https://github.com/seandavi/somepackage/actions)
+</code></pre>
+<p>Note the <code>%20</code> that represents a url-encoded <code>space</code> character. The resulting badge looks like this:</p>
+<p><a href="https://github.com/seandavi/somepackage/actions" target="_blank" rel="noopener"><img src="https://github.com/seandavi/somepackage/workflows/Python%20package/badge.svg" alt="Actions Status"></a></p>
+<h2 id="conclusion">Conclusion</h2>
+<p>Github actions and workflows add continuous integration and other
+capabilities that are configurable via text files that are captured
+and versioned alongside code. Therefore, actions can be shared,
+modified, and manipulated with standard text editors, etc.</p>
+<p>Many actions are <a href="https://github.com/actions" target="_blank" rel="noopener">publicly
+available</a>. Example workflows are also
+<a href="https://github.com/actions/starter-workflows" target="_blank" rel="noopener">easy to find</a>. For
+those who are partial to <em>R</em>, there is the R-centric
+<a href="https://r-lib.github.io/ghactions/" target="_blank" rel="noopener">ghactions</a> package that 1)
+provides workflow templates for common R projects (packages,
+RMarkdown, …) with sensible defaults and 2) wraps and curates relevant
+existing external actions, such as those to deploy to GitHub Pages or
+Netlify.</p>
+<p>Hardware available as of this writing is <a href="https://help.github.com/en/articles/virtual-environments-for-github-actions#supported-virtual-environments-and-hardware-resources" target="_blank" rel="noopener">described
+here</a>
+and includes Windows, Linux, and MacOS environments. When a workflow
+is running, multiple <a href="https://help.github.com/en/articles/virtual-environments-for-github-actions#environment-variables" target="_blank" rel="noopener">environment
+variables</a>
+are set and accessible to software. Github actions allow the user to
+create
+<a href="https://help.github.com/en/articles/virtual-environments-for-github-actions#creating-and-using-secrets-encrypted-variables" target="_blank" rel="noopener">secrets</a>
+to securely store credentials for use inside run environments. Github
+actions are container-ready, allowing <a href="https://help.github.com/en/articles/creating-a-docker-container-action" target="_blank" rel="noopener">containerized
+actions</a>.</p>
+<p>This post, like many of my posts, is very operational, but I have
+found that a worked example is usually more valuable than long
+expository posts. That said, I always appreciate comments and
+suggestions for improvements (see below).</p>
+<h2 id="references">References</h2>
+<ul>
+<li><a href="https://github.com/features/package-registry" target="_blank" rel="noopener">GitHub Package Registry</a></li>
+<li><a href="https://github.com/features/package-registry" target="_blank" rel="noopener">GitHub Actions</a></li>
+<li><a href="https://help.github.com/en/articles/workflow-syntax-for-github-actions" target="_blank" rel="noopener">Workflow Syntax</a></li>
+<li><a href="https://developer.github.com/webhooks/#events" target="_blank" rel="noopener">repository events</a></li>
+<li><a href="https://github.com/actions" target="_blank" rel="noopener">publicly available actions</a></li>
+<li><a href="https://github.community/t5/GitHub-Actions/bd-p/actions" target="_blank" rel="noopener">Community support site</a></li>
+</ul>
+
+    </div>
+
+    
+
+
+
+
+
+
+<div class="article-tags">
+  
+  <a class="badge badge-light" href="/tag/github/">github</a>
+  
+  <a class="badge badge-light" href="/tag/devops/">devops</a>
+  
+  <a class="badge badge-light" href="/tag/it/">IT</a>
+  
+  <a class="badge badge-light" href="/tag/github-actions/">github actions</a>
+  
+  <a class="badge badge-light" href="/tag/programming/">programming</a>
+  
+</div>
+
+
+
+<div class="share-box" aria-hidden="true">
+  <ul class="share">
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="https://twitter.com/intent/tweet?url=/post/learning-github-actions/&amp;text=Experimenting%20with%20Github%20Actions" target="_blank" rel="noopener" class="share-btn-twitter">
+          <i class="fab fa-twitter"></i>
+        </a>
+      </li>
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="https://www.facebook.com/sharer.php?u=/post/learning-github-actions/&amp;t=Experimenting%20with%20Github%20Actions" target="_blank" rel="noopener" class="share-btn-facebook">
+          <i class="fab fa-facebook"></i>
+        </a>
+      </li>
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="mailto:?subject=Experimenting%20with%20Github%20Actions&amp;body=/post/learning-github-actions/" target="_blank" rel="noopener" class="share-btn-email">
+          <i class="fas fa-envelope"></i>
+        </a>
+      </li>
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="https://www.linkedin.com/shareArticle?url=/post/learning-github-actions/&amp;title=Experimenting%20with%20Github%20Actions" target="_blank" rel="noopener" class="share-btn-linkedin">
+          <i class="fab fa-linkedin-in"></i>
+        </a>
+      </li>
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="whatsapp://send?text=Experimenting%20with%20Github%20Actions%20/post/learning-github-actions/" target="_blank" rel="noopener" class="share-btn-whatsapp">
+          <i class="fab fa-whatsapp"></i>
+        </a>
+      </li>
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="https://service.weibo.com/share/share.php?url=/post/learning-github-actions/&amp;title=Experimenting%20with%20Github%20Actions" target="_blank" rel="noopener" class="share-btn-weibo">
+          <i class="fab fa-weibo"></i>
+        </a>
+      </li>
+    
+  </ul>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+
+
+
+  
+  
+  
+    
+  
+  
+  
+  <div class="media author-card content-widget-hr">
+    
+
+    <div class="media-body">
+      <h5 class="card-title"></h5>
+      <h6 class="card-subtitle">Senior Associate Scientist</h6>
+      <p class="card-text">My interests include biomedical data science, open data, genomics, and cancer research.</p>
+      <ul class="network-icon" aria-hidden="true">
+  
+    
+    
+    
+      
+    
+    
+    
+    
+    
+    <li>
+      <a href="mailto:seandavi@gmail.com" >
+        <i class="fas fa-envelope"></i>
+      </a>
+    </li>
+  
+    
+    
+    
+      
+    
+    
+    
+    
+    
+      
+    
+    <li>
+      <a href="https://twitter.com/seandavis12" target="_blank" rel="noopener">
+        <i class="fab fa-twitter"></i>
+      </a>
+    </li>
+  
+    
+    
+    
+    
+    
+    
+    
+      
+    
+    <li>
+      <a href="https://scholar.google.co.uk/citations?user=hLFc29kAAAAJ" target="_blank" rel="noopener">
+        <i class="ai ai-google-scholar"></i>
+      </a>
+    </li>
+  
+    
+    
+    
+      
+    
+    
+    
+    
+    
+      
+    
+    <li>
+      <a href="https://github.com/seandavi" target="_blank" rel="noopener">
+        <i class="fab fa-github"></i>
+      </a>
+    </li>
+  
+    
+    
+    
+    
+    
+    
+    
+      
+    
+    <li>
+      <a href="/files/CV.pdf" >
+        <i class="ai ai-cv"></i>
+      </a>
+    </li>
+  
+</ul>
+
+    </div>
+  </div>
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <div class="article-widget content-widget-hr">
+    <h3>Related</h3>
+    <ul>
+      
+      <li><a href="/post/message-queues-to-orchestrate-hpc-batch-runs/">Experimenting with Github Actions</a></li>
+      
+      <li><a href="/post/2018-07-19-infrastructure-as-code-building-the-bioconductor-conference-ami-with-packer/">Infrastructure-as-Code: Building the Bioconductor Conference AMI With Packer</a></li>
+      
+      <li><a href="/docs/container-notes/">Container Notes</a></li>
+      
+      <li><a href="/post/using-google-cloud-registry/">Using google cloud registry for private docker images</a></li>
+      
+      <li><a href="/post/google-kubernetes-autoscale-with-preemptible-instances/"></a></li>
+      
+    </ul>
+  </div>
+  
+
+
+
+
+
+  </div>
+</article>
+  </div>
+
+  <div class="page-footer">
+    
+    
+    <div class="container">
+      <footer class="site-footer">
+  
+
+  <p class="powered-by">
+    
+  </p>
+
+  
+  
+
+
+
+
+
+
+  <p class="powered-by">
+    
+    
+    
+    Published with
+    <a href="https://wowchemy.com/?utm_campaign=poweredby" target="_blank" rel="noopener">Wowchemy</a>  —
+    the free, <a href="https://github.com/wowchemy/wowchemy-hugo-modules" target="_blank" rel="noopener">
+    open source</a> website builder that empowers creators.
+    
+  </p>
+</footer>
+
+    </div>
+    
+  </div>
+
+  
+<div id="modal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Cite</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <pre><code class="tex hljs"></code></pre>
+      </div>
+      <div class="modal-footer">
+        <a class="btn btn-outline-primary my-1 js-copy-cite" href="#" target="_blank">
+          <i class="fas fa-copy"></i> Copy
+        </a>
+        <a class="btn btn-outline-primary my-1 js-download-cite" href="#" target="_blank">
+          <i class="fas fa-download"></i> Download
+        </a>
+        <div id="modal-error"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+      
+
+    
+    
+    
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
+
+      
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.imagesloaded/4.1.4/imagesloaded.pkgd.min.js" integrity="sha256-lqvxZrPLtfffUl2G/e7szqSvPBILGbwmsGE1MKlOi0Q=" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.isotope/3.0.6/isotope.pkgd.min.js" integrity="sha256-CBrpuqrMhXwcLLUd5tvQ4euBHCdh7wGlDfNz8vbu/iI=" crossorigin="anonymous"></script>
+      
+
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js" integrity="sha256-yt2kYMy0w8AbtF89WXb2P1rfjcP/HTHLT7097U8Y5b8=" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/instant.page/5.1.0/instantpage.min.js" integrity="sha512-1+qUtKoh9XZW7j+6LhRMAyOrgSQKenQ4mluTR+cvxXjP1Z54RxZuzstR/H9kgPXQsVB8IW7DMDFUJpzLjvhGSQ==" crossorigin="anonymous"></script>
+
+      
+
+      
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.2.0/highlight.min.js" integrity="sha512-TDKKr+IvoqZnPzc3l35hdjpHD0m+b2EC2SrLEgKDRWpxf2rFCxemkgvJ5kfU48ip+Y+m2XVKyOCD85ybtlZDmw==" crossorigin="anonymous"></script>
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.2.0/languages/r.min.js"></script>
+        
+      
+
+    
+
+    
+    
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/leaflet.min.js" integrity="sha512-SeiQaaDh73yrb56sTW/RgVdi/mMqNeM2oBwubFHagc5BkixSpP1fvqF47mKzPGWYSSy4RwbBunrJBQ4Co8fRWA==" crossorigin="anonymous"></script>
+    
+
+    
+    
+    <script>const code_highlighting = true;</script>
+    
+
+    
+    
+    
+    
+    
+    
+    <script>
+      const search_config = {"indexURI":"/index.json","minLength":1,"threshold":0.3};
+      const i18n = {"no_results":"No results found","placeholder":"Search...","results":"results found"};
+      const content_type = {
+        'post': "Posts",
+        'project': "Projects",
+        'publication' : "Publications",
+        'talk' : "Talks",
+        'slides' : "Slides"
+        };
+    </script>
+    
+
+    
+    
+
+    
+    
+    <script id="search-hit-fuse-template" type="text/x-template">
+      <div class="search-hit" id="summary-{{key}}">
+      <div class="search-hit-content">
+        <div class="search-hit-name">
+          <a href="{{relpermalink}}">{{title}}</a>
+          <div class="article-metadata search-hit-type">{{type}}</div>
+          <p class="search-hit-description">{{snippet}}</p>
+        </div>
+      </div>
+      </div>
+    </script>
+    
+
+    
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/3.2.1/fuse.min.js" integrity="sha256-VzgmKYmhsGNNN4Ph1kMW+BjoYJM2jV5i4IlFoeZA9XI=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/jquery.mark.min.js" integrity="sha256-4HLtjeVgH0eIB3aZ9mLYF6E8oU5chNdjU6p6rrXpl9U=" crossorigin="anonymous"></script>
+    
+
+    
+    
+
+    
+    
+    
+
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+      
+    
+    
+    
+    
+    <script src="/js/wowchemy.min.ffabb05383f1b16d83e7181a605e644c.js"></script>
+
+    
+
+
+
+
+
+
+</body>
+</html>

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Jeanette Beers | Academic</title>
+    <link>/authors/jeanette-beers/</link>
+      <atom:link href="/authors/jeanette-beers/index.xml" rel="self" type="application/rss+xml" />
+    <description>Jeanette Beers</description>
+    <generator>Wowchemy (https://wowchemy.com)</generator><language>en-us</language><lastBuildDate>Sun, 01 Jan 2017 00:00:00 -0500</lastBuildDate>
+    <image>
+      <url>/images/icon_hu0b7a4cb9992c9ac0e91bd28ffd38dd00_9727_512x512_fill_lanczos_center_2.png</url>
+      <title>Jeanette Beers</title>
+      <link>/authors/jeanette-beers/</link>
+    </image>
+    
+    <item>
+      <title>ASXL3 is a Novel Pluripotency Factor in Human Respiratory Epithelial Cells and a Potential Therapeutic Target in Small Cell Lung Cancer</title>
+      <link>/publication/shukla2017asxl3/</link>
+      <pubDate>Sun, 01 Jan 2017 00:00:00 -0500</pubDate>
+      <guid>/publication/shukla2017asxl3/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>ASXL3 is a Novel Pluripotency Factor in Human Respiratory Epithelial Cells and a Potential Therapeutic Target in Small Cell Lung Cancer</title>
+      <link>/publication/shukla-2017-asxl-3/</link>
+      <pubDate>Sun, 01 Jan 2017 00:00:00 +0000</pubDate>
+      <guid>/publication/shukla-2017-asxl-3/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>

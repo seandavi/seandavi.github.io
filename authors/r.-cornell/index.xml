@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>R. Cornell | Academic</title>
+    <link>/authors/r.-cornell/</link>
+      <atom:link href="/authors/r.-cornell/index.xml" rel="self" type="application/rss+xml" />
+    <description>R. Cornell</description>
+    <generator>Wowchemy (https://wowchemy.com)</generator><language>en-us</language><lastBuildDate>Fri, 01 Nov 2013 00:00:00 -0400</lastBuildDate>
+    <image>
+      <url>/images/icon_hu0b7a4cb9992c9ac0e91bd28ffd38dd00_9727_512x512_fill_lanczos_center_2.png</url>
+      <title>R. Cornell</title>
+      <link>/authors/r.-cornell/</link>
+    </image>
+    
+    <item>
+      <title>A polymorphism in IRF4 affects human pigmentation through a tyrosinase-dependent MITF/TFAP2A pathway</title>
+      <link>/publication/pmid24267888/</link>
+      <pubDate>Fri, 01 Nov 2013 00:00:00 -0400</pubDate>
+      <guid>/publication/pmid24267888/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>A polymorphism in IRF4 affects human pigmentation through a tyrosinase-dependent MITF/TFAP2A pathway</title>
+      <link>/publication/pmid-24267888/</link>
+      <pubDate>Fri, 01 Nov 2013 00:00:00 +0000</pubDate>
+      <guid>/publication/pmid-24267888/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>

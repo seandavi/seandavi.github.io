@@ -1,0 +1,1475 @@
+<!DOCTYPE html><html lang="en-us" >
+
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  
+  
+  
+  <meta name="generator" content="Wowchemy 5.0.0-beta.1 for Hugo">
+  
+
+  
+
+  
+  
+
+  
+  
+  
+  
+  
+    
+    
+    
+  
+  
+
+  
+
+  
+  
+  
+    
+  
+  <meta name="description" content="Introduction What Big Data problem are we trying to solve?  Class 1: Need only part of data, so extract from the whole and then operate on extracted data; eg.">
+
+  
+  <link rel="alternate" hreflang="en-us" href="/talk/2020-06-04-bioc-techboard-big-data/">
+
+  
+
+
+
+
+
+
+
+  
+
+
+
+
+  
+  
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  
+
+  
+  
+  
+  <meta name="theme-color" content="#2962ff">
+  
+
+  
+  
+
+  
+  
+  
+  
+    
+    
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/academicons/1.9.0/css/academicons.min.css" integrity="sha512-W4yqoT1+8NLkinBLBZko+dFB2ZbHsYLDdr50VElllRcNt2Q4/GSs6u71UHKxB7S6JEMCp5Ve4xjh3eGQl/HRvg==" crossorigin="anonymous">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" integrity="sha256-FMvZuGapsJLjouA6k7Eo2lusoAX9i0ShlWFG6qt7SLc=" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css" integrity="sha256-Vzbj7sDDS/woiFS3uNKo8eIuni59rjyNGtXfstRzStA=" crossorigin="anonymous">
+
+    
+    
+    
+      
+    
+    
+      
+      
+        
+          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.2.0/styles/github.min.css" crossorigin="anonymous" title="hl-light">
+          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.2.0/styles/dracula.min.css" crossorigin="anonymous" title="hl-dark" disabled>
+        
+      
+    
+
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/leaflet.min.css" integrity="sha512-1xoFisiGdy9nvho8EgXuXvnpR5GAMSjFwp40gSRE3NwdUdIMIKuPa7bqoUhLD0O/5tPNhteAsE5XyyMi5reQVA==" crossorigin="anonymous">
+    
+
+    
+
+    
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/lazysizes/5.2.2/lazysizes.min.js" integrity="sha512-TmDwFLhg3UA4ZG0Eb4MIyT1O1Mb+Oww5kFG0uHqXsdbyZz9DcvYQhKpGgNkamAI6h2lGGZq2X8ftOJvF/XjTUg==" crossorigin="anonymous" async></script>
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+        
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+
+  
+
+  
+  
+  
+    
+      
+      
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:400,700%7CRoboto:400,400italic,700%7CRoboto+Mono&display=swap">
+    
+  
+
+  
+  
+  
+  
+  <link rel="stylesheet" href="/css/wowchemy.min.2da9fc7ecccb62374ee4667dc6583d14.css">
+
+  
+
+
+
+
+  
+
+  
+
+
+  
+  
+
+  
+
+  <link rel="manifest" href="/index.webmanifest">
+  <link rel="icon" type="image/png" href="/images/icon_hu0b7a4cb9992c9ac0e91bd28ffd38dd00_9727_32x32_fill_lanczos_center_2.png">
+  <link rel="apple-touch-icon" type="image/png" href="/images/icon_hu0b7a4cb9992c9ac0e91bd28ffd38dd00_9727_192x192_fill_lanczos_center_2.png">
+
+  <link rel="canonical" href="/talk/2020-06-04-bioc-techboard-big-data/">
+
+  
+  
+  
+  
+  
+  
+  
+    
+    
+  
+  
+  <meta property="twitter:card" content="summary">
+  
+  <meta property="og:site_name" content="Academic">
+  <meta property="og:url" content="/talk/2020-06-04-bioc-techboard-big-data/">
+  <meta property="og:title" content="Big Data Approaches | Academic">
+  <meta property="og:description" content="Introduction What Big Data problem are we trying to solve?  Class 1: Need only part of data, so extract from the whole and then operate on extracted data; eg."><meta property="og:image" content="/images/icon_hu0b7a4cb9992c9ac0e91bd28ffd38dd00_9727_512x512_fill_lanczos_center_2.png">
+  <meta property="twitter:image" content="/images/icon_hu0b7a4cb9992c9ac0e91bd28ffd38dd00_9727_512x512_fill_lanczos_center_2.png"><meta property="og:locale" content="en-us">
+  
+    
+      <meta property="article:published_time" content="2020-06-04T00:00:00&#43;00:00">
+    
+    <meta property="article:modified_time" content="2020-06-04T00:00:00&#43;00:00">
+  
+
+  
+
+
+
+  
+    
+
+
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Event",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "/talk/2020-06-04-bioc-techboard-big-data/"
+  },
+  "name": "Big Data Approaches",
+  
+  
+  "startDate": "2020-06-04T00:00:00Z",
+  
+  
+  "description": "Introduction What Big Data problem are we trying to solve?  Class 1: Need only part of data, so extract from the whole and then operate on extracted data; eg."
+}
+</script>
+
+  
+
+
+  
+
+
+  
+
+
+
+
+
+  <title>Big Data Approaches | Academic</title>
+
+</head>
+
+
+<body id="top" data-spy="scroll" data-offset="70" data-target="#TableOfContents" class="page-wrapper  ">
+
+  
+  
+  
+  
+  
+  <script src="/js/wowchemy-init.js"></script>
+
+  <aside class="search-results" id="search">
+  <div class="container">
+    <section class="search-header">
+
+      <div class="row no-gutters justify-content-between mb-3">
+        <div class="col-6">
+          <h1>Search</h1>
+        </div>
+        <div class="col-6 col-search-close">
+          <a class="js-search" href="#"><i class="fas fa-times-circle text-muted" aria-hidden="true"></i></a>
+        </div>
+      </div>
+
+      <div id="search-box">
+        
+        <input name="q" id="search-query" placeholder="Search..." autocapitalize="off"
+        autocomplete="off" autocorrect="off" spellcheck="false" type="search" class="form-control">
+        
+      </div>
+
+    </section>
+    <section class="section-search-results">
+
+      <div id="search-hits">
+        
+      </div>
+
+    </section>
+  </div>
+</aside>
+
+
+  <div class="page-header">
+    
+
+
+
+
+
+
+
+
+
+
+
+
+<nav class="navbar navbar-expand-lg navbar-light compensate-for-scrollbar" id="navbar-main">
+  <div class="container">
+
+    
+    <div class="d-none d-lg-inline-flex">
+      <a class="navbar-brand" href="/">Academic</a>
+    </div>
+    
+
+    
+    <button type="button" class="navbar-toggler" data-toggle="collapse"
+            data-target="#navbar-content" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
+    <span><i class="fas fa-bars"></i></span>
+    </button>
+    
+
+    
+    <div class="navbar-brand-mobile-wrapper d-inline-flex d-lg-none">
+      <a class="navbar-brand" href="/">Academic</a>
+    </div>
+    
+
+    
+    
+    <div class="navbar-collapse main-menu-item collapse justify-content-start" id="navbar-content">
+
+      
+      <ul class="navbar-nav d-md-inline-flex">
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+
+        
+        
+        
+        
+
+        
+          
+            
+            
+          
+          
+            
+            
+            
+              
+            
+            
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/#about"><span>Home</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+
+        
+        
+        
+        
+
+        
+          
+            
+            
+          
+          
+            
+            
+            
+              
+            
+            
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/#posts"><span>Posts</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+
+        
+        
+        
+        
+
+        
+          
+            
+            
+          
+          
+            
+            
+            
+              
+            
+            
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/#projects"><span>Projects</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+
+        
+        
+        
+        
+
+        
+          
+            
+            
+          
+          
+            
+            
+            
+              
+            
+            
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/#talks"><span>Talks</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+
+        
+        
+        
+        
+
+        
+          
+            
+            
+          
+          
+            
+            
+            
+              
+            
+            
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/#featured"><span>Publications</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+
+        
+        
+        
+        
+
+        
+          
+            
+            
+          
+          
+            
+            
+            
+              
+            
+            
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/#contact"><span>Contact</span></a>
+        </li>
+
+        
+        
+
+      
+
+        
+      </ul>
+    </div>
+
+    <ul class="nav-icons navbar-nav flex-row ml-auto d-flex pl-md-2">
+      
+      
+      <li class="nav-item">
+        <a class="nav-link js-search" href="#" aria-label="Search"><i class="fas fa-search" aria-hidden="true"></i></a>
+      </li>
+      
+
+      
+      
+      <li class="nav-item dropdown theme-dropdown">
+        <a href="#" class="nav-link" data-toggle="dropdown" aria-haspopup="true" aria-label="Display preferences">
+          <i class="fas fa-moon" aria-hidden="true"></i>
+        </a>
+        <div class="dropdown-menu">
+          <a href="#" class="dropdown-item js-set-theme-light">
+            <span>Light</span>
+          </a>
+          <a href="#" class="dropdown-item js-set-theme-dark">
+            <span>Dark</span>
+          </a>
+          <a href="#" class="dropdown-item js-set-theme-auto">
+            <span>Automatic</span>
+          </a>
+        </div>
+      </li>
+      
+
+      
+
+    </ul>
+
+  </div>
+</nav>
+
+
+  </div>
+
+  <div class="page-body">
+    <div class="pub">
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+  
+  
+<div class="article-container pt-3">
+  <h1>Big Data Approaches</h1>
+
+  
+  <p class="page-subtitle">Where to go with Bioconductor</p>
+  
+
+  
+    
+
+
+<div class="article-metadata">
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+  
+  
+  
+  
+
+  
+  
+
+</div>
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="btn-links mb-3">
+  
+  
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+  
+    
+  
+<a class="btn btn-outline-primary my-1 mr-1" href="/https:/gist.github.com/b2a5b2a7e559289334df1cac0120ad87" target="_blank" rel="noopener">
+  Code
+</a>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+
+
+  
+</div>
+
+
+
+  <div class="article-container">
+
+    
+      <br>
+    
+
+    <div class="row">
+      <div class="col-md-1"></div>
+      <div class="col-md-10">
+        <div class="row">
+          <div class="col-12 col-md-3 pub-row-heading">Date</div>
+          <div class="col-12 col-md-9">
+            Jun 4, 2020 12:00 AM
+          </div>
+        </div>
+      </div>
+      <div class="col-md-1"></div>
+    </div>
+    <div class="d-md-none space-below"></div>
+
+    
+    <div class="row">
+      <div class="col-md-1"></div>
+      <div class="col-md-10">
+        <div class="row">
+          <div class="col-12 col-md-3 pub-row-heading">Event</div>
+          <div class="col-12 col-md-9">
+            
+            Bioconductor Technical Advisory Board Meeting
+            
+          </div>
+        </div>
+      </div>
+      <div class="col-md-1"></div>
+    </div>
+    <div class="d-md-none space-below"></div>
+    
+
+    
+
+    <div class="space-below"></div>
+
+    <div class="article-style">
+      
+<script src="/rmarkdown-libs/htmlwidgets/htmlwidgets.js"></script>
+<script src="/rmarkdown-libs/plotly-binding/plotly.js"></script>
+<script src="/rmarkdown-libs/typedarray/typedarray.min.js"></script>
+<script src="/rmarkdown-libs/jquery/jquery.min.js"></script>
+<link href="/rmarkdown-libs/crosstalk/css/crosstalk.css" rel="stylesheet" />
+<script src="/rmarkdown-libs/crosstalk/js/crosstalk.min.js"></script>
+<link href="/rmarkdown-libs/plotly-htmlwidgets-css/plotly-htmlwidgets.css" rel="stylesheet" />
+<script src="/rmarkdown-libs/plotly-main/plotly-latest.min.js"></script>
+
+
+<div id="introduction" class="section level1">
+<h1>Introduction</h1>
+<div id="what-big-data-problem-are-we-trying-to-solve" class="section level2">
+<h2>What <em>Big Data</em> problem are we trying to solve?</h2>
+<ul>
+<li>Class 1: Need only part of data, so extract from the whole and then operate on extracted data; eg., extracting a few dozen genes of interest, finding all intervals that overlap with a chromosomal region,</li>
+<li>Class 2: Need to operate on all the data, but can operate independently on parts; eg., computing over 1Mb bins on the genome, modeling over independent studies</li>
+<li>Class 3: Need to operate on all the data, but need to work on all at once (may be for performance reasons, also); eg., distance matrix calculations, pairwise correllations</li>
+</ul>
+</div>
+<div id="where-do-data-live" class="section level2">
+<h2>Where do data live?</h2>
+<ul>
+<li>Data warehouse</li>
+<li>Local disk</li>
+<li>Cloud storage</li>
+<li>R objects</li>
+<li>http download</li>
+<li>Web API</li>
+</ul>
+</div>
+<div id="how-does-the-user-interact-with-data-service" class="section level2">
+<h2>How does the “user” interact with data service?</h2>
+<p>Data availability can be thought of as a service. The service might simply be
+the file system, but it could be more complex.</p>
+<ul>
+<li>Local file system (<em><a href="https://bioconductor.org/packages/3.11/VariantAnnotation">VariantAnnotation</a></em>, <em><a href="https://bioconductor.org/packages/3.11/rtracklayer">rtracklayer</a></em>)</li>
+<li>Local embedded server/client (<em><a href="https://bioconductor.org/packages/3.11/rhdf5">rhdf5</a></em>, <em><a href="https://CRAN.R-project.org/package=RSQLite">RSQLite</a></em>)</li>
+<li>User-managed freestanding server/client (<em><a href="https://CRAN.R-project.org/package=dbplyr">dbplyr</a></em>, <em><a href="https://CRAN.R-project.org/package=RPostgreSQL">RPostgreSQL</a></em>, <em><a href="https://CRAN.R-project.org/package=rmongodb">rmongodb</a></em>)</li>
+<li>Third-party managed server/client (<em><a href="https://CRAN.R-project.org/package=bigrquery">bigrquery</a></em>)</li>
+<li>Bioc-managed server/client (<em><a href="https://bioconductor.org/packages/3.11/ExperimentHub">ExperimentHub</a></em>)</li>
+</ul>
+</div>
+<div id="how-rich-are-data-services-with-respect-to-analytical-capabilities" class="section level2">
+<h2>How “rich” are data services with respect to analytical capabilities?</h2>
+<p>Data services vary in the complexity of operations they enable. A filesystem, for example,
+has no “smarts” in that it delivers bits-and-bytes as asked. A more complex system
+might include indexing capabilities (VCF files, hdf5). More complexity again comes with
+systems like MongoDB and PostgreSQL. At the level of Bigquery, parallelism and rudimentary
+machine learning is possible. At the extreme are projects like Apache Spark that can
+serve as distributed analysis engines over arbitrarily large datasets.</p>
+</div>
+<div id="data-services-cater-to-different-forms-of-data." class="section level2">
+<h2>Data services cater to different forms of data.</h2>
+<ul>
+<li>Arbitrary data types: file systems and object storage</li>
+<li>Record-based databases: NoSQL (MongoDB) and hybrid databases (PostgreSQL, Bigquery)</li>
+<li>Columnar databases: Bigquery, Cassandra, good for distributing data over “nodes”</li>
+<li>Arrays: TileDB, HDF5</li>
+</ul>
+</div>
+</div>
+<div id="bioconductor-packages" class="section level1">
+<h1>Bioconductor Packages</h1>
+<div id="htmlwidget-1" style="width:90%;height:576px;" class="plotly html-widget"></div>
+<script type="application/json" data-for="htmlwidget-1">{"x":{"data":[{"x":[17167,17198,17226,17257,17287,17318,17348,17379,17410,17440,17471,17501,17532,17563,17591,17622,17652,17683,17713,17744,17775,17805,17836,17866,17897,17928,17956,17987,18017,18048,18078,18109,18140,18170,18201,18231,18262,18293,18322,18353,18383],"y":[null,null,null,null,null,null,1.70757017609794,1.88081359228079,2.09691001300806,2.2148438480477,3.0386201619497,2.96284268120124,3.03782475058834,3.01870049866624,2.97818051693741,3.00817418400643,3.12450422483428,3.06818586174616,3.10957854690439,3.11892575282578,3.08529057823006,3.13449585583467,3.39932753215868,3.26292546933183,3.30984300471607,3.29092455938275,3.35468455395473,3.36828688490213,3.41979058610636,3.40756084948636,3.44963265047007,3.39654803798713,3.45362407359145,3.53478735862949,3.60906054993009,3.50147007210041,3.51547644138238,3.57472558359407,3.64542226934909,3.68743977454589,3.74772246203551],"text":["Date: 2017-01-01<br />Nb_of_distinct_IPs:      -Inf<br />Package: beachmat","Date: 2017-02-01<br />Nb_of_distinct_IPs:      -Inf<br />Package: beachmat","Date: 2017-03-01<br />Nb_of_distinct_IPs:      -Inf<br />Package: beachmat","Date: 2017-04-01<br />Nb_of_distinct_IPs:      -Inf<br />Package: beachmat","Date: 2017-05-01<br />Nb_of_distinct_IPs:      -Inf<br />Package: beachmat","Date: 2017-06-01<br />Nb_of_distinct_IPs:      -Inf<br />Package: beachmat","Date: 2017-07-01<br />Nb_of_distinct_IPs: 1.7075702<br />Package: beachmat","Date: 2017-08-01<br />Nb_of_distinct_IPs: 1.8808136<br />Package: beachmat","Date: 2017-09-01<br />Nb_of_distinct_IPs: 2.0969100<br />Package: beachmat","Date: 2017-10-01<br />Nb_of_distinct_IPs: 2.2148438<br />Package: beachmat","Date: 2017-11-01<br />Nb_of_distinct_IPs: 3.0386202<br />Package: beachmat","Date: 2017-12-01<br />Nb_of_distinct_IPs: 2.9628427<br />Package: beachmat","Date: 2018-01-01<br />Nb_of_distinct_IPs: 3.0378248<br />Package: beachmat","Date: 2018-02-01<br />Nb_of_distinct_IPs: 3.0187005<br />Package: beachmat","Date: 2018-03-01<br />Nb_of_distinct_IPs: 2.9781805<br />Package: beachmat","Date: 2018-04-01<br />Nb_of_distinct_IPs: 3.0081742<br />Package: beachmat","Date: 2018-05-01<br />Nb_of_distinct_IPs: 3.1245042<br />Package: beachmat","Date: 2018-06-01<br />Nb_of_distinct_IPs: 3.0681859<br />Package: beachmat","Date: 2018-07-01<br />Nb_of_distinct_IPs: 3.1095785<br />Package: beachmat","Date: 2018-08-01<br />Nb_of_distinct_IPs: 3.1189258<br />Package: beachmat","Date: 2018-09-01<br />Nb_of_distinct_IPs: 3.0852906<br />Package: beachmat","Date: 2018-10-01<br />Nb_of_distinct_IPs: 3.1344959<br />Package: beachmat","Date: 2018-11-01<br />Nb_of_distinct_IPs: 3.3993275<br />Package: beachmat","Date: 2018-12-01<br />Nb_of_distinct_IPs: 3.2629255<br />Package: beachmat","Date: 2019-01-01<br />Nb_of_distinct_IPs: 3.3098430<br />Package: beachmat","Date: 2019-02-01<br />Nb_of_distinct_IPs: 3.2909246<br />Package: beachmat","Date: 2019-03-01<br />Nb_of_distinct_IPs: 3.3546846<br />Package: beachmat","Date: 2019-04-01<br />Nb_of_distinct_IPs: 3.3682869<br />Package: beachmat","Date: 2019-05-01<br />Nb_of_distinct_IPs: 3.4197906<br />Package: beachmat","Date: 2019-06-01<br />Nb_of_distinct_IPs: 3.4075608<br />Package: beachmat","Date: 2019-07-01<br />Nb_of_distinct_IPs: 3.4496327<br />Package: beachmat","Date: 2019-08-01<br />Nb_of_distinct_IPs: 3.3965480<br />Package: beachmat","Date: 2019-09-01<br />Nb_of_distinct_IPs: 3.4536241<br />Package: beachmat","Date: 2019-10-01<br />Nb_of_distinct_IPs: 3.5347874<br />Package: beachmat","Date: 2019-11-01<br />Nb_of_distinct_IPs: 3.6090605<br />Package: beachmat","Date: 2019-12-01<br />Nb_of_distinct_IPs: 3.5014701<br />Package: beachmat","Date: 2020-01-01<br />Nb_of_distinct_IPs: 3.5154764<br />Package: beachmat","Date: 2020-02-01<br />Nb_of_distinct_IPs: 3.5747256<br />Package: beachmat","Date: 2020-03-01<br />Nb_of_distinct_IPs: 3.6454223<br />Package: beachmat","Date: 2020-04-01<br />Nb_of_distinct_IPs: 3.6874398<br />Package: beachmat","Date: 2020-05-01<br />Nb_of_distinct_IPs: 3.7477225<br />Package: beachmat"],"type":"scatter","mode":"lines","line":{"width":1.88976377952756,"color":"rgba(248,118,109,1)","dash":"solid"},"hoveron":"points","name":"beachmat","legendgroup":"beachmat","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"x":[16801,16832,16861,16892,16922,16953,16983,17014,17045,17075,17106,17136,17167,17198,17226,17257,17287,17318,17348,17379,17410,17440,17471,17501,17532,17563,17591,17622,17652,17683,17713,17744,17775,17805,17836,17866,17897,17928,17956,17987,18017,18048,18078,18109,18140,18170,18201,18231,18262,18293,18322,18353,18383],"y":[null,null,null,null,null,null,null,null,null,null,null,1.14612803567824,1.07918124604762,2.29666519026153,2.5910646070265,3.29688447553855,3.88744850024995,3.91713775275644,3.87535069657929,3.85877773730545,3.87361119699647,3.94797257924578,4.07642196736059,3.95162889383664,4.01249977753831,4.00272747268983,4.0379441552031,4.03965202358192,4.1197835861617,4.12593646696609,4.17321541471489,4.20771513380557,4.19766642619357,4.22380733759278,4.28107884072894,4.15311333151061,4.20257004609748,4.17943688324498,4.22996326197943,4.21128076796413,4.2715395855938,4.21146762443914,4.23464380776177,4.1856837803185,4.21529379818651,4.27348740969718,4.28641155589598,4.22190954658813,4.30668231101906,4.30977916448048,4.37469336854539,4.51412254691646,4.49294188898173],"text":["Date: 2016-01-01<br />Nb_of_distinct_IPs:      -Inf<br />Package: DelayedArray","Date: 2016-02-01<br />Nb_of_distinct_IPs:      -Inf<br />Package: DelayedArray","Date: 2016-03-01<br />Nb_of_distinct_IPs:      -Inf<br />Package: DelayedArray","Date: 2016-04-01<br />Nb_of_distinct_IPs:      -Inf<br />Package: DelayedArray","Date: 2016-05-01<br />Nb_of_distinct_IPs:      -Inf<br />Package: DelayedArray","Date: 2016-06-01<br />Nb_of_distinct_IPs:      -Inf<br />Package: DelayedArray","Date: 2016-07-01<br />Nb_of_distinct_IPs:      -Inf<br />Package: DelayedArray","Date: 2016-08-01<br />Nb_of_distinct_IPs:      -Inf<br />Package: DelayedArray","Date: 2016-09-01<br />Nb_of_distinct_IPs:      -Inf<br />Package: DelayedArray","Date: 2016-10-01<br />Nb_of_distinct_IPs:      -Inf<br />Package: DelayedArray","Date: 2016-11-01<br />Nb_of_distinct_IPs:      -Inf<br />Package: DelayedArray","Date: 2016-12-01<br />Nb_of_distinct_IPs: 1.1461280<br />Package: DelayedArray","Date: 2017-01-01<br />Nb_of_distinct_IPs: 1.0791812<br />Package: DelayedArray","Date: 2017-02-01<br />Nb_of_distinct_IPs: 2.2966652<br />Package: DelayedArray","Date: 2017-03-01<br />Nb_of_distinct_IPs: 2.5910646<br />Package: DelayedArray","Date: 2017-04-01<br />Nb_of_distinct_IPs: 3.2968845<br />Package: DelayedArray","Date: 2017-05-01<br />Nb_of_distinct_IPs: 3.8874485<br />Package: DelayedArray","Date: 2017-06-01<br />Nb_of_distinct_IPs: 3.9171378<br />Package: DelayedArray","Date: 2017-07-01<br />Nb_of_distinct_IPs: 3.8753507<br />Package: DelayedArray","Date: 2017-08-01<br />Nb_of_distinct_IPs: 3.8587777<br />Package: DelayedArray","Date: 2017-09-01<br />Nb_of_distinct_IPs: 3.8736112<br />Package: DelayedArray","Date: 2017-10-01<br />Nb_of_distinct_IPs: 3.9479726<br />Package: DelayedArray","Date: 2017-11-01<br />Nb_of_distinct_IPs: 4.0764220<br />Package: DelayedArray","Date: 2017-12-01<br />Nb_of_distinct_IPs: 3.9516289<br />Package: DelayedArray","Date: 2018-01-01<br />Nb_of_distinct_IPs: 4.0124998<br />Package: DelayedArray","Date: 2018-02-01<br />Nb_of_distinct_IPs: 4.0027275<br />Package: DelayedArray","Date: 2018-03-01<br />Nb_of_distinct_IPs: 4.0379442<br />Package: DelayedArray","Date: 2018-04-01<br />Nb_of_distinct_IPs: 4.0396520<br />Package: DelayedArray","Date: 2018-05-01<br />Nb_of_distinct_IPs: 4.1197836<br />Package: DelayedArray","Date: 2018-06-01<br />Nb_of_distinct_IPs: 4.1259365<br />Package: DelayedArray","Date: 2018-07-01<br />Nb_of_distinct_IPs: 4.1732154<br />Package: DelayedArray","Date: 2018-08-01<br />Nb_of_distinct_IPs: 4.2077151<br />Package: DelayedArray","Date: 2018-09-01<br />Nb_of_distinct_IPs: 4.1976664<br />Package: DelayedArray","Date: 2018-10-01<br />Nb_of_distinct_IPs: 4.2238073<br />Package: DelayedArray","Date: 2018-11-01<br />Nb_of_distinct_IPs: 4.2810788<br />Package: DelayedArray","Date: 2018-12-01<br />Nb_of_distinct_IPs: 4.1531133<br />Package: DelayedArray","Date: 2019-01-01<br />Nb_of_distinct_IPs: 4.2025700<br />Package: DelayedArray","Date: 2019-02-01<br />Nb_of_distinct_IPs: 4.1794369<br />Package: DelayedArray","Date: 2019-03-01<br />Nb_of_distinct_IPs: 4.2299633<br />Package: DelayedArray","Date: 2019-04-01<br />Nb_of_distinct_IPs: 4.2112808<br />Package: DelayedArray","Date: 2019-05-01<br />Nb_of_distinct_IPs: 4.2715396<br />Package: DelayedArray","Date: 2019-06-01<br />Nb_of_distinct_IPs: 4.2114676<br />Package: DelayedArray","Date: 2019-07-01<br />Nb_of_distinct_IPs: 4.2346438<br />Package: DelayedArray","Date: 2019-08-01<br />Nb_of_distinct_IPs: 4.1856838<br />Package: DelayedArray","Date: 2019-09-01<br />Nb_of_distinct_IPs: 4.2152938<br />Package: DelayedArray","Date: 2019-10-01<br />Nb_of_distinct_IPs: 4.2734874<br />Package: DelayedArray","Date: 2019-11-01<br />Nb_of_distinct_IPs: 4.2864116<br />Package: DelayedArray","Date: 2019-12-01<br />Nb_of_distinct_IPs: 4.2219095<br />Package: DelayedArray","Date: 2020-01-01<br />Nb_of_distinct_IPs: 4.3066823<br />Package: DelayedArray","Date: 2020-02-01<br />Nb_of_distinct_IPs: 4.3097792<br />Package: DelayedArray","Date: 2020-03-01<br />Nb_of_distinct_IPs: 4.3746934<br />Package: DelayedArray","Date: 2020-04-01<br />Nb_of_distinct_IPs: 4.5141225<br />Package: DelayedArray","Date: 2020-05-01<br />Nb_of_distinct_IPs: 4.4929419<br />Package: DelayedArray"],"type":"scatter","mode":"lines","line":{"width":1.88976377952756,"color":"rgba(219,142,0,1)","dash":"solid"},"hoveron":"points","name":"DelayedArray","legendgroup":"DelayedArray","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"x":[17167,17198,17226,17257,17287,17318,17348,17379,17410,17440,17471,17501,17532,17563,17591,17622,17652,17683,17713,17744,17775,17805,17836,17866,17897,17928,17956,17987,18017,18048,18078,18109,18140,18170,18201,18231,18262,18293,18322,18353,18383],"y":[null,null,null,null,null,null,null,null,null,0.778151250383644,1.81291335664286,1.68124123737559,2.12057393120585,2.26951294421792,2.23044892137827,2.68484536164441,3.22737244228964,3.18269990333604,3.26458172923808,3.29841638006129,3.24600590407603,3.33243845991561,3.54888056263751,3.39672227850377,3.44855173920158,3.44200915914095,3.49066065335614,3.49582175338591,3.56667313760612,3.55978696820056,3.59692681434297,3.56667313760612,3.71483251243333,3.69161187421442,3.70910028155117,3.59217675739587,3.61352470285365,3.67126543294716,3.74123041102547,3.77224833997185,3.83218946106851],"text":["Date: 2017-01-01<br />Nb_of_distinct_IPs:      -Inf<br />Package: DelayedMatrixStats","Date: 2017-02-01<br />Nb_of_distinct_IPs:      -Inf<br />Package: DelayedMatrixStats","Date: 2017-03-01<br />Nb_of_distinct_IPs:      -Inf<br />Package: DelayedMatrixStats","Date: 2017-04-01<br />Nb_of_distinct_IPs:      -Inf<br />Package: DelayedMatrixStats","Date: 2017-05-01<br />Nb_of_distinct_IPs:      -Inf<br />Package: DelayedMatrixStats","Date: 2017-06-01<br />Nb_of_distinct_IPs:      -Inf<br />Package: DelayedMatrixStats","Date: 2017-07-01<br />Nb_of_distinct_IPs:      -Inf<br />Package: DelayedMatrixStats","Date: 2017-08-01<br />Nb_of_distinct_IPs:      -Inf<br />Package: DelayedMatrixStats","Date: 2017-09-01<br />Nb_of_distinct_IPs:      -Inf<br />Package: DelayedMatrixStats","Date: 2017-10-01<br />Nb_of_distinct_IPs: 0.7781513<br />Package: DelayedMatrixStats","Date: 2017-11-01<br />Nb_of_distinct_IPs: 1.8129134<br />Package: DelayedMatrixStats","Date: 2017-12-01<br />Nb_of_distinct_IPs: 1.6812412<br />Package: DelayedMatrixStats","Date: 2018-01-01<br />Nb_of_distinct_IPs: 2.1205739<br />Package: DelayedMatrixStats","Date: 2018-02-01<br />Nb_of_distinct_IPs: 2.2695129<br />Package: DelayedMatrixStats","Date: 2018-03-01<br />Nb_of_distinct_IPs: 2.2304489<br />Package: DelayedMatrixStats","Date: 2018-04-01<br />Nb_of_distinct_IPs: 2.6848454<br />Package: DelayedMatrixStats","Date: 2018-05-01<br />Nb_of_distinct_IPs: 3.2273724<br />Package: DelayedMatrixStats","Date: 2018-06-01<br />Nb_of_distinct_IPs: 3.1826999<br />Package: DelayedMatrixStats","Date: 2018-07-01<br />Nb_of_distinct_IPs: 3.2645817<br />Package: DelayedMatrixStats","Date: 2018-08-01<br />Nb_of_distinct_IPs: 3.2984164<br />Package: DelayedMatrixStats","Date: 2018-09-01<br />Nb_of_distinct_IPs: 3.2460059<br />Package: DelayedMatrixStats","Date: 2018-10-01<br />Nb_of_distinct_IPs: 3.3324385<br />Package: DelayedMatrixStats","Date: 2018-11-01<br />Nb_of_distinct_IPs: 3.5488806<br />Package: DelayedMatrixStats","Date: 2018-12-01<br />Nb_of_distinct_IPs: 3.3967223<br />Package: DelayedMatrixStats","Date: 2019-01-01<br />Nb_of_distinct_IPs: 3.4485517<br />Package: DelayedMatrixStats","Date: 2019-02-01<br />Nb_of_distinct_IPs: 3.4420092<br />Package: DelayedMatrixStats","Date: 2019-03-01<br />Nb_of_distinct_IPs: 3.4906607<br />Package: DelayedMatrixStats","Date: 2019-04-01<br />Nb_of_distinct_IPs: 3.4958218<br />Package: DelayedMatrixStats","Date: 2019-05-01<br />Nb_of_distinct_IPs: 3.5666731<br />Package: DelayedMatrixStats","Date: 2019-06-01<br />Nb_of_distinct_IPs: 3.5597870<br />Package: DelayedMatrixStats","Date: 2019-07-01<br />Nb_of_distinct_IPs: 3.5969268<br />Package: DelayedMatrixStats","Date: 2019-08-01<br />Nb_of_distinct_IPs: 3.5666731<br />Package: DelayedMatrixStats","Date: 2019-09-01<br />Nb_of_distinct_IPs: 3.7148325<br />Package: DelayedMatrixStats","Date: 2019-10-01<br />Nb_of_distinct_IPs: 3.6916119<br />Package: DelayedMatrixStats","Date: 2019-11-01<br />Nb_of_distinct_IPs: 3.7091003<br />Package: DelayedMatrixStats","Date: 2019-12-01<br />Nb_of_distinct_IPs: 3.5921768<br />Package: DelayedMatrixStats","Date: 2020-01-01<br />Nb_of_distinct_IPs: 3.6135247<br />Package: DelayedMatrixStats","Date: 2020-02-01<br />Nb_of_distinct_IPs: 3.6712654<br />Package: DelayedMatrixStats","Date: 2020-03-01<br />Nb_of_distinct_IPs: 3.7412304<br />Package: DelayedMatrixStats","Date: 2020-04-01<br />Nb_of_distinct_IPs: 3.7722483<br />Package: DelayedMatrixStats","Date: 2020-05-01<br />Nb_of_distinct_IPs: 3.8321895<br />Package: DelayedMatrixStats"],"type":"scatter","mode":"lines","line":{"width":1.88976377952756,"color":"rgba(174,162,0,1)","dash":"solid"},"hoveron":"points","name":"DelayedMatrixStats","legendgroup":"DelayedMatrixStats","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"x":[17167,17198,17226,17257,17287,17318,17348,17379,17410,17440,17471,17501,17532,17563,17591,17622,17652,17683,17713,17744,17775,17805,17836,17866,17897,17928,17956,17987,18017,18048,18078,18109,18140,18170,18201,18231,18262,18293,18322,18353,18383],"y":[null,null,null,1.83250891270624,2.09691001300806,2.21218760440396,2.04532297878666,2.02530586526477,2.19312459835446,2.19312459835446,2.20951501454263,2.00860017176192,2.20682587603185,2.19865708695442,2.26951294421792,2.42975228000241,2.52762990087134,2.60745502321467,2.71850168886727,2.56937390961505,2.69897000433602,2.66651798055488,2.90525604874845,2.76342799356294,2.81888541459401,2.72345567203519,2.83758843823551,2.79518458968242,2.92992956008459,2.87966920563205,2.87157293554588,2.78887511577542,2.83821922190763,2.83821922190763,2.92064500140679,2.83442070368153,2.77451696572855,2.81888541459401,2.88479536394898,2.93348728784871,3.09586645347854],"text":["Date: 2017-01-01<br />Nb_of_distinct_IPs:      -Inf<br />Package: GenomicDataCommons","Date: 2017-02-01<br />Nb_of_distinct_IPs:      -Inf<br />Package: GenomicDataCommons","Date: 2017-03-01<br />Nb_of_distinct_IPs:      -Inf<br />Package: GenomicDataCommons","Date: 2017-04-01<br />Nb_of_distinct_IPs: 1.8325089<br />Package: GenomicDataCommons","Date: 2017-05-01<br />Nb_of_distinct_IPs: 2.0969100<br />Package: GenomicDataCommons","Date: 2017-06-01<br />Nb_of_distinct_IPs: 2.2121876<br />Package: GenomicDataCommons","Date: 2017-07-01<br />Nb_of_distinct_IPs: 2.0453230<br />Package: GenomicDataCommons","Date: 2017-08-01<br />Nb_of_distinct_IPs: 2.0253059<br />Package: GenomicDataCommons","Date: 2017-09-01<br />Nb_of_distinct_IPs: 2.1931246<br />Package: GenomicDataCommons","Date: 2017-10-01<br />Nb_of_distinct_IPs: 2.1931246<br />Package: GenomicDataCommons","Date: 2017-11-01<br />Nb_of_distinct_IPs: 2.2095150<br />Package: GenomicDataCommons","Date: 2017-12-01<br />Nb_of_distinct_IPs: 2.0086002<br />Package: GenomicDataCommons","Date: 2018-01-01<br />Nb_of_distinct_IPs: 2.2068259<br />Package: GenomicDataCommons","Date: 2018-02-01<br />Nb_of_distinct_IPs: 2.1986571<br />Package: GenomicDataCommons","Date: 2018-03-01<br />Nb_of_distinct_IPs: 2.2695129<br />Package: GenomicDataCommons","Date: 2018-04-01<br />Nb_of_distinct_IPs: 2.4297523<br />Package: GenomicDataCommons","Date: 2018-05-01<br />Nb_of_distinct_IPs: 2.5276299<br />Package: GenomicDataCommons","Date: 2018-06-01<br />Nb_of_distinct_IPs: 2.6074550<br />Package: GenomicDataCommons","Date: 2018-07-01<br />Nb_of_distinct_IPs: 2.7185017<br />Package: GenomicDataCommons","Date: 2018-08-01<br />Nb_of_distinct_IPs: 2.5693739<br />Package: GenomicDataCommons","Date: 2018-09-01<br />Nb_of_distinct_IPs: 2.6989700<br />Package: GenomicDataCommons","Date: 2018-10-01<br />Nb_of_distinct_IPs: 2.6665180<br />Package: GenomicDataCommons","Date: 2018-11-01<br />Nb_of_distinct_IPs: 2.9052560<br />Package: GenomicDataCommons","Date: 2018-12-01<br />Nb_of_distinct_IPs: 2.7634280<br />Package: GenomicDataCommons","Date: 2019-01-01<br />Nb_of_distinct_IPs: 2.8188854<br />Package: GenomicDataCommons","Date: 2019-02-01<br />Nb_of_distinct_IPs: 2.7234557<br />Package: GenomicDataCommons","Date: 2019-03-01<br />Nb_of_distinct_IPs: 2.8375884<br />Package: GenomicDataCommons","Date: 2019-04-01<br />Nb_of_distinct_IPs: 2.7951846<br />Package: GenomicDataCommons","Date: 2019-05-01<br />Nb_of_distinct_IPs: 2.9299296<br />Package: GenomicDataCommons","Date: 2019-06-01<br />Nb_of_distinct_IPs: 2.8796692<br />Package: GenomicDataCommons","Date: 2019-07-01<br />Nb_of_distinct_IPs: 2.8715729<br />Package: GenomicDataCommons","Date: 2019-08-01<br />Nb_of_distinct_IPs: 2.7888751<br />Package: GenomicDataCommons","Date: 2019-09-01<br />Nb_of_distinct_IPs: 2.8382192<br />Package: GenomicDataCommons","Date: 2019-10-01<br />Nb_of_distinct_IPs: 2.8382192<br />Package: GenomicDataCommons","Date: 2019-11-01<br />Nb_of_distinct_IPs: 2.9206450<br />Package: GenomicDataCommons","Date: 2019-12-01<br />Nb_of_distinct_IPs: 2.8344207<br />Package: GenomicDataCommons","Date: 2020-01-01<br />Nb_of_distinct_IPs: 2.7745170<br />Package: GenomicDataCommons","Date: 2020-02-01<br />Nb_of_distinct_IPs: 2.8188854<br />Package: GenomicDataCommons","Date: 2020-03-01<br />Nb_of_distinct_IPs: 2.8847954<br />Package: GenomicDataCommons","Date: 2020-04-01<br />Nb_of_distinct_IPs: 2.9334873<br />Package: GenomicDataCommons","Date: 2020-05-01<br />Nb_of_distinct_IPs: 3.0958665<br />Package: GenomicDataCommons"],"type":"scatter","mode":"lines","line":{"width":1.88976377952756,"color":"rgba(100,178,0,1)","dash":"solid"},"hoveron":"points","name":"GenomicDataCommons","legendgroup":"GenomicDataCommons","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"x":[14245,14276,14304,14335,14365,14396,14426,14457,14488,14518,14549,14579,14610,14641,14669,14700,14730,14761,14791,14822,14853,14883,14914,14944,14975,15006,15034,15065,15095,15126,15156,15187,15218,15248,15279,15309,15340,15371,15400,15431,15461,15492,15522,15553,15584,15614,15645,15675,15706,15737,15765,15796,15826,15857,15887,15918,15949,15979,16010,16040,16071,16102,16130,16161,16191,16222,16252,16283,16314,16344,16375,16405,16436,16467,16495,16526,16556,16587,16617,16648,16679,16709,16740,16770,16801,16832,16861,16892,16922,16953,16983,17014,17045,17075,17106,17136,17167,17198,17226,17257,17287,17318,17348,17379,17410,17440,17471,17501,17532,17563,17591,17622,17652,17683,17713,17744,17775,17805,17836,17866,17897,17928,17956,17987,18017,18048,18078,18109,18140,18170,18201,18231,18262,18293,18322,18353,18383],"y":[2.60422605308447,2.60422605308447,2.69983772586725,2.73719264270474,2.73078227566639,2.65896484266443,2.66464197555613,2.63447727016073,2.79726754083072,2.67486114073781,2.69983772586725,2.7419390777292,2.76117581315573,2.76715586608218,3.02118929906994,2.81822589361396,2.80888586735981,2.76192783842053,2.73239375982297,2.37106786227174,2.68752896121463,2.74741180788642,2.80345711564841,2.70500795933334,2.80208925788173,2.7481880270062,2.77305469336426,2.82607480270083,2.82994669594164,2.78675142214556,2.81023251799508,2.84323277809801,2.88024177589548,2.85125834871908,2.92272545799326,2.94987770403687,3.066698550423,2.88536122003151,2.97680833733807,3.10071508657308,3.10277661488344,3.05076631123304,3.00346053210951,2.89542254603941,2.90955602924118,3.09236969962912,3.03662889536216,2.93196611472817,3.04414762087872,3.12385164096709,3.12678057701201,3.19395897801919,3.17666993266815,3.15685190107001,3.16643011384328,3.07114529045108,3.10482840365366,3.22942584792069,3.19700472802305,3.15503222879097,3.13097669160562,3.17114115102838,3.30685374869301,3.46908529912312,3.58399179919832,3.34360550810417,3.3230457354817,3.28420506770179,3.40277706961035,3.7359181165313,3.39445168082622,3.30297993674825,3.25671774597749,3.27966694404846,3.38667728396084,3.44059426183983,3.47842218774008,3.3914644118391,3.40277706961035,3.39532639306935,3.40260524191991,3.45545396877863,3.48727981644307,3.43616264704076,3.40840957846843,3.47928731647617,3.56995881809659,3.49387611085282,3.54752857645978,3.48671377598249,3.41430468812833,3.38524868240322,3.42488163663107,3.52231379515667,3.56407397897715,3.52724311638809,3.5066403055665,3.51335079880596,3.58012632541158,3.57217431361306,3.59538598080914,3.54900326202579,3.49692964807321,3.47871075551276,3.51785541893003,3.54777470538782,3.66651798055488,3.61436983954829,3.62148786458063,3.64865269513122,3.75181778773688,3.68877565527285,3.69688037168276,3.62808226099068,3.65446533352015,3.62469453127208,3.61898892036493,3.69222983577276,3.75534118381155,3.71550194529328,3.76893394218678,3.69740372320049,3.75898754686762,3.76087463805219,3.7594411971337,3.6730209071289,3.69337515102519,3.61542395288594,3.64167237322469,3.67237497874608,3.73822544814251,3.65494622658434,3.65581049449525,3.72255166200096,3.81338080673386,3.84117169449953,3.84016884924076],"text":["Date: 2009-01-01<br />Nb_of_distinct_IPs: 2.6042261<br />Package: GEOquery","Date: 2009-02-01<br />Nb_of_distinct_IPs: 2.6042261<br />Package: GEOquery","Date: 2009-03-01<br />Nb_of_distinct_IPs: 2.6998377<br />Package: GEOquery","Date: 2009-04-01<br />Nb_of_distinct_IPs: 2.7371926<br />Package: GEOquery","Date: 2009-05-01<br />Nb_of_distinct_IPs: 2.7307823<br />Package: GEOquery","Date: 2009-06-01<br />Nb_of_distinct_IPs: 2.6589648<br />Package: GEOquery","Date: 2009-07-01<br />Nb_of_distinct_IPs: 2.6646420<br />Package: GEOquery","Date: 2009-08-01<br />Nb_of_distinct_IPs: 2.6344773<br />Package: GEOquery","Date: 2009-09-01<br />Nb_of_distinct_IPs: 2.7972675<br />Package: GEOquery","Date: 2009-10-01<br />Nb_of_distinct_IPs: 2.6748611<br />Package: GEOquery","Date: 2009-11-01<br />Nb_of_distinct_IPs: 2.6998377<br />Package: GEOquery","Date: 2009-12-01<br />Nb_of_distinct_IPs: 2.7419391<br />Package: GEOquery","Date: 2010-01-01<br />Nb_of_distinct_IPs: 2.7611758<br />Package: GEOquery","Date: 2010-02-01<br />Nb_of_distinct_IPs: 2.7671559<br />Package: GEOquery","Date: 2010-03-01<br />Nb_of_distinct_IPs: 3.0211893<br />Package: GEOquery","Date: 2010-04-01<br />Nb_of_distinct_IPs: 2.8182259<br />Package: GEOquery","Date: 2010-05-01<br />Nb_of_distinct_IPs: 2.8088859<br />Package: GEOquery","Date: 2010-06-01<br />Nb_of_distinct_IPs: 2.7619278<br />Package: GEOquery","Date: 2010-07-01<br />Nb_of_distinct_IPs: 2.7323938<br />Package: GEOquery","Date: 2010-08-01<br />Nb_of_distinct_IPs: 2.3710679<br />Package: GEOquery","Date: 2010-09-01<br />Nb_of_distinct_IPs: 2.6875290<br />Package: GEOquery","Date: 2010-10-01<br />Nb_of_distinct_IPs: 2.7474118<br />Package: GEOquery","Date: 2010-11-01<br />Nb_of_distinct_IPs: 2.8034571<br />Package: GEOquery","Date: 2010-12-01<br />Nb_of_distinct_IPs: 2.7050080<br />Package: GEOquery","Date: 2011-01-01<br />Nb_of_distinct_IPs: 2.8020893<br />Package: GEOquery","Date: 2011-02-01<br />Nb_of_distinct_IPs: 2.7481880<br />Package: GEOquery","Date: 2011-03-01<br />Nb_of_distinct_IPs: 2.7730547<br />Package: GEOquery","Date: 2011-04-01<br />Nb_of_distinct_IPs: 2.8260748<br />Package: GEOquery","Date: 2011-05-01<br />Nb_of_distinct_IPs: 2.8299467<br />Package: GEOquery","Date: 2011-06-01<br />Nb_of_distinct_IPs: 2.7867514<br />Package: GEOquery","Date: 2011-07-01<br />Nb_of_distinct_IPs: 2.8102325<br />Package: GEOquery","Date: 2011-08-01<br />Nb_of_distinct_IPs: 2.8432328<br />Package: GEOquery","Date: 2011-09-01<br />Nb_of_distinct_IPs: 2.8802418<br />Package: GEOquery","Date: 2011-10-01<br />Nb_of_distinct_IPs: 2.8512583<br />Package: GEOquery","Date: 2011-11-01<br />Nb_of_distinct_IPs: 2.9227255<br />Package: GEOquery","Date: 2011-12-01<br />Nb_of_distinct_IPs: 2.9498777<br />Package: GEOquery","Date: 2012-01-01<br />Nb_of_distinct_IPs: 3.0666986<br />Package: GEOquery","Date: 2012-02-01<br />Nb_of_distinct_IPs: 2.8853612<br />Package: GEOquery","Date: 2012-03-01<br />Nb_of_distinct_IPs: 2.9768083<br />Package: GEOquery","Date: 2012-04-01<br />Nb_of_distinct_IPs: 3.1007151<br />Package: GEOquery","Date: 2012-05-01<br />Nb_of_distinct_IPs: 3.1027766<br />Package: GEOquery","Date: 2012-06-01<br />Nb_of_distinct_IPs: 3.0507663<br />Package: GEOquery","Date: 2012-07-01<br />Nb_of_distinct_IPs: 3.0034605<br />Package: GEOquery","Date: 2012-08-01<br />Nb_of_distinct_IPs: 2.8954225<br />Package: GEOquery","Date: 2012-09-01<br />Nb_of_distinct_IPs: 2.9095560<br />Package: GEOquery","Date: 2012-10-01<br />Nb_of_distinct_IPs: 3.0923697<br />Package: GEOquery","Date: 2012-11-01<br />Nb_of_distinct_IPs: 3.0366289<br />Package: GEOquery","Date: 2012-12-01<br />Nb_of_distinct_IPs: 2.9319661<br />Package: GEOquery","Date: 2013-01-01<br />Nb_of_distinct_IPs: 3.0441476<br />Package: GEOquery","Date: 2013-02-01<br />Nb_of_distinct_IPs: 3.1238516<br />Package: GEOquery","Date: 2013-03-01<br />Nb_of_distinct_IPs: 3.1267806<br />Package: GEOquery","Date: 2013-04-01<br />Nb_of_distinct_IPs: 3.1939590<br />Package: GEOquery","Date: 2013-05-01<br />Nb_of_distinct_IPs: 3.1766699<br />Package: GEOquery","Date: 2013-06-01<br />Nb_of_distinct_IPs: 3.1568519<br />Package: GEOquery","Date: 2013-07-01<br />Nb_of_distinct_IPs: 3.1664301<br />Package: GEOquery","Date: 2013-08-01<br />Nb_of_distinct_IPs: 3.0711453<br />Package: GEOquery","Date: 2013-09-01<br />Nb_of_distinct_IPs: 3.1048284<br />Package: GEOquery","Date: 2013-10-01<br />Nb_of_distinct_IPs: 3.2294258<br />Package: GEOquery","Date: 2013-11-01<br />Nb_of_distinct_IPs: 3.1970047<br />Package: GEOquery","Date: 2013-12-01<br />Nb_of_distinct_IPs: 3.1550322<br />Package: GEOquery","Date: 2014-01-01<br />Nb_of_distinct_IPs: 3.1309767<br />Package: GEOquery","Date: 2014-02-01<br />Nb_of_distinct_IPs: 3.1711412<br />Package: GEOquery","Date: 2014-03-01<br />Nb_of_distinct_IPs: 3.3068537<br />Package: GEOquery","Date: 2014-04-01<br />Nb_of_distinct_IPs: 3.4690853<br />Package: GEOquery","Date: 2014-05-01<br />Nb_of_distinct_IPs: 3.5839918<br />Package: GEOquery","Date: 2014-06-01<br />Nb_of_distinct_IPs: 3.3436055<br />Package: GEOquery","Date: 2014-07-01<br />Nb_of_distinct_IPs: 3.3230457<br />Package: GEOquery","Date: 2014-08-01<br />Nb_of_distinct_IPs: 3.2842051<br />Package: GEOquery","Date: 2014-09-01<br />Nb_of_distinct_IPs: 3.4027771<br />Package: GEOquery","Date: 2014-10-01<br />Nb_of_distinct_IPs: 3.7359181<br />Package: GEOquery","Date: 2014-11-01<br />Nb_of_distinct_IPs: 3.3944517<br />Package: GEOquery","Date: 2014-12-01<br />Nb_of_distinct_IPs: 3.3029799<br />Package: GEOquery","Date: 2015-01-01<br />Nb_of_distinct_IPs: 3.2567177<br />Package: GEOquery","Date: 2015-02-01<br />Nb_of_distinct_IPs: 3.2796669<br />Package: GEOquery","Date: 2015-03-01<br />Nb_of_distinct_IPs: 3.3866773<br />Package: GEOquery","Date: 2015-04-01<br />Nb_of_distinct_IPs: 3.4405943<br />Package: GEOquery","Date: 2015-05-01<br />Nb_of_distinct_IPs: 3.4784222<br />Package: GEOquery","Date: 2015-06-01<br />Nb_of_distinct_IPs: 3.3914644<br />Package: GEOquery","Date: 2015-07-01<br />Nb_of_distinct_IPs: 3.4027771<br />Package: GEOquery","Date: 2015-08-01<br />Nb_of_distinct_IPs: 3.3953264<br />Package: GEOquery","Date: 2015-09-01<br />Nb_of_distinct_IPs: 3.4026052<br />Package: GEOquery","Date: 2015-10-01<br />Nb_of_distinct_IPs: 3.4554540<br />Package: GEOquery","Date: 2015-11-01<br />Nb_of_distinct_IPs: 3.4872798<br />Package: GEOquery","Date: 2015-12-01<br />Nb_of_distinct_IPs: 3.4361626<br />Package: GEOquery","Date: 2016-01-01<br />Nb_of_distinct_IPs: 3.4084096<br />Package: GEOquery","Date: 2016-02-01<br />Nb_of_distinct_IPs: 3.4792873<br />Package: GEOquery","Date: 2016-03-01<br />Nb_of_distinct_IPs: 3.5699588<br />Package: GEOquery","Date: 2016-04-01<br />Nb_of_distinct_IPs: 3.4938761<br />Package: GEOquery","Date: 2016-05-01<br />Nb_of_distinct_IPs: 3.5475286<br />Package: GEOquery","Date: 2016-06-01<br />Nb_of_distinct_IPs: 3.4867138<br />Package: GEOquery","Date: 2016-07-01<br />Nb_of_distinct_IPs: 3.4143047<br />Package: GEOquery","Date: 2016-08-01<br />Nb_of_distinct_IPs: 3.3852487<br />Package: GEOquery","Date: 2016-09-01<br />Nb_of_distinct_IPs: 3.4248816<br />Package: GEOquery","Date: 2016-10-01<br />Nb_of_distinct_IPs: 3.5223138<br />Package: GEOquery","Date: 2016-11-01<br />Nb_of_distinct_IPs: 3.5640740<br />Package: GEOquery","Date: 2016-12-01<br />Nb_of_distinct_IPs: 3.5272431<br />Package: GEOquery","Date: 2017-01-01<br />Nb_of_distinct_IPs: 3.5066403<br />Package: GEOquery","Date: 2017-02-01<br />Nb_of_distinct_IPs: 3.5133508<br />Package: GEOquery","Date: 2017-03-01<br />Nb_of_distinct_IPs: 3.5801263<br />Package: GEOquery","Date: 2017-04-01<br />Nb_of_distinct_IPs: 3.5721743<br />Package: GEOquery","Date: 2017-05-01<br />Nb_of_distinct_IPs: 3.5953860<br />Package: GEOquery","Date: 2017-06-01<br />Nb_of_distinct_IPs: 3.5490033<br />Package: GEOquery","Date: 2017-07-01<br />Nb_of_distinct_IPs: 3.4969296<br />Package: GEOquery","Date: 2017-08-01<br />Nb_of_distinct_IPs: 3.4787108<br />Package: GEOquery","Date: 2017-09-01<br />Nb_of_distinct_IPs: 3.5178554<br />Package: GEOquery","Date: 2017-10-01<br />Nb_of_distinct_IPs: 3.5477747<br />Package: GEOquery","Date: 2017-11-01<br />Nb_of_distinct_IPs: 3.6665180<br />Package: GEOquery","Date: 2017-12-01<br />Nb_of_distinct_IPs: 3.6143698<br />Package: GEOquery","Date: 2018-01-01<br />Nb_of_distinct_IPs: 3.6214879<br />Package: GEOquery","Date: 2018-02-01<br />Nb_of_distinct_IPs: 3.6486527<br />Package: GEOquery","Date: 2018-03-01<br />Nb_of_distinct_IPs: 3.7518178<br />Package: GEOquery","Date: 2018-04-01<br />Nb_of_distinct_IPs: 3.6887757<br />Package: GEOquery","Date: 2018-05-01<br />Nb_of_distinct_IPs: 3.6968804<br />Package: GEOquery","Date: 2018-06-01<br />Nb_of_distinct_IPs: 3.6280823<br />Package: GEOquery","Date: 2018-07-01<br />Nb_of_distinct_IPs: 3.6544653<br />Package: GEOquery","Date: 2018-08-01<br />Nb_of_distinct_IPs: 3.6246945<br />Package: GEOquery","Date: 2018-09-01<br />Nb_of_distinct_IPs: 3.6189889<br />Package: GEOquery","Date: 2018-10-01<br />Nb_of_distinct_IPs: 3.6922298<br />Package: GEOquery","Date: 2018-11-01<br />Nb_of_distinct_IPs: 3.7553412<br />Package: GEOquery","Date: 2018-12-01<br />Nb_of_distinct_IPs: 3.7155019<br />Package: GEOquery","Date: 2019-01-01<br />Nb_of_distinct_IPs: 3.7689339<br />Package: GEOquery","Date: 2019-02-01<br />Nb_of_distinct_IPs: 3.6974037<br />Package: GEOquery","Date: 2019-03-01<br />Nb_of_distinct_IPs: 3.7589875<br />Package: GEOquery","Date: 2019-04-01<br />Nb_of_distinct_IPs: 3.7608746<br />Package: GEOquery","Date: 2019-05-01<br />Nb_of_distinct_IPs: 3.7594412<br />Package: GEOquery","Date: 2019-06-01<br />Nb_of_distinct_IPs: 3.6730209<br />Package: GEOquery","Date: 2019-07-01<br />Nb_of_distinct_IPs: 3.6933752<br />Package: GEOquery","Date: 2019-08-01<br />Nb_of_distinct_IPs: 3.6154240<br />Package: GEOquery","Date: 2019-09-01<br />Nb_of_distinct_IPs: 3.6416724<br />Package: GEOquery","Date: 2019-10-01<br />Nb_of_distinct_IPs: 3.6723750<br />Package: GEOquery","Date: 2019-11-01<br />Nb_of_distinct_IPs: 3.7382254<br />Package: GEOquery","Date: 2019-12-01<br />Nb_of_distinct_IPs: 3.6549462<br />Package: GEOquery","Date: 2020-01-01<br />Nb_of_distinct_IPs: 3.6558105<br />Package: GEOquery","Date: 2020-02-01<br />Nb_of_distinct_IPs: 3.7225517<br />Package: GEOquery","Date: 2020-03-01<br />Nb_of_distinct_IPs: 3.8133808<br />Package: GEOquery","Date: 2020-04-01<br />Nb_of_distinct_IPs: 3.8411717<br />Package: GEOquery","Date: 2020-05-01<br />Nb_of_distinct_IPs: 3.8401688<br />Package: GEOquery"],"type":"scatter","mode":"lines","line":{"width":1.88976377952756,"color":"rgba(0,189,92,1)","dash":"solid"},"hoveron":"points","name":"GEOquery","legendgroup":"GEOquery","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"x":[16801,16832,16861,16892,16922,16953,16983,17014,17045,17075,17106,17136,17167,17198,17226,17257,17287,17318,17348,17379,17410,17440,17471,17501,17532,17563,17591,17622,17652,17683,17713,17744,17775,17805,17836,17866,17897,17928,17956,17987,18017,18048,18078,18109,18140,18170,18201,18231,18262,18293,18322,18353,18383],"y":[null,null,0.903089986991944,1.04139268515823,1.85733249643127,1.99563519459755,2.09691001300806,1.83250891270624,1.83250891270624,1.98677173426624,2.00432137378264,2.05690485133647,1.80617997398389,2.07554696139253,2.05690485133647,2.42160392686983,2.71767050300226,2.78887511577542,2.73559889969818,2.72509452108147,2.78031731214015,2.83122969386706,3.18808437371494,3.05346260492546,3.16879202031418,3.16106838547117,3.17289469775218,3.22891340599469,3.38471174293828,3.37125262912494,3.44653716707364,3.42683645380351,3.35564305022087,3.38721180031373,3.58365210854204,3.53655844257153,3.54617236831694,3.50379068305718,3.53083977861652,3.54419211076503,3.61804809671209,3.5946135091601,3.62148786458063,3.69311111546214,3.68241586167736,3.76789761601809,3.76782349800752,3.69705489227257,3.66689221106654,3.80712895559242,3.89198323085197,3.91025077230015,3.92634244662566],"text":["Date: 2016-01-01<br />Nb_of_distinct_IPs:      -Inf<br />Package: HDF5Array","Date: 2016-02-01<br />Nb_of_distinct_IPs:      -Inf<br />Package: HDF5Array","Date: 2016-03-01<br />Nb_of_distinct_IPs: 0.9030900<br />Package: HDF5Array","Date: 2016-04-01<br />Nb_of_distinct_IPs: 1.0413927<br />Package: HDF5Array","Date: 2016-05-01<br />Nb_of_distinct_IPs: 1.8573325<br />Package: HDF5Array","Date: 2016-06-01<br />Nb_of_distinct_IPs: 1.9956352<br />Package: HDF5Array","Date: 2016-07-01<br />Nb_of_distinct_IPs: 2.0969100<br />Package: HDF5Array","Date: 2016-08-01<br />Nb_of_distinct_IPs: 1.8325089<br />Package: HDF5Array","Date: 2016-09-01<br />Nb_of_distinct_IPs: 1.8325089<br />Package: HDF5Array","Date: 2016-10-01<br />Nb_of_distinct_IPs: 1.9867717<br />Package: HDF5Array","Date: 2016-11-01<br />Nb_of_distinct_IPs: 2.0043214<br />Package: HDF5Array","Date: 2016-12-01<br />Nb_of_distinct_IPs: 2.0569049<br />Package: HDF5Array","Date: 2017-01-01<br />Nb_of_distinct_IPs: 1.8061800<br />Package: HDF5Array","Date: 2017-02-01<br />Nb_of_distinct_IPs: 2.0755470<br />Package: HDF5Array","Date: 2017-03-01<br />Nb_of_distinct_IPs: 2.0569049<br />Package: HDF5Array","Date: 2017-04-01<br />Nb_of_distinct_IPs: 2.4216039<br />Package: HDF5Array","Date: 2017-05-01<br />Nb_of_distinct_IPs: 2.7176705<br />Package: HDF5Array","Date: 2017-06-01<br />Nb_of_distinct_IPs: 2.7888751<br />Package: HDF5Array","Date: 2017-07-01<br />Nb_of_distinct_IPs: 2.7355989<br />Package: HDF5Array","Date: 2017-08-01<br />Nb_of_distinct_IPs: 2.7250945<br />Package: HDF5Array","Date: 2017-09-01<br />Nb_of_distinct_IPs: 2.7803173<br />Package: HDF5Array","Date: 2017-10-01<br />Nb_of_distinct_IPs: 2.8312297<br />Package: HDF5Array","Date: 2017-11-01<br />Nb_of_distinct_IPs: 3.1880844<br />Package: HDF5Array","Date: 2017-12-01<br />Nb_of_distinct_IPs: 3.0534626<br />Package: HDF5Array","Date: 2018-01-01<br />Nb_of_distinct_IPs: 3.1687920<br />Package: HDF5Array","Date: 2018-02-01<br />Nb_of_distinct_IPs: 3.1610684<br />Package: HDF5Array","Date: 2018-03-01<br />Nb_of_distinct_IPs: 3.1728947<br />Package: HDF5Array","Date: 2018-04-01<br />Nb_of_distinct_IPs: 3.2289134<br />Package: HDF5Array","Date: 2018-05-01<br />Nb_of_distinct_IPs: 3.3847117<br />Package: HDF5Array","Date: 2018-06-01<br />Nb_of_distinct_IPs: 3.3712526<br />Package: HDF5Array","Date: 2018-07-01<br />Nb_of_distinct_IPs: 3.4465372<br />Package: HDF5Array","Date: 2018-08-01<br />Nb_of_distinct_IPs: 3.4268365<br />Package: HDF5Array","Date: 2018-09-01<br />Nb_of_distinct_IPs: 3.3556431<br />Package: HDF5Array","Date: 2018-10-01<br />Nb_of_distinct_IPs: 3.3872118<br />Package: HDF5Array","Date: 2018-11-01<br />Nb_of_distinct_IPs: 3.5836521<br />Package: HDF5Array","Date: 2018-12-01<br />Nb_of_distinct_IPs: 3.5365584<br />Package: HDF5Array","Date: 2019-01-01<br />Nb_of_distinct_IPs: 3.5461724<br />Package: HDF5Array","Date: 2019-02-01<br />Nb_of_distinct_IPs: 3.5037907<br />Package: HDF5Array","Date: 2019-03-01<br />Nb_of_distinct_IPs: 3.5308398<br />Package: HDF5Array","Date: 2019-04-01<br />Nb_of_distinct_IPs: 3.5441921<br />Package: HDF5Array","Date: 2019-05-01<br />Nb_of_distinct_IPs: 3.6180481<br />Package: HDF5Array","Date: 2019-06-01<br />Nb_of_distinct_IPs: 3.5946135<br />Package: HDF5Array","Date: 2019-07-01<br />Nb_of_distinct_IPs: 3.6214879<br />Package: HDF5Array","Date: 2019-08-01<br />Nb_of_distinct_IPs: 3.6931111<br />Package: HDF5Array","Date: 2019-09-01<br />Nb_of_distinct_IPs: 3.6824159<br />Package: HDF5Array","Date: 2019-10-01<br />Nb_of_distinct_IPs: 3.7678976<br />Package: HDF5Array","Date: 2019-11-01<br />Nb_of_distinct_IPs: 3.7678235<br />Package: HDF5Array","Date: 2019-12-01<br />Nb_of_distinct_IPs: 3.6970549<br />Package: HDF5Array","Date: 2020-01-01<br />Nb_of_distinct_IPs: 3.6668922<br />Package: HDF5Array","Date: 2020-02-01<br />Nb_of_distinct_IPs: 3.8071290<br />Package: HDF5Array","Date: 2020-03-01<br />Nb_of_distinct_IPs: 3.8919832<br />Package: HDF5Array","Date: 2020-04-01<br />Nb_of_distinct_IPs: 3.9102508<br />Package: HDF5Array","Date: 2020-05-01<br />Nb_of_distinct_IPs: 3.9263424<br />Package: HDF5Array"],"type":"scatter","mode":"lines","line":{"width":1.88976377952756,"color":"rgba(0,193,167,1)","dash":"solid"},"hoveron":"points","name":"HDF5Array","legendgroup":"HDF5Array","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"x":[17532,17563,17591,17622,17652,17683,17713,17744,17775,17805,17836,17866,17897,17928,17956,17987,18017,18048,18078,18109,18140,18170,18201,18231,18262,18293,18322,18353,18383],"y":[null,null,null,null,null,null,null,null,null,null,1.53147891704226,1.43136376415899,1.91907809237607,2.0899051114394,2.23299611039215,2.26245108973043,1.75587485567249,1.70757017609794,1.83884909073726,1.69019608002851,1.65321251377534,1.77815125038364,1.79934054945358,1.66275783168157,1.88649072517248,1.90308998699194,1.99563519459755,2.02938377768521,2.13033376849501],"text":["Date: 2018-01-01<br />Nb_of_distinct_IPs:      -Inf<br />Package: LoomExperiment","Date: 2018-02-01<br />Nb_of_distinct_IPs:      -Inf<br />Package: LoomExperiment","Date: 2018-03-01<br />Nb_of_distinct_IPs:      -Inf<br />Package: LoomExperiment","Date: 2018-04-01<br />Nb_of_distinct_IPs:      -Inf<br />Package: LoomExperiment","Date: 2018-05-01<br />Nb_of_distinct_IPs:      -Inf<br />Package: LoomExperiment","Date: 2018-06-01<br />Nb_of_distinct_IPs:      -Inf<br />Package: LoomExperiment","Date: 2018-07-01<br />Nb_of_distinct_IPs:      -Inf<br />Package: LoomExperiment","Date: 2018-08-01<br />Nb_of_distinct_IPs:      -Inf<br />Package: LoomExperiment","Date: 2018-09-01<br />Nb_of_distinct_IPs:      -Inf<br />Package: LoomExperiment","Date: 2018-10-01<br />Nb_of_distinct_IPs:      -Inf<br />Package: LoomExperiment","Date: 2018-11-01<br />Nb_of_distinct_IPs: 1.5314789<br />Package: LoomExperiment","Date: 2018-12-01<br />Nb_of_distinct_IPs: 1.4313638<br />Package: LoomExperiment","Date: 2019-01-01<br />Nb_of_distinct_IPs: 1.9190781<br />Package: LoomExperiment","Date: 2019-02-01<br />Nb_of_distinct_IPs: 2.0899051<br />Package: LoomExperiment","Date: 2019-03-01<br />Nb_of_distinct_IPs: 2.2329961<br />Package: LoomExperiment","Date: 2019-04-01<br />Nb_of_distinct_IPs: 2.2624511<br />Package: LoomExperiment","Date: 2019-05-01<br />Nb_of_distinct_IPs: 1.7558749<br />Package: LoomExperiment","Date: 2019-06-01<br />Nb_of_distinct_IPs: 1.7075702<br />Package: LoomExperiment","Date: 2019-07-01<br />Nb_of_distinct_IPs: 1.8388491<br />Package: LoomExperiment","Date: 2019-08-01<br />Nb_of_distinct_IPs: 1.6901961<br />Package: LoomExperiment","Date: 2019-09-01<br />Nb_of_distinct_IPs: 1.6532125<br />Package: LoomExperiment","Date: 2019-10-01<br />Nb_of_distinct_IPs: 1.7781513<br />Package: LoomExperiment","Date: 2019-11-01<br />Nb_of_distinct_IPs: 1.7993405<br />Package: LoomExperiment","Date: 2019-12-01<br />Nb_of_distinct_IPs: 1.6627578<br />Package: LoomExperiment","Date: 2020-01-01<br />Nb_of_distinct_IPs: 1.8864907<br />Package: LoomExperiment","Date: 2020-02-01<br />Nb_of_distinct_IPs: 1.9030900<br />Package: LoomExperiment","Date: 2020-03-01<br />Nb_of_distinct_IPs: 1.9956352<br />Package: LoomExperiment","Date: 2020-04-01<br />Nb_of_distinct_IPs: 2.0293838<br />Package: LoomExperiment","Date: 2020-05-01<br />Nb_of_distinct_IPs: 2.1303338<br />Package: LoomExperiment"],"type":"scatter","mode":"lines","line":{"width":1.88976377952756,"color":"rgba(0,186,222,1)","dash":"solid"},"hoveron":"points","name":"LoomExperiment","legendgroup":"LoomExperiment","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"x":[17167,17198,17226,17257,17287,17318,17348,17379,17410,17440,17471,17501,17532,17563,17591,17622,17652,17683,17713,17744,17775,17805,17836,17866,17897,17928,17956,17987,18017,18048,18078,18109,18140,18170,18201,18231,18262,18293,18322,18353,18383],"y":[null,null,null,null,null,null,null,null,null,0.477121254719662,1.69897000433602,1.68124123737559,1.79239168949825,1.81291335664286,1.83884909073726,2.10037054511756,1.89762709129044,2.03742649794062,2.13987908640124,1.88081359228079,1.96848294855394,1.98227123303957,1.94448267215017,1.91381385238372,2.15228834438306,2.19865708695442,2.30102999566398,2.31806333496276,2.05307844348342,1.95424250943932,2.19033169817029,1.91381385238372,1.72427586960079,1.79934054945358,1.75587485567249,1.64345267648619,1.68124123737559,1.6232492903979,1.76342799356294,1.85733249643127,1.75587485567249],"text":["Date: 2017-01-01<br />Nb_of_distinct_IPs:      -Inf<br />Package: restfulSE","Date: 2017-02-01<br />Nb_of_distinct_IPs:      -Inf<br />Package: restfulSE","Date: 2017-03-01<br />Nb_of_distinct_IPs:      -Inf<br />Package: restfulSE","Date: 2017-04-01<br />Nb_of_distinct_IPs:      -Inf<br />Package: restfulSE","Date: 2017-05-01<br />Nb_of_distinct_IPs:      -Inf<br />Package: restfulSE","Date: 2017-06-01<br />Nb_of_distinct_IPs:      -Inf<br />Package: restfulSE","Date: 2017-07-01<br />Nb_of_distinct_IPs:      -Inf<br />Package: restfulSE","Date: 2017-08-01<br />Nb_of_distinct_IPs:      -Inf<br />Package: restfulSE","Date: 2017-09-01<br />Nb_of_distinct_IPs:      -Inf<br />Package: restfulSE","Date: 2017-10-01<br />Nb_of_distinct_IPs: 0.4771213<br />Package: restfulSE","Date: 2017-11-01<br />Nb_of_distinct_IPs: 1.6989700<br />Package: restfulSE","Date: 2017-12-01<br />Nb_of_distinct_IPs: 1.6812412<br />Package: restfulSE","Date: 2018-01-01<br />Nb_of_distinct_IPs: 1.7923917<br />Package: restfulSE","Date: 2018-02-01<br />Nb_of_distinct_IPs: 1.8129134<br />Package: restfulSE","Date: 2018-03-01<br />Nb_of_distinct_IPs: 1.8388491<br />Package: restfulSE","Date: 2018-04-01<br />Nb_of_distinct_IPs: 2.1003705<br />Package: restfulSE","Date: 2018-05-01<br />Nb_of_distinct_IPs: 1.8976271<br />Package: restfulSE","Date: 2018-06-01<br />Nb_of_distinct_IPs: 2.0374265<br />Package: restfulSE","Date: 2018-07-01<br />Nb_of_distinct_IPs: 2.1398791<br />Package: restfulSE","Date: 2018-08-01<br />Nb_of_distinct_IPs: 1.8808136<br />Package: restfulSE","Date: 2018-09-01<br />Nb_of_distinct_IPs: 1.9684829<br />Package: restfulSE","Date: 2018-10-01<br />Nb_of_distinct_IPs: 1.9822712<br />Package: restfulSE","Date: 2018-11-01<br />Nb_of_distinct_IPs: 1.9444827<br />Package: restfulSE","Date: 2018-12-01<br />Nb_of_distinct_IPs: 1.9138139<br />Package: restfulSE","Date: 2019-01-01<br />Nb_of_distinct_IPs: 2.1522883<br />Package: restfulSE","Date: 2019-02-01<br />Nb_of_distinct_IPs: 2.1986571<br />Package: restfulSE","Date: 2019-03-01<br />Nb_of_distinct_IPs: 2.3010300<br />Package: restfulSE","Date: 2019-04-01<br />Nb_of_distinct_IPs: 2.3180633<br />Package: restfulSE","Date: 2019-05-01<br />Nb_of_distinct_IPs: 2.0530784<br />Package: restfulSE","Date: 2019-06-01<br />Nb_of_distinct_IPs: 1.9542425<br />Package: restfulSE","Date: 2019-07-01<br />Nb_of_distinct_IPs: 2.1903317<br />Package: restfulSE","Date: 2019-08-01<br />Nb_of_distinct_IPs: 1.9138139<br />Package: restfulSE","Date: 2019-09-01<br />Nb_of_distinct_IPs: 1.7242759<br />Package: restfulSE","Date: 2019-10-01<br />Nb_of_distinct_IPs: 1.7993405<br />Package: restfulSE","Date: 2019-11-01<br />Nb_of_distinct_IPs: 1.7558749<br />Package: restfulSE","Date: 2019-12-01<br />Nb_of_distinct_IPs: 1.6434527<br />Package: restfulSE","Date: 2020-01-01<br />Nb_of_distinct_IPs: 1.6812412<br />Package: restfulSE","Date: 2020-02-01<br />Nb_of_distinct_IPs: 1.6232493<br />Package: restfulSE","Date: 2020-03-01<br />Nb_of_distinct_IPs: 1.7634280<br />Package: restfulSE","Date: 2020-04-01<br />Nb_of_distinct_IPs: 1.8573325<br />Package: restfulSE","Date: 2020-05-01<br />Nb_of_distinct_IPs: 1.7558749<br />Package: restfulSE"],"type":"scatter","mode":"lines","line":{"width":1.88976377952756,"color":"rgba(0,166,255,1)","dash":"solid"},"hoveron":"points","name":"restfulSE","legendgroup":"restfulSE","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"x":[14975,15006,15034,15065,15095,15126,15156,15187,15218,15248,15279,15309,15340,15371,15400,15431,15461,15492,15522,15553,15584,15614,15645,15675,15706,15737,15765,15796,15826,15857,15887,15918,15949,15979,16010,16040,16071,16102,16130,16161,16191,16222,16252,16283,16314,16344,16375,16405,16436,16467,16495,16526,16556,16587,16617,16648,16679,16709,16740,16770,16801,16832,16861,16892,16922,16953,16983,17014,17045,17075,17106,17136,17167,17198,17226,17257,17287,17318,17348,17379,17410,17440,17471,17501,17532,17563,17591,17622,17652,17683,17713,17744,17775,17805,17836,17866,17897,17928,17956,17987,18017,18048,18078,18109,18140,18170,18201,18231,18262,18293,18322,18353,18383],"y":[null,null,null,null,null,null,null,null,null,null,null,0.602059991327962,0.903089986991944,0.301029995663981,1.11394335230684,2.11727129565576,1.95904139232109,1.98227123303957,2.00860017176192,2.08635983067475,2.08635983067475,2.17026171539496,2.22010808804005,2.07188200730613,2.11058971029925,2.2148438480477,2.29885307640971,2.45484486000851,2.54406804435028,2.58994960132571,2.87737134586977,2.86153441085904,2.92788341033071,2.97497199429807,2.97497199429807,2.93196611472817,2.98944981766669,2.97358962342726,3.02118929906994,3.34439227368511,3.31260043926126,3.34103863167752,3.34301449715077,3.38774565960886,3.4345689040342,3.34222522936079,3.23879856271392,3.27067883614471,3.34713478291002,3.35276119172383,3.37584643630916,3.35449260058944,3.34908316877959,3.37051308959859,3.3600250891894,3.37032800777951,3.36078268987328,3.3773062510682,3.36172783601759,3.32325210017169,3.37346372163237,3.39497671955456,3.40363518979055,3.39619934709574,3.46864266839151,3.47581641303132,3.46209838113516,3.463594402187,3.47173165148005,3.54481191175778,3.57932620375525,3.56241183294973,3.57852460527499,3.60562822200762,3.64630568028476,3.64018319192134,3.72778517418291,3.69337515102519,3.69108149212297,3.67403400043125,3.68169339200456,3.73639650227664,3.81284653696707,3.69134676413482,3.7517408738109,3.71491624799358,3.73054003647712,3.73806671477747,3.83225337019701,3.77327434833745,3.79056662514608,3.78682237949919,3.76589197643002,3.85448822504443,3.94527158150771,3.83676704739421,3.96118370981244,3.89242854694523,3.90928852416225,3.91073109804338,3.94477868112351,3.90074935806108,3.90821685308939,3.87052095001276,3.9123814989188,4.04883008652835,4.05153839051533,3.98788960999775,3.99242095605202,4.03854068633746,4.08464776085473,4.10571451057092,4.12671570368574],"text":["Date: 2011-01-01<br />Nb_of_distinct_IPs:      -Inf<br />Package: rhdf5","Date: 2011-02-01<br />Nb_of_distinct_IPs:      -Inf<br />Package: rhdf5","Date: 2011-03-01<br />Nb_of_distinct_IPs:      -Inf<br />Package: rhdf5","Date: 2011-04-01<br />Nb_of_distinct_IPs:      -Inf<br />Package: rhdf5","Date: 2011-05-01<br />Nb_of_distinct_IPs:      -Inf<br />Package: rhdf5","Date: 2011-06-01<br />Nb_of_distinct_IPs:      -Inf<br />Package: rhdf5","Date: 2011-07-01<br />Nb_of_distinct_IPs:      -Inf<br />Package: rhdf5","Date: 2011-08-01<br />Nb_of_distinct_IPs:      -Inf<br />Package: rhdf5","Date: 2011-09-01<br />Nb_of_distinct_IPs:      -Inf<br />Package: rhdf5","Date: 2011-10-01<br />Nb_of_distinct_IPs:      -Inf<br />Package: rhdf5","Date: 2011-11-01<br />Nb_of_distinct_IPs:      -Inf<br />Package: rhdf5","Date: 2011-12-01<br />Nb_of_distinct_IPs: 0.6020600<br />Package: rhdf5","Date: 2012-01-01<br />Nb_of_distinct_IPs: 0.9030900<br />Package: rhdf5","Date: 2012-02-01<br />Nb_of_distinct_IPs: 0.3010300<br />Package: rhdf5","Date: 2012-03-01<br />Nb_of_distinct_IPs: 1.1139434<br />Package: rhdf5","Date: 2012-04-01<br />Nb_of_distinct_IPs: 2.1172713<br />Package: rhdf5","Date: 2012-05-01<br />Nb_of_distinct_IPs: 1.9590414<br />Package: rhdf5","Date: 2012-06-01<br />Nb_of_distinct_IPs: 1.9822712<br />Package: rhdf5","Date: 2012-07-01<br />Nb_of_distinct_IPs: 2.0086002<br />Package: rhdf5","Date: 2012-08-01<br />Nb_of_distinct_IPs: 2.0863598<br />Package: rhdf5","Date: 2012-09-01<br />Nb_of_distinct_IPs: 2.0863598<br />Package: rhdf5","Date: 2012-10-01<br />Nb_of_distinct_IPs: 2.1702617<br />Package: rhdf5","Date: 2012-11-01<br />Nb_of_distinct_IPs: 2.2201081<br />Package: rhdf5","Date: 2012-12-01<br />Nb_of_distinct_IPs: 2.0718820<br />Package: rhdf5","Date: 2013-01-01<br />Nb_of_distinct_IPs: 2.1105897<br />Package: rhdf5","Date: 2013-02-01<br />Nb_of_distinct_IPs: 2.2148438<br />Package: rhdf5","Date: 2013-03-01<br />Nb_of_distinct_IPs: 2.2988531<br />Package: rhdf5","Date: 2013-04-01<br />Nb_of_distinct_IPs: 2.4548449<br />Package: rhdf5","Date: 2013-05-01<br />Nb_of_distinct_IPs: 2.5440680<br />Package: rhdf5","Date: 2013-06-01<br />Nb_of_distinct_IPs: 2.5899496<br />Package: rhdf5","Date: 2013-07-01<br />Nb_of_distinct_IPs: 2.8773713<br />Package: rhdf5","Date: 2013-08-01<br />Nb_of_distinct_IPs: 2.8615344<br />Package: rhdf5","Date: 2013-09-01<br />Nb_of_distinct_IPs: 2.9278834<br />Package: rhdf5","Date: 2013-10-01<br />Nb_of_distinct_IPs: 2.9749720<br />Package: rhdf5","Date: 2013-11-01<br />Nb_of_distinct_IPs: 2.9749720<br />Package: rhdf5","Date: 2013-12-01<br />Nb_of_distinct_IPs: 2.9319661<br />Package: rhdf5","Date: 2014-01-01<br />Nb_of_distinct_IPs: 2.9894498<br />Package: rhdf5","Date: 2014-02-01<br />Nb_of_distinct_IPs: 2.9735896<br />Package: rhdf5","Date: 2014-03-01<br />Nb_of_distinct_IPs: 3.0211893<br />Package: rhdf5","Date: 2014-04-01<br />Nb_of_distinct_IPs: 3.3443923<br />Package: rhdf5","Date: 2014-05-01<br />Nb_of_distinct_IPs: 3.3126004<br />Package: rhdf5","Date: 2014-06-01<br />Nb_of_distinct_IPs: 3.3410386<br />Package: rhdf5","Date: 2014-07-01<br />Nb_of_distinct_IPs: 3.3430145<br />Package: rhdf5","Date: 2014-08-01<br />Nb_of_distinct_IPs: 3.3877457<br />Package: rhdf5","Date: 2014-09-01<br />Nb_of_distinct_IPs: 3.4345689<br />Package: rhdf5","Date: 2014-10-01<br />Nb_of_distinct_IPs: 3.3422252<br />Package: rhdf5","Date: 2014-11-01<br />Nb_of_distinct_IPs: 3.2387986<br />Package: rhdf5","Date: 2014-12-01<br />Nb_of_distinct_IPs: 3.2706788<br />Package: rhdf5","Date: 2015-01-01<br />Nb_of_distinct_IPs: 3.3471348<br />Package: rhdf5","Date: 2015-02-01<br />Nb_of_distinct_IPs: 3.3527612<br />Package: rhdf5","Date: 2015-03-01<br />Nb_of_distinct_IPs: 3.3758464<br />Package: rhdf5","Date: 2015-04-01<br />Nb_of_distinct_IPs: 3.3544926<br />Package: rhdf5","Date: 2015-05-01<br />Nb_of_distinct_IPs: 3.3490832<br />Package: rhdf5","Date: 2015-06-01<br />Nb_of_distinct_IPs: 3.3705131<br />Package: rhdf5","Date: 2015-07-01<br />Nb_of_distinct_IPs: 3.3600251<br />Package: rhdf5","Date: 2015-08-01<br />Nb_of_distinct_IPs: 3.3703280<br />Package: rhdf5","Date: 2015-09-01<br />Nb_of_distinct_IPs: 3.3607827<br />Package: rhdf5","Date: 2015-10-01<br />Nb_of_distinct_IPs: 3.3773063<br />Package: rhdf5","Date: 2015-11-01<br />Nb_of_distinct_IPs: 3.3617278<br />Package: rhdf5","Date: 2015-12-01<br />Nb_of_distinct_IPs: 3.3232521<br />Package: rhdf5","Date: 2016-01-01<br />Nb_of_distinct_IPs: 3.3734637<br />Package: rhdf5","Date: 2016-02-01<br />Nb_of_distinct_IPs: 3.3949767<br />Package: rhdf5","Date: 2016-03-01<br />Nb_of_distinct_IPs: 3.4036352<br />Package: rhdf5","Date: 2016-04-01<br />Nb_of_distinct_IPs: 3.3961993<br />Package: rhdf5","Date: 2016-05-01<br />Nb_of_distinct_IPs: 3.4686427<br />Package: rhdf5","Date: 2016-06-01<br />Nb_of_distinct_IPs: 3.4758164<br />Package: rhdf5","Date: 2016-07-01<br />Nb_of_distinct_IPs: 3.4620984<br />Package: rhdf5","Date: 2016-08-01<br />Nb_of_distinct_IPs: 3.4635944<br />Package: rhdf5","Date: 2016-09-01<br />Nb_of_distinct_IPs: 3.4717317<br />Package: rhdf5","Date: 2016-10-01<br />Nb_of_distinct_IPs: 3.5448119<br />Package: rhdf5","Date: 2016-11-01<br />Nb_of_distinct_IPs: 3.5793262<br />Package: rhdf5","Date: 2016-12-01<br />Nb_of_distinct_IPs: 3.5624118<br />Package: rhdf5","Date: 2017-01-01<br />Nb_of_distinct_IPs: 3.5785246<br />Package: rhdf5","Date: 2017-02-01<br />Nb_of_distinct_IPs: 3.6056282<br />Package: rhdf5","Date: 2017-03-01<br />Nb_of_distinct_IPs: 3.6463057<br />Package: rhdf5","Date: 2017-04-01<br />Nb_of_distinct_IPs: 3.6401832<br />Package: rhdf5","Date: 2017-05-01<br />Nb_of_distinct_IPs: 3.7277852<br />Package: rhdf5","Date: 2017-06-01<br />Nb_of_distinct_IPs: 3.6933752<br />Package: rhdf5","Date: 2017-07-01<br />Nb_of_distinct_IPs: 3.6910815<br />Package: rhdf5","Date: 2017-08-01<br />Nb_of_distinct_IPs: 3.6740340<br />Package: rhdf5","Date: 2017-09-01<br />Nb_of_distinct_IPs: 3.6816934<br />Package: rhdf5","Date: 2017-10-01<br />Nb_of_distinct_IPs: 3.7363965<br />Package: rhdf5","Date: 2017-11-01<br />Nb_of_distinct_IPs: 3.8128465<br />Package: rhdf5","Date: 2017-12-01<br />Nb_of_distinct_IPs: 3.6913468<br />Package: rhdf5","Date: 2018-01-01<br />Nb_of_distinct_IPs: 3.7517409<br />Package: rhdf5","Date: 2018-02-01<br />Nb_of_distinct_IPs: 3.7149162<br />Package: rhdf5","Date: 2018-03-01<br />Nb_of_distinct_IPs: 3.7305400<br />Package: rhdf5","Date: 2018-04-01<br />Nb_of_distinct_IPs: 3.7380667<br />Package: rhdf5","Date: 2018-05-01<br />Nb_of_distinct_IPs: 3.8322534<br />Package: rhdf5","Date: 2018-06-01<br />Nb_of_distinct_IPs: 3.7732743<br />Package: rhdf5","Date: 2018-07-01<br />Nb_of_distinct_IPs: 3.7905666<br />Package: rhdf5","Date: 2018-08-01<br />Nb_of_distinct_IPs: 3.7868224<br />Package: rhdf5","Date: 2018-09-01<br />Nb_of_distinct_IPs: 3.7658920<br />Package: rhdf5","Date: 2018-10-01<br />Nb_of_distinct_IPs: 3.8544882<br />Package: rhdf5","Date: 2018-11-01<br />Nb_of_distinct_IPs: 3.9452716<br />Package: rhdf5","Date: 2018-12-01<br />Nb_of_distinct_IPs: 3.8367670<br />Package: rhdf5","Date: 2019-01-01<br />Nb_of_distinct_IPs: 3.9611837<br />Package: rhdf5","Date: 2019-02-01<br />Nb_of_distinct_IPs: 3.8924285<br />Package: rhdf5","Date: 2019-03-01<br />Nb_of_distinct_IPs: 3.9092885<br />Package: rhdf5","Date: 2019-04-01<br />Nb_of_distinct_IPs: 3.9107311<br />Package: rhdf5","Date: 2019-05-01<br />Nb_of_distinct_IPs: 3.9447787<br />Package: rhdf5","Date: 2019-06-01<br />Nb_of_distinct_IPs: 3.9007494<br />Package: rhdf5","Date: 2019-07-01<br />Nb_of_distinct_IPs: 3.9082169<br />Package: rhdf5","Date: 2019-08-01<br />Nb_of_distinct_IPs: 3.8705210<br />Package: rhdf5","Date: 2019-09-01<br />Nb_of_distinct_IPs: 3.9123815<br />Package: rhdf5","Date: 2019-10-01<br />Nb_of_distinct_IPs: 4.0488301<br />Package: rhdf5","Date: 2019-11-01<br />Nb_of_distinct_IPs: 4.0515384<br />Package: rhdf5","Date: 2019-12-01<br />Nb_of_distinct_IPs: 3.9878896<br />Package: rhdf5","Date: 2020-01-01<br />Nb_of_distinct_IPs: 3.9924210<br />Package: rhdf5","Date: 2020-02-01<br />Nb_of_distinct_IPs: 4.0385407<br />Package: rhdf5","Date: 2020-03-01<br />Nb_of_distinct_IPs: 4.0846478<br />Package: rhdf5","Date: 2020-04-01<br />Nb_of_distinct_IPs: 4.1057145<br />Package: rhdf5","Date: 2020-05-01<br />Nb_of_distinct_IPs: 4.1267157<br />Package: rhdf5"],"type":"scatter","mode":"lines","line":{"width":1.88976377952756,"color":"rgba(179,133,255,1)","dash":"solid"},"hoveron":"points","name":"rhdf5","legendgroup":"rhdf5","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"x":[17897,17928,17956,17987,18017,18048,18078,18109,18140,18170,18201,18231,18262,18293,18322,18353,18383],"y":[null,null,null,null,null,1.78532983501077,0.954242509439325,1.23044892137827,1,1.30102999566398,1.34242268082221,1.23044892137827,1.53147891704226,1.34242268082221,1.6232492903979,1.73239375982297,1.67209785793572],"text":["Date: 2019-01-01<br />Nb_of_distinct_IPs:      -Inf<br />Package: SQLDataFrame","Date: 2019-02-01<br />Nb_of_distinct_IPs:      -Inf<br />Package: SQLDataFrame","Date: 2019-03-01<br />Nb_of_distinct_IPs:      -Inf<br />Package: SQLDataFrame","Date: 2019-04-01<br />Nb_of_distinct_IPs:      -Inf<br />Package: SQLDataFrame","Date: 2019-05-01<br />Nb_of_distinct_IPs:      -Inf<br />Package: SQLDataFrame","Date: 2019-06-01<br />Nb_of_distinct_IPs: 1.7853298<br />Package: SQLDataFrame","Date: 2019-07-01<br />Nb_of_distinct_IPs: 0.9542425<br />Package: SQLDataFrame","Date: 2019-08-01<br />Nb_of_distinct_IPs: 1.2304489<br />Package: SQLDataFrame","Date: 2019-09-01<br />Nb_of_distinct_IPs: 1.0000000<br />Package: SQLDataFrame","Date: 2019-10-01<br />Nb_of_distinct_IPs: 1.3010300<br />Package: SQLDataFrame","Date: 2019-11-01<br />Nb_of_distinct_IPs: 1.3424227<br />Package: SQLDataFrame","Date: 2019-12-01<br />Nb_of_distinct_IPs: 1.2304489<br />Package: SQLDataFrame","Date: 2020-01-01<br />Nb_of_distinct_IPs: 1.5314789<br />Package: SQLDataFrame","Date: 2020-02-01<br />Nb_of_distinct_IPs: 1.3424227<br />Package: SQLDataFrame","Date: 2020-03-01<br />Nb_of_distinct_IPs: 1.6232493<br />Package: SQLDataFrame","Date: 2020-04-01<br />Nb_of_distinct_IPs: 1.7323938<br />Package: SQLDataFrame","Date: 2020-05-01<br />Nb_of_distinct_IPs: 1.6720979<br />Package: SQLDataFrame"],"type":"scatter","mode":"lines","line":{"width":1.88976377952756,"color":"rgba(239,103,235,1)","dash":"solid"},"hoveron":"points","name":"SQLDataFrame","legendgroup":"SQLDataFrame","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"x":[16436,16467,16495,16526,16556,16587,16617,16648,16679,16709,16740,16770,16801,16832,16861,16892,16922,16953,16983,17014,17045,17075,17106,17136,17167,17198,17226,17257,17287,17318,17348,17379,17410,17440,17471,17501,17532,17563,17591,17622,17652,17683,17713,17744,17775,17805,17836,17866,17897,17928,17956,17987,18017,18048,18078,18109,18140,18170,18201,18231,18262,18293,18322,18353,18383],"y":[null,null,null,null,2.15533603746506,2.32428245529769,2.45178643552429,2.46538285144842,2.55266821611219,3.55242484570409,3.85436677804087,3.73925580326851,3.91949648786306,3.89231726072248,3.91713775275644,3.90047637138926,3.96529579581166,3.97685414657622,3.91907809237607,3.90025785843778,3.9282934122322,3.98511197953935,4.0013442304116,3.89287340688877,3.91755802082544,3.93801909747621,4.03140846425162,4.00147409669173,4.09864372581706,4.0547279320822,4.02069267868203,3.99699298189071,4.09061070782841,4.18127177155946,4.19468081264994,4.09120956473413,4.16456102926556,4.1120685042682,4.13564141638667,4.12345961944334,4.19526295834206,4.14245204006634,4.16103841242296,4.12296909439375,4.11650812373735,4.18369680863468,4.28488171465545,4.16268386587789,4.21184109637534,4.18965872104921,4.24407910667239,4.22448126530363,4.28264476718974,4.22450716472708,4.24303804868629,4.30083451916161,4.27246821048795,4.30792370361188,4.31498314503912,4.23699046465315,4.29928933408768,4.31670403970004,4.38376152448417,4.43047818793204,4.45426541431628],"text":["Date: 2015-01-01<br />Nb_of_distinct_IPs:      -Inf<br />Package: SummarizedExperiment","Date: 2015-02-01<br />Nb_of_distinct_IPs:      -Inf<br />Package: SummarizedExperiment","Date: 2015-03-01<br />Nb_of_distinct_IPs:      -Inf<br />Package: SummarizedExperiment","Date: 2015-04-01<br />Nb_of_distinct_IPs:      -Inf<br />Package: SummarizedExperiment","Date: 2015-05-01<br />Nb_of_distinct_IPs: 2.1553360<br />Package: SummarizedExperiment","Date: 2015-06-01<br />Nb_of_distinct_IPs: 2.3242825<br />Package: SummarizedExperiment","Date: 2015-07-01<br />Nb_of_distinct_IPs: 2.4517864<br />Package: SummarizedExperiment","Date: 2015-08-01<br />Nb_of_distinct_IPs: 2.4653829<br />Package: SummarizedExperiment","Date: 2015-09-01<br />Nb_of_distinct_IPs: 2.5526682<br />Package: SummarizedExperiment","Date: 2015-10-01<br />Nb_of_distinct_IPs: 3.5524248<br />Package: SummarizedExperiment","Date: 2015-11-01<br />Nb_of_distinct_IPs: 3.8543668<br />Package: SummarizedExperiment","Date: 2015-12-01<br />Nb_of_distinct_IPs: 3.7392558<br />Package: SummarizedExperiment","Date: 2016-01-01<br />Nb_of_distinct_IPs: 3.9194965<br />Package: SummarizedExperiment","Date: 2016-02-01<br />Nb_of_distinct_IPs: 3.8923173<br />Package: SummarizedExperiment","Date: 2016-03-01<br />Nb_of_distinct_IPs: 3.9171378<br />Package: SummarizedExperiment","Date: 2016-04-01<br />Nb_of_distinct_IPs: 3.9004764<br />Package: SummarizedExperiment","Date: 2016-05-01<br />Nb_of_distinct_IPs: 3.9652958<br />Package: SummarizedExperiment","Date: 2016-06-01<br />Nb_of_distinct_IPs: 3.9768541<br />Package: SummarizedExperiment","Date: 2016-07-01<br />Nb_of_distinct_IPs: 3.9190781<br />Package: SummarizedExperiment","Date: 2016-08-01<br />Nb_of_distinct_IPs: 3.9002579<br />Package: SummarizedExperiment","Date: 2016-09-01<br />Nb_of_distinct_IPs: 3.9282934<br />Package: SummarizedExperiment","Date: 2016-10-01<br />Nb_of_distinct_IPs: 3.9851120<br />Package: SummarizedExperiment","Date: 2016-11-01<br />Nb_of_distinct_IPs: 4.0013442<br />Package: SummarizedExperiment","Date: 2016-12-01<br />Nb_of_distinct_IPs: 3.8928734<br />Package: SummarizedExperiment","Date: 2017-01-01<br />Nb_of_distinct_IPs: 3.9175580<br />Package: SummarizedExperiment","Date: 2017-02-01<br />Nb_of_distinct_IPs: 3.9380191<br />Package: SummarizedExperiment","Date: 2017-03-01<br />Nb_of_distinct_IPs: 4.0314085<br />Package: SummarizedExperiment","Date: 2017-04-01<br />Nb_of_distinct_IPs: 4.0014741<br />Package: SummarizedExperiment","Date: 2017-05-01<br />Nb_of_distinct_IPs: 4.0986437<br />Package: SummarizedExperiment","Date: 2017-06-01<br />Nb_of_distinct_IPs: 4.0547279<br />Package: SummarizedExperiment","Date: 2017-07-01<br />Nb_of_distinct_IPs: 4.0206927<br />Package: SummarizedExperiment","Date: 2017-08-01<br />Nb_of_distinct_IPs: 3.9969930<br />Package: SummarizedExperiment","Date: 2017-09-01<br />Nb_of_distinct_IPs: 4.0906107<br />Package: SummarizedExperiment","Date: 2017-10-01<br />Nb_of_distinct_IPs: 4.1812718<br />Package: SummarizedExperiment","Date: 2017-11-01<br />Nb_of_distinct_IPs: 4.1946808<br />Package: SummarizedExperiment","Date: 2017-12-01<br />Nb_of_distinct_IPs: 4.0912096<br />Package: SummarizedExperiment","Date: 2018-01-01<br />Nb_of_distinct_IPs: 4.1645610<br />Package: SummarizedExperiment","Date: 2018-02-01<br />Nb_of_distinct_IPs: 4.1120685<br />Package: SummarizedExperiment","Date: 2018-03-01<br />Nb_of_distinct_IPs: 4.1356414<br />Package: SummarizedExperiment","Date: 2018-04-01<br />Nb_of_distinct_IPs: 4.1234596<br />Package: SummarizedExperiment","Date: 2018-05-01<br />Nb_of_distinct_IPs: 4.1952630<br />Package: SummarizedExperiment","Date: 2018-06-01<br />Nb_of_distinct_IPs: 4.1424520<br />Package: SummarizedExperiment","Date: 2018-07-01<br />Nb_of_distinct_IPs: 4.1610384<br />Package: SummarizedExperiment","Date: 2018-08-01<br />Nb_of_distinct_IPs: 4.1229691<br />Package: SummarizedExperiment","Date: 2018-09-01<br />Nb_of_distinct_IPs: 4.1165081<br />Package: SummarizedExperiment","Date: 2018-10-01<br />Nb_of_distinct_IPs: 4.1836968<br />Package: SummarizedExperiment","Date: 2018-11-01<br />Nb_of_distinct_IPs: 4.2848817<br />Package: SummarizedExperiment","Date: 2018-12-01<br />Nb_of_distinct_IPs: 4.1626839<br />Package: SummarizedExperiment","Date: 2019-01-01<br />Nb_of_distinct_IPs: 4.2118411<br />Package: SummarizedExperiment","Date: 2019-02-01<br />Nb_of_distinct_IPs: 4.1896587<br />Package: SummarizedExperiment","Date: 2019-03-01<br />Nb_of_distinct_IPs: 4.2440791<br />Package: SummarizedExperiment","Date: 2019-04-01<br />Nb_of_distinct_IPs: 4.2244813<br />Package: SummarizedExperiment","Date: 2019-05-01<br />Nb_of_distinct_IPs: 4.2826448<br />Package: SummarizedExperiment","Date: 2019-06-01<br />Nb_of_distinct_IPs: 4.2245072<br />Package: SummarizedExperiment","Date: 2019-07-01<br />Nb_of_distinct_IPs: 4.2430380<br />Package: SummarizedExperiment","Date: 2019-08-01<br />Nb_of_distinct_IPs: 4.3008345<br />Package: SummarizedExperiment","Date: 2019-09-01<br />Nb_of_distinct_IPs: 4.2724682<br />Package: SummarizedExperiment","Date: 2019-10-01<br />Nb_of_distinct_IPs: 4.3079237<br />Package: SummarizedExperiment","Date: 2019-11-01<br />Nb_of_distinct_IPs: 4.3149831<br />Package: SummarizedExperiment","Date: 2019-12-01<br />Nb_of_distinct_IPs: 4.2369905<br />Package: SummarizedExperiment","Date: 2020-01-01<br />Nb_of_distinct_IPs: 4.2992893<br />Package: SummarizedExperiment","Date: 2020-02-01<br />Nb_of_distinct_IPs: 4.3167040<br />Package: SummarizedExperiment","Date: 2020-03-01<br />Nb_of_distinct_IPs: 4.3837615<br />Package: SummarizedExperiment","Date: 2020-04-01<br />Nb_of_distinct_IPs: 4.4304782<br />Package: SummarizedExperiment","Date: 2020-05-01<br />Nb_of_distinct_IPs: 4.4542654<br />Package: SummarizedExperiment"],"type":"scatter","mode":"lines","line":{"width":1.88976377952756,"color":"rgba(255,99,182,1)","dash":"solid"},"hoveron":"points","name":"SummarizedExperiment","legendgroup":"SummarizedExperiment","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null}],"layout":{"margin":{"t":26.958904109589,"r":7.30593607305936,"b":40.9132420091324,"l":31.4155251141553},"plot_bgcolor":"rgba(235,235,235,1)","paper_bgcolor":"rgba(255,255,255,1)","font":{"color":"rgba(0,0,0,1)","family":"","size":14.6118721461187},"xaxis":{"domain":[0,1],"automargin":true,"type":"linear","autorange":false,"range":[14038.1,18589.9],"tickmode":"array","ticktext":["2010","2015","2020"],"tickvals":[14610,16436,18262],"categoryorder":"array","categoryarray":["2010","2015","2020"],"nticks":null,"ticks":"outside","tickcolor":"rgba(51,51,51,1)","ticklen":3.65296803652968,"tickwidth":0.66417600664176,"showticklabels":true,"tickfont":{"color":"rgba(77,77,77,1)","family":"","size":11.689497716895},"tickangle":-0,"showline":false,"linecolor":null,"linewidth":0,"showgrid":true,"gridcolor":"rgba(255,255,255,1)","gridwidth":0.66417600664176,"zeroline":false,"anchor":"y","title":{"text":"Date","font":{"color":"rgba(0,0,0,1)","family":"","size":14.6118721461187}},"hoverformat":".2f"},"yaxis":{"domain":[0,1],"automargin":true,"type":"linear","autorange":false,"range":[0.090375368101357,4.72477717447909],"tickmode":"array","ticktext":["1","2","3","4"],"tickvals":[1,2,3,4],"categoryorder":"array","categoryarray":["1","2","3","4"],"nticks":null,"ticks":"outside","tickcolor":"rgba(51,51,51,1)","ticklen":3.65296803652968,"tickwidth":0.66417600664176,"showticklabels":true,"tickfont":{"color":"rgba(77,77,77,1)","family":"","size":11.689497716895},"tickangle":-0,"showline":false,"linecolor":null,"linewidth":0,"showgrid":true,"gridcolor":"rgba(255,255,255,1)","gridwidth":0.66417600664176,"zeroline":false,"anchor":"x","title":{"text":"Nb_of_distinct_IPs","font":{"color":"rgba(0,0,0,1)","family":"","size":14.6118721461187}},"hoverformat":".2f"},"shapes":[{"type":"rect","fillcolor":null,"line":{"color":null,"width":0,"linetype":[]},"yref":"paper","xref":"paper","x0":0,"x1":1,"y0":0,"y1":1}],"showlegend":true,"legend":{"bgcolor":"rgba(255,255,255,1)","bordercolor":"transparent","borderwidth":1.88976377952756,"font":{"color":"rgba(0,0,0,1)","family":"","size":11.689497716895},"y":0.927821522309711},"annotations":[{"text":"Package","x":1.02,"y":1,"showarrow":false,"ax":0,"ay":0,"font":{"color":"rgba(0,0,0,1)","family":"","size":14.6118721461187},"xref":"paper","yref":"paper","textangle":-0,"xanchor":"left","yanchor":"bottom","legendTitle":true}],"hovermode":"closest","barmode":"relative"},"config":{"doubleClick":"reset","showSendToCloud":false},"source":"A","attrs":{"8511440160e1":{"x":{},"y":{},"colour":{},"type":"scatter"}},"cur_data":"8511440160e1","visdat":{"8511440160e1":["function (y) ","x"]},"highlight":{"on":"plotly_click","persistent":false,"dynamic":false,"selectize":false,"opacityDim":0.2,"selected":{"opacity":1},"debounce":0},"shinyEvents":["plotly_hover","plotly_click","plotly_selected","plotly_relayout","plotly_brushed","plotly_brushing","plotly_clickannotation","plotly_doubleclick","plotly_deselect","plotly_afterplot","plotly_sunburstclick"],"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script>
+<div id="rhdf5" class="section level2">
+<h2><em><a href="https://bioconductor.org/packages/3.11/rhdf5">rhdf5</a></em></h2>
+<ul>
+<li>DependsOnMe: <em><a href="https://bioconductor.org/packages/3.11/GenoGAM">GenoGAM</a></em>, <em><a href="https://bioconductor.org/packages/3.11/GSCA">GSCA</a></em>, <em><a href="https://bioconductor.org/packages/3.11/HDF5Array">HDF5Array</a></em>, <em><a href="https://bioconductor.org/packages/3.11/HiCBricks">HiCBricks</a></em>, <em><a href="https://bioconductor.org/packages/3.11/LoomExperiment">LoomExperiment</a></em></li>
+<li>importsMe: <em><a href="https://bioconductor.org/packages/3.11/BgeeCall">BgeeCall</a></em>, <em><a href="https://bioconductor.org/packages/3.11/biomformat">biomformat</a></em>, <em><a href="https://bioconductor.org/packages/3.11/bnbc">bnbc</a></em>, <em><a href="https://bioconductor.org/packages/3.11/bsseq">bsseq</a></em>, <em><a href="https://bioconductor.org/packages/3.11/CiteFuse">CiteFuse</a></em>, <em><a href="https://bioconductor.org/packages/3.11/cmapR">cmapR</a></em>, <em><a href="https://bioconductor.org/packages/3.11/CoGAPS">CoGAPS</a></em>, <em><a href="https://bioconductor.org/packages/3.11/CopyNumberPlots">CopyNumberPlots</a></em>, <em><a href="https://bioconductor.org/packages/3.11/cTRAP">cTRAP</a></em>, <em><a href="https://bioconductor.org/packages/3.11/diffHic">diffHic</a></em>, <em><a href="https://bioconductor.org/packages/3.11/DropletUtils">DropletUtils</a></em>, <em><a href="https://bioconductor.org/packages/3.11/EventPointer">EventPointer</a></em>, <em><a href="https://bioconductor.org/packages/3.11/FRASER">FRASER</a></em>, <em><a href="https://bioconductor.org/packages/3.11/GenomicScores">GenomicScores</a></em>, <em><a href="https://bioconductor.org/packages/3.11/gep2pep">gep2pep</a></em>, <em><a href="https://bioconductor.org/packages/3.11/h5vc">h5vc</a></em>, <em><a href="https://bioconductor.org/packages/3.11/HiCcompare">HiCcompare</a></em>, <em><a href="https://bioconductor.org/packages/3.11/IONiseR">IONiseR</a></em>, <em><a href="https://bioconductor.org/packages/3.11/MOFA">MOFA</a></em>, <em><a href="https://bioconductor.org/packages/3.11/phantasus">phantasus</a></em>, <em><a href="https://bioconductor.org/packages/3.11/PureCN">PureCN</a></em>, <em><a href="https://bioconductor.org/packages/3.11/ribor">ribor</a></em>, <em><a href="https://bioconductor.org/packages/3.11/scone">scone</a></em>, <em><a href="https://bioconductor.org/packages/3.11/signatureSearch">signatureSearch</a></em>, <em><a href="https://bioconductor.org/packages/3.11/slinky">slinky</a></em></li>
+<li>suggestsMe: <em><a href="https://bioconductor.org/packages/3.11/edgeR">edgeR</a></em>, <em><a href="https://bioconductor.org/packages/3.11/slalom">slalom</a></em>, <em><a href="https://bioconductor.org/packages/3.11/SummarizedExperiment">SummarizedExperiment</a></em>, <em><a href="https://bioconductor.org/packages/3.11/tximport">tximport</a></em></li>
+</ul>
+</div>
+<div id="delayedarray" class="section level2">
+<h2><em><a href="https://bioconductor.org/packages/3.11/DelayedArray">DelayedArray</a></em></h2>
+<ul>
+<li>DependsOnMe: <em><a href="https://bioconductor.org/packages/3.11/DelayedDataFrame">DelayedDataFrame</a></em>, <em><a href="https://bioconductor.org/packages/3.11/DelayedMatrixStats">DelayedMatrixStats</a></em>, <em><a href="https://bioconductor.org/packages/3.11/GDSArray">GDSArray</a></em>, <em><a href="https://bioconductor.org/packages/3.11/HDF5Array">HDF5Array</a></em>, <em><a href="https://bioconductor.org/packages/3.11/rhdf5client">rhdf5client</a></em>, <em><a href="https://bioconductor.org/packages/3.11/singleCellTK">singleCellTK</a></em>, <em><a href="https://bioconductor.org/packages/3.11/SummarizedExperiment">SummarizedExperiment</a></em>, <em><a href="https://bioconductor.org/packages/3.11/VCFArray">VCFArray</a></em></li>
+<li>importsMe: <em><a href="https://bioconductor.org/packages/3.11/batchelor">batchelor</a></em>, <em><a href="https://bioconductor.org/packages/3.11/beachmat">beachmat</a></em>, <em><a href="https://bioconductor.org/packages/3.11/bigPint">bigPint</a></em>, <em><a href="https://bioconductor.org/packages/3.11/BiocSingular">BiocSingular</a></em>, <em><a href="https://bioconductor.org/packages/3.11/bsseq">bsseq</a></em>, <em><a href="https://bioconductor.org/packages/3.11/CAGEr">CAGEr</a></em>, <em><a href="https://bioconductor.org/packages/3.11/celaref">celaref</a></em>, <em><a href="https://bioconductor.org/packages/3.11/celda">celda</a></em>, <em><a href="https://bioconductor.org/packages/3.11/ChIPpeakAnno">ChIPpeakAnno</a></em>, <em><a href="https://bioconductor.org/packages/3.11/clusterExperiment">clusterExperiment</a></em>, <em><a href="https://bioconductor.org/packages/3.11/DEScan2">DEScan2</a></em>, <em><a href="https://bioconductor.org/packages/3.11/DSS">DSS</a></em>, <em><a href="https://bioconductor.org/packages/3.11/ELMER">ELMER</a></em>, <em><a href="https://bioconductor.org/packages/3.11/FRASER">FRASER</a></em>, <em><a href="https://bioconductor.org/packages/3.11/GenoGAM">GenoGAM</a></em>, <em><a href="https://bioconductor.org/packages/3.11/GenomicScores">GenomicScores</a></em>, <em><a href="https://bioconductor.org/packages/3.11/glmGamPoi">glmGamPoi</a></em>, <em><a href="https://bioconductor.org/packages/3.11/hipathia">hipathia</a></em>, <em><a href="https://bioconductor.org/packages/3.11/LoomExperiment">LoomExperiment</a></em>, <em><a href="https://bioconductor.org/packages/3.11/mbkmeans">mbkmeans</a></em>, <em><a href="https://bioconductor.org/packages/3.11/methrix">methrix</a></em>, <em><a href="https://bioconductor.org/packages/3.11/methylSig">methylSig</a></em>, <em><a href="https://bioconductor.org/packages/3.11/minfi">minfi</a></em>, <em><a href="https://bioconductor.org/packages/3.11/netSmooth">netSmooth</a></em>, <em><a href="https://bioconductor.org/packages/3.11/PCAtools">PCAtools</a></em>, <em><a href="https://bioconductor.org/packages/3.11/RTCGAToolbox">RTCGAToolbox</a></em>, <em><a href="https://bioconductor.org/packages/3.11/scater">scater</a></em>, <em><a href="https://bioconductor.org/packages/3.11/scDblFinder">scDblFinder</a></em>, <em><a href="https://bioconductor.org/packages/3.11/scMerge">scMerge</a></em>, <em><a href="https://bioconductor.org/packages/3.11/scmeth">scmeth</a></em>, <em><a href="https://bioconductor.org/packages/3.11/scran">scran</a></em>, <em><a href="https://bioconductor.org/packages/3.11/signatureSearch">signatureSearch</a></em>, <em><a href="https://bioconductor.org/packages/3.11/SingleR">SingleR</a></em>, <em><a href="https://bioconductor.org/packages/3.11/VariantExperiment">VariantExperiment</a></em>, <em><a href="https://bioconductor.org/packages/3.11/weitrix">weitrix</a></em></li>
+<li>suggestsMe: <em><a href="https://bioconductor.org/packages/3.11/BiocGenerics">BiocGenerics</a></em>, <em><a href="https://bioconductor.org/packages/3.11/gwascat">gwascat</a></em>, <em><a href="https://bioconductor.org/packages/3.11/iSEE">iSEE</a></em>, <em><a href="https://bioconductor.org/packages/3.11/MAST">MAST</a></em>, <em><a href="https://bioconductor.org/packages/3.11/S4Vectors">S4Vectors</a></em>, <em><a href="https://bioconductor.org/packages/3.11/SQLDataFrame">SQLDataFrame</a></em></li>
+</ul>
+</div>
+<div id="sqldataframe" class="section level2">
+<h2><em><a href="https://bioconductor.org/packages/3.11/SQLDataFrame">SQLDataFrame</a></em></h2>
+<ul>
+<li>DependsOnMe: <em><a href="https://bioconductor.org/packages/3.11/NA">NA</a></em></li>
+<li>importsMe: <em><a href="https://bioconductor.org/packages/3.11/NA">NA</a></em></li>
+<li>suggestsMe: <em><a href="https://bioconductor.org/packages/3.11/NA">NA</a></em></li>
+</ul>
+</div>
+<div id="loomexperiment" class="section level2">
+<h2><em><a href="https://bioconductor.org/packages/3.11/LoomExperiment">LoomExperiment</a></em></h2>
+<ul>
+<li>DependsOnMe: <em><a href="https://bioconductor.org/packages/3.11/NA">NA</a></em></li>
+<li>importsMe: <em><a href="https://bioconductor.org/packages/3.11/NA">NA</a></em></li>
+<li>suggestsMe: <em><a href="https://bioconductor.org/packages/3.11/NA">NA</a></em></li>
+</ul>
+</div>
+<div id="restfulse" class="section level2">
+<h2><em><a href="https://bioconductor.org/packages/3.11/restfulSE">restfulSE</a></em></h2>
+<ul>
+<li>DependsOnMe: <em><a href="https://bioconductor.org/packages/3.11/tenXplore">tenXplore</a></em></li>
+<li>importsMe: <em><a href="https://bioconductor.org/packages/3.11/NA">NA</a></em></li>
+<li>suggestsMe: <em><a href="https://bioconductor.org/packages/3.11/BiocOncoTK">BiocOncoTK</a></em>, <em><a href="https://bioconductor.org/packages/3.11/BiocSklearn">BiocSklearn</a></em></li>
+</ul>
+</div>
+</div>
+<div id="big-data-frameworks-and-toolkits" class="section level1">
+<h1>Big data frameworks and toolkits</h1>
+<div id="loom" class="section level2">
+<h2>Loom</h2>
+<iframe src="https://linnarssonlab.org/loompy/apiwalkthrough/index.html" width="672" height="400px">
+</iframe>
+<p>Loom is an efficient file format based on <a href="https://www.hdfgroup.org/solutions/hdf5/">HDF5</a> for very large omics datasets, consisting of a main matrix, optional additional layers, a variable number of row and column annotations, and sparse graph objects.</p>
+</div>
+<div id="apache-arrow" class="section level2">
+<h2>Apache Arrow</h2>
+<p><a href="https://arrow.apache.org/">Apache Arrow</a> is a cross-language development platform for in-memory data. It specifies a standardized language-independent columnar memory format for flat and hierarchical data, organized for efficient analytic operations on modern hardware. It also provides computational libraries and zero-copy streaming messaging and interprocess communication. Languages currently supported include <a href="https://github.com/apache/arrow">C, C++, C#, Go, Java, JavaScript, MATLAB, Python, R, Ruby, and Rust</a>.</p>
+<p><img src="https://arrow.apache.org/img/copy.png" /><!-- --></p>
+<p><img src="https://arrow.apache.org/img/shared.png" /><!-- --></p>
+<div id="performance-advantage-of-columnar-in-memory" class="section level3">
+<h3>Performance Advantage of Columnar In-Memory</h3>
+<p>Columnar memory layout allows applications to avoid unnecessary IO and accelerate analytical processing performance on modern CPUs and GPUs.
+]</p>
+<p>.right-column[
+<img src="https://arrow.apache.org/img/simd.png" /><!-- -->]</p>
+</div>
+</div>
+<div id="tiledb" class="section level2">
+<h2>TileDB</h2>
+<p>From the TileDB website:</p>
+<ul>
+<li>TileDB efficiently supports data versioning natively built into its
+format and storage engine. Other formats do not support data updates
+or time-traveling; you need to build your own logic at the
+application layer or use extra software that acts like a database on
+top of your files.</li>
+<li>TileDB implements a variety of optimizations around parallel IO on
+cloud object stores and multi-threaded computations (such as
+sorting, compression, etc).</li>
+<li>TileDB is also “columnar”, but it offers more efficient multi-column
+(i.e., multi-dimensional) search. <em>Think data.frame</em>.</li>
+<li>With TileDB, you inherit a growing set of APIs (C, C++, Python, R,
+Java, Go), backend support (S3, GCS, Azure, HDFS), and integrations
+(e.g., Spark, MariaDB, PrestoDB, Dask), all developed and maintained
+by the TileDB team.</li>
+</ul>
+<div id="tiledb-r-package" class="section level3">
+<h3>TileDB R package</h3>
+<iframe src="https://tiledb-inc.github.io/TileDB-R/" width="672" height="450">
+</iframe>
+</div>
+</div>
+<div id="others" class="section level2">
+<h2>Others</h2>
+<div id="bigquery" class="section level3">
+<h3>Bigquery</h3>
+</div>
+<div id="elasticsearch" class="section level3">
+<h3>Elasticsearch</h3>
+</div>
+<div id="apache-drill" class="section level3">
+<h3>Apache Drill</h3>
+</div>
+</div>
+<div id="combinations" class="section level2">
+<h2>Combinations</h2>
+<p>Building these will usually require a custom API built and maintained centrally.</p>
+<div id="elasticsearch-annotationhub" class="section level3">
+<h3>Elasticsearch + AnnotationHub</h3>
+<ul>
+<li>item-level indexing of genomic coordinates and attributes</li>
+<li>Return objects or records, for example</li>
+</ul>
+</div>
+<div id="elasticsearch-experimenthub" class="section level3">
+<h3>Elasticsearch + ExperimentHub</h3>
+<ul>
+<li>Deep study and sample-level indexing such as number of samples, sample attributes (ontology?),
+organisms, technologies</li>
+<li>Return objects</li>
+</ul>
+</div>
+<div id="tiledb-experimenthub-via-delayedarray-and-se" class="section level3">
+<h3>TileDB + ExperimentHub (via DelayedArray and SE)</h3>
+</div>
+<div id="av_-and-elasticsearchindexing" class="section level3">
+<h3>av_* and Elasticsearch/indexing</h3>
+</div>
+</div>
+</div>
+<div id="questions" class="section level1">
+<h1>Questions</h1>
+<ul>
+<li>What are the use cases?</li>
+<li>How do we measure success?</li>
+<li>For client and centrally-managed server models, is there expertise to implement?</li>
+<li>Should we get into the “functionality-as-a-service” game?</li>
+<li>Are there simpler approaches to follow?
+<ul>
+<li>Bioc XSEDE allocation</li>
+<li>Document AnVIL Big Memory machines</li>
+</ul></li>
+<li>How can we expose new and existing functionality?</li>
+<li>What role does education (vs hands-on-keyboard) play in advancing the cause?</li>
+</ul>
+</div>
+<div id="notes" class="section level1">
+<h1>Notes</h1>
+<ul>
+<li><a href="https://www.ebi.ac.uk/ols/ontologies/edam">EDAM Ontology</a>: EDAM is a simple ontology of well established, familiar concepts that are prevalent within bioinformatics, including types of data and data identifiers, data formats, operations and topics. EDAM provides a set of terms with synonyms and definitions - organised into an intuitive hierarchy for convenient use.</li>
+</ul>
+</div>
+
+    </div>
+
+    
+
+
+
+
+
+
+
+
+<div class="share-box" aria-hidden="true">
+  <ul class="share">
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="https://twitter.com/intent/tweet?url=/talk/2020-06-04-bioc-techboard-big-data/&amp;text=Big%20Data%20Approaches" target="_blank" rel="noopener" class="share-btn-twitter">
+          <i class="fab fa-twitter"></i>
+        </a>
+      </li>
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="https://www.facebook.com/sharer.php?u=/talk/2020-06-04-bioc-techboard-big-data/&amp;t=Big%20Data%20Approaches" target="_blank" rel="noopener" class="share-btn-facebook">
+          <i class="fab fa-facebook"></i>
+        </a>
+      </li>
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="mailto:?subject=Big%20Data%20Approaches&amp;body=/talk/2020-06-04-bioc-techboard-big-data/" target="_blank" rel="noopener" class="share-btn-email">
+          <i class="fas fa-envelope"></i>
+        </a>
+      </li>
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="https://www.linkedin.com/shareArticle?url=/talk/2020-06-04-bioc-techboard-big-data/&amp;title=Big%20Data%20Approaches" target="_blank" rel="noopener" class="share-btn-linkedin">
+          <i class="fab fa-linkedin-in"></i>
+        </a>
+      </li>
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="whatsapp://send?text=Big%20Data%20Approaches%20/talk/2020-06-04-bioc-techboard-big-data/" target="_blank" rel="noopener" class="share-btn-whatsapp">
+          <i class="fab fa-whatsapp"></i>
+        </a>
+      </li>
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="https://service.weibo.com/share/share.php?url=/talk/2020-06-04-bioc-techboard-big-data/&amp;title=Big%20Data%20Approaches" target="_blank" rel="noopener" class="share-btn-weibo">
+          <i class="fab fa-weibo"></i>
+        </a>
+      </li>
+    
+  </ul>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+
+
+
+  
+  
+  
+    
+  
+  
+  
+  <div class="media author-card content-widget-hr">
+    
+
+    <div class="media-body">
+      <h5 class="card-title"></h5>
+      <h6 class="card-subtitle">Senior Associate Scientist</h6>
+      <p class="card-text">My interests include biomedical data science, open data, genomics, and cancer research.</p>
+      <ul class="network-icon" aria-hidden="true">
+  
+    
+    
+    
+      
+    
+    
+    
+    
+    
+    <li>
+      <a href="mailto:seandavi@gmail.com" >
+        <i class="fas fa-envelope"></i>
+      </a>
+    </li>
+  
+    
+    
+    
+      
+    
+    
+    
+    
+    
+      
+    
+    <li>
+      <a href="https://twitter.com/seandavis12" target="_blank" rel="noopener">
+        <i class="fab fa-twitter"></i>
+      </a>
+    </li>
+  
+    
+    
+    
+    
+    
+    
+    
+      
+    
+    <li>
+      <a href="https://scholar.google.co.uk/citations?user=hLFc29kAAAAJ" target="_blank" rel="noopener">
+        <i class="ai ai-google-scholar"></i>
+      </a>
+    </li>
+  
+    
+    
+    
+      
+    
+    
+    
+    
+    
+      
+    
+    <li>
+      <a href="https://github.com/seandavi" target="_blank" rel="noopener">
+        <i class="fab fa-github"></i>
+      </a>
+    </li>
+  
+    
+    
+    
+    
+    
+    
+    
+      
+    
+    <li>
+      <a href="/files/CV.pdf" >
+        <i class="ai ai-cv"></i>
+      </a>
+    </li>
+  
+</ul>
+
+    </div>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+  </div>
+</div>
+  </div>
+
+  <div class="page-footer">
+    
+    
+    <div class="container">
+      <footer class="site-footer">
+  
+
+  <p class="powered-by">
+    
+  </p>
+
+  
+  
+
+
+
+
+
+
+  <p class="powered-by">
+    
+    
+    
+    Published with
+    <a href="https://wowchemy.com/?utm_campaign=poweredby" target="_blank" rel="noopener">Wowchemy</a>  —
+    the free, <a href="https://github.com/wowchemy/wowchemy-hugo-modules" target="_blank" rel="noopener">
+    open source</a> website builder that empowers creators.
+    
+  </p>
+</footer>
+
+    </div>
+    
+  </div>
+
+  
+<div id="modal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Cite</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <pre><code class="tex hljs"></code></pre>
+      </div>
+      <div class="modal-footer">
+        <a class="btn btn-outline-primary my-1 js-copy-cite" href="#" target="_blank">
+          <i class="fas fa-copy"></i> Copy
+        </a>
+        <a class="btn btn-outline-primary my-1 js-download-cite" href="#" target="_blank">
+          <i class="fas fa-download"></i> Download
+        </a>
+        <div id="modal-error"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+      
+
+    
+    
+    
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
+
+      
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.imagesloaded/4.1.4/imagesloaded.pkgd.min.js" integrity="sha256-lqvxZrPLtfffUl2G/e7szqSvPBILGbwmsGE1MKlOi0Q=" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.isotope/3.0.6/isotope.pkgd.min.js" integrity="sha256-CBrpuqrMhXwcLLUd5tvQ4euBHCdh7wGlDfNz8vbu/iI=" crossorigin="anonymous"></script>
+      
+
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js" integrity="sha256-yt2kYMy0w8AbtF89WXb2P1rfjcP/HTHLT7097U8Y5b8=" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/instant.page/5.1.0/instantpage.min.js" integrity="sha512-1+qUtKoh9XZW7j+6LhRMAyOrgSQKenQ4mluTR+cvxXjP1Z54RxZuzstR/H9kgPXQsVB8IW7DMDFUJpzLjvhGSQ==" crossorigin="anonymous"></script>
+
+      
+
+      
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.2.0/highlight.min.js" integrity="sha512-TDKKr+IvoqZnPzc3l35hdjpHD0m+b2EC2SrLEgKDRWpxf2rFCxemkgvJ5kfU48ip+Y+m2XVKyOCD85ybtlZDmw==" crossorigin="anonymous"></script>
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.2.0/languages/r.min.js"></script>
+        
+      
+
+    
+
+    
+    
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/leaflet.min.js" integrity="sha512-SeiQaaDh73yrb56sTW/RgVdi/mMqNeM2oBwubFHagc5BkixSpP1fvqF47mKzPGWYSSy4RwbBunrJBQ4Co8fRWA==" crossorigin="anonymous"></script>
+    
+
+    
+    
+    <script>const code_highlighting = true;</script>
+    
+
+    
+    
+    
+    
+    
+    
+    <script>
+      const search_config = {"indexURI":"/index.json","minLength":1,"threshold":0.3};
+      const i18n = {"no_results":"No results found","placeholder":"Search...","results":"results found"};
+      const content_type = {
+        'post': "Posts",
+        'project': "Projects",
+        'publication' : "Publications",
+        'talk' : "Talks",
+        'slides' : "Slides"
+        };
+    </script>
+    
+
+    
+    
+
+    
+    
+    <script id="search-hit-fuse-template" type="text/x-template">
+      <div class="search-hit" id="summary-{{key}}">
+      <div class="search-hit-content">
+        <div class="search-hit-name">
+          <a href="{{relpermalink}}">{{title}}</a>
+          <div class="article-metadata search-hit-type">{{type}}</div>
+          <p class="search-hit-description">{{snippet}}</p>
+        </div>
+      </div>
+      </div>
+    </script>
+    
+
+    
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/3.2.1/fuse.min.js" integrity="sha256-VzgmKYmhsGNNN4Ph1kMW+BjoYJM2jV5i4IlFoeZA9XI=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/jquery.mark.min.js" integrity="sha256-4HLtjeVgH0eIB3aZ9mLYF6E8oU5chNdjU6p6rrXpl9U=" crossorigin="anonymous"></script>
+    
+
+    
+    
+
+    
+    
+    
+
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+      
+    
+    
+    
+    
+    <script src="/js/wowchemy.min.ffabb05383f1b16d83e7181a605e644c.js"></script>
+
+    
+
+
+
+
+
+
+</body>
+</html>

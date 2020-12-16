@@ -1,0 +1,1389 @@
+<!DOCTYPE html><html lang="en-us" >
+
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  
+  
+  
+  <meta name="generator" content="Wowchemy 5.0.0-beta.1 for Hugo">
+  
+
+  
+
+  
+  
+
+  
+  
+  
+  
+  
+    
+    
+    
+  
+  
+
+  
+
+  
+  
+  
+    
+  
+  <meta name="description" content="Introduction The NCI Genomic Data Commons (GDC) is a reboot of the approach that NCI uses to manage and expose genomic and associated clinical and experimental metadata. I have been working on a Bioconductor package that interfaces with the GDC API to provide search and data retrieval from within R.">
+
+  
+  <link rel="alternate" hreflang="en-us" href="/post/2017-03-04-testing-the-genomicdatacommons-package/">
+
+  
+
+
+
+
+
+
+
+  
+
+
+
+
+  
+  
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  
+
+  
+  
+  
+  <meta name="theme-color" content="#2962ff">
+  
+
+  
+  
+
+  
+  
+  
+  
+    
+    
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/academicons/1.9.0/css/academicons.min.css" integrity="sha512-W4yqoT1+8NLkinBLBZko+dFB2ZbHsYLDdr50VElllRcNt2Q4/GSs6u71UHKxB7S6JEMCp5Ve4xjh3eGQl/HRvg==" crossorigin="anonymous">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" integrity="sha256-FMvZuGapsJLjouA6k7Eo2lusoAX9i0ShlWFG6qt7SLc=" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css" integrity="sha256-Vzbj7sDDS/woiFS3uNKo8eIuni59rjyNGtXfstRzStA=" crossorigin="anonymous">
+
+    
+    
+    
+      
+    
+    
+      
+      
+        
+          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.2.0/styles/github.min.css" crossorigin="anonymous" title="hl-light">
+          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.2.0/styles/dracula.min.css" crossorigin="anonymous" title="hl-dark" disabled>
+        
+      
+    
+
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/leaflet.min.css" integrity="sha512-1xoFisiGdy9nvho8EgXuXvnpR5GAMSjFwp40gSRE3NwdUdIMIKuPa7bqoUhLD0O/5tPNhteAsE5XyyMi5reQVA==" crossorigin="anonymous">
+    
+
+    
+
+    
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/lazysizes/5.2.2/lazysizes.min.js" integrity="sha512-TmDwFLhg3UA4ZG0Eb4MIyT1O1Mb+Oww5kFG0uHqXsdbyZz9DcvYQhKpGgNkamAI6h2lGGZq2X8ftOJvF/XjTUg==" crossorigin="anonymous" async></script>
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+        
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+
+  
+
+  
+  
+  
+    
+      
+      
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:400,700%7CRoboto:400,400italic,700%7CRoboto+Mono&display=swap">
+    
+  
+
+  
+  
+  
+  
+  <link rel="stylesheet" href="/css/wowchemy.min.2da9fc7ecccb62374ee4667dc6583d14.css">
+
+  
+
+
+
+
+  
+
+  
+
+
+  
+  
+
+  
+
+  <link rel="manifest" href="/index.webmanifest">
+  <link rel="icon" type="image/png" href="/images/icon_hu0b7a4cb9992c9ac0e91bd28ffd38dd00_9727_32x32_fill_lanczos_center_2.png">
+  <link rel="apple-touch-icon" type="image/png" href="/images/icon_hu0b7a4cb9992c9ac0e91bd28ffd38dd00_9727_192x192_fill_lanczos_center_2.png">
+
+  <link rel="canonical" href="/post/2017-03-04-testing-the-genomicdatacommons-package/">
+
+  
+  
+  
+  
+  
+  
+  
+    
+    
+  
+  
+  <meta property="twitter:card" content="summary">
+  
+  <meta property="og:site_name" content="Academic">
+  <meta property="og:url" content="/post/2017-03-04-testing-the-genomicdatacommons-package/">
+  <meta property="og:title" content="Matched tumor/normal pairs--a use case for the GenomicDataCommons Bioconductor package | Academic">
+  <meta property="og:description" content="Introduction The NCI Genomic Data Commons (GDC) is a reboot of the approach that NCI uses to manage and expose genomic and associated clinical and experimental metadata. I have been working on a Bioconductor package that interfaces with the GDC API to provide search and data retrieval from within R."><meta property="og:image" content="/images/icon_hu0b7a4cb9992c9ac0e91bd28ffd38dd00_9727_512x512_fill_lanczos_center_2.png">
+  <meta property="twitter:image" content="/images/icon_hu0b7a4cb9992c9ac0e91bd28ffd38dd00_9727_512x512_fill_lanczos_center_2.png"><meta property="og:locale" content="en-us">
+  
+    
+      <meta property="article:published_time" content="2017-03-04T00:00:00&#43;00:00">
+    
+    <meta property="article:modified_time" content="2017-03-04T00:00:00&#43;00:00">
+  
+
+  
+
+
+    
+
+
+
+
+
+
+  
+
+
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "/post/2017-03-04-testing-the-genomicdatacommons-package/"
+  },
+  "headline": "Matched tumor/normal pairs--a use case for the GenomicDataCommons Bioconductor package",
+  
+  "datePublished": "2017-03-04T00:00:00Z",
+  "dateModified": "2017-03-04T00:00:00Z",
+  
+  "publisher": {
+    "@type": "Organization",
+    "name": "Academic",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "/images/icon_hu0b7a4cb9992c9ac0e91bd28ffd38dd00_9727_192x192_fill_lanczos_center_2.png"
+    }
+  },
+  "description": "Introduction The NCI Genomic Data Commons (GDC) is a reboot of the approach that NCI uses to manage and expose genomic and associated clinical and experimental metadata. I have been working on a Bioconductor package that interfaces with the GDC API to provide search and data retrieval from within R."
+}
+</script>
+
+  
+
+  
+
+
+  
+
+
+  
+
+
+
+
+
+  <title>Matched tumor/normal pairs--a use case for the GenomicDataCommons Bioconductor package | Academic</title>
+
+</head>
+
+
+<body id="top" data-spy="scroll" data-offset="70" data-target="#TableOfContents" class="page-wrapper  ">
+
+  
+  
+  
+  
+  
+  <script src="/js/wowchemy-init.js"></script>
+
+  <aside class="search-results" id="search">
+  <div class="container">
+    <section class="search-header">
+
+      <div class="row no-gutters justify-content-between mb-3">
+        <div class="col-6">
+          <h1>Search</h1>
+        </div>
+        <div class="col-6 col-search-close">
+          <a class="js-search" href="#"><i class="fas fa-times-circle text-muted" aria-hidden="true"></i></a>
+        </div>
+      </div>
+
+      <div id="search-box">
+        
+        <input name="q" id="search-query" placeholder="Search..." autocapitalize="off"
+        autocomplete="off" autocorrect="off" spellcheck="false" type="search" class="form-control">
+        
+      </div>
+
+    </section>
+    <section class="section-search-results">
+
+      <div id="search-hits">
+        
+      </div>
+
+    </section>
+  </div>
+</aside>
+
+
+  <div class="page-header">
+    
+
+
+
+
+
+
+
+
+
+
+
+
+<nav class="navbar navbar-expand-lg navbar-light compensate-for-scrollbar" id="navbar-main">
+  <div class="container">
+
+    
+    <div class="d-none d-lg-inline-flex">
+      <a class="navbar-brand" href="/">Academic</a>
+    </div>
+    
+
+    
+    <button type="button" class="navbar-toggler" data-toggle="collapse"
+            data-target="#navbar-content" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
+    <span><i class="fas fa-bars"></i></span>
+    </button>
+    
+
+    
+    <div class="navbar-brand-mobile-wrapper d-inline-flex d-lg-none">
+      <a class="navbar-brand" href="/">Academic</a>
+    </div>
+    
+
+    
+    
+    <div class="navbar-collapse main-menu-item collapse justify-content-start" id="navbar-content">
+
+      
+      <ul class="navbar-nav d-md-inline-flex">
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+
+        
+        
+        
+        
+
+        
+          
+            
+            
+          
+          
+            
+            
+            
+              
+            
+            
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/#about"><span>Home</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+
+        
+        
+        
+        
+
+        
+          
+            
+            
+          
+          
+            
+            
+            
+              
+            
+            
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/#posts"><span>Posts</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+
+        
+        
+        
+        
+
+        
+          
+            
+            
+          
+          
+            
+            
+            
+              
+            
+            
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/#projects"><span>Projects</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+
+        
+        
+        
+        
+
+        
+          
+            
+            
+          
+          
+            
+            
+            
+              
+            
+            
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/#talks"><span>Talks</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+
+        
+        
+        
+        
+
+        
+          
+            
+            
+          
+          
+            
+            
+            
+              
+            
+            
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/#featured"><span>Publications</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+
+        
+        
+        
+        
+
+        
+          
+            
+            
+          
+          
+            
+            
+            
+              
+            
+            
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/#contact"><span>Contact</span></a>
+        </li>
+
+        
+        
+
+      
+
+        
+      </ul>
+    </div>
+
+    <ul class="nav-icons navbar-nav flex-row ml-auto d-flex pl-md-2">
+      
+      
+      <li class="nav-item">
+        <a class="nav-link js-search" href="#" aria-label="Search"><i class="fas fa-search" aria-hidden="true"></i></a>
+      </li>
+      
+
+      
+      
+      <li class="nav-item dropdown theme-dropdown">
+        <a href="#" class="nav-link" data-toggle="dropdown" aria-haspopup="true" aria-label="Display preferences">
+          <i class="fas fa-moon" aria-hidden="true"></i>
+        </a>
+        <div class="dropdown-menu">
+          <a href="#" class="dropdown-item js-set-theme-light">
+            <span>Light</span>
+          </a>
+          <a href="#" class="dropdown-item js-set-theme-dark">
+            <span>Dark</span>
+          </a>
+          <a href="#" class="dropdown-item js-set-theme-auto">
+            <span>Automatic</span>
+          </a>
+        </div>
+      </li>
+      
+
+      
+
+    </ul>
+
+  </div>
+</nav>
+
+
+  </div>
+
+  <div class="page-body">
+    <article class="article">
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+  
+  
+<div class="article-container pt-3">
+  <h1>Matched tumor/normal pairs--a use case for the GenomicDataCommons Bioconductor package</h1>
+
+  
+
+  
+    
+
+
+<div class="article-metadata">
+
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    Mar 4, 2017
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    5 min read
+  </span>
+  
+
+  
+  
+  
+  
+  
+
+  
+  
+  <span class="middot-divider"></span>
+  <span class="article-categories">
+    <i class="fas fa-folder mr-1"></i><a href="/category/software/">Software</a>, <a href="/category/tutorial/">Tutorial</a></span>
+  
+
+</div>
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+</div>
+
+
+
+  <div class="article-container">
+
+    <div class="article-style">
+      
+
+
+<div id="introduction" class="section level1">
+<h1>Introduction</h1>
+<p>The NCI Genomic Data Commons (<a href="https://gdc.nci.nih.gov">GDC</a>) is a reboot of the approach that NCI uses to manage and expose genomic and associated clinical and experimental metadata. I have been working on a <a href="https://bioconductor.org">Bioconductor</a> package that interfaces with the <a href="https://gdc-api.nci.nih.gov">GDC API</a> to provide search and data retrieval from within R.</p>
+<div id="testing" class="section level2">
+<h2>testing</h2>
+<p>In the first of what will likely be a set of use cases for the <a href="https://github.com/Bioconductor/GenomicDataCommons">GenomicDataCommons</a>, I am going to address a question that came up on twitter from <a href="https://twitter.com/sleight82">@sleight82</a></p>
+<blockquote>
+<p><a href="https://twitter.com/sleight82/status/837898737540198400">Asking for a non-tweeter: can you find matched control samples?</a></p>
+</blockquote>
+<blockquote class="twitter-tweet"><p lang="en" dir="ltr">asking for a non-tweeter: can you find matched control samples?</p>&mdash; Kenneth Daily (@sleight82) <a href="https://twitter.com/sleight82/status/837898737540198400?ref_src=twsrc%5Etfw">March 4, 2017</a></blockquote>
+<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+
+<p>The answer is, “Yes.” I am going to assume that what the “non-tweeter” friend meant was that he or she was interested in finding matched tumor/normal data related to, for example, gene expression, and that the interest is in a specific disease category or TCGA. So, I am going to answer the more specific question:</p>
+<blockquote>
+<p>Can you find matched primary tumor/solid tissue normal samples and associated RNA-Seq gene expression files from TCGA breast cancer cases?</p>
+</blockquote>
+<pre class="r"><code>library(GenomicDataCommons)</code></pre>
+<pre><code>## Loading required package: magrittr</code></pre>
+<pre><code>## 
+## Attaching package: &#39;GenomicDataCommons&#39;</code></pre>
+<pre><code>## The following object is masked from &#39;package:stats&#39;:
+## 
+##     filter</code></pre>
+<pre class="r"><code>library(dplyr)</code></pre>
+<pre><code>## 
+## Attaching package: &#39;dplyr&#39;</code></pre>
+<pre><code>## The following objects are masked from &#39;package:GenomicDataCommons&#39;:
+## 
+##     count, filter, select</code></pre>
+<pre><code>## The following objects are masked from &#39;package:stats&#39;:
+## 
+##     filter, lag</code></pre>
+<pre><code>## The following objects are masked from &#39;package:base&#39;:
+## 
+##     intersect, setdiff, setequal, union</code></pre>
+<p>The GDC API puts some constraints on what can be done directly. But, since we are working in R, we have a toolbox that allows us to build a solution out of component parts. The strategy that I am going to employ is a three-step approach</p>
+<ol style="list-style-type: decimal">
+<li>Find RNA-Seq gene expression files derived from “Solid Tissue Normal”</li>
+<li>Find RNA-Seq gene expression files derived from “Primary Tumor”</li>
+<li>Limit cases from #1 and #2 that have gene expression results from both normal and tumor.</li>
+</ol>
+<p>In this code block, find all “HTSeq - Counts” files that are derived from “Solid Tissue Normal” in the project “TCGA-BRCA”. I used a combination of <code>files() %&gt;% select(available_fields('files') %&gt;% results()</code> to get an overview of the data available in the <code>files()</code> endpoint, followed by <code>grep_fields()</code> and <code>available_values()</code> to determine how to build filters.</p>
+<pre class="r"><code>nl_ge_files = files() %&gt;%
+    GenomicDataCommons::filter(~   cases.samples.sample_type==&#39;Solid Tissue Normal&#39; &amp;
+               cases.project.project_id == &#39;TCGA-BRCA&#39; &amp;
+               analysis.workflow_type == &quot;HTSeq - Counts&quot;) %&gt;%
+    expand(c(&#39;cases&#39;,&#39;cases.samples&#39;)) %&gt;%
+    results_all() %&gt;%
+    as_tibble()</code></pre>
+<p>And do the same, but now looking for gene expression from tumors.</p>
+<pre class="r"><code>tm_ge_files = files() %&gt;%
+    GenomicDataCommons::filter(~   cases.samples.sample_type==&#39;Primary Tumor&#39; &amp;
+               cases.project.project_id == &#39;TCGA-BRCA&#39; &amp;
+               analysis.workflow_type == &quot;HTSeq - Counts&quot;) %&gt;%
+    expand(c(&#39;cases&#39;,&#39;cases.samples&#39;)) %&gt;%
+    results_all() %&gt;%
+    as_tibble()</code></pre>
+<p>Now, we have two data frames describing the normal- and tumor-derived TCGA-BRCA gene expression files. Note that I asked the GDC to provide <code>cases.case_id</code> as part of the record using <code>select()</code>. By looking for the intersection of cases between these two sets of files, we can find cases that contain files derived from both tumor and normal tissue.</p>
+<pre class="r"><code>nl_cases = bind_rows(nl_ge_files$cases, .id=&#39;file_id&#39;)
+tm_cases = bind_rows(tm_ge_files$cases, .id=&#39;file_id&#39;)
+matchedcases = intersect(nl_cases$case_id,
+                         tm_cases$case_id)
+# how many matched cases?
+length(matchedcases)</code></pre>
+<pre><code>## [1] 112</code></pre>
+<p>We can now create a <code>data.frame</code> that contains file information for only the matched samples. Note
+that the names of the matched cases are the file ids.</p>
+<pre class="r"><code>matched_nl_files = nl_cases[nl_cases$case_id %in% matchedcases, &#39;file_id&#39;]
+matched_tm_files = tm_cases[tm_cases$case_id %in% matchedcases, &#39;file_id&#39;]
+
+matched_tn_ge_file_info = rbind(subset(nl_ge_files,file_id %in% matched_nl_files),
+                                subset(tm_ge_files,file_id %in% matched_tm_files))
+head(matched_tn_ge_file_info)</code></pre>
+<pre><code>## # A tibble: 6 x 17
+##   type  md5sum access submitter_id file_id id    data_category experimental_st…
+##   &lt;chr&gt; &lt;chr&gt;  &lt;chr&gt;  &lt;chr&gt;        &lt;chr&gt;   &lt;chr&gt; &lt;chr&gt;         &lt;chr&gt;           
+## 1 gene… e6771… open   327a6650-be… bb7e83… bb7e… Transcriptom… RNA-Seq         
+## 2 gene… 18025… open   9570c964-8d… a03b24… a03b… Transcriptom… RNA-Seq         
+## 3 gene… 69f47… open   7133f91c-41… 987bf9… 987b… Transcriptom… RNA-Seq         
+## 4 gene… 57daa… open   05eb3daf-d3… 7d970a… 7d97… Transcriptom… RNA-Seq         
+## 5 gene… 67e69… open   b504f2d6-33… 1e97e8… 1e97… Transcriptom… RNA-Seq         
+## 6 gene… 92526… open   d46b61b0-6f… b9cc9d… b9cc… Transcriptom… RNA-Seq         
+## # … with 9 more variables: data_type &lt;chr&gt;, state &lt;chr&gt;, file_name &lt;chr&gt;,
+## #   cases &lt;named list&gt;, data_format &lt;chr&gt;, updated_datetime &lt;chr&gt;,
+## #   created_datetime &lt;chr&gt;, file_size &lt;int&gt;, acl &lt;named list&gt;</code></pre>
+<p>Since the gene expression data are not that big, we can use the GDC API to download the data files directly. The GenomicDataCommons uses a cache for files, so the first time the code
+below is run, data will be downloaded. After that, if the cache is in place, the cached
+files will be used.</p>
+<pre class="r"><code>fnames = lapply(as.character(matched_tn_ge_file_info$file_id),
+                  function(file_id) {
+                      gdcdata(file_id, progress = FALSE)
+                  })</code></pre>
+<p>Now, <code>fnames</code> should be a list of file names that can be read into and processed with R.</p>
+<pre class="r"><code>sessionInfo()</code></pre>
+<pre><code>## R version 4.0.0 (2020-04-24)
+## Platform: x86_64-apple-darwin17.0 (64-bit)
+## Running under: macOS Catalina 10.15.3
+## 
+## Matrix products: default
+## BLAS:   /Library/Frameworks/R.framework/Versions/4.0/Resources/lib/libRblas.dylib
+## LAPACK: /Library/Frameworks/R.framework/Versions/4.0/Resources/lib/libRlapack.dylib
+## 
+## locale:
+## [1] en_US.UTF-8/en_US.UTF-8/en_US.UTF-8/C/en_US.UTF-8/en_US.UTF-8
+## 
+## attached base packages:
+## [1] stats     graphics  grDevices utils     datasets  methods   base     
+## 
+## other attached packages:
+## [1] dplyr_0.8.5               GenomicDataCommons_1.12.0
+## [3] magrittr_1.5             
+## 
+## loaded via a namespace (and not attached):
+##  [1] SummarizedExperiment_1.18.1 tidyselect_1.1.0           
+##  [3] xfun_0.13                   purrr_0.3.4                
+##  [5] lattice_0.20-41             vctrs_0.3.0                
+##  [7] htmltools_0.4.0             stats4_4.0.0               
+##  [9] yaml_2.2.1                  utf8_1.1.4                 
+## [11] rlang_0.4.6                 pillar_1.4.4               
+## [13] glue_1.4.1                  rappdirs_0.3.1             
+## [15] BiocGenerics_0.34.0         matrixStats_0.56.0         
+## [17] GenomeInfoDbData_1.2.3      lifecycle_0.2.0            
+## [19] stringr_1.4.0               zlibbioc_1.34.0            
+## [21] blogdown_0.18               evaluate_0.14              
+## [23] Biobase_2.48.0              knitr_1.28                 
+## [25] IRanges_2.22.1              GenomeInfoDb_1.24.0        
+## [27] parallel_4.0.0              curl_4.3                   
+## [29] fansi_0.4.1                 Rcpp_1.0.4.6               
+## [31] readr_1.3.1                 BiocManager_1.30.10        
+## [33] DelayedArray_0.14.0         S4Vectors_0.26.1           
+## [35] jsonlite_1.6.1              XVector_0.28.0             
+## [37] hms_0.5.3                   digest_0.6.25              
+## [39] stringi_1.4.6               bookdown_0.19              
+## [41] GenomicRanges_1.40.0        grid_4.0.0                 
+## [43] cli_2.0.2                   tools_4.0.0                
+## [45] bitops_1.0-6                RCurl_1.98-1.2             
+## [47] tibble_3.0.1                crayon_1.3.4               
+## [49] pkgconfig_2.0.3             ellipsis_0.3.1             
+## [51] Matrix_1.2-18               xml2_1.3.2                 
+## [53] assertthat_0.2.1            rmarkdown_2.1              
+## [55] httr_1.4.1                  R6_2.4.1                   
+## [57] compiler_4.0.0</code></pre>
+</div>
+</div>
+
+    </div>
+
+    
+
+
+
+
+
+
+<div class="article-tags">
+  
+  <a class="badge badge-light" href="/tag/bioconductor/">Bioconductor</a>
+  
+  <a class="badge badge-light" href="/tag/genomicdatacommons/">GenomicDataCommons</a>
+  
+  <a class="badge badge-light" href="/tag/software/">Software</a>
+  
+  <a class="badge badge-light" href="/tag/data-science/">data science</a>
+  
+  <a class="badge badge-light" href="/tag/api/">API</a>
+  
+  <a class="badge badge-light" href="/tag/r/">R</a>
+  
+</div>
+
+
+
+<div class="share-box" aria-hidden="true">
+  <ul class="share">
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="https://twitter.com/intent/tweet?url=/post/2017-03-04-testing-the-genomicdatacommons-package/&amp;text=Matched%20tumor/normal%20pairs--a%20use%20case%20for%20the%20GenomicDataCommons%20Bioconductor%20package" target="_blank" rel="noopener" class="share-btn-twitter">
+          <i class="fab fa-twitter"></i>
+        </a>
+      </li>
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="https://www.facebook.com/sharer.php?u=/post/2017-03-04-testing-the-genomicdatacommons-package/&amp;t=Matched%20tumor/normal%20pairs--a%20use%20case%20for%20the%20GenomicDataCommons%20Bioconductor%20package" target="_blank" rel="noopener" class="share-btn-facebook">
+          <i class="fab fa-facebook"></i>
+        </a>
+      </li>
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="mailto:?subject=Matched%20tumor/normal%20pairs--a%20use%20case%20for%20the%20GenomicDataCommons%20Bioconductor%20package&amp;body=/post/2017-03-04-testing-the-genomicdatacommons-package/" target="_blank" rel="noopener" class="share-btn-email">
+          <i class="fas fa-envelope"></i>
+        </a>
+      </li>
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="https://www.linkedin.com/shareArticle?url=/post/2017-03-04-testing-the-genomicdatacommons-package/&amp;title=Matched%20tumor/normal%20pairs--a%20use%20case%20for%20the%20GenomicDataCommons%20Bioconductor%20package" target="_blank" rel="noopener" class="share-btn-linkedin">
+          <i class="fab fa-linkedin-in"></i>
+        </a>
+      </li>
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="whatsapp://send?text=Matched%20tumor/normal%20pairs--a%20use%20case%20for%20the%20GenomicDataCommons%20Bioconductor%20package%20/post/2017-03-04-testing-the-genomicdatacommons-package/" target="_blank" rel="noopener" class="share-btn-whatsapp">
+          <i class="fab fa-whatsapp"></i>
+        </a>
+      </li>
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="https://service.weibo.com/share/share.php?url=/post/2017-03-04-testing-the-genomicdatacommons-package/&amp;title=Matched%20tumor/normal%20pairs--a%20use%20case%20for%20the%20GenomicDataCommons%20Bioconductor%20package" target="_blank" rel="noopener" class="share-btn-weibo">
+          <i class="fab fa-weibo"></i>
+        </a>
+      </li>
+    
+  </ul>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+
+
+
+  
+  
+  
+    
+  
+  
+  
+  <div class="media author-card content-widget-hr">
+    
+
+    <div class="media-body">
+      <h5 class="card-title"></h5>
+      <h6 class="card-subtitle">Senior Associate Scientist</h6>
+      <p class="card-text">My interests include biomedical data science, open data, genomics, and cancer research.</p>
+      <ul class="network-icon" aria-hidden="true">
+  
+    
+    
+    
+      
+    
+    
+    
+    
+    
+    <li>
+      <a href="mailto:seandavi@gmail.com" >
+        <i class="fas fa-envelope"></i>
+      </a>
+    </li>
+  
+    
+    
+    
+      
+    
+    
+    
+    
+    
+      
+    
+    <li>
+      <a href="https://twitter.com/seandavis12" target="_blank" rel="noopener">
+        <i class="fab fa-twitter"></i>
+      </a>
+    </li>
+  
+    
+    
+    
+    
+    
+    
+    
+      
+    
+    <li>
+      <a href="https://scholar.google.co.uk/citations?user=hLFc29kAAAAJ" target="_blank" rel="noopener">
+        <i class="ai ai-google-scholar"></i>
+      </a>
+    </li>
+  
+    
+    
+    
+      
+    
+    
+    
+    
+    
+      
+    
+    <li>
+      <a href="https://github.com/seandavi" target="_blank" rel="noopener">
+        <i class="fab fa-github"></i>
+      </a>
+    </li>
+  
+    
+    
+    
+    
+    
+    
+    
+      
+    
+    <li>
+      <a href="/files/CV.pdf" >
+        <i class="ai ai-cv"></i>
+      </a>
+    </li>
+  
+</ul>
+
+    </div>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <div class="article-widget content-widget-hr">
+    <h3>Related</h3>
+    <ul>
+      
+      <li><a href="/post/2017-11-17-computable-bioc-build-reports/">A computable Bioconductor build report</a></li>
+      
+      <li><a href="/publication/davis-2018-jw/">Orchestrating a community-developed computational workshop and accompanying training materials</a></li>
+      
+      <li><a href="/talk/2018-12-03-wake-forest-bioconductor/">Bioconductor: software for interpreting high-throughput biological data</a></li>
+      
+      <li><a href="/talk/2018-12-3-wake-forest-biomedical-informatics-datasci-ed/">Practical Data Science and Informatics Training</a></li>
+      
+      <li><a href="/project/omicidx/">OmicIDX</a></li>
+      
+    </ul>
+  </div>
+  
+
+
+
+
+
+  </div>
+</article>
+  </div>
+
+  <div class="page-footer">
+    
+    
+    <div class="container">
+      <footer class="site-footer">
+  
+
+  <p class="powered-by">
+    
+  </p>
+
+  
+  
+
+
+
+
+
+
+  <p class="powered-by">
+    
+    
+    
+    Published with
+    <a href="https://wowchemy.com/?utm_campaign=poweredby" target="_blank" rel="noopener">Wowchemy</a>  —
+    the free, <a href="https://github.com/wowchemy/wowchemy-hugo-modules" target="_blank" rel="noopener">
+    open source</a> website builder that empowers creators.
+    
+  </p>
+</footer>
+
+    </div>
+    
+  </div>
+
+  
+<div id="modal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Cite</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <pre><code class="tex hljs"></code></pre>
+      </div>
+      <div class="modal-footer">
+        <a class="btn btn-outline-primary my-1 js-copy-cite" href="#" target="_blank">
+          <i class="fas fa-copy"></i> Copy
+        </a>
+        <a class="btn btn-outline-primary my-1 js-download-cite" href="#" target="_blank">
+          <i class="fas fa-download"></i> Download
+        </a>
+        <div id="modal-error"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+      
+
+    
+    
+    
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
+
+      
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.imagesloaded/4.1.4/imagesloaded.pkgd.min.js" integrity="sha256-lqvxZrPLtfffUl2G/e7szqSvPBILGbwmsGE1MKlOi0Q=" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.isotope/3.0.6/isotope.pkgd.min.js" integrity="sha256-CBrpuqrMhXwcLLUd5tvQ4euBHCdh7wGlDfNz8vbu/iI=" crossorigin="anonymous"></script>
+      
+
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js" integrity="sha256-yt2kYMy0w8AbtF89WXb2P1rfjcP/HTHLT7097U8Y5b8=" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/instant.page/5.1.0/instantpage.min.js" integrity="sha512-1+qUtKoh9XZW7j+6LhRMAyOrgSQKenQ4mluTR+cvxXjP1Z54RxZuzstR/H9kgPXQsVB8IW7DMDFUJpzLjvhGSQ==" crossorigin="anonymous"></script>
+
+      
+
+      
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.2.0/highlight.min.js" integrity="sha512-TDKKr+IvoqZnPzc3l35hdjpHD0m+b2EC2SrLEgKDRWpxf2rFCxemkgvJ5kfU48ip+Y+m2XVKyOCD85ybtlZDmw==" crossorigin="anonymous"></script>
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.2.0/languages/r.min.js"></script>
+        
+      
+
+    
+
+    
+    
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/leaflet.min.js" integrity="sha512-SeiQaaDh73yrb56sTW/RgVdi/mMqNeM2oBwubFHagc5BkixSpP1fvqF47mKzPGWYSSy4RwbBunrJBQ4Co8fRWA==" crossorigin="anonymous"></script>
+    
+
+    
+    
+    <script>const code_highlighting = true;</script>
+    
+
+    
+    
+    
+    
+    
+    
+    <script>
+      const search_config = {"indexURI":"/index.json","minLength":1,"threshold":0.3};
+      const i18n = {"no_results":"No results found","placeholder":"Search...","results":"results found"};
+      const content_type = {
+        'post': "Posts",
+        'project': "Projects",
+        'publication' : "Publications",
+        'talk' : "Talks",
+        'slides' : "Slides"
+        };
+    </script>
+    
+
+    
+    
+
+    
+    
+    <script id="search-hit-fuse-template" type="text/x-template">
+      <div class="search-hit" id="summary-{{key}}">
+      <div class="search-hit-content">
+        <div class="search-hit-name">
+          <a href="{{relpermalink}}">{{title}}</a>
+          <div class="article-metadata search-hit-type">{{type}}</div>
+          <p class="search-hit-description">{{snippet}}</p>
+        </div>
+      </div>
+      </div>
+    </script>
+    
+
+    
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/3.2.1/fuse.min.js" integrity="sha256-VzgmKYmhsGNNN4Ph1kMW+BjoYJM2jV5i4IlFoeZA9XI=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/jquery.mark.min.js" integrity="sha256-4HLtjeVgH0eIB3aZ9mLYF6E8oU5chNdjU6p6rrXpl9U=" crossorigin="anonymous"></script>
+    
+
+    
+    
+
+    
+    
+    
+
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+      
+    
+    
+    
+    
+    <script src="/js/wowchemy.min.ffabb05383f1b16d83e7181a605e644c.js"></script>
+
+    
+
+
+
+
+
+
+</body>
+</html>

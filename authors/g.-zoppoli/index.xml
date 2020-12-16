@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>G. Zoppoli | Academic</title>
+    <link>/authors/g.-zoppoli/</link>
+      <atom:link href="/authors/g.-zoppoli/index.xml" rel="self" type="application/rss+xml" />
+    <description>G. Zoppoli</description>
+    <generator>Wowchemy (https://wowchemy.com)</generator><language>en-us</language><lastBuildDate>Sun, 01 Jan 2012 00:00:00 -0500</lastBuildDate>
+    <image>
+      <url>/images/icon_hu0b7a4cb9992c9ac0e91bd28ffd38dd00_9727_512x512_fill_lanczos_center_2.png</url>
+      <title>G. Zoppoli</title>
+      <link>/authors/g.-zoppoli/</link>
+    </image>
+    
+    <item>
+      <title>CHEK2 genomic and proteomic analyses reveal genetic inactivation or endogenous activation across the 60 cell lines of the US National Cancer Institute</title>
+      <link>/publication/pmid21765476/</link>
+      <pubDate>Sun, 01 Jan 2012 00:00:00 -0500</pubDate>
+      <guid>/publication/pmid21765476/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>CHEK2 genomic and proteomic analyses reveal genetic inactivation or endogenous activation across the 60 cell lines of the US National Cancer Institute</title>
+      <link>/publication/pmid-21765476/</link>
+      <pubDate>Sun, 01 Jan 2012 00:00:00 +0000</pubDate>
+      <guid>/publication/pmid-21765476/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>

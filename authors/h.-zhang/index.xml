@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>H. Zhang | Academic</title>
+    <link>/authors/h.-zhang/</link>
+      <atom:link href="/authors/h.-zhang/index.xml" rel="self" type="application/rss+xml" />
+    <description>H. Zhang</description>
+    <generator>Wowchemy (https://wowchemy.com)</generator><language>en-us</language><lastBuildDate>Fri, 01 Jan 2016 00:00:00 -0500</lastBuildDate>
+    <image>
+      <url>/images/icon_hu0b7a4cb9992c9ac0e91bd28ffd38dd00_9727_512x512_fill_lanczos_center_2.png</url>
+      <title>H. Zhang</title>
+      <link>/authors/h.-zhang/</link>
+    </image>
+    
+    <item>
+      <title>caOmicsV: an R package for visualizing multidimensional cancer genomic data</title>
+      <link>/publication/pmid27005934/</link>
+      <pubDate>Fri, 01 Jan 2016 00:00:00 -0500</pubDate>
+      <guid>/publication/pmid27005934/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>caOmicsV: an R package for visualizing multidimensional cancer genomic data</title>
+      <link>/publication/pmid-27005934/</link>
+      <pubDate>Fri, 01 Jan 2016 00:00:00 +0000</pubDate>
+      <guid>/publication/pmid-27005934/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>RCircos: an R package for Circos 2D track plots</title>
+      <link>/publication/pmid23937229/</link>
+      <pubDate>Tue, 01 Jan 2013 00:00:00 -0500</pubDate>
+      <guid>/publication/pmid23937229/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>RCircos: an R package for Circos 2D track plots</title>
+      <link>/publication/pmid-23937229/</link>
+      <pubDate>Tue, 01 Jan 2013 00:00:00 +0000</pubDate>
+      <guid>/publication/pmid-23937229/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>

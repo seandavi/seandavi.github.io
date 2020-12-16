@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Notes | Academic</title>
+    <link>/docs/</link>
+      <atom:link href="/docs/index.xml" rel="self" type="application/rss+xml" />
+    <description>Notes</description>
+    <generator>Wowchemy (https://wowchemy.com)</generator><language>en-us</language><lastBuildDate>Sat, 05 Oct 2019 12:29:22 -0400</lastBuildDate>
+    <image>
+      <url>/images/icon_hu0b7a4cb9992c9ac0e91bd28ffd38dd00_9727_512x512_fill_lanczos_center_2.png</url>
+      <title>Notes</title>
+      <link>/docs/</link>
+    </image>
+    
+    <item>
+      <title>Emacs Notes</title>
+      <link>/docs/emacs-notes/</link>
+      <pubDate>Sat, 05 Oct 2019 12:29:22 -0400</pubDate>
+      <guid>/docs/emacs-notes/</guid>
+      <description>&lt;h1 id=&#34;projectile&#34;&gt;Projectile&lt;/h1&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;C-c p ?&lt;/code&gt; : show keybindings&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;C-c p p&lt;/code&gt; : switch project&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;C-c p f&lt;/code&gt; : open file in project&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;C-c p ESC&lt;/code&gt; : projectile other buffer (like &lt;code&gt;C-x o&lt;/code&gt;)&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;C-c p s s&lt;/code&gt; : helm-ag search for text in project files&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;C-c p o&lt;/code&gt; : occur in buffers&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;C-c p D&lt;/code&gt; : projectile-dired&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;C-c p h&lt;/code&gt; : helm-projectile&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;C-c p r&lt;/code&gt; : projectile-replace-in-project&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;C-c p k&lt;/code&gt; : projectile-kill-buffers&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;C-c p g&lt;/code&gt; : projectile-find-file-dwim&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;C-c p 4 g&lt;/code&gt; : projectile-find-file-dwim other window&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;C-c p 5 g&lt;/code&gt; : projectile-find-file-dwim other frame&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;C-c p !&lt;/code&gt; : run shell command in root of project&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h1 id=&#34;python-ide&#34;&gt;Python IDE&lt;/h1&gt;
+&lt;h2 id=&#34;elpy&#34;&gt;Elpy&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;C-c C-e&lt;/code&gt; : multiedit (&lt;code&gt;C-c C-e&lt;/code&gt; to complete)&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;C-c &amp;lt;&lt;/code&gt; : dedent region&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;C-c &amp;gt;&lt;/code&gt; : indent region&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;python-mode&#34;&gt;Python Mode&lt;/h2&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>REST and Graphql</title>
+      <link>/docs/rest-and-graphql/</link>
+      <pubDate>Fri, 04 Oct 2019 18:36:43 -0400</pubDate>
+      <guid>/docs/rest-and-graphql/</guid>
+      <description>&lt;h1 id=&#34;graphql&#34;&gt;GraphQL&lt;/h1&gt;
+&lt;h2 id=&#34;introspection-queries&#34;&gt;Introspection queries&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Get all possible root-level queries:&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre&gt;&lt;code&gt;query {
+  __schema {
+    queryType {
+      fields {
+        name
+      }
+    }
+  }
+}
+&lt;/code&gt;
+&lt;/pre&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Container Notes</title>
+      <link>/docs/container-notes/</link>
+      <pubDate>Fri, 04 Oct 2019 17:04:04 -0400</pubDate>
+      <guid>/docs/container-notes/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Benjamin Haibe-Kains | Academic</title>
+    <link>/authors/benjamin-haibe-kains/</link>
+      <atom:link href="/authors/benjamin-haibe-kains/index.xml" rel="self" type="application/rss+xml" />
+    <description>Benjamin Haibe-Kains</description>
+    <generator>Wowchemy (https://wowchemy.com)</generator><language>en-us</language><lastBuildDate>Mon, 01 Oct 2018 00:00:00 +0000</lastBuildDate>
+    <image>
+      <url>/images/icon_hu0b7a4cb9992c9ac0e91bd28ffd38dd00_9727_512x512_fill_lanczos_center_2.png</url>
+      <title>Benjamin Haibe-Kains</title>
+      <link>/authors/benjamin-haibe-kains/</link>
+    </image>
+    
+    <item>
+      <title>Orchestrating a community-developed computational workshop and accompanying training materials</title>
+      <link>/publication/davis-2018-jw/</link>
+      <pubDate>Mon, 01 Oct 2018 00:00:00 +0000</pubDate>
+      <guid>/publication/davis-2018-jw/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Software For The Integration Of Multi-Omics Experiments In Bioconductor</title>
+      <link>/publication/sean_davis33483497/</link>
+      <pubDate>Sun, 01 Jan 2017 00:00:00 -0500</pubDate>
+      <guid>/publication/sean_davis33483497/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Software For The Integration Of Multi-Omics Experiments In Bioconductor</title>
+      <link>/publication/sean-davis-33483497/</link>
+      <pubDate>Sun, 01 Jan 2017 00:00:00 +0000</pubDate>
+      <guid>/publication/sean-davis-33483497/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>

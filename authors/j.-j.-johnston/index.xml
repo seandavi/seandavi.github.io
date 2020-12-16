@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>J. J. Johnston | Academic</title>
+    <link>/authors/j.-j.-johnston/</link>
+      <atom:link href="/authors/j.-j.-johnston/index.xml" rel="self" type="application/rss+xml" />
+    <description>J. J. Johnston</description>
+    <generator>Wowchemy (https://wowchemy.com)</generator><language>en-us</language><lastBuildDate>Mon, 01 Jan 2007 00:00:00 -0500</lastBuildDate>
+    <image>
+      <url>/images/icon_hu0b7a4cb9992c9ac0e91bd28ffd38dd00_9727_512x512_fill_lanczos_center_2.png</url>
+      <title>J. J. Johnston</title>
+      <link>/authors/j.-j.-johnston/</link>
+    </image>
+    
+    <item>
+      <title>Zoom-in comparative genomic hybridisation arrays for the characterisation of variable breakpoint contiguous gene syndromes</title>
+      <link>/publication/pmid17098889/</link>
+      <pubDate>Mon, 01 Jan 2007 00:00:00 -0500</pubDate>
+      <guid>/publication/pmid17098889/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Zoom-in comparative genomic hybridisation arrays for the characterisation of variable breakpoint contiguous gene syndromes</title>
+      <link>/publication/pmid-17098889/</link>
+      <pubDate>Mon, 01 Jan 2007 00:00:00 +0000</pubDate>
+      <guid>/publication/pmid-17098889/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>

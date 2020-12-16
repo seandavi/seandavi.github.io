@@ -1,0 +1,1626 @@
+<!DOCTYPE html><html lang="en-us" >
+
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  
+  
+  
+  <meta name="generator" content="Wowchemy 5.0.0-beta.1 for Hugo">
+  
+
+  
+
+  
+  
+
+  
+  
+  
+  
+  
+    
+    
+    
+  
+  
+
+  
+
+  
+  
+  
+    
+  
+  <meta name="description" content="This little post is just a brain-dump post on elasticsearch testing and searching. I am writing it to allow easy testing of elasticsearch searching and querying for my own purposes.">
+
+  
+  <link rel="alternate" hreflang="en-us" href="/post/elasticsearch-strings-runthrough/">
+
+  
+
+
+
+
+
+
+
+  
+
+
+
+
+  
+  
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  
+
+  
+  
+  
+  <meta name="theme-color" content="#2962ff">
+  
+
+  
+  
+
+  
+  
+  
+  
+    
+    
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/academicons/1.9.0/css/academicons.min.css" integrity="sha512-W4yqoT1+8NLkinBLBZko+dFB2ZbHsYLDdr50VElllRcNt2Q4/GSs6u71UHKxB7S6JEMCp5Ve4xjh3eGQl/HRvg==" crossorigin="anonymous">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" integrity="sha256-FMvZuGapsJLjouA6k7Eo2lusoAX9i0ShlWFG6qt7SLc=" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css" integrity="sha256-Vzbj7sDDS/woiFS3uNKo8eIuni59rjyNGtXfstRzStA=" crossorigin="anonymous">
+
+    
+    
+    
+      
+    
+    
+      
+      
+        
+          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.2.0/styles/github.min.css" crossorigin="anonymous" title="hl-light">
+          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.2.0/styles/dracula.min.css" crossorigin="anonymous" title="hl-dark" disabled>
+        
+      
+    
+
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/leaflet.min.css" integrity="sha512-1xoFisiGdy9nvho8EgXuXvnpR5GAMSjFwp40gSRE3NwdUdIMIKuPa7bqoUhLD0O/5tPNhteAsE5XyyMi5reQVA==" crossorigin="anonymous">
+    
+
+    
+
+    
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/lazysizes/5.2.2/lazysizes.min.js" integrity="sha512-TmDwFLhg3UA4ZG0Eb4MIyT1O1Mb+Oww5kFG0uHqXsdbyZz9DcvYQhKpGgNkamAI6h2lGGZq2X8ftOJvF/XjTUg==" crossorigin="anonymous" async></script>
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+        
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+
+  
+
+  
+  
+  
+    
+      
+      
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:400,700%7CRoboto:400,400italic,700%7CRoboto+Mono&display=swap">
+    
+  
+
+  
+  
+  
+  
+  <link rel="stylesheet" href="/css/wowchemy.min.2da9fc7ecccb62374ee4667dc6583d14.css">
+
+  
+
+
+
+
+  
+
+  
+
+
+  
+  
+
+  
+
+  <link rel="manifest" href="/index.webmanifest">
+  <link rel="icon" type="image/png" href="/images/icon_hu0b7a4cb9992c9ac0e91bd28ffd38dd00_9727_32x32_fill_lanczos_center_2.png">
+  <link rel="apple-touch-icon" type="image/png" href="/images/icon_hu0b7a4cb9992c9ac0e91bd28ffd38dd00_9727_192x192_fill_lanczos_center_2.png">
+
+  <link rel="canonical" href="/post/elasticsearch-strings-runthrough/">
+
+  
+  
+  
+  
+  
+  
+  
+    
+    
+  
+  
+  <meta property="twitter:card" content="summary">
+  
+  <meta property="og:site_name" content="Academic">
+  <meta property="og:url" content="/post/elasticsearch-strings-runthrough/">
+  <meta property="og:title" content="Elasticsearch Strings Runthrough | Academic">
+  <meta property="og:description" content="This little post is just a brain-dump post on elasticsearch testing and searching. I am writing it to allow easy testing of elasticsearch searching and querying for my own purposes."><meta property="og:image" content="/images/icon_hu0b7a4cb9992c9ac0e91bd28ffd38dd00_9727_512x512_fill_lanczos_center_2.png">
+  <meta property="twitter:image" content="/images/icon_hu0b7a4cb9992c9ac0e91bd28ffd38dd00_9727_512x512_fill_lanczos_center_2.png"><meta property="og:locale" content="en-us">
+  
+    
+      <meta property="article:published_time" content="2019-10-07T09:49:24-04:00">
+    
+    <meta property="article:modified_time" content="2019-10-07T09:49:24-04:00">
+  
+
+  
+
+
+    
+
+
+
+
+
+
+  
+
+
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "/post/elasticsearch-strings-runthrough/"
+  },
+  "headline": "Elasticsearch Strings Runthrough",
+  
+  "datePublished": "2019-10-07T09:49:24-04:00",
+  "dateModified": "2019-10-07T09:49:24-04:00",
+  
+  "publisher": {
+    "@type": "Organization",
+    "name": "Academic",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "/images/icon_hu0b7a4cb9992c9ac0e91bd28ffd38dd00_9727_192x192_fill_lanczos_center_2.png"
+    }
+  },
+  "description": "This little post is just a brain-dump post on elasticsearch testing and searching. I am writing it to allow easy testing of elasticsearch searching and querying for my own purposes."
+}
+</script>
+
+  
+
+  
+
+
+  
+
+
+  
+
+
+
+
+
+  <title>Elasticsearch Strings Runthrough | Academic</title>
+
+</head>
+
+
+<body id="top" data-spy="scroll" data-offset="70" data-target="#TableOfContents" class="page-wrapper  ">
+
+  
+  
+  
+  
+  
+  <script src="/js/wowchemy-init.js"></script>
+
+  <aside class="search-results" id="search">
+  <div class="container">
+    <section class="search-header">
+
+      <div class="row no-gutters justify-content-between mb-3">
+        <div class="col-6">
+          <h1>Search</h1>
+        </div>
+        <div class="col-6 col-search-close">
+          <a class="js-search" href="#"><i class="fas fa-times-circle text-muted" aria-hidden="true"></i></a>
+        </div>
+      </div>
+
+      <div id="search-box">
+        
+        <input name="q" id="search-query" placeholder="Search..." autocapitalize="off"
+        autocomplete="off" autocorrect="off" spellcheck="false" type="search" class="form-control">
+        
+      </div>
+
+    </section>
+    <section class="section-search-results">
+
+      <div id="search-hits">
+        
+      </div>
+
+    </section>
+  </div>
+</aside>
+
+
+  <div class="page-header">
+    
+
+
+
+
+
+
+
+
+
+
+
+
+<nav class="navbar navbar-expand-lg navbar-light compensate-for-scrollbar" id="navbar-main">
+  <div class="container">
+
+    
+    <div class="d-none d-lg-inline-flex">
+      <a class="navbar-brand" href="/">Academic</a>
+    </div>
+    
+
+    
+    <button type="button" class="navbar-toggler" data-toggle="collapse"
+            data-target="#navbar-content" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
+    <span><i class="fas fa-bars"></i></span>
+    </button>
+    
+
+    
+    <div class="navbar-brand-mobile-wrapper d-inline-flex d-lg-none">
+      <a class="navbar-brand" href="/">Academic</a>
+    </div>
+    
+
+    
+    
+    <div class="navbar-collapse main-menu-item collapse justify-content-start" id="navbar-content">
+
+      
+      <ul class="navbar-nav d-md-inline-flex">
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+
+        
+        
+        
+        
+
+        
+          
+            
+            
+          
+          
+            
+            
+            
+              
+            
+            
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/#about"><span>Home</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+
+        
+        
+        
+        
+
+        
+          
+            
+            
+          
+          
+            
+            
+            
+              
+            
+            
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/#posts"><span>Posts</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+
+        
+        
+        
+        
+
+        
+          
+            
+            
+          
+          
+            
+            
+            
+              
+            
+            
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/#projects"><span>Projects</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+
+        
+        
+        
+        
+
+        
+          
+            
+            
+          
+          
+            
+            
+            
+              
+            
+            
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/#talks"><span>Talks</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+
+        
+        
+        
+        
+
+        
+          
+            
+            
+          
+          
+            
+            
+            
+              
+            
+            
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/#featured"><span>Publications</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+
+        
+        
+        
+        
+
+        
+          
+            
+            
+          
+          
+            
+            
+            
+              
+            
+            
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/#contact"><span>Contact</span></a>
+        </li>
+
+        
+        
+
+      
+
+        
+      </ul>
+    </div>
+
+    <ul class="nav-icons navbar-nav flex-row ml-auto d-flex pl-md-2">
+      
+      
+      <li class="nav-item">
+        <a class="nav-link js-search" href="#" aria-label="Search"><i class="fas fa-search" aria-hidden="true"></i></a>
+      </li>
+      
+
+      
+      
+      <li class="nav-item dropdown theme-dropdown">
+        <a href="#" class="nav-link" data-toggle="dropdown" aria-haspopup="true" aria-label="Display preferences">
+          <i class="fas fa-moon" aria-hidden="true"></i>
+        </a>
+        <div class="dropdown-menu">
+          <a href="#" class="dropdown-item js-set-theme-light">
+            <span>Light</span>
+          </a>
+          <a href="#" class="dropdown-item js-set-theme-dark">
+            <span>Dark</span>
+          </a>
+          <a href="#" class="dropdown-item js-set-theme-auto">
+            <span>Automatic</span>
+          </a>
+        </div>
+      </li>
+      
+
+      
+
+    </ul>
+
+  </div>
+</nav>
+
+
+  </div>
+
+  <div class="page-body">
+    <article class="article">
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+  
+  
+<div class="article-container pt-3">
+  <h1>Elasticsearch Strings Runthrough</h1>
+
+  
+
+  
+    
+
+
+<div class="article-metadata">
+
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    Oct 7, 2019
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    5 min read
+  </span>
+  
+
+  
+  
+  
+  
+  
+
+  
+  
+
+</div>
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+</div>
+
+
+
+  <div class="article-container">
+
+    <div class="article-style">
+      
+
+
+<p>This little post is just a brain-dump post on <a href="https://www.elastic.co/products/elasticsearch">elasticsearch</a>
+testing and searching. I am writing it to allow easy testing
+of elasticsearch searching and querying for my own purposes.</p>
+<div id="preliminaries" class="section level2">
+<h2>Preliminaries</h2>
+<p>Install two useful utility programs, <a href="https://httpie.org/">httpie</a> and <a href="https://stedolan.github.io/jq/">jq</a>, for curl-like interactions with
+web APIs and for manipulating javascript on the command line.</p>
+<ul>
+<li>httpie:
+<ul>
+<li><code>apt-get install httpie</code></li>
+<li><code>brew install httpie</code></li>
+</ul></li>
+<li>jq:
+<ul>
+<li><code>apt-get install jq</code></li>
+<li><code>brew install jq</code></li>
+</ul></li>
+</ul>
+</div>
+<div id="getting-elasticsearch-running" class="section level2">
+<h2>Getting elasticsearch running</h2>
+<p>Here, I am using a docker single-node configuration for elasticsearch.
+Any <a href="https://www.elastic.co/guide/en/elasticsearch/reference/current/install-elasticsearch.html">elasticsearch installation</a> will work below.</p>
+<pre class="bash"><code>docker run -p 9200:9200 -p 9300:9300 \
+    -e &quot;discovery.type=single-node&quot; docker.elastic.co/elasticsearch/elasticsearch:7.4.0</code></pre>
+</div>
+<div id="walkthrough" class="section level2">
+<h2>Walkthrough</h2>
+<div id="create-indexed-documents" class="section level3">
+<h3>Create indexed documents</h3>
+<pre class="bash"><code>http POST localhost:9200/test_index/_bulk &lt;&lt;EOF |
+{&quot;index&quot;:{&quot;_id&quot;:1}}
+{&quot;states&quot;:[&quot;New York&quot;,&quot;New Jersey&quot;,&quot;California&quot;]}
+{&quot;index&quot;:{&quot;_id&quot;:2}}
+{&quot;states&quot;:[&quot;New York&quot;,&quot;North Carolina&quot;,&quot;North Dakota&quot;]}
+EOF
+ jq .</code></pre>
+<pre><code>## {
+##   &quot;took&quot;: 1372,
+##   &quot;errors&quot;: false,
+##   &quot;items&quot;: [
+##     {
+##       &quot;index&quot;: {
+##         &quot;_index&quot;: &quot;test_index&quot;,
+##         &quot;_type&quot;: &quot;_doc&quot;,
+##         &quot;_id&quot;: &quot;1&quot;,
+##         &quot;_version&quot;: 1,
+##         &quot;result&quot;: &quot;created&quot;,
+##         &quot;_shards&quot;: {
+##           &quot;total&quot;: 2,
+##           &quot;successful&quot;: 1,
+##           &quot;failed&quot;: 0
+##         },
+##         &quot;_seq_no&quot;: 0,
+##         &quot;_primary_term&quot;: 1,
+##         &quot;status&quot;: 201
+##       }
+##     },
+##     {
+##       &quot;index&quot;: {
+##         &quot;_index&quot;: &quot;test_index&quot;,
+##         &quot;_type&quot;: &quot;_doc&quot;,
+##         &quot;_id&quot;: &quot;2&quot;,
+##         &quot;_version&quot;: 1,
+##         &quot;result&quot;: &quot;created&quot;,
+##         &quot;_shards&quot;: {
+##           &quot;total&quot;: 2,
+##           &quot;successful&quot;: 1,
+##           &quot;failed&quot;: 0
+##         },
+##         &quot;_seq_no&quot;: 1,
+##         &quot;_primary_term&quot;: 1,
+##         &quot;status&quot;: 201
+##       }
+##     }
+##   ]
+## }</code></pre>
+</div>
+<div id="check-mapping" class="section level3">
+<h3>check mapping</h3>
+<pre class="bash"><code>http --body GET localhost:9200/test_index/_mapping | jq .</code></pre>
+<pre><code>## {
+##   &quot;test_index&quot;: {
+##     &quot;mappings&quot;: {
+##       &quot;properties&quot;: {
+##         &quot;states&quot;: {
+##           &quot;type&quot;: &quot;text&quot;,
+##           &quot;fields&quot;: {
+##             &quot;keyword&quot;: {
+##               &quot;type&quot;: &quot;keyword&quot;,
+##               &quot;ignore_above&quot;: 256
+##             }
+##           }
+##         }
+##       }
+##     }
+##   }
+## }</code></pre>
+</div>
+<div id="search" class="section level3">
+<h3>Search</h3>
+<div id="get-all-documents" class="section level4">
+<h4>Get all documents</h4>
+<pre class="bash"><code>http --body GET localhost:9200/test_index/_search | jq .</code></pre>
+<pre><code>## {
+##   &quot;took&quot;: 156,
+##   &quot;timed_out&quot;: false,
+##   &quot;_shards&quot;: {
+##     &quot;total&quot;: 1,
+##     &quot;successful&quot;: 1,
+##     &quot;skipped&quot;: 0,
+##     &quot;failed&quot;: 0
+##   },
+##   &quot;hits&quot;: {
+##     &quot;total&quot;: {
+##       &quot;value&quot;: 2,
+##       &quot;relation&quot;: &quot;eq&quot;
+##     },
+##     &quot;max_score&quot;: 1,
+##     &quot;hits&quot;: [
+##       {
+##         &quot;_index&quot;: &quot;test_index&quot;,
+##         &quot;_type&quot;: &quot;_doc&quot;,
+##         &quot;_id&quot;: &quot;1&quot;,
+##         &quot;_score&quot;: 1,
+##         &quot;_source&quot;: {
+##           &quot;states&quot;: [
+##             &quot;New York&quot;,
+##             &quot;New Jersey&quot;,
+##             &quot;California&quot;
+##           ]
+##         }
+##       },
+##       {
+##         &quot;_index&quot;: &quot;test_index&quot;,
+##         &quot;_type&quot;: &quot;_doc&quot;,
+##         &quot;_id&quot;: &quot;2&quot;,
+##         &quot;_score&quot;: 1,
+##         &quot;_source&quot;: {
+##           &quot;states&quot;: [
+##             &quot;New York&quot;,
+##             &quot;North Carolina&quot;,
+##             &quot;North Dakota&quot;
+##           ]
+##         }
+##       }
+##     ]
+##   }
+## }</code></pre>
+</div>
+<div id="keyword-searches" class="section level4">
+<h4><code>keyword</code> searches</h4>
+<pre class="bash"><code>http POST localhost:9200/test_index/_search &lt;&lt;EOF 
+{
+  &quot;query&quot;: {
+    &quot;term&quot;: {
+      &quot;states.keyword&quot;: {
+        &quot;value&quot; : &quot;North Carolina&quot;
+      }
+    }
+  } 
+}
+EOF</code></pre>
+<pre><code>## {&quot;took&quot;:22,&quot;timed_out&quot;:false,&quot;_shards&quot;:{&quot;total&quot;:1,&quot;successful&quot;:1,&quot;skipped&quot;:0,&quot;failed&quot;:0},&quot;hits&quot;:{&quot;total&quot;:{&quot;value&quot;:1,&quot;relation&quot;:&quot;eq&quot;},&quot;max_score&quot;:0.9530774,&quot;hits&quot;:[{&quot;_index&quot;:&quot;test_index&quot;,&quot;_type&quot;:&quot;_doc&quot;,&quot;_id&quot;:&quot;2&quot;,&quot;_score&quot;:0.9530774,&quot;_source&quot;:{&quot;states&quot;:[&quot;New York&quot;,&quot;North Carolina&quot;,&quot;North Dakota&quot;]}}]}}</code></pre>
+<p>
+
+<div class="alert alert-note">
+  <div>
+    Doing a <code>term</code> or related <code>term</code> searches on a full text field will
+typically not work as expected.
+  </div>
+</div>
+</p>
+<pre class="bash"><code>http POST localhost:9200/test_index/_count &lt;&lt;EOF
+{
+  &quot;query&quot;: {
+    &quot;term&quot;: {
+      &quot;states&quot;: {
+        &quot;value&quot; : &quot;North Carolina&quot;
+      }
+    }
+  } 
+}
+EOF
+</code></pre>
+<pre><code>## {&quot;count&quot;:0,&quot;_shards&quot;:{&quot;total&quot;:1,&quot;successful&quot;:1,&quot;skipped&quot;:0,&quot;failed&quot;:0}}</code></pre>
+<p>
+
+<div class="alert alert-note">
+  <div>
+    Keyword fields are indexed <em>as-is</em>, so trying to do a term
+search on just part of the term will return no records.
+  </div>
+</div>
+</p>
+<p>Here is an example of a <code>term</code> search on a <em>keyword</em> field that will
+fail to return results because “North Carolina” is indexed as <em>a single term</em>.</p>
+<pre class="bash"><code>http POST localhost:9200/test_index/_count &lt;&lt;EOF |
+{
+  &quot;query&quot;: {
+    &quot;term&quot;: {
+      &quot;states.keyword&quot;: {
+        &quot;value&quot; : &quot;Carolina&quot;
+      }
+    }
+  } 
+}
+EOF
+ jq .count</code></pre>
+<pre><code>## 0</code></pre>
+</div>
+<div id="wildcard-and-prefix-searches" class="section level4">
+<h4><code>Wildcard</code> and <code>prefix</code> searches</h4>
+<pre class="bash"><code>http POST localhost:9200/test_index/_search &lt;&lt;EOF |
+{
+  &quot;query&quot;: {
+    &quot;wildcard&quot;: {
+      &quot;states.keyword&quot;: {
+        &quot;value&quot; : &quot;New*&quot;
+      }
+    }
+  } 
+}
+EOF
+ jq .hits</code></pre>
+<pre><code>## {
+##   &quot;total&quot;: {
+##     &quot;value&quot;: 2,
+##     &quot;relation&quot;: &quot;eq&quot;
+##   },
+##   &quot;max_score&quot;: 1,
+##   &quot;hits&quot;: [
+##     {
+##       &quot;_index&quot;: &quot;test_index&quot;,
+##       &quot;_type&quot;: &quot;_doc&quot;,
+##       &quot;_id&quot;: &quot;1&quot;,
+##       &quot;_score&quot;: 1,
+##       &quot;_source&quot;: {
+##         &quot;states&quot;: [
+##           &quot;New York&quot;,
+##           &quot;New Jersey&quot;,
+##           &quot;California&quot;
+##         ]
+##       }
+##     },
+##     {
+##       &quot;_index&quot;: &quot;test_index&quot;,
+##       &quot;_type&quot;: &quot;_doc&quot;,
+##       &quot;_id&quot;: &quot;2&quot;,
+##       &quot;_score&quot;: 1,
+##       &quot;_source&quot;: {
+##         &quot;states&quot;: [
+##           &quot;New York&quot;,
+##           &quot;North Carolina&quot;,
+##           &quot;North Dakota&quot;
+##         ]
+##       }
+##     }
+##   ]
+## }</code></pre>
+<p>The following <code>prefix</code> query is equivalent to the <code>wildcard</code> query above.</p>
+<pre class="bash"><code>http POST localhost:9200/test_index/_search &lt;&lt;EOF |
+{
+  &quot;query&quot;: {
+    &quot;prefix&quot;: {
+      &quot;states.keyword&quot;: {
+        &quot;value&quot; : &quot;New&quot;
+      }
+    }
+  } 
+}
+EOF
+ jq .hits</code></pre>
+<pre><code>## {
+##   &quot;total&quot;: {
+##     &quot;value&quot;: 2,
+##     &quot;relation&quot;: &quot;eq&quot;
+##   },
+##   &quot;max_score&quot;: 1,
+##   &quot;hits&quot;: [
+##     {
+##       &quot;_index&quot;: &quot;test_index&quot;,
+##       &quot;_type&quot;: &quot;_doc&quot;,
+##       &quot;_id&quot;: &quot;1&quot;,
+##       &quot;_score&quot;: 1,
+##       &quot;_source&quot;: {
+##         &quot;states&quot;: [
+##           &quot;New York&quot;,
+##           &quot;New Jersey&quot;,
+##           &quot;California&quot;
+##         ]
+##       }
+##     },
+##     {
+##       &quot;_index&quot;: &quot;test_index&quot;,
+##       &quot;_type&quot;: &quot;_doc&quot;,
+##       &quot;_id&quot;: &quot;2&quot;,
+##       &quot;_score&quot;: 1,
+##       &quot;_source&quot;: {
+##         &quot;states&quot;: [
+##           &quot;New York&quot;,
+##           &quot;North Carolina&quot;,
+##           &quot;North Dakota&quot;
+##         ]
+##       }
+##     }
+##   ]
+## }</code></pre>
+</div>
+<div id="full-text-searching" class="section level4">
+<h4>Full text searching</h4>
+<p>The <code>match</code> query performs full text searching for single words on
+single fields.</p>
+<pre class="bash"><code>http POST localhost:9200/test_index/_search &lt;&lt;EOF |
+{
+    &quot;query&quot;: {
+        &quot;match&quot; : {
+            &quot;states&quot; : &quot;carolina&quot;
+        }
+    }
+}
+EOF
+ jq .hits</code></pre>
+<pre><code>## {
+##   &quot;total&quot;: {
+##     &quot;value&quot;: 1,
+##     &quot;relation&quot;: &quot;eq&quot;
+##   },
+##   &quot;max_score&quot;: 0.6682933,
+##   &quot;hits&quot;: [
+##     {
+##       &quot;_index&quot;: &quot;test_index&quot;,
+##       &quot;_type&quot;: &quot;_doc&quot;,
+##       &quot;_id&quot;: &quot;2&quot;,
+##       &quot;_score&quot;: 0.6682933,
+##       &quot;_source&quot;: {
+##         &quot;states&quot;: [
+##           &quot;New York&quot;,
+##           &quot;North Carolina&quot;,
+##           &quot;North Dakota&quot;
+##         ]
+##       }
+##     }
+##   ]
+## }</code></pre>
+<p>
+
+<div class="alert alert-note">
+  <div>
+    Note that a full-text search by default does not do partial matching.
+  </div>
+</div>
+</p>
+<pre class="bash"><code>http POST localhost:9200/test_index/_search &lt;&lt;EOF |
+{
+    &quot;query&quot;: {
+        &quot;match&quot; : {
+            &quot;states&quot; : &quot;carol&quot;
+        }
+    }
+}
+EOF
+ jq .hits</code></pre>
+<pre><code>## {
+##   &quot;total&quot;: {
+##     &quot;value&quot;: 0,
+##     &quot;relation&quot;: &quot;eq&quot;
+##   },
+##   &quot;max_score&quot;: null,
+##   &quot;hits&quot;: []
+## }</code></pre>
+</div>
+</div>
+<div id="aggregations" class="section level3">
+<h3>Aggregations</h3>
+<pre class="bash"><code>http POST localhost:9200/test_index/_search &lt;&lt;EOF |
+{
+    &quot;aggs&quot;: {
+        &quot;state&quot;: {
+            &quot;terms&quot; : {
+                &quot;field&quot; : &quot;states.keyword&quot;
+            }
+        }
+    }
+}
+EOF
+ jq .aggregations</code></pre>
+<pre><code>## {
+##   &quot;state&quot;: {
+##     &quot;doc_count_error_upper_bound&quot;: 0,
+##     &quot;sum_other_doc_count&quot;: 0,
+##     &quot;buckets&quot;: [
+##       {
+##         &quot;key&quot;: &quot;New York&quot;,
+##         &quot;doc_count&quot;: 2
+##       },
+##       {
+##         &quot;key&quot;: &quot;California&quot;,
+##         &quot;doc_count&quot;: 1
+##       },
+##       {
+##         &quot;key&quot;: &quot;New Jersey&quot;,
+##         &quot;doc_count&quot;: 1
+##       },
+##       {
+##         &quot;key&quot;: &quot;North Carolina&quot;,
+##         &quot;doc_count&quot;: 1
+##       },
+##       {
+##         &quot;key&quot;: &quot;North Dakota&quot;,
+##         &quot;doc_count&quot;: 1
+##       }
+##     ]
+##   }
+## }</code></pre>
+</div>
+</div>
+
+    </div>
+
+    
+
+
+
+
+
+
+
+
+<div class="share-box" aria-hidden="true">
+  <ul class="share">
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="https://twitter.com/intent/tweet?url=/post/elasticsearch-strings-runthrough/&amp;text=Elasticsearch%20Strings%20Runthrough" target="_blank" rel="noopener" class="share-btn-twitter">
+          <i class="fab fa-twitter"></i>
+        </a>
+      </li>
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="https://www.facebook.com/sharer.php?u=/post/elasticsearch-strings-runthrough/&amp;t=Elasticsearch%20Strings%20Runthrough" target="_blank" rel="noopener" class="share-btn-facebook">
+          <i class="fab fa-facebook"></i>
+        </a>
+      </li>
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="mailto:?subject=Elasticsearch%20Strings%20Runthrough&amp;body=/post/elasticsearch-strings-runthrough/" target="_blank" rel="noopener" class="share-btn-email">
+          <i class="fas fa-envelope"></i>
+        </a>
+      </li>
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="https://www.linkedin.com/shareArticle?url=/post/elasticsearch-strings-runthrough/&amp;title=Elasticsearch%20Strings%20Runthrough" target="_blank" rel="noopener" class="share-btn-linkedin">
+          <i class="fab fa-linkedin-in"></i>
+        </a>
+      </li>
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="whatsapp://send?text=Elasticsearch%20Strings%20Runthrough%20/post/elasticsearch-strings-runthrough/" target="_blank" rel="noopener" class="share-btn-whatsapp">
+          <i class="fab fa-whatsapp"></i>
+        </a>
+      </li>
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="https://service.weibo.com/share/share.php?url=/post/elasticsearch-strings-runthrough/&amp;title=Elasticsearch%20Strings%20Runthrough" target="_blank" rel="noopener" class="share-btn-weibo">
+          <i class="fab fa-weibo"></i>
+        </a>
+      </li>
+    
+  </ul>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+
+
+
+  
+  
+  
+    
+  
+  
+  
+  <div class="media author-card content-widget-hr">
+    
+
+    <div class="media-body">
+      <h5 class="card-title"></h5>
+      <h6 class="card-subtitle">Senior Associate Scientist</h6>
+      <p class="card-text">My interests include biomedical data science, open data, genomics, and cancer research.</p>
+      <ul class="network-icon" aria-hidden="true">
+  
+    
+    
+    
+      
+    
+    
+    
+    
+    
+    <li>
+      <a href="mailto:seandavi@gmail.com" >
+        <i class="fas fa-envelope"></i>
+      </a>
+    </li>
+  
+    
+    
+    
+      
+    
+    
+    
+    
+    
+      
+    
+    <li>
+      <a href="https://twitter.com/seandavis12" target="_blank" rel="noopener">
+        <i class="fab fa-twitter"></i>
+      </a>
+    </li>
+  
+    
+    
+    
+    
+    
+    
+    
+      
+    
+    <li>
+      <a href="https://scholar.google.co.uk/citations?user=hLFc29kAAAAJ" target="_blank" rel="noopener">
+        <i class="ai ai-google-scholar"></i>
+      </a>
+    </li>
+  
+    
+    
+    
+      
+    
+    
+    
+    
+    
+      
+    
+    <li>
+      <a href="https://github.com/seandavi" target="_blank" rel="noopener">
+        <i class="fab fa-github"></i>
+      </a>
+    </li>
+  
+    
+    
+    
+    
+    
+    
+    
+      
+    
+    <li>
+      <a href="/files/CV.pdf" >
+        <i class="ai ai-cv"></i>
+      </a>
+    </li>
+  
+</ul>
+
+    </div>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+  </div>
+</article>
+  </div>
+
+  <div class="page-footer">
+    
+    
+    <div class="container">
+      <footer class="site-footer">
+  
+
+  <p class="powered-by">
+    
+  </p>
+
+  
+  
+
+
+
+
+
+
+  <p class="powered-by">
+    
+    
+    
+    Published with
+    <a href="https://wowchemy.com/?utm_campaign=poweredby" target="_blank" rel="noopener">Wowchemy</a>  —
+    the free, <a href="https://github.com/wowchemy/wowchemy-hugo-modules" target="_blank" rel="noopener">
+    open source</a> website builder that empowers creators.
+    
+  </p>
+</footer>
+
+    </div>
+    
+  </div>
+
+  
+<div id="modal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Cite</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <pre><code class="tex hljs"></code></pre>
+      </div>
+      <div class="modal-footer">
+        <a class="btn btn-outline-primary my-1 js-copy-cite" href="#" target="_blank">
+          <i class="fas fa-copy"></i> Copy
+        </a>
+        <a class="btn btn-outline-primary my-1 js-download-cite" href="#" target="_blank">
+          <i class="fas fa-download"></i> Download
+        </a>
+        <div id="modal-error"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+      
+
+    
+    
+    
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
+
+      
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.imagesloaded/4.1.4/imagesloaded.pkgd.min.js" integrity="sha256-lqvxZrPLtfffUl2G/e7szqSvPBILGbwmsGE1MKlOi0Q=" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.isotope/3.0.6/isotope.pkgd.min.js" integrity="sha256-CBrpuqrMhXwcLLUd5tvQ4euBHCdh7wGlDfNz8vbu/iI=" crossorigin="anonymous"></script>
+      
+
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js" integrity="sha256-yt2kYMy0w8AbtF89WXb2P1rfjcP/HTHLT7097U8Y5b8=" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/instant.page/5.1.0/instantpage.min.js" integrity="sha512-1+qUtKoh9XZW7j+6LhRMAyOrgSQKenQ4mluTR+cvxXjP1Z54RxZuzstR/H9kgPXQsVB8IW7DMDFUJpzLjvhGSQ==" crossorigin="anonymous"></script>
+
+      
+
+      
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.2.0/highlight.min.js" integrity="sha512-TDKKr+IvoqZnPzc3l35hdjpHD0m+b2EC2SrLEgKDRWpxf2rFCxemkgvJ5kfU48ip+Y+m2XVKyOCD85ybtlZDmw==" crossorigin="anonymous"></script>
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.2.0/languages/r.min.js"></script>
+        
+      
+
+    
+
+    
+    
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/leaflet.min.js" integrity="sha512-SeiQaaDh73yrb56sTW/RgVdi/mMqNeM2oBwubFHagc5BkixSpP1fvqF47mKzPGWYSSy4RwbBunrJBQ4Co8fRWA==" crossorigin="anonymous"></script>
+    
+
+    
+    
+    <script>const code_highlighting = true;</script>
+    
+
+    
+    
+    
+    
+    
+    
+    <script>
+      const search_config = {"indexURI":"/index.json","minLength":1,"threshold":0.3};
+      const i18n = {"no_results":"No results found","placeholder":"Search...","results":"results found"};
+      const content_type = {
+        'post': "Posts",
+        'project': "Projects",
+        'publication' : "Publications",
+        'talk' : "Talks",
+        'slides' : "Slides"
+        };
+    </script>
+    
+
+    
+    
+
+    
+    
+    <script id="search-hit-fuse-template" type="text/x-template">
+      <div class="search-hit" id="summary-{{key}}">
+      <div class="search-hit-content">
+        <div class="search-hit-name">
+          <a href="{{relpermalink}}">{{title}}</a>
+          <div class="article-metadata search-hit-type">{{type}}</div>
+          <p class="search-hit-description">{{snippet}}</p>
+        </div>
+      </div>
+      </div>
+    </script>
+    
+
+    
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/3.2.1/fuse.min.js" integrity="sha256-VzgmKYmhsGNNN4Ph1kMW+BjoYJM2jV5i4IlFoeZA9XI=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/jquery.mark.min.js" integrity="sha256-4HLtjeVgH0eIB3aZ9mLYF6E8oU5chNdjU6p6rrXpl9U=" crossorigin="anonymous"></script>
+    
+
+    
+    
+
+    
+    
+    
+
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+      
+    
+    
+    
+    
+    <script src="/js/wowchemy.min.ffabb05383f1b16d83e7181a605e644c.js"></script>
+
+    
+
+
+
+
+
+
+</body>
+</html>

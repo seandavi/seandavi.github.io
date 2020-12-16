@@ -1,0 +1,1497 @@
+<!DOCTYPE html><html lang="en-us" >
+
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  
+  
+  
+  <meta name="generator" content="Wowchemy 5.0.0-beta.1 for Hugo">
+  
+
+  
+
+  
+  
+
+  
+  
+  
+  
+  
+    
+    
+    
+  
+  
+
+  
+
+  
+  
+  
+    
+  
+  <meta name="description" content="Availability: This ipython notebook is available at https://github.com/seandavi/omicidx_examples.
+OmicIDX is a project to democratize access to omics metadata. As the sizes of omics repositories have grown into the millions of available samples, thinking of the metadata themselves as Big Data seems reasonable.">
+
+  
+  <link rel="alternate" hreflang="en-us" href="/post/omicidx_bigquery_python/">
+
+  
+
+
+
+
+
+
+
+  
+
+
+
+
+  
+  
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  
+
+  
+  
+  
+  <meta name="theme-color" content="#2962ff">
+  
+
+  
+  
+
+  
+  
+  
+  
+    
+    
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/academicons/1.9.0/css/academicons.min.css" integrity="sha512-W4yqoT1+8NLkinBLBZko+dFB2ZbHsYLDdr50VElllRcNt2Q4/GSs6u71UHKxB7S6JEMCp5Ve4xjh3eGQl/HRvg==" crossorigin="anonymous">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" integrity="sha256-FMvZuGapsJLjouA6k7Eo2lusoAX9i0ShlWFG6qt7SLc=" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css" integrity="sha256-Vzbj7sDDS/woiFS3uNKo8eIuni59rjyNGtXfstRzStA=" crossorigin="anonymous">
+
+    
+    
+    
+      
+    
+    
+      
+      
+        
+          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.2.0/styles/github.min.css" crossorigin="anonymous" title="hl-light">
+          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.2.0/styles/dracula.min.css" crossorigin="anonymous" title="hl-dark" disabled>
+        
+      
+    
+
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/leaflet.min.css" integrity="sha512-1xoFisiGdy9nvho8EgXuXvnpR5GAMSjFwp40gSRE3NwdUdIMIKuPa7bqoUhLD0O/5tPNhteAsE5XyyMi5reQVA==" crossorigin="anonymous">
+    
+
+    
+
+    
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/lazysizes/5.2.2/lazysizes.min.js" integrity="sha512-TmDwFLhg3UA4ZG0Eb4MIyT1O1Mb+Oww5kFG0uHqXsdbyZz9DcvYQhKpGgNkamAI6h2lGGZq2X8ftOJvF/XjTUg==" crossorigin="anonymous" async></script>
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+        
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+
+  
+
+  
+  
+  
+    
+      
+      
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:400,700%7CRoboto:400,400italic,700%7CRoboto+Mono&display=swap">
+    
+  
+
+  
+  
+  
+  
+  <link rel="stylesheet" href="/css/wowchemy.min.2da9fc7ecccb62374ee4667dc6583d14.css">
+
+  
+
+
+
+
+  
+
+  
+
+
+  
+  
+
+  
+
+  <link rel="manifest" href="/index.webmanifest">
+  <link rel="icon" type="image/png" href="/images/icon_hu0b7a4cb9992c9ac0e91bd28ffd38dd00_9727_32x32_fill_lanczos_center_2.png">
+  <link rel="apple-touch-icon" type="image/png" href="/images/icon_hu0b7a4cb9992c9ac0e91bd28ffd38dd00_9727_192x192_fill_lanczos_center_2.png">
+
+  <link rel="canonical" href="/post/omicidx_bigquery_python/">
+
+  
+  
+  
+  
+  
+  
+  
+    
+    
+  
+  
+  <meta property="twitter:card" content="summary">
+  
+  <meta property="og:site_name" content="Academic">
+  <meta property="og:url" content="/post/omicidx_bigquery_python/">
+  <meta property="og:title" content="OmicIDX on BigQuery | Academic">
+  <meta property="og:description" content="Availability: This ipython notebook is available at https://github.com/seandavi/omicidx_examples.
+OmicIDX is a project to democratize access to omics metadata. As the sizes of omics repositories have grown into the millions of available samples, thinking of the metadata themselves as Big Data seems reasonable."><meta property="og:image" content="/images/icon_hu0b7a4cb9992c9ac0e91bd28ffd38dd00_9727_512x512_fill_lanczos_center_2.png">
+  <meta property="twitter:image" content="/images/icon_hu0b7a4cb9992c9ac0e91bd28ffd38dd00_9727_512x512_fill_lanczos_center_2.png"><meta property="og:locale" content="en-us">
+  
+    
+      <meta property="article:published_time" content="2019-06-04T00:00:00&#43;00:00">
+    
+    <meta property="article:modified_time" content="2019-06-04T00:00:00&#43;00:00">
+  
+
+  
+
+
+    
+
+
+
+
+
+
+  
+
+
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "/post/omicidx_bigquery_python/"
+  },
+  "headline": "OmicIDX on BigQuery",
+  
+  "datePublished": "2019-06-04T00:00:00Z",
+  "dateModified": "2019-06-04T00:00:00Z",
+  
+  "publisher": {
+    "@type": "Organization",
+    "name": "Academic",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "/images/icon_hu0b7a4cb9992c9ac0e91bd28ffd38dd00_9727_192x192_fill_lanczos_center_2.png"
+    }
+  },
+  "description": "Availability: This ipython notebook is available at https://github.com/seandavi/omicidx_examples.\nOmicIDX is a project to democratize access to omics metadata. As the sizes of omics repositories have grown into the millions of available samples, thinking of the metadata themselves as Big Data seems reasonable."
+}
+</script>
+
+  
+
+  
+
+
+  
+
+
+  
+
+
+
+
+
+  <title>OmicIDX on BigQuery | Academic</title>
+
+</head>
+
+
+<body id="top" data-spy="scroll" data-offset="70" data-target="#TableOfContents" class="page-wrapper  ">
+
+  
+  
+  
+  
+  
+  <script src="/js/wowchemy-init.js"></script>
+
+  <aside class="search-results" id="search">
+  <div class="container">
+    <section class="search-header">
+
+      <div class="row no-gutters justify-content-between mb-3">
+        <div class="col-6">
+          <h1>Search</h1>
+        </div>
+        <div class="col-6 col-search-close">
+          <a class="js-search" href="#"><i class="fas fa-times-circle text-muted" aria-hidden="true"></i></a>
+        </div>
+      </div>
+
+      <div id="search-box">
+        
+        <input name="q" id="search-query" placeholder="Search..." autocapitalize="off"
+        autocomplete="off" autocorrect="off" spellcheck="false" type="search" class="form-control">
+        
+      </div>
+
+    </section>
+    <section class="section-search-results">
+
+      <div id="search-hits">
+        
+      </div>
+
+    </section>
+  </div>
+</aside>
+
+
+  <div class="page-header">
+    
+
+
+
+
+
+
+
+
+
+
+
+
+<nav class="navbar navbar-expand-lg navbar-light compensate-for-scrollbar" id="navbar-main">
+  <div class="container">
+
+    
+    <div class="d-none d-lg-inline-flex">
+      <a class="navbar-brand" href="/">Academic</a>
+    </div>
+    
+
+    
+    <button type="button" class="navbar-toggler" data-toggle="collapse"
+            data-target="#navbar-content" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
+    <span><i class="fas fa-bars"></i></span>
+    </button>
+    
+
+    
+    <div class="navbar-brand-mobile-wrapper d-inline-flex d-lg-none">
+      <a class="navbar-brand" href="/">Academic</a>
+    </div>
+    
+
+    
+    
+    <div class="navbar-collapse main-menu-item collapse justify-content-start" id="navbar-content">
+
+      
+      <ul class="navbar-nav d-md-inline-flex">
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+
+        
+        
+        
+        
+
+        
+          
+            
+            
+          
+          
+            
+            
+            
+              
+            
+            
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/#about"><span>Home</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+
+        
+        
+        
+        
+
+        
+          
+            
+            
+          
+          
+            
+            
+            
+              
+            
+            
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/#posts"><span>Posts</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+
+        
+        
+        
+        
+
+        
+          
+            
+            
+          
+          
+            
+            
+            
+              
+            
+            
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/#projects"><span>Projects</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+
+        
+        
+        
+        
+
+        
+          
+            
+            
+          
+          
+            
+            
+            
+              
+            
+            
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/#talks"><span>Talks</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+
+        
+        
+        
+        
+
+        
+          
+            
+            
+          
+          
+            
+            
+            
+              
+            
+            
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/#featured"><span>Publications</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+
+        
+        
+        
+        
+
+        
+          
+            
+            
+          
+          
+            
+            
+            
+              
+            
+            
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/#contact"><span>Contact</span></a>
+        </li>
+
+        
+        
+
+      
+
+        
+      </ul>
+    </div>
+
+    <ul class="nav-icons navbar-nav flex-row ml-auto d-flex pl-md-2">
+      
+      
+      <li class="nav-item">
+        <a class="nav-link js-search" href="#" aria-label="Search"><i class="fas fa-search" aria-hidden="true"></i></a>
+      </li>
+      
+
+      
+      
+      <li class="nav-item dropdown theme-dropdown">
+        <a href="#" class="nav-link" data-toggle="dropdown" aria-haspopup="true" aria-label="Display preferences">
+          <i class="fas fa-moon" aria-hidden="true"></i>
+        </a>
+        <div class="dropdown-menu">
+          <a href="#" class="dropdown-item js-set-theme-light">
+            <span>Light</span>
+          </a>
+          <a href="#" class="dropdown-item js-set-theme-dark">
+            <span>Dark</span>
+          </a>
+          <a href="#" class="dropdown-item js-set-theme-auto">
+            <span>Automatic</span>
+          </a>
+        </div>
+      </li>
+      
+
+      
+
+    </ul>
+
+  </div>
+</nav>
+
+
+  </div>
+
+  <div class="page-body">
+    <article class="article">
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+  
+  
+<div class="article-container pt-3">
+  <h1>OmicIDX on BigQuery</h1>
+
+  
+
+  
+    
+
+
+<div class="article-metadata">
+
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    Jun 4, 2019
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    5 min read
+  </span>
+  
+
+  
+  
+  
+  
+  
+
+  
+  
+
+</div>
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+</div>
+
+
+
+  <div class="article-container">
+
+    <div class="article-style">
+      <p><em>Availability</em>: This ipython notebook is available at <a href="https://github.com/seandavi/omicidx_examples">https://github.com/seandavi/omicidx_examples</a>.</p>
+<p>OmicIDX is a project to democratize access to omics <em>metadata</em>. As the sizes of omics
+repositories have grown into the millions of available samples, thinking of the
+metadata themselves as <strong>Big Data</strong> seems reasonable. Additionally, by making the
+metadata more fit-for-use for text mining, natural language processing, ingestion into
+machine learning or search engines, OmicIDX aims to facilitate augmentation and analysis
+of these metadata.</p>
+<p>In practice, the OmicIDX mines data from the NCBI <a href="https://trace.ncbi.nlm.nih.gov/Traces/sra/sra.cgi?" target="_blank" rel="noopener">Sequence Read Archive (SRA)</a> (updated monthly) and
+NCBI <a href="https://www.ncbi.nlm.nih.gov/biosample/" target="_blank" rel="noopener">Biosample</a> databases (updated daily).</p>
+<h2 id="what-is-bigquery">What is BigQuery?</h2>
+<p>[BigQuery] is an enterprise data warehouse and database. It is managed by Google, meaning
+there are no servers to set up, storage to manage, or configuration. Access to data stored in
+BigQuery can be public, limited to individuals, or to just the owner.</p>
+<p>In the case of OmicIDX, the data in BigQuery are publicly accessible. Querying the data
+still requires an account and billing to be activated, but Google offers free credits to
+new users that will allow <em>many</em> queries against the OmicIDX data.</p>
+<h1 id="getting-started">Getting started</h1>
+<p>Before using BigQuery in python, one needs to create an account with Google and activate the
+BigQuery engine.</p>
+<p><strong>See <a href="https://cloud.google.com/bigquery/docs/quickstarts/quickstart-web-ui" target="_blank" rel="noopener">here</a> for the quickstart
+tutorial. (5 minutes)</strong></p>
+<p>After completing the quickstart, navigate to:</p>
+<p><a href="https://console.cloud.google.com/bigquery?project=isb-cgc-01-0006&amp;folder&amp;organizationId&amp;p=isb-cgc-01-0006&amp;d=omicidx&amp;page=dataset">https://console.cloud.google.com/bigquery?project=isb-cgc-01-0006&amp;folder&amp;organizationId&amp;p=isb-cgc-01-0006&amp;d=omicidx&amp;page=dataset</a></p>
+<p>On the left panel, you should now see the <code>isb-cgc-01-0006</code> project. Expanding that item, the <code>omicidx</code>
+dataset is available.</p>
+<p>At this point, explore the OmicIDX data via the Google Console. BigQuery uses standard SQL
+for queries.</p>
+<h1 id="python-access-to-bigquery">Python access to BigQuery</h1>
+<ul>
+<li>Install <a href="https://cloud.google.com/bigquery/docs/reference/libraries" target="_blank" rel="noopener">google-cloud-bigquery</a> and follow instructions
+go get started.</li>
+</ul>
+<p>Note that while I am using python here, BigQuery client libraries are available for
+many languages. A command-line client (bq) is also available for shell scripting, etc.</p>
+<h1 id="examples">Examples</h1>
+<p>From here on out, the code can speak for itself. For more details on using BigQuery from python, check out the <a href="https://googleapis.github.io/google-cloud-python/latest/bigquery/index.html" target="_blank" rel="noopener">documentation</a></p>
+<pre><code class="language-python">from google.cloud import bigquery
+</code></pre>
+<pre><code class="language-python">import warnings
+warnings.filterwarnings('ignore')
+</code></pre>
+<pre><code class="language-python">client = bigquery.Client()
+</code></pre>
+<h2 id="studies-published-by-year">Studies published by year</h2>
+<pre><code class="language-python">sql_query = &quot;&quot;&quot;
+SELECT 
+    DATE(
+    EXTRACT(YEAR FROM published),
+    EXTRACT(MONTH FROM published),
+    1) as month,
+    count(*) as studies
+FROM `isb-cgc-01-0006.omicidx.sra_study` 
+where published &lt;= CURRENT_TIMESTAMP()
+GROUP BY month
+ORDER BY month desc;
+&quot;&quot;&quot;
+</code></pre>
+<p>Here, use a convenience method to convert results to a pandas dataframe.</p>
+<pre><code class="language-python">res = client.query(sql_query).to_dataframe()
+</code></pre>
+<pre><code class="language-python">res.head()
+</code></pre>
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+<pre><code>.dataframe tbody tr th {
+    vertical-align: top;
+}
+
+.dataframe thead th {
+    text-align: right;
+}
+</code></pre>
+<p></style></p>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>month</th>
+      <th>studies</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>2019-08-01</td>
+      <td>319</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>2019-07-01</td>
+      <td>4946</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>2019-06-01</td>
+      <td>2800</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>2019-05-01</td>
+      <td>5595</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>2019-04-01</td>
+      <td>4227</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+<p>The <a href="https://seaborn.pydata.org/" target="_blank" rel="noopener">seaborn</a> library is a high-level plotting library based on matplotlib.</p>
+<pre><code class="language-python">import matplotlib.pyplot as plt
+plt.figure(figsize=(16, 8))
+import seaborn as sns
+sns.scatterplot(x = &quot;month&quot;, y = &quot;studies&quot;, data = res)
+</code></pre>
+<pre><code>&lt;matplotlib.axes._subplots.AxesSubplot at 0x11ee4ba20&gt;
+</code></pre>
+<h2 id="experiments-by-type">Experiments by type</h2>
+<p>The <code>sra_experiment</code> table contains most of the details about the experimental
+strategies. In particular, the <code>library_strategy</code> column</p>
+<pre><code class="language-python">sql_query = &quot;&quot;&quot;
+SELECT library_strategy, count(*) as count
+FROM `isb-cgc-01-0006.omicidx.sra_experiment`
+GROUP BY library_strategy 
+ORDER BY count desc&quot;&quot;&quot;
+</code></pre>
+<pre><code class="language-python">res = client.query(sql_query).to_dataframe()
+</code></pre>
+<pre><code class="language-python">res.head(15)
+</code></pre>
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+<pre><code>.dataframe tbody tr th {
+    vertical-align: top;
+}
+
+.dataframe thead th {
+    text-align: right;
+}
+</code></pre>
+<p></style></p>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>library_strategy</th>
+      <th>count</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>WGS</td>
+      <td>1964510</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>AMPLICON</td>
+      <td>1628660</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>RNA-Seq</td>
+      <td>1470370</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>OTHER</td>
+      <td>606406</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>WXS</td>
+      <td>322459</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>ChIP-Seq</td>
+      <td>142978</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>CLONE</td>
+      <td>135932</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>RAD-Seq</td>
+      <td>78845</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>Targeted-Capture</td>
+      <td>62990</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>POOLCLONE</td>
+      <td>57912</td>
+    </tr>
+    <tr>
+      <th>10</th>
+      <td>Bisulfite-Seq</td>
+      <td>52425</td>
+    </tr>
+    <tr>
+      <th>11</th>
+      <td>miRNA-Seq</td>
+      <td>45051</td>
+    </tr>
+    <tr>
+      <th>12</th>
+      <td>ATAC-seq</td>
+      <td>37000</td>
+    </tr>
+    <tr>
+      <th>13</th>
+      <td>WGA</td>
+      <td>36621</td>
+    </tr>
+    <tr>
+      <th>14</th>
+      <td>SELEX</td>
+      <td>30146</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+<h2 id="number-of-cancer-studies">Number of &ldquo;cancer&rdquo; studies</h2>
+<p>BigQuery is a capable system even for full text searching. In this case,
+the <code>abstract</code>, <code>title</code>, and <code>description</code> fields for a study contain the
+largest amount of free text. Searching each separately is a possibility,
+but BigQuery has a <code>CONCAT</code> operator that can build up a single long string
+for search. Converting that string to all lower-case (using <code>LOWER</code>) facilitates
+case-insensitive search for <code>cancer</code>. Note that in SQL, the wildcard character
+is <code>%</code>.</p>
+<pre><code class="language-python">sql_query = &quot;&quot;&quot;
+SELECT count(*) as count
+FROM `isb-cgc-01-0006.omicidx.sra_study`
+WHERE LOWER(CONCAT(abstract, &quot; &quot;, title, &quot; &quot;, description)) like '%cancer%'
+&quot;&quot;&quot;
+</code></pre>
+<pre><code class="language-python">res = client.query(sql_query).to_dataframe()
+</code></pre>
+<pre><code class="language-python">print(&quot;There are {0} studies in which `cancer`  appears in the title, abstract, or description&quot;.format( res['count'][0]))
+</code></pre>
+<pre><code>There are 770 studies in which `cancer`  appears in the title, abstract, or description
+</code></pre>
+<h2 id="distribution-of-number-of-attributes-per-sample">Distribution of number of attributes per sample</h2>
+<p>The <code>sra_sample</code> table contains most of the metadata that are associated with
+the &ldquo;phenotype&rdquo; or &ldquo;characteristics&rdquo; of the sample. The sample attributes are
+included in a &ldquo;nested column&rdquo; in BigQuery. The array length
+of that the <code>attributes</code> column then gives the number of distinct attributes
+for each sample. While pulling those results, one-per-sample, back into python
+is one way to proceed, writing a SQL query that creates the histogram for us
+will be more efficient.</p>
+<pre><code class="language-python">sql_query = &quot;&quot;&quot;
+with t as
+  (SELECT array_length(attributes) as attribute_count
+  FROM `isb-cgc-01-0006.omicidx.sra_sample`) 
+SELECT t.attribute_count, count(*) as nbr_of_samples
+  FROM t
+  GROUP BY attribute_count
+  ORDER BY attribute_count asc
+&quot;&quot;&quot;
+</code></pre>
+<pre><code class="language-python">res = client.query(sql_query).to_dataframe()
+</code></pre>
+<pre><code class="language-python">plt.figure(figsize=(16, 8))
+g = sns.scatterplot(x=&quot;attribute_count&quot;, y=&quot;nbr_of_samples&quot;, data=res)
+g.set_yscale('log')
+plt.show()
+</code></pre>
+<p><img src="output_23_0.png" alt="png"></p>
+<h1 id="conclusion">Conclusion</h1>
+<p>This little post is just to whet the appetite. BigQuery is a new technology
+for many informatics folks, but it is quite powerful, extensible, and is
+nearly free for datasets of even modest size. With libraries for R, python,
+java, as well as a simple command-line client, access to OmicIDX in BigQuery
+is well-supported.</p>
+<p>Other approaches to accessing OmicIDX data are forthcoming.</p>
+<pre><code class="language-python">
+</code></pre>
+
+    </div>
+
+    
+
+
+
+
+
+
+
+
+<div class="share-box" aria-hidden="true">
+  <ul class="share">
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="https://twitter.com/intent/tweet?url=/post/omicidx_bigquery_python/&amp;text=OmicIDX%20on%20BigQuery" target="_blank" rel="noopener" class="share-btn-twitter">
+          <i class="fab fa-twitter"></i>
+        </a>
+      </li>
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="https://www.facebook.com/sharer.php?u=/post/omicidx_bigquery_python/&amp;t=OmicIDX%20on%20BigQuery" target="_blank" rel="noopener" class="share-btn-facebook">
+          <i class="fab fa-facebook"></i>
+        </a>
+      </li>
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="mailto:?subject=OmicIDX%20on%20BigQuery&amp;body=/post/omicidx_bigquery_python/" target="_blank" rel="noopener" class="share-btn-email">
+          <i class="fas fa-envelope"></i>
+        </a>
+      </li>
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="https://www.linkedin.com/shareArticle?url=/post/omicidx_bigquery_python/&amp;title=OmicIDX%20on%20BigQuery" target="_blank" rel="noopener" class="share-btn-linkedin">
+          <i class="fab fa-linkedin-in"></i>
+        </a>
+      </li>
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="whatsapp://send?text=OmicIDX%20on%20BigQuery%20/post/omicidx_bigquery_python/" target="_blank" rel="noopener" class="share-btn-whatsapp">
+          <i class="fab fa-whatsapp"></i>
+        </a>
+      </li>
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="https://service.weibo.com/share/share.php?url=/post/omicidx_bigquery_python/&amp;title=OmicIDX%20on%20BigQuery" target="_blank" rel="noopener" class="share-btn-weibo">
+          <i class="fab fa-weibo"></i>
+        </a>
+      </li>
+    
+  </ul>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+
+
+
+  
+  
+  
+    
+  
+  
+  
+  <div class="media author-card content-widget-hr">
+    
+
+    <div class="media-body">
+      <h5 class="card-title"></h5>
+      <h6 class="card-subtitle">Senior Associate Scientist</h6>
+      <p class="card-text">My interests include biomedical data science, open data, genomics, and cancer research.</p>
+      <ul class="network-icon" aria-hidden="true">
+  
+    
+    
+    
+      
+    
+    
+    
+    
+    
+    <li>
+      <a href="mailto:seandavi@gmail.com" >
+        <i class="fas fa-envelope"></i>
+      </a>
+    </li>
+  
+    
+    
+    
+      
+    
+    
+    
+    
+    
+      
+    
+    <li>
+      <a href="https://twitter.com/seandavis12" target="_blank" rel="noopener">
+        <i class="fab fa-twitter"></i>
+      </a>
+    </li>
+  
+    
+    
+    
+    
+    
+    
+    
+      
+    
+    <li>
+      <a href="https://scholar.google.co.uk/citations?user=hLFc29kAAAAJ" target="_blank" rel="noopener">
+        <i class="ai ai-google-scholar"></i>
+      </a>
+    </li>
+  
+    
+    
+    
+      
+    
+    
+    
+    
+    
+      
+    
+    <li>
+      <a href="https://github.com/seandavi" target="_blank" rel="noopener">
+        <i class="fab fa-github"></i>
+      </a>
+    </li>
+  
+    
+    
+    
+    
+    
+    
+    
+      
+    
+    <li>
+      <a href="/files/CV.pdf" >
+        <i class="ai ai-cv"></i>
+      </a>
+    </li>
+  
+</ul>
+
+    </div>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+  </div>
+</article>
+  </div>
+
+  <div class="page-footer">
+    
+    
+    <div class="container">
+      <footer class="site-footer">
+  
+
+  <p class="powered-by">
+    
+  </p>
+
+  
+  
+
+
+
+
+
+
+  <p class="powered-by">
+    
+    
+    
+    Published with
+    <a href="https://wowchemy.com/?utm_campaign=poweredby" target="_blank" rel="noopener">Wowchemy</a>  —
+    the free, <a href="https://github.com/wowchemy/wowchemy-hugo-modules" target="_blank" rel="noopener">
+    open source</a> website builder that empowers creators.
+    
+  </p>
+</footer>
+
+    </div>
+    
+  </div>
+
+  
+<div id="modal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Cite</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <pre><code class="tex hljs"></code></pre>
+      </div>
+      <div class="modal-footer">
+        <a class="btn btn-outline-primary my-1 js-copy-cite" href="#" target="_blank">
+          <i class="fas fa-copy"></i> Copy
+        </a>
+        <a class="btn btn-outline-primary my-1 js-download-cite" href="#" target="_blank">
+          <i class="fas fa-download"></i> Download
+        </a>
+        <div id="modal-error"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+      
+
+    
+    
+    
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
+
+      
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.imagesloaded/4.1.4/imagesloaded.pkgd.min.js" integrity="sha256-lqvxZrPLtfffUl2G/e7szqSvPBILGbwmsGE1MKlOi0Q=" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.isotope/3.0.6/isotope.pkgd.min.js" integrity="sha256-CBrpuqrMhXwcLLUd5tvQ4euBHCdh7wGlDfNz8vbu/iI=" crossorigin="anonymous"></script>
+      
+
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js" integrity="sha256-yt2kYMy0w8AbtF89WXb2P1rfjcP/HTHLT7097U8Y5b8=" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/instant.page/5.1.0/instantpage.min.js" integrity="sha512-1+qUtKoh9XZW7j+6LhRMAyOrgSQKenQ4mluTR+cvxXjP1Z54RxZuzstR/H9kgPXQsVB8IW7DMDFUJpzLjvhGSQ==" crossorigin="anonymous"></script>
+
+      
+
+      
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.2.0/highlight.min.js" integrity="sha512-TDKKr+IvoqZnPzc3l35hdjpHD0m+b2EC2SrLEgKDRWpxf2rFCxemkgvJ5kfU48ip+Y+m2XVKyOCD85ybtlZDmw==" crossorigin="anonymous"></script>
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.2.0/languages/r.min.js"></script>
+        
+      
+
+    
+
+    
+    
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/leaflet.min.js" integrity="sha512-SeiQaaDh73yrb56sTW/RgVdi/mMqNeM2oBwubFHagc5BkixSpP1fvqF47mKzPGWYSSy4RwbBunrJBQ4Co8fRWA==" crossorigin="anonymous"></script>
+    
+
+    
+    
+    <script>const code_highlighting = true;</script>
+    
+
+    
+    
+    
+    
+    
+    
+    <script>
+      const search_config = {"indexURI":"/index.json","minLength":1,"threshold":0.3};
+      const i18n = {"no_results":"No results found","placeholder":"Search...","results":"results found"};
+      const content_type = {
+        'post': "Posts",
+        'project': "Projects",
+        'publication' : "Publications",
+        'talk' : "Talks",
+        'slides' : "Slides"
+        };
+    </script>
+    
+
+    
+    
+
+    
+    
+    <script id="search-hit-fuse-template" type="text/x-template">
+      <div class="search-hit" id="summary-{{key}}">
+      <div class="search-hit-content">
+        <div class="search-hit-name">
+          <a href="{{relpermalink}}">{{title}}</a>
+          <div class="article-metadata search-hit-type">{{type}}</div>
+          <p class="search-hit-description">{{snippet}}</p>
+        </div>
+      </div>
+      </div>
+    </script>
+    
+
+    
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/3.2.1/fuse.min.js" integrity="sha256-VzgmKYmhsGNNN4Ph1kMW+BjoYJM2jV5i4IlFoeZA9XI=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/jquery.mark.min.js" integrity="sha256-4HLtjeVgH0eIB3aZ9mLYF6E8oU5chNdjU6p6rrXpl9U=" crossorigin="anonymous"></script>
+    
+
+    
+    
+
+    
+    
+    
+
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+      
+    
+    
+    
+    
+    <script src="/js/wowchemy.min.ffabb05383f1b16d83e7181a605e644c.js"></script>
+
+    
+
+
+
+
+
+
+</body>
+</html>

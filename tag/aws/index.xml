@@ -1,0 +1,279 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>AWS | Academic</title>
+    <link>/tag/aws/</link>
+      <atom:link href="/tag/aws/index.xml" rel="self" type="application/rss+xml" />
+    <description>AWS</description>
+    <generator>Wowchemy (https://wowchemy.com)</generator><language>en-us</language><lastBuildDate>Thu, 19 Jul 2018 14:35:47 -0400</lastBuildDate>
+    <image>
+      <url>/images/icon_hu0b7a4cb9992c9ac0e91bd28ffd38dd00_9727_512x512_fill_lanczos_center_2.png</url>
+      <title>AWS</title>
+      <link>/tag/aws/</link>
+    </image>
+    
+    <item>
+      <title>Infrastructure-as-Code: Building the Bioconductor Conference AMI With Packer</title>
+      <link>/post/2018-07-19-infrastructure-as-code-building-the-bioconductor-conference-ami-with-packer/</link>
+      <pubDate>Thu, 19 Jul 2018 14:35:47 -0400</pubDate>
+      <guid>/post/2018-07-19-infrastructure-as-code-building-the-bioconductor-conference-ami-with-packer/</guid>
+      <description>
+
+
+&lt;p&gt;One of the main features of the annual &lt;a href=&#34;https://bioc2018.bioconductor.org&#34;&gt;Bioconductor Conference&lt;/a&gt; is the
+proportion of time spent working with code in the form of &lt;a href=&#34;https://github.com/bioconductor/BiocWorkshops&#34;&gt;workshops&lt;/a&gt;.
+To support these workshops, we ask workshop presenters to supply &lt;a href=&#34;https://rmarkdown.rstudio.com/&#34;&gt;Rmarkdown&lt;/a&gt;
+materials which we collate into workshop materials. Using literate programming
+approaches like Rmarkdown ensures that the workflows are self-consistent
+and work as expected.&lt;/p&gt;
+&lt;p&gt;In addition to the Rmarkdown workshop materials, we also need a consistent
+computing environment that can support reasonably large computation, provide
+high-performance network and file system access, and is essentially unlimited
+in scale (we expect to have &amp;gt;150 participants, each with his/her own machine).
+To do so, we use &lt;a href=&#34;https://aws.amazon.com/ec2&#34;&gt;Amazon Web Services EC2&lt;/a&gt;. The EC2 system allows us to prepare
+a &lt;a href=&#34;https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/AMIs.html&#34;&gt;Amazon machine “image”&lt;/a&gt;, or AMI, that contains the operating system, libraries,
+the newest version of R, and all packages needed for the workshops. In the past,
+creating the “image” was a manual process. This year, thanks to the work
+of the workshop organizers, we had a single DESCRIPTION file that contained
+all the necessary packages, allowing us to automate the process of building
+and keeping updated the AMI that would be used by all participants.&lt;/p&gt;
+&lt;p&gt;The &lt;a href=&#34;https://www.packer.io/&#34;&gt;Packer project&lt;/a&gt; is an open source tool for creating identical
+machine images for multiple platforms from a single source
+configuration. Packer is lightweight, runs on every major operating
+system, and is highly performant, creating machine images for multiple
+platforms in parallel. In this context, a machine image is a single
+static unit that contains a pre-configured operating system and
+installed software which is used to quickly create new running
+machines. Machine image formats change for each platform. Some
+examples include AMIs for EC2, VMDK/VMX files for VMware, OVF exports
+for VirtualBox, etc.&lt;/p&gt;
+&lt;p&gt;Biocoductor is cloud-ready and maintains &lt;a href=&#34;https://bioconductor.org/help/bioconductor-cloud-ami/&#34;&gt;basic AMIs for Bioconductor&lt;/a&gt;. Rather
+than needing to start with a generic Linux AMI as the “base” for our
+Bioconductor conference AMI, I will use
+the most recent &lt;a href=&#34;https://bioconductor.org/help/bioconductor-cloud-ami/#ami_ids&#34;&gt;Bioc-devel AMI&lt;/a&gt; as the base. Packer uses a &lt;a href=&#34;https://www.packer.io/intro/getting-started/build-image.html#the-template&#34;&gt;json format file&lt;/a&gt;
+to describe, &lt;em&gt;in code&lt;/em&gt;, the AMI that we want to build. The file for building the image
+is listed below in its entirety. The current version of the packer json file
+is available in this &lt;a href=&#34;https://github.com/seandavi/terraform-can/tree/master/packer&#34;&gt;github repo&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;To build the image, first &lt;a href=&#34;https://www.packer.io/docs/builders/amazon.html#authentication&#34;&gt;set up AWS authentication&lt;/a&gt; as outlined on the
+packer website. If you do not have an AWS account, you will not be able
+to actually build the AMI. Next, &lt;a href=&#34;https://www.packer.io/intro/getting-started/install.html&#34;&gt;install packer&lt;/a&gt; and ensure that it is in the path.
+Finally, save the file below as, for example, &lt;code&gt;bioc_2018.json&lt;/code&gt;. In the
+directory containing the json file, execute packer:&lt;/p&gt;
+&lt;pre class=&#34;sh&#34;&gt;&lt;code&gt;packer build bioc_2018.json&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;This build takes quite some time (perhaps 20 minutes or so).&lt;/p&gt;
+&lt;p&gt;In terms of details, briefly, the &lt;code&gt;instance_type&lt;/code&gt;
+below was chosen to allow multicore installation using 16 threads. AWS [spot pricing]
+is used to minimize costs (see &lt;code&gt;spot_pricing&lt;/code&gt; and &lt;code&gt;spot_pricing_auto_product&lt;/code&gt; below).
+Adding the &lt;code&gt;ami_groups&lt;/code&gt; set to &lt;code&gt;all&lt;/code&gt; will enable public access to the AMI. The &lt;code&gt;source_ami_filter&lt;/code&gt;
+section below chooses the “base” image. In this case, I used the AMI &lt;code&gt;name&lt;/code&gt; and
+specified that the AMI was “owned” by the Bioconductor organization (&lt;code&gt;&amp;quot;owners&amp;quot;: [&amp;quot;555219204010&amp;quot;]&lt;/code&gt;).
+I set the disk size to 128GB of SSD storage in the &lt;code&gt;launch_block_device_mappings&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;The real work is done in the &lt;code&gt;provisioners&lt;/code&gt; block. In this case, the provisioner
+block specifies just two shell commands that install the necessary packages. Note
+that the installation of the “Bioconductor/Biocworkshops” github package will
+install all packages in the &lt;a href=&#34;https://github.com/Bioconductor/BiocWorkshops/blob/master/DESCRIPTION&#34;&gt;DESCRIPTION&lt;/a&gt; file. The final line of the packer
+output will list the AMI ID that can be shared with others (since we made it public).
+The AMI may take a few minutes to become fully public.&lt;/p&gt;
+&lt;pre class=&#34;js&#34;&gt;&lt;code&gt;{
+    &amp;quot;variables&amp;quot;: {
+        &amp;quot;profile&amp;quot;: &amp;quot;default&amp;quot;,
+        &amp;quot;region&amp;quot;:  &amp;quot;us-east-1&amp;quot;
+    },
+    &amp;quot;builders&amp;quot;: [
+        {
+            &amp;quot;access_key&amp;quot;: &amp;quot;{{user `aws_access_key`}}&amp;quot;,
+            &amp;quot;ami_name&amp;quot;: &amp;quot;Bioconductor_Conference_2018-{{timestamp}}&amp;quot;,
+            &amp;quot;instance_type&amp;quot;: &amp;quot;c5.4xlarge&amp;quot;,
+            &amp;quot;region&amp;quot;: &amp;quot;us-east-1&amp;quot;,
+            &amp;quot;secret_key&amp;quot;: &amp;quot;{{user `aws_secret_key`}}&amp;quot;,
+            &amp;quot;source_ami_filter&amp;quot;: {
+                &amp;quot;filters&amp;quot;: {
+                    &amp;quot;virtualization-type&amp;quot;: &amp;quot;hvm&amp;quot;,
+                    &amp;quot;name&amp;quot;: &amp;quot;Bioc 3.8 R 3.5.1&amp;quot;,
+                    &amp;quot;root-device-type&amp;quot;: &amp;quot;ebs&amp;quot;
+                },
+                &amp;quot;owners&amp;quot;: [&amp;quot;555219204010&amp;quot;],
+                &amp;quot;most_recent&amp;quot;: true
+            },
+            &amp;quot;ssh_username&amp;quot;: &amp;quot;ubuntu&amp;quot;,
+            &amp;quot;spot_price&amp;quot;: &amp;quot;auto&amp;quot;,
+            &amp;quot;spot_price_auto_product&amp;quot;: &amp;quot;Linux/UNIX&amp;quot;,
+            &amp;quot;type&amp;quot;: &amp;quot;amazon-ebs&amp;quot;,
+            &amp;quot;ami_groups&amp;quot;: [&amp;quot;all&amp;quot;],
+            &amp;quot;launch_block_device_mappings&amp;quot;: [
+                {
+                    &amp;quot;device_name&amp;quot;: &amp;quot;/dev/sda1&amp;quot;,
+                    &amp;quot;volume_size&amp;quot;: 128,
+                    &amp;quot;volume_type&amp;quot;: &amp;quot;gp2&amp;quot;,
+                    &amp;quot;delete_on_termination&amp;quot;: true
+                }
+            ]
+        }
+    ],
+    &amp;quot;provisioners&amp;quot;: [
+        {
+            &amp;quot;type&amp;quot;: &amp;quot;shell&amp;quot;,
+            &amp;quot;inline&amp;quot;:[
+                &amp;quot;Rscript -e &amp;#39;BiocManager::install(\&amp;quot;remotes\&amp;quot;)&amp;#39;&amp;quot;,
+                &amp;quot;Rscript -e &amp;#39;options(Ncpus=16); BiocManager::install(\&amp;quot;Bioconductor/BiocWorkshops\&amp;quot;)&amp;#39;&amp;quot;,
+            ]
+        }
+    ]
+}
+    &lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;By maintaining the AMI description as code, we can ensure that the AMI is
+fully reproducible (no manual installations, etc.) and, therefore, highly
+reproducible and even reusable.&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://github.com/seandavi/terraform-can/tree/master/packer&#34;&gt;The current version of the packer file is available on github&lt;/a&gt;. Thanks to Levi
+Waldron, Lori Shepherd, Marcel Ramos, Martin Morgan, and multiple workshop
+authors for their contributions.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Protect Against Secrets in Git Repositories</title>
+      <link>/post/protect-against-secrets-in-git-repositories/</link>
+      <pubDate>Sat, 02 Dec 2017 07:50:15 -0500</pubDate>
+      <guid>/post/protect-against-secrets-in-git-repositories/</guid>
+      <description>&lt;p&gt;I made a mistake and am going to share it here. Please be gentle when
+judging me. As penance, I spent some time to learn how to
+systematically avoid making the same mistake and share that solution
+here.&lt;/p&gt;
+&lt;h2 id=&#34;the-prelude&#34;&gt;The prelude&lt;/h2&gt;
+&lt;p&gt;I had been working on some code that I thought was
+going to be throw-away example code for loading a large dataset into
+&lt;a href=&#34;https://elastic.co/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;ElasticSearch&lt;/a&gt;. That said, I have been saved often enough by using a
+version control system (now, &lt;em&gt;always&lt;/em&gt; &lt;a href=&#34;https://git-scm.com/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;git&lt;/a&gt;), that I use it all the
+time. &amp;ldquo;Knowing&amp;rdquo; that this code would never be shared, I was careless
+and included my [Amazon Web Service (AWS)] [keys] in the code while I sorted out whether
+[logstash] would pick up the keys from a central config file. At some
+point, I committed the file that included the keys to git. As these
+things go, several days passed and I found that I had a useful project
+worthy of a push to github. No keys
+present in the code, etc.&amp;ndash;I checked.&lt;/p&gt;
+&lt;p&gt;Within minutes (or maybe it was an hour&amp;ndash;not sure) of when I pushed the code
+to github, I got an email from &lt;a href=&#34;https://aws.amazon.com/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;AWS&lt;/a&gt; that, paraphrased, read:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&amp;ldquo;We have
+found your AWS keys in a github repository. Please fix
+the problem and &lt;strong&gt;DON&amp;rsquo;T DO THAT AGAIN&lt;/strong&gt;.&amp;rdquo;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Almost immediately after, I
+got another email from AWS thanking me for deleting my keys. AWS
+apparently scans GitHub repositories for AWS keys and has a system (I
+suspect somewhat automated) for removing the exposed keys. I deleted
+the GitHub repo and did some local checking and, in
+retrospect, realized my mistake. Git had dutifully saved the entire
+history of my project including a version of one file with AWS keys in
+it. Upon pushing to GitHub, the keys were there in the history. I
+breathed a sigh of relief that no harm had been done.&lt;/p&gt;
+&lt;p&gt;Thankfully, I use AWS often. I logged in the next day and found that I
+had about 100 servers running, in many different regions even, that I
+hadn&amp;rsquo;t started. In the short period of time that the keys had been
+exposed, someone had been able to create two ssh keypairs and started
+the machines. Needless to say, I spent quite a bit of time working to
+clean up any instances and to remove keys, etc. that could have been
+exposed (all of them, of course). The speed with which someone was
+able to capitalize on my mistake was simply astonishing to me. That
+said, I do want to hand it to the AWS folks who take a proactive role
+in protecting my account security.&lt;/p&gt;
+&lt;h2 id=&#34;dont-do-that-again&#34;&gt;Don&amp;rsquo;t do that again&lt;/h2&gt;
+&lt;p&gt;While I probably will not forget to check my code for &amp;ldquo;secrets&amp;rdquo; again
+anytime soon, I started to look into ways to systematically check and
+then preempt such occurrences. Ironically (or not), the folks at &lt;a href=&#34;https://github.com/awslabs&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;AWS
+Labs&lt;/a&gt; have created a nice little project called &lt;a href=&#34;https://github.com/awslabs/git-secrets&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;git-secrets&lt;/a&gt; that
+purports to:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Prevent you from committing secrets and credentials into git repositories&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;And in more detail:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;code&gt;git-secrets&lt;/code&gt; scans commits, commit messages, and &lt;code&gt;--no-ff&lt;/code&gt; merges
+to prevent adding secrets into your git repositories. If a commit,
+commit message, or any commit in a &lt;code&gt;--no-ff&lt;/code&gt; merge history matches
+one of your configured prohibited regular expression patterns, then
+the commit is rejected.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;In other words, &lt;em&gt;prevent&lt;/em&gt; keys and secrets from &lt;em&gt;ever&lt;/em&gt; entering the git history.&lt;/p&gt;
+&lt;h2 id=&#34;example-walkthrough-with-git-secrets&#34;&gt;Example walkthrough with git-secrets&lt;/h2&gt;
+&lt;p&gt;In this section, I just document for myself what it takes to get and
+use &lt;code&gt;git-secrets&lt;/code&gt; to protect a repository from inadvertently
+committing keys to a git repository.&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://github.com/awslabs/git-secrets#installing-git-secrets&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Installation instructions&lt;/a&gt; include both simple &lt;code&gt;Makefile&lt;/code&gt;-based installation or using &lt;a href=&#34;https://brew.sh/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;homebrew&lt;/a&gt; on my Mac.&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-sh&#34;&gt;brew install git-secrets
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;At this point, the &lt;code&gt;git-secrets&lt;/code&gt; executable should be in the
+&lt;code&gt;PATH&lt;/code&gt;. In typical git style, one can use either &lt;code&gt;git-secrets&lt;/code&gt; or &lt;code&gt;git secrets&lt;/code&gt; to access functionality.&lt;/p&gt;
+&lt;p&gt;To play, I create a simple git repo and &amp;ldquo;install&amp;rdquo; the &lt;code&gt;git-secrets&lt;/code&gt;
+&lt;a href=&#34;https://git-scm.com/book/gr/v2/Customizing-Git-Git-Hooks&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;git hooks&lt;/a&gt;. Before any commit can succeed, these hook
+scripts must exit successfully.&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-sh&#34;&gt;# create an example git repo
+mkdir secrets_example
+cd secrets_example
+git init
+# now &amp;quot;install&amp;quot; the git-secrets hook
+git secrets --install
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;And the result:&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-sh&#34;&gt;Installed commit-msg hook to .git/hooks/commit-msg
+Installed pre-commmit hook to .git/hooks/pre-commit
+Installed prepare-commit-msg hook to .git/hooks/prepare-commit-msg
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;At this point, the &lt;code&gt;secrets_example&lt;/code&gt; git repository has been created
+and the &lt;code&gt;git-secrets&lt;/code&gt; pre-commit hook added. However, &lt;code&gt;git-secrets&lt;/code&gt;
+needs to be told about what secrets to look for. We can check what
+&lt;code&gt;git-secrets&lt;/code&gt; thinks is a secret.&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-sh&#34;&gt;git secrets --list
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;This will return &amp;ldquo;nothing&amp;rdquo; at this poing. In my case, I want to
+have &lt;code&gt;git-secrets&lt;/code&gt; check for AWS keys. &lt;code&gt;git-secrets&lt;/code&gt; has a special
+function for doing just that&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-sh&#34;&gt;git secrets --register-aws
+git secrets --list
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;And now the result:&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-sh&#34;&gt;secrets.providers git secrets --aws-provider
+secrets.patterns [A-Z0-9]{20}
+secrets.patterns (&amp;quot;|&#39;)?(AWS|aws|Aws)?_?(SECRET|secret|Secret)?_?(ACCESS|access|Access)?_?(KEY|key|Key)(&amp;quot;|&#39;)?\s*(:|=&amp;gt;|=)\s*(&amp;quot;|&#39;)?[A-Za-z0-9/\+=]{40}(&amp;quot;|&#39;)?
+secrets.patterns (&amp;quot;|&#39;)?(AWS|aws|Aws)?_?(ACCOUNT|account|Account)_?(ID|id|Id)?(&amp;quot;|&#39;)?\s*(:|=&amp;gt;|=)\s*(&amp;quot;|&#39;)?[0-9]{4}\-?[0-9]{4}\-?[0-9]{4}(&amp;quot;|&#39;)?
+secrets.allowed AKIAIOSFODNN7EXAMPLE
+secrets.allowed wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;code&gt;git-secrets&lt;/code&gt; has added a set of patterns (regular expressions) that
+will be matched against text before a commit can succeed. Adding a
+specific pattern for another password is also straightford.&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-sh&#34;&gt;git secrets --add &#39;MyPASSWORD[0-9]+&#39;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Trying to commit a file with &lt;code&gt;MyPASSWORD123&lt;/code&gt; fails.&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-sh&#34;&gt;echo &#39;MyPASSWORD123&#39; &amp;gt;&amp;gt; test.file
+git add test.file
+git commit -m &#39;test file with password&#39;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;And the output&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-sh&#34;&gt;test.file:1:MyPASSWORD123
+
+[ERROR] Matched one or more prohibited patterns
+
+Possible mitigations:
+- Mark false positives as allowed using: git config --add secrets.allowed ...
+- Mark false positives as allowed by adding regular expressions to .gitallowed at repository&#39;s root directory
+- List your configured patterns: git config --get-all secrets.patterns
+- List your configured allowed patterns: git config --get-all secrets.allowed
+- List your configured allowed patterns in .gitallowed at repository&#39;s root directory
+- Use --no-verify if this is a one-time false positive
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;code&gt;git-secrets&lt;/code&gt; has a number of other &lt;a href=&#34;https://github.com/awslabs/git-secrets#options&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;features and functions&lt;/a&gt;, but the
+walkthrough above is enought to get me started.&lt;/p&gt;
+&lt;h2 id=&#34;additional-links&#34;&gt;Additional links&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://console.aws.amazon.com/cloudwatch/home&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Cloudwatch alarms&lt;/a&gt; can be set to alert you about spending above a
+threshold.&lt;/li&gt;
+&lt;li&gt;The ironically-named &lt;a href=&#34;https://github.com/michenriksen/gitrob&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;gitrob tool&lt;/a&gt; can scan existing GitHub repositories&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://docs.aws.amazon.com/general/latest/gr/aws-access-keys-best-practices.html&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;AWS access keys best practices&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Follow the principle of &lt;a href=&#34;http://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html#grant-least-privilege&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;least privileges&lt;/a&gt; on cloud accounts&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

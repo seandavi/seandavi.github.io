@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>B. S. Moriarity | Academic</title>
+    <link>/authors/b.-s.-moriarity/</link>
+      <atom:link href="/authors/b.-s.-moriarity/index.xml" rel="self" type="application/rss+xml" />
+    <description>B. S. Moriarity</description>
+    <generator>Wowchemy (https://wowchemy.com)</generator><language>en-us</language><lastBuildDate>Tue, 01 Sep 2015 00:00:00 -0400</lastBuildDate>
+    <image>
+      <url>/images/icon_hu0b7a4cb9992c9ac0e91bd28ffd38dd00_9727_512x512_fill_lanczos_center_2.png</url>
+      <title>B. S. Moriarity</title>
+      <link>/authors/b.-s.-moriarity/</link>
+    </image>
+    
+    <item>
+      <title>A Genome-Wide Scan Identifies Variants in NFIB Associated with Metastasis in Patients with Osteosarcoma</title>
+      <link>/publication/pmid26084801/</link>
+      <pubDate>Tue, 01 Sep 2015 00:00:00 -0400</pubDate>
+      <guid>/publication/pmid26084801/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>A Genome-Wide Scan Identifies Variants in NFIB Associated with Metastasis in Patients with Osteosarcoma</title>
+      <link>/publication/pmid-26084801/</link>
+      <pubDate>Tue, 01 Sep 2015 00:00:00 +0000</pubDate>
+      <guid>/publication/pmid-26084801/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>

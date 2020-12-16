@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>T. C. Voss | Academic</title>
+    <link>/authors/t.-c.-voss/</link>
+      <atom:link href="/authors/t.-c.-voss/index.xml" rel="self" type="application/rss+xml" />
+    <description>T. C. Voss</description>
+    <generator>Wowchemy (https://wowchemy.com)</generator><language>en-us</language><lastBuildDate>Sat, 01 Mar 2008 00:00:00 -0500</lastBuildDate>
+    <image>
+      <url>/images/icon_hu0b7a4cb9992c9ac0e91bd28ffd38dd00_9727_512x512_fill_lanczos_center_2.png</url>
+      <title>T. C. Voss</title>
+      <link>/authors/t.-c.-voss/</link>
+    </image>
+    
+    <item>
+      <title>Interaction of the glucocorticoid receptor with the chromatin landscape</title>
+      <link>/publication/pmid18342607/</link>
+      <pubDate>Sat, 01 Mar 2008 00:00:00 -0500</pubDate>
+      <guid>/publication/pmid18342607/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Interaction of the glucocorticoid receptor with the chromatin landscape</title>
+      <link>/publication/pmid-18342607/</link>
+      <pubDate>Sat, 01 Mar 2008 00:00:00 +0000</pubDate>
+      <guid>/publication/pmid-18342607/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>M. M. Barmada | Academic</title>
+    <link>/authors/m.-m.-barmada/</link>
+      <atom:link href="/authors/m.-m.-barmada/index.xml" rel="self" type="application/rss+xml" />
+    <description>M. M. Barmada</description>
+    <generator>Wowchemy (https://wowchemy.com)</generator><language>en-us</language><lastBuildDate>Wed, 01 Jul 1998 00:00:00 -0400</lastBuildDate>
+    <image>
+      <url>/images/icon_hu0b7a4cb9992c9ac0e91bd28ffd38dd00_9727_512x512_fill_lanczos_center_2.png</url>
+      <title>M. M. Barmada</title>
+      <link>/authors/m.-m.-barmada/</link>
+    </image>
+    
+    <item>
+      <title>Linkage and association between inflammatory bowel disease and a locus on chromosome 12</title>
+      <link>/publication/pmid9634527/</link>
+      <pubDate>Wed, 01 Jul 1998 00:00:00 -0400</pubDate>
+      <guid>/publication/pmid9634527/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Linkage and association between inflammatory bowel disease and a locus on chromosome 12</title>
+      <link>/publication/pmid-9634527/</link>
+      <pubDate>Wed, 01 Jul 1998 00:00:00 +0000</pubDate>
+      <guid>/publication/pmid-9634527/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>

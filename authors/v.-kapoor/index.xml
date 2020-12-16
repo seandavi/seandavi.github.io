@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>V. Kapoor | Academic</title>
+    <link>/authors/v.-kapoor/</link>
+      <atom:link href="/authors/v.-kapoor/index.xml" rel="self" type="application/rss+xml" />
+    <description>V. Kapoor</description>
+    <generator>Wowchemy (https://wowchemy.com)</generator><language>en-us</language><lastBuildDate>Tue, 01 Nov 2016 00:00:00 -0400</lastBuildDate>
+    <image>
+      <url>/images/icon_hu0b7a4cb9992c9ac0e91bd28ffd38dd00_9727_512x512_fill_lanczos_center_2.png</url>
+      <title>V. Kapoor</title>
+      <link>/authors/v.-kapoor/</link>
+    </image>
+    
+    <item>
+      <title>Upregulation of IFN-Inducible and Damage-Response Pathways in Chronic Graft-versus-Host Disease</title>
+      <link>/publication/pmid27694491/</link>
+      <pubDate>Tue, 01 Nov 2016 00:00:00 -0400</pubDate>
+      <guid>/publication/pmid27694491/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Upregulation of IFN-Inducible and Damage-Response Pathways in Chronic Graft-versus-Host Disease</title>
+      <link>/publication/pmid-27694491/</link>
+      <pubDate>Tue, 01 Nov 2016 00:00:00 +0000</pubDate>
+      <guid>/publication/pmid-27694491/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>

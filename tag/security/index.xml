@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>security | Academic</title>
+    <link>/tag/security/</link>
+      <atom:link href="/tag/security/index.xml" rel="self" type="application/rss+xml" />
+    <description>security</description>
+    <generator>Wowchemy (https://wowchemy.com)</generator><language>en-us</language><lastBuildDate>Sat, 02 Dec 2017 07:50:15 -0500</lastBuildDate>
+    <image>
+      <url>/images/icon_hu0b7a4cb9992c9ac0e91bd28ffd38dd00_9727_512x512_fill_lanczos_center_2.png</url>
+      <title>security</title>
+      <link>/tag/security/</link>
+    </image>
+    
+    <item>
+      <title>Protect Against Secrets in Git Repositories</title>
+      <link>/post/protect-against-secrets-in-git-repositories/</link>
+      <pubDate>Sat, 02 Dec 2017 07:50:15 -0500</pubDate>
+      <guid>/post/protect-against-secrets-in-git-repositories/</guid>
+      <description>&lt;p&gt;I made a mistake and am going to share it here. Please be gentle when
+judging me. As penance, I spent some time to learn how to
+systematically avoid making the same mistake and share that solution
+here.&lt;/p&gt;
+&lt;h2 id=&#34;the-prelude&#34;&gt;The prelude&lt;/h2&gt;
+&lt;p&gt;I had been working on some code that I thought was
+going to be throw-away example code for loading a large dataset into
+&lt;a href=&#34;https://elastic.co/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;ElasticSearch&lt;/a&gt;. That said, I have been saved often enough by using a
+version control system (now, &lt;em&gt;always&lt;/em&gt; &lt;a href=&#34;https://git-scm.com/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;git&lt;/a&gt;), that I use it all the
+time. &amp;ldquo;Knowing&amp;rdquo; that this code would never be shared, I was careless
+and included my [Amazon Web Service (AWS)] [keys] in the code while I sorted out whether
+[logstash] would pick up the keys from a central config file. At some
+point, I committed the file that included the keys to git. As these
+things go, several days passed and I found that I had a useful project
+worthy of a push to github. No keys
+present in the code, etc.&amp;ndash;I checked.&lt;/p&gt;
+&lt;p&gt;Within minutes (or maybe it was an hour&amp;ndash;not sure) of when I pushed the code
+to github, I got an email from &lt;a href=&#34;https://aws.amazon.com/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;AWS&lt;/a&gt; that, paraphrased, read:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&amp;ldquo;We have
+found your AWS keys in a github repository. Please fix
+the problem and &lt;strong&gt;DON&amp;rsquo;T DO THAT AGAIN&lt;/strong&gt;.&amp;rdquo;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Almost immediately after, I
+got another email from AWS thanking me for deleting my keys. AWS
+apparently scans GitHub repositories for AWS keys and has a system (I
+suspect somewhat automated) for removing the exposed keys. I deleted
+the GitHub repo and did some local checking and, in
+retrospect, realized my mistake. Git had dutifully saved the entire
+history of my project including a version of one file with AWS keys in
+it. Upon pushing to GitHub, the keys were there in the history. I
+breathed a sigh of relief that no harm had been done.&lt;/p&gt;
+&lt;p&gt;Thankfully, I use AWS often. I logged in the next day and found that I
+had about 100 servers running, in many different regions even, that I
+hadn&amp;rsquo;t started. In the short period of time that the keys had been
+exposed, someone had been able to create two ssh keypairs and started
+the machines. Needless to say, I spent quite a bit of time working to
+clean up any instances and to remove keys, etc. that could have been
+exposed (all of them, of course). The speed with which someone was
+able to capitalize on my mistake was simply astonishing to me. That
+said, I do want to hand it to the AWS folks who take a proactive role
+in protecting my account security.&lt;/p&gt;
+&lt;h2 id=&#34;dont-do-that-again&#34;&gt;Don&amp;rsquo;t do that again&lt;/h2&gt;
+&lt;p&gt;While I probably will not forget to check my code for &amp;ldquo;secrets&amp;rdquo; again
+anytime soon, I started to look into ways to systematically check and
+then preempt such occurrences. Ironically (or not), the folks at &lt;a href=&#34;https://github.com/awslabs&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;AWS
+Labs&lt;/a&gt; have created a nice little project called &lt;a href=&#34;https://github.com/awslabs/git-secrets&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;git-secrets&lt;/a&gt; that
+purports to:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Prevent you from committing secrets and credentials into git repositories&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;And in more detail:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;code&gt;git-secrets&lt;/code&gt; scans commits, commit messages, and &lt;code&gt;--no-ff&lt;/code&gt; merges
+to prevent adding secrets into your git repositories. If a commit,
+commit message, or any commit in a &lt;code&gt;--no-ff&lt;/code&gt; merge history matches
+one of your configured prohibited regular expression patterns, then
+the commit is rejected.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;In other words, &lt;em&gt;prevent&lt;/em&gt; keys and secrets from &lt;em&gt;ever&lt;/em&gt; entering the git history.&lt;/p&gt;
+&lt;h2 id=&#34;example-walkthrough-with-git-secrets&#34;&gt;Example walkthrough with git-secrets&lt;/h2&gt;
+&lt;p&gt;In this section, I just document for myself what it takes to get and
+use &lt;code&gt;git-secrets&lt;/code&gt; to protect a repository from inadvertently
+committing keys to a git repository.&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://github.com/awslabs/git-secrets#installing-git-secrets&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Installation instructions&lt;/a&gt; include both simple &lt;code&gt;Makefile&lt;/code&gt;-based installation or using &lt;a href=&#34;https://brew.sh/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;homebrew&lt;/a&gt; on my Mac.&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-sh&#34;&gt;brew install git-secrets
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;At this point, the &lt;code&gt;git-secrets&lt;/code&gt; executable should be in the
+&lt;code&gt;PATH&lt;/code&gt;. In typical git style, one can use either &lt;code&gt;git-secrets&lt;/code&gt; or &lt;code&gt;git secrets&lt;/code&gt; to access functionality.&lt;/p&gt;
+&lt;p&gt;To play, I create a simple git repo and &amp;ldquo;install&amp;rdquo; the &lt;code&gt;git-secrets&lt;/code&gt;
+&lt;a href=&#34;https://git-scm.com/book/gr/v2/Customizing-Git-Git-Hooks&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;git hooks&lt;/a&gt;. Before any commit can succeed, these hook
+scripts must exit successfully.&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-sh&#34;&gt;# create an example git repo
+mkdir secrets_example
+cd secrets_example
+git init
+# now &amp;quot;install&amp;quot; the git-secrets hook
+git secrets --install
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;And the result:&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-sh&#34;&gt;Installed commit-msg hook to .git/hooks/commit-msg
+Installed pre-commmit hook to .git/hooks/pre-commit
+Installed prepare-commit-msg hook to .git/hooks/prepare-commit-msg
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;At this point, the &lt;code&gt;secrets_example&lt;/code&gt; git repository has been created
+and the &lt;code&gt;git-secrets&lt;/code&gt; pre-commit hook added. However, &lt;code&gt;git-secrets&lt;/code&gt;
+needs to be told about what secrets to look for. We can check what
+&lt;code&gt;git-secrets&lt;/code&gt; thinks is a secret.&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-sh&#34;&gt;git secrets --list
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;This will return &amp;ldquo;nothing&amp;rdquo; at this poing. In my case, I want to
+have &lt;code&gt;git-secrets&lt;/code&gt; check for AWS keys. &lt;code&gt;git-secrets&lt;/code&gt; has a special
+function for doing just that&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-sh&#34;&gt;git secrets --register-aws
+git secrets --list
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;And now the result:&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-sh&#34;&gt;secrets.providers git secrets --aws-provider
+secrets.patterns [A-Z0-9]{20}
+secrets.patterns (&amp;quot;|&#39;)?(AWS|aws|Aws)?_?(SECRET|secret|Secret)?_?(ACCESS|access|Access)?_?(KEY|key|Key)(&amp;quot;|&#39;)?\s*(:|=&amp;gt;|=)\s*(&amp;quot;|&#39;)?[A-Za-z0-9/\+=]{40}(&amp;quot;|&#39;)?
+secrets.patterns (&amp;quot;|&#39;)?(AWS|aws|Aws)?_?(ACCOUNT|account|Account)_?(ID|id|Id)?(&amp;quot;|&#39;)?\s*(:|=&amp;gt;|=)\s*(&amp;quot;|&#39;)?[0-9]{4}\-?[0-9]{4}\-?[0-9]{4}(&amp;quot;|&#39;)?
+secrets.allowed AKIAIOSFODNN7EXAMPLE
+secrets.allowed wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;code&gt;git-secrets&lt;/code&gt; has added a set of patterns (regular expressions) that
+will be matched against text before a commit can succeed. Adding a
+specific pattern for another password is also straightford.&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-sh&#34;&gt;git secrets --add &#39;MyPASSWORD[0-9]+&#39;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Trying to commit a file with &lt;code&gt;MyPASSWORD123&lt;/code&gt; fails.&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-sh&#34;&gt;echo &#39;MyPASSWORD123&#39; &amp;gt;&amp;gt; test.file
+git add test.file
+git commit -m &#39;test file with password&#39;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;And the output&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-sh&#34;&gt;test.file:1:MyPASSWORD123
+
+[ERROR] Matched one or more prohibited patterns
+
+Possible mitigations:
+- Mark false positives as allowed using: git config --add secrets.allowed ...
+- Mark false positives as allowed by adding regular expressions to .gitallowed at repository&#39;s root directory
+- List your configured patterns: git config --get-all secrets.patterns
+- List your configured allowed patterns: git config --get-all secrets.allowed
+- List your configured allowed patterns in .gitallowed at repository&#39;s root directory
+- Use --no-verify if this is a one-time false positive
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;code&gt;git-secrets&lt;/code&gt; has a number of other &lt;a href=&#34;https://github.com/awslabs/git-secrets#options&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;features and functions&lt;/a&gt;, but the
+walkthrough above is enought to get me started.&lt;/p&gt;
+&lt;h2 id=&#34;additional-links&#34;&gt;Additional links&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://console.aws.amazon.com/cloudwatch/home&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Cloudwatch alarms&lt;/a&gt; can be set to alert you about spending above a
+threshold.&lt;/li&gt;
+&lt;li&gt;The ironically-named &lt;a href=&#34;https://github.com/michenriksen/gitrob&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;gitrob tool&lt;/a&gt; can scan existing GitHub repositories&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://docs.aws.amazon.com/general/latest/gr/aws-access-keys-best-practices.html&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;AWS access keys best practices&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Follow the principle of &lt;a href=&#34;http://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html#grant-least-privilege&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;least privileges&lt;/a&gt; on cloud accounts&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

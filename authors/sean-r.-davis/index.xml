@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Sean R. Davis | Academic</title>
+    <link>/authors/sean-r.-davis/</link>
+      <atom:link href="/authors/sean-r.-davis/index.xml" rel="self" type="application/rss+xml" />
+    <description>Sean R. Davis</description>
+    <generator>Wowchemy (https://wowchemy.com)</generator><language>en-us</language><lastBuildDate>Sun, 01 Jan 2017 00:00:00 -0500</lastBuildDate>
+    <image>
+      <url>/images/icon_hu0b7a4cb9992c9ac0e91bd28ffd38dd00_9727_512x512_fill_lanczos_center_2.png</url>
+      <title>Sean R. Davis</title>
+      <link>/authors/sean-r.-davis/</link>
+    </image>
+    
+    <item>
+      <title>Autoreactive T Cells and Chronic Fungal Infection Drive Esophageal Carcinogenesis </title>
+      <link>/publication/zhu2017478/</link>
+      <pubDate>Sun, 01 Jan 2017 00:00:00 -0500</pubDate>
+      <guid>/publication/zhu2017478/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>GenomicDataCommons: a Bioconductor Interface to the NCI Genomic Data Commons</title>
+      <link>/publication/sean_davis31156710/</link>
+      <pubDate>Sun, 01 Jan 2017 00:00:00 -0500</pubDate>
+      <guid>/publication/sean_davis31156710/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Resources for Interpreting Variants in Precision Genomic Oncology Applications</title>
+      <link>/publication/tsang2017214/</link>
+      <pubDate>Sun, 01 Jan 2017 00:00:00 -0500</pubDate>
+      <guid>/publication/tsang2017214/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Autoreactive T Cells and Chronic Fungal Infection Drive Esophageal Carcinogenesis </title>
+      <link>/publication/zhu-2017478/</link>
+      <pubDate>Sun, 01 Jan 2017 00:00:00 +0000</pubDate>
+      <guid>/publication/zhu-2017478/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>GenomicDataCommons: a Bioconductor Interface to the NCI Genomic Data Commons</title>
+      <link>/publication/sean-davis-31156710/</link>
+      <pubDate>Sun, 01 Jan 2017 00:00:00 +0000</pubDate>
+      <guid>/publication/sean-davis-31156710/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Resources for Interpreting Variants in Precision Genomic Oncology Applications</title>
+      <link>/publication/tsang-2017214/</link>
+      <pubDate>Sun, 01 Jan 2017 00:00:00 +0000</pubDate>
+      <guid>/publication/tsang-2017214/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>

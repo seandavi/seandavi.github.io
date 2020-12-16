@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>G. Renaud | Academic</title>
+    <link>/authors/g.-renaud/</link>
+      <atom:link href="/authors/g.-renaud/index.xml" rel="self" type="application/rss+xml" />
+    <description>G. Renaud</description>
+    <generator>Wowchemy (https://wowchemy.com)</generator><language>en-us</language><lastBuildDate>Sat, 01 Jul 2006 00:00:00 -0400</lastBuildDate>
+    <image>
+      <url>/images/icon_hu0b7a4cb9992c9ac0e91bd28ffd38dd00_9727_512x512_fill_lanczos_center_2.png</url>
+      <title>G. Renaud</title>
+      <link>/authors/g.-renaud/</link>
+    </image>
+    
+    <item>
+      <title>DNase-chip: a high-resolution method to identify DNase I hypersensitive sites using tiled microarrays</title>
+      <link>/publication/pmid16791207/</link>
+      <pubDate>Sat, 01 Jul 2006 00:00:00 -0400</pubDate>
+      <guid>/publication/pmid16791207/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>DNase-chip: a high-resolution method to identify DNase I hypersensitive sites using tiled microarrays</title>
+      <link>/publication/pmid-16791207/</link>
+      <pubDate>Sat, 01 Jul 2006 00:00:00 +0000</pubDate>
+      <guid>/publication/pmid-16791207/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>

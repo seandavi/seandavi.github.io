@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Projects | Academic</title>
+    <link>/project/</link>
+      <atom:link href="/project/index.xml" rel="self" type="application/rss+xml" />
+    <description>Projects</description>
+    <generator>Wowchemy (https://wowchemy.com)</generator><language>en-us</language><lastBuildDate>Wed, 11 Mar 2020 00:00:00 +0000</lastBuildDate>
+    <image>
+      <url>/images/icon_hu0b7a4cb9992c9ac0e91bd28ffd38dd00_9727_512x512_fill_lanczos_center_2.png</url>
+      <title>Projects</title>
+      <link>/project/</link>
+    </image>
+    
+    <item>
+      <title>OmicIDX</title>
+      <link>/project/omicidx/</link>
+      <pubDate>Wed, 11 Mar 2020 00:00:00 +0000</pubDate>
+      <guid>/project/omicidx/</guid>
+      <description>&lt;p&gt;OmicIDX is an ecosystem that &lt;em&gt;treats metadata&lt;/em&gt; from public genomics
+repositories as &lt;em&gt;data&lt;/em&gt;. Metadata collection from source repositories
+updates occur regularly and processing using a purpose-build &lt;a href=&#34;https://github.com/omicidx/omicidx-parsers&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;parsing
+library&lt;/a&gt; produces standard
+json format representations. The &lt;a href=&#34;https://github.com/omicidx/omicidx-builder&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;OmicIDX
+builder&lt;/a&gt; automates
+&lt;a href=&#34;https://cloud.google.com/bigquery&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Bigquery&lt;/a&gt; and web-based API
+generation and updates. The &lt;a href=&#34;https://api.omicidx.cancerdatasci.org/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;OpenAPI-based web
+API&lt;/a&gt; enables performant
+language-agnostic search, retrieval, and analysis of OmicIDX
+data. Finally, data are augmented with &lt;a href=&#34;https://ii.nlm.nih.gov/MTI/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;natural language
+processing&lt;/a&gt;
+to produce Medical Subject Heading
+&lt;a href=&#34;https://www.nlm.nih.gov/mesh/meshhome.html&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;MeSH&lt;/a&gt;  mapping and with
+heuristic text matching to map terms to ontologies.&lt;/p&gt;
+&lt;p&gt;Datasets currently included in OmicIDX include:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;SRA
+&lt;ul&gt;
+&lt;li&gt;studies&lt;/li&gt;
+&lt;li&gt;samples&lt;/li&gt;
+&lt;li&gt;experiments&lt;/li&gt;
+&lt;li&gt;runs&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;dbGaP mapping from SRA&lt;/li&gt;
+&lt;li&gt;Biosample
+&lt;ul&gt;
+&lt;li&gt;samples&lt;/li&gt;
+&lt;li&gt;projects&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;GEO
+&lt;ul&gt;
+&lt;li&gt;platforms&lt;/li&gt;
+&lt;li&gt;series&lt;/li&gt;
+&lt;li&gt;samples&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Data are augmented with:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;MeSH&lt;/li&gt;
+&lt;li&gt;~200 Ontologies&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Symposium: Participants Share Data 2019</title>
+      <link>/project/nci-participants-share-data-2019/</link>
+      <pubDate>Thu, 26 Sep 2019 17:44:07 -0400</pubDate>
+      <guid>/project/nci-participants-share-data-2019/</guid>
+      <description>&lt;p&gt;We convened a &lt;a href=&#34;https://events.cancer.gov/dccp/pcgdr/agenda&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;symposium on September 26-27,
+2019&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;The landscape of genomic medicine is rapidly evolving and includes
+direct access to low-cost genomic sequencing through
+direct-to-consumer genetic testing and commercial services providing
+sequencing and interpretation. Increasingly, individuals want to share
+their genomic data and associated clinical information for research
+purposes. Several models exist to enable personal control of sharing
+of genomics data. For individuals who want to make their personal
+genomic data available for research or third parties for analysis or
+interpretation, little support exists to answer questions, provide
+technical support, or give feedback on the value of their data. Under
+the auspices of the Cancer Moonshot (sm), NCI welcomes advocates,
+policy leaders, and the public to participate in a two-day,
+multisession workshop to explore the impact of personal control of
+genomic data sharing to research, clinical care, and participants
+well-being and engagement.&lt;/p&gt;
+&lt;p&gt;The symposium hosted sessions on the following topics:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Motivations for and perceptions of participants controlling their
+own data&lt;/li&gt;
+&lt;li&gt;Facilitating personal control of sharing data: existing approaches
+and platforms&lt;/li&gt;
+&lt;li&gt;Risks and benefits to participants and their communities&lt;/li&gt;
+&lt;li&gt;Sharing data in healthcare settings&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Please sign up for our &lt;a href=&#34;https://list.nih.gov/cgi-bin/wa.exe?SUBED1=PARTICIPANTSHAREDDATASYMPOSIUM&amp;amp;A=1&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;mailing list&lt;/a&gt; for updates about the symposium.&lt;/p&gt;
+&lt;p&gt;For questions regarding this symposium, email &lt;a href=&#34;mailto:NCIParticipantShareData@mail.nih.gov&#34;&gt;NCIParticipantShareData@mail.nih.gov&lt;/a&gt;.&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

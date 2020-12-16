@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>V. J. Carey | Academic</title>
+    <link>/authors/v.-j.-carey/</link>
+      <atom:link href="/authors/v.-j.-carey/index.xml" rel="self" type="application/rss+xml" />
+    <description>V. J. Carey</description>
+    <generator>Wowchemy (https://wowchemy.com)</generator><language>en-us</language><lastBuildDate>Fri, 01 Jul 2016 00:00:00 -0400</lastBuildDate>
+    <image>
+      <url>/images/icon_hu0b7a4cb9992c9ac0e91bd28ffd38dd00_9727_512x512_fill_lanczos_center_2.png</url>
+      <title>V. J. Carey</title>
+      <link>/authors/v.-j.-carey/</link>
+    </image>
+    
+    <item>
+      <title>Public data and open source tools for multi-assay genomic investigation of disease</title>
+      <link>/publication/pmid26463000/</link>
+      <pubDate>Fri, 01 Jul 2016 00:00:00 -0400</pubDate>
+      <guid>/publication/pmid26463000/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Public data and open source tools for multi-assay genomic investigation of disease</title>
+      <link>/publication/pmid-26463000/</link>
+      <pubDate>Fri, 01 Jul 2016 00:00:00 +0000</pubDate>
+      <guid>/publication/pmid-26463000/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Orchestrating high-throughput genomic analysis with Bioconductor</title>
+      <link>/publication/pmid25633503/</link>
+      <pubDate>Sun, 01 Feb 2015 00:00:00 -0500</pubDate>
+      <guid>/publication/pmid25633503/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Orchestrating high-throughput genomic analysis with Bioconductor</title>
+      <link>/publication/pmid-25633503/</link>
+      <pubDate>Sun, 01 Feb 2015 00:00:00 +0000</pubDate>
+      <guid>/publication/pmid-25633503/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>

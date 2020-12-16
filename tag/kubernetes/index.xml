@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>kubernetes | Academic</title>
+    <link>/tag/kubernetes/</link>
+      <atom:link href="/tag/kubernetes/index.xml" rel="self" type="application/rss+xml" />
+    <description>kubernetes</description>
+    <generator>Wowchemy (https://wowchemy.com)</generator><language>en-us</language><lastBuildDate>Fri, 04 Oct 2019 17:04:04 -0400</lastBuildDate>
+    <image>
+      <url>/images/icon_hu0b7a4cb9992c9ac0e91bd28ffd38dd00_9727_512x512_fill_lanczos_center_2.png</url>
+      <title>kubernetes</title>
+      <link>/tag/kubernetes/</link>
+    </image>
+    
+    <item>
+      <title>Container Notes</title>
+      <link>/docs/container-notes/</link>
+      <pubDate>Fri, 04 Oct 2019 17:04:04 -0400</pubDate>
+      <guid>/docs/container-notes/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>/post/google-kubernetes-autoscale-with-preemptible-instances/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/post/google-kubernetes-autoscale-with-preemptible-instances/</guid>
+      <description>&lt;pre&gt;&lt;code class=&#34;language-sh&#34;&gt;export POOL_NAME=&#39;preempt-1&#39;
+export CLUSTER_NAME=&#39;cluster-1&#39;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code class=&#34;language-sh&#34;&gt;gcloud beta container node-pools create ${POOL_NAME} --preemptible \
+	   --cluster ${CLUSTER_NAME} --enable-autoscaling \
+	   --min-nodes=0 --max-nodes=50 \
+	   --machine-type=n1-standard-2                                    
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code class=&#34;language-yaml&#34;&gt;apiVersion: v1
+kind: Job
+spec:
+  nodeSelector:
+    cloud.google.com/gke-preemptible: &amp;quot;true&amp;quot;
+  template:
+    spec:
+      containers:
+      - name: pyversion
+        image: python:3.7
+        command: [&amp;quot;python&amp;quot;,  &amp;quot;--version&amp;quot;]
+      restartPolicy: Never
+  backoffLimit: 4
+&lt;/code&gt;&lt;/pre&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

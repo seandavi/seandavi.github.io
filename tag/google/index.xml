@@ -1,0 +1,516 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>google | Academic</title>
+    <link>/tag/google/</link>
+      <atom:link href="/tag/google/index.xml" rel="self" type="application/rss+xml" />
+    <description>google</description>
+    <generator>Wowchemy (https://wowchemy.com)</generator><language>en-us</language><lastBuildDate>Fri, 31 Jan 2020 18:00:00 -0400</lastBuildDate>
+    <image>
+      <url>/images/icon_hu0b7a4cb9992c9ac0e91bd28ffd38dd00_9727_512x512_fill_lanczos_center_2.png</url>
+      <title>google</title>
+      <link>/tag/google/</link>
+    </image>
+    
+    <item>
+      <title>Experimenting with Github Actions</title>
+      <link>/post/message-queues-to-orchestrate-hpc-batch-runs/</link>
+      <pubDate>Fri, 31 Jan 2020 18:00:00 -0400</pubDate>
+      <guid>/post/message-queues-to-orchestrate-hpc-batch-runs/</guid>
+      <description>&lt;p&gt;&lt;a href=&#34;https://github.com/features/package-registry&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;GitHub Actions&lt;/a&gt; allow flexible and potentially complicated actions
+that comprise workflows that respond to &lt;a href=&#34;https://developer.github.com/webhooks/#events&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;repository events&lt;/a&gt; on Github. Continuous
+integration, messaging Slack, greeting new contributors, deploying
+applications, and many other templates are ready for customization and
+integration into any repo.&lt;/p&gt;
+&lt;p&gt;As of this writing, GitHub Actions are available as a &lt;em&gt;beta&lt;/em&gt; feature,
+requiring &lt;a href=&#34;https://github.com/features/actions&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;signup&lt;/a&gt;.&lt;/p&gt;
+&lt;h2 id=&#34;definitionshttpshelpgithubcomenarticlesabout-github-actionscore-concepts-for-github-actions&#34;&gt;&lt;a href=&#34;https://help.github.com/en/articles/about-github-actions#core-concepts-for-github-actions&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Definitions&lt;/a&gt;&lt;/h2&gt;
+&lt;h3 id=&#34;action&#34;&gt;Action&lt;/h3&gt;
+&lt;p&gt;An action is the smallest portable building block of a
+workflow. Actions are combined as steps to form a workflow. Actions can be
+created from scratch, modified from &lt;a href=&#34;https://github.com/actions&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;publicly available actions&lt;/a&gt;, and
+shared with others.&lt;/p&gt;
+&lt;h3 id=&#34;workflow&#34;&gt;Workflow&lt;/h3&gt;
+&lt;p&gt;A workflow is a collection of steps (actions) that describe a process
+that will execute in response to GitHub &lt;a href=&#34;https://developer.github.com/webhooks/#events&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;repository events&lt;/a&gt;. A YAML
+file that defines your workflow configuration with at least one
+job. This file lives in the root of your GitHub repository in the
+&lt;code&gt;.github/workflows&lt;/code&gt; directory. Multiple workflow files may exist and
+all will be active.&lt;/p&gt;
+&lt;h3 id=&#34;step&#34;&gt;Step&lt;/h3&gt;
+&lt;p&gt;A step is a set of tasks performed by a job. Each step in a job
+executes in the same virtual environment, allowing the actions in that
+job to share information using the filesystem. Steps can run commands
+(shell commands, etc.) or actions.&lt;/p&gt;
+&lt;h3 id=&#34;virtual-environment&#34;&gt;Virtual environment&lt;/h3&gt;
+&lt;p&gt;GitHub has hosts for Linux, macOS, and Windows that can serve as
+execution environments for workflows.&lt;/p&gt;
+&lt;h3 id=&#34;runner&#34;&gt;Runner&lt;/h3&gt;
+&lt;p&gt;Jobs run on a service that waits in virtual environment that waits for available
+jobs. The runner takes jobs one-at-a-time and runs each, reporting
+logs, etc., back to Github.&lt;/p&gt;
+&lt;h3 id=&#34;event&#34;&gt;Event&lt;/h3&gt;
+&lt;p&gt;Workflows can be triggered by a [repository event] such as a push, a
+new issue, etc.&lt;/p&gt;
+&lt;h3 id=&#34;artifact&#34;&gt;Artifact&lt;/h3&gt;
+&lt;p&gt;Artifacts are the files that are created during a workflow. These can
+be deployed, used in other workflows, published, etc. Additional
+actions allow working with artifacts.&lt;/p&gt;
+&lt;h2 id=&#34;walkthrough&#34;&gt;Walkthrough&lt;/h2&gt;
+&lt;h3 id=&#34;create-repo&#34;&gt;Create repo&lt;/h3&gt;
+&lt;p&gt;Here, I simulate creating a simple python package by forking &lt;a href=&#34;https://github.com/bast/somepackage&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;this
+example repo&lt;/a&gt; by
+&lt;a href=&#34;https://github.com/bast&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;bast&lt;/a&gt;. The package is to exemplify some best
+practices for structuring python code. However, here it serves as a
+simple example of a formal python package that we can build and test.&lt;/p&gt;
+&lt;p&gt;Login to Github, navigate to the &lt;a href=&#34;https://github.com/bast/somepackage&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;example repo&lt;/a&gt;, and &lt;a href=&#34;https://help.github.com/en/articles/fork-a-repo&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;fork the
+repo&lt;/a&gt;.&lt;/p&gt;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+&lt;figure id=&#34;figure-fork-the-example-repohttpsgithubcombastsomepackage&#34;&gt;
+
+
+  &lt;a data-fancybox=&#34;&#34; href=&#34;fork-repo.png&#34; data-caption=&#34;Fork the &amp;lt;a href=&amp;#34;https://github.com/bast/somepackage&amp;#34;&amp;gt;example repo&amp;lt;/a&amp;gt;.&#34;&gt;
+
+
+  &lt;img src=&#34;fork-repo.png&#34; alt=&#34;&#34;  &gt;
+&lt;/a&gt;
+
+
+  
+  
+  &lt;figcaption&gt;
+    Fork the &lt;a href=&#34;https://github.com/bast/somepackage&#34;&gt;example repo&lt;/a&gt;.
+  &lt;/figcaption&gt;
+
+
+&lt;/figure&gt;
+
+&lt;p&gt;After forking, a fresh package will be available in your repository.&lt;/p&gt;
+&lt;h3 id=&#34;add-a-github-action&#34;&gt;Add a github action&lt;/h3&gt;
+&lt;p&gt;After ensuring that you have [signed up] for Github Actions and have
+verified that you are &amp;ldquo;in&amp;rdquo; by noticing the &lt;code&gt;Actions&lt;/code&gt; button at the top
+of your github repository:&lt;/p&gt;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+&lt;figure id=&#34;figure-the-github-actions-button-should-be-present-in-order-to-proceed&#34;&gt;
+
+
+  &lt;a data-fancybox=&#34;&#34; href=&#34;action-button.png&#34; data-caption=&#34;The Github Actions button should be present in order to proceed.&#34;&gt;
+
+
+  &lt;img src=&#34;action-button.png&#34; alt=&#34;&#34;  &gt;
+&lt;/a&gt;
+
+
+  
+  
+  &lt;figcaption&gt;
+    The Github Actions button should be present in order to proceed.
+  &lt;/figcaption&gt;
+
+
+&lt;/figure&gt;
+
+&lt;p&gt;Now, we can proceed with adding a workflow from the set of recommended
+workflow templates (or others). Clicking on the &lt;code&gt;Actions&lt;/code&gt; button will
+bring up the following screen.&lt;/p&gt;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+&lt;figure id=&#34;figure-choose-the-python-package-workflow&#34;&gt;
+
+
+  &lt;a data-fancybox=&#34;&#34; href=&#34;choose-action.png&#34; data-caption=&#34;Choose the python package workflow.&#34;&gt;
+
+
+  &lt;img src=&#34;choose-action.png&#34; alt=&#34;&#34;  &gt;
+&lt;/a&gt;
+
+
+  
+  
+  &lt;figcaption&gt;
+    Choose the python package workflow.
+  &lt;/figcaption&gt;
+
+
+&lt;/figure&gt;
+
+&lt;p&gt;Click on the &lt;code&gt;Set up this workflow&lt;/code&gt; on the &amp;ldquo;Python package&amp;rdquo;
+card. That will bring up the following screen.&lt;/p&gt;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+&lt;figure id=&#34;figure-the-workflow-editor&#34;&gt;
+
+
+  &lt;a data-fancybox=&#34;&#34; href=&#34;workflow-editor.png&#34; data-caption=&#34;The workflow editor.&#34;&gt;
+
+
+  &lt;img src=&#34;workflow-editor.png&#34; alt=&#34;&#34;  &gt;
+&lt;/a&gt;
+
+
+  
+  
+  &lt;figcaption&gt;
+    The workflow editor.
+  &lt;/figcaption&gt;
+
+
+&lt;/figure&gt;
+
+&lt;p&gt;What is happening at this point is that Github is about to add a new
+file to your repository. The file will be located at
+&lt;code&gt;somepackage/.github/workflows&lt;/code&gt;. Edit the filename as you see
+fit.&lt;/p&gt;
+&lt;p&gt;The contents of the workflow file will look like the listing below by
+default and follows &lt;a href=&#34;https://help.github.com/en/articles/workflow-syntax-for-github-actions&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;the workflow
+syntax&lt;/a&gt;.&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;name: Python package
+
+on: [push]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+    strategy:
+      max-parallel: 4
+      matrix:
+        python-version: [2.7, 3.5, 3.6, 3.7]
+
+    steps:
+    - uses: actions/checkout@v1
+    - name: Set up Python ${{ matrix.python-version }}
+      uses: actions/setup-python@v1
+      with:
+        python-version: ${{ matrix.python-version }}
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install -r requirements.txt
+    - name: Lint with flake8
+      run: |
+        pip install flake8
+        # stop the build if there are Python syntax errors or undefined names
+        flake8 . --count --select=E9,F63,F7,F82 --show-source --statistics
+        # exit-zero treats all errors as warnings. The GitHub editor is 127 chars wide
+        flake8 . --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics
+    - name: Test with pytest
+      run: |
+        pip install pytest
+        pytest
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3 id=&#34;commit-new-workflow-file&#34;&gt;Commit new workflow file&lt;/h3&gt;
+&lt;p&gt;Once you have made any edits (no need to, though), go ahead and click
+the &lt;code&gt;Start Commit&lt;/code&gt; button.&lt;/p&gt;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+&lt;figure id=&#34;figure-make-the-first-commit&#34;&gt;
+
+
+  &lt;a data-fancybox=&#34;&#34; href=&#34;first-commit.png&#34; data-caption=&#34;Make the first commit.&#34;&gt;
+
+
+  &lt;img src=&#34;first-commit.png&#34; alt=&#34;&#34;  &gt;
+&lt;/a&gt;
+
+
+  
+  
+  &lt;figcaption&gt;
+    Make the first commit.
+  &lt;/figcaption&gt;
+
+
+&lt;/figure&gt;
+
+&lt;h3 id=&#34;build-results&#34;&gt;Build results&lt;/h3&gt;
+&lt;p&gt;By navigating back to &lt;code&gt;Actions&lt;/code&gt;, you should see that the workflow is
+running or has already completed. An example of what a running
+workflow might look like is below.&lt;/p&gt;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+&lt;figure id=&#34;figure-image-credit-github-bloghttpsgithubblog2019-08-08-github-actions-now-supports-ci-cd&#34;&gt;
+
+
+  &lt;a data-fancybox=&#34;&#34; href=&#34;https://github.blog/wp-content/uploads/2019/08/streaming.gif?w=918&amp;amp;resize=918%2C802&#34; data-caption=&#34;Image Credit: &amp;lt;a href=&amp;#34;https://github.blog/2019-08-08-github-actions-now-supports-ci-cd/&amp;#34;&amp;gt;GitHub Blog&amp;lt;/a&amp;gt;&#34;&gt;
+
+
+  &lt;img src=&#34;https://github.blog/wp-content/uploads/2019/08/streaming.gif?w=918&amp;amp;resize=918%2C802&#34; alt=&#34;&#34;  &gt;
+&lt;/a&gt;
+
+
+  
+  
+  &lt;figcaption&gt;
+    Image Credit: &lt;a href=&#34;https://github.blog/2019-08-08-github-actions-now-supports-ci-cd/&#34;&gt;GitHub Blog&lt;/a&gt;
+  &lt;/figcaption&gt;
+
+
+&lt;/figure&gt;
+
+&lt;p&gt;You are free to investigate the logs, etc.&lt;/p&gt;
+&lt;h3 id=&#34;modifying-the-workflow&#34;&gt;Modifying the workflow&lt;/h3&gt;
+&lt;p&gt;Modifying the workflow is as simple as making edits to the
+&lt;code&gt;.github/workflows/...yaml&lt;/code&gt; file. For example, you might consider
+changing the name of the workflow and modifying the python versions
+that are used for testing.&lt;/p&gt;
+&lt;h3 id=&#34;workflow-status-badge&#34;&gt;Workflow status badge&lt;/h3&gt;
+&lt;p&gt;Follow &lt;a href=&#34;https://help.github.com/en/articles/configuring-a-workflow#adding-a-workflow-status-badge-to-your-repository&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;these
+instructions&lt;/a&gt;
+to add a status badge to your repo that will be updated with each
+workflow execution. Example code is here:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;[![Actions
+Status](https://github.com/seandavi/somepackage/workflows/Python%20package/badge.svg)](https://github.com/seandavi/somepackage/actions)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Note the &lt;code&gt;%20&lt;/code&gt; that represents a url-encoded &lt;code&gt;space&lt;/code&gt; character. The resulting badge looks like this:&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://github.com/seandavi/somepackage/actions&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;&lt;img src=&#34;https://github.com/seandavi/somepackage/workflows/Python%20package/badge.svg&#34; alt=&#34;Actions Status&#34;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&#34;conclusion&#34;&gt;Conclusion&lt;/h2&gt;
+&lt;p&gt;Github actions and workflows add continuous integration and other
+capabilities that are configurable via text files that are captured
+and versioned alongside code. Therefore, actions can be shared,
+modified, and manipulated with standard text editors, etc.&lt;/p&gt;
+&lt;p&gt;Many actions are &lt;a href=&#34;https://github.com/actions&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;publicly
+available&lt;/a&gt;. Example workflows are also
+&lt;a href=&#34;https://github.com/actions/starter-workflows&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;easy to find&lt;/a&gt;. For
+those who are partial to &lt;em&gt;R&lt;/em&gt;, there is the R-centric
+&lt;a href=&#34;https://r-lib.github.io/ghactions/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;ghactions&lt;/a&gt; package that 1)
+provides workflow templates for common R projects (packages,
+RMarkdown, …) with sensible defaults and 2) wraps and curates relevant
+existing external actions, such as those to deploy to GitHub Pages or
+Netlify.&lt;/p&gt;
+&lt;p&gt;Hardware available as of this writing is &lt;a href=&#34;https://help.github.com/en/articles/virtual-environments-for-github-actions#supported-virtual-environments-and-hardware-resources&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;described
+here&lt;/a&gt;
+and includes Windows, Linux, and MacOS environments. When a workflow
+is running, multiple &lt;a href=&#34;https://help.github.com/en/articles/virtual-environments-for-github-actions#environment-variables&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;environment
+variables&lt;/a&gt;
+are set and accessible to software. Github actions allow the user to
+create
+&lt;a href=&#34;https://help.github.com/en/articles/virtual-environments-for-github-actions#creating-and-using-secrets-encrypted-variables&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;secrets&lt;/a&gt;
+to securely store credentials for use inside run environments. Github
+actions are container-ready, allowing &lt;a href=&#34;https://help.github.com/en/articles/creating-a-docker-container-action&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;containerized
+actions&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;This post, like many of my posts, is very operational, but I have
+found that a worked example is usually more valuable than long
+expository posts. That said, I always appreciate comments and
+suggestions for improvements (see below).&lt;/p&gt;
+&lt;h2 id=&#34;references&#34;&gt;References&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/features/package-registry&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;GitHub Package Registry&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/features/package-registry&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;GitHub Actions&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://help.github.com/en/articles/workflow-syntax-for-github-actions&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Workflow Syntax&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://developer.github.com/webhooks/#events&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;repository events&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/actions&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;publicly available actions&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.community/t5/GitHub-Actions/bd-p/actions&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Community support site&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Using google cloud registry for private docker images</title>
+      <link>/post/using-google-cloud-registry/</link>
+      <pubDate>Wed, 06 Feb 2019 13:12:54 -0500</pubDate>
+      <guid>/post/using-google-cloud-registry/</guid>
+      <description>
+
+
+&lt;p&gt;In this post, I will quickly build a docker image containing the
+sra-toolkit and a key for dbGaP downloads. Because the key file is
+private, I will be using the secure Google Container Registry to store
+the image for later use in genomics workflows.&lt;/p&gt;
+&lt;div id=&#34;background&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Background&lt;/h2&gt;
+&lt;p&gt;Container technologies like &lt;a href=&#34;https://docker.io/&#34;&gt;docker&lt;/a&gt; enable quick and easy
+encapsulation of software, dependencies, and operating systems. One or
+more containers can render entire software ecosystems portable,
+enhance reproducibility and reusability, and facilitate sharing of
+software, tools, and even infrastructure.&lt;/p&gt;
+&lt;p&gt;While &lt;a href=&#34;https://hub.docker.com/&#34;&gt;DockerHub&lt;/a&gt; is perhaps the most well-known registry where such
+docker images can be housed, others such as &lt;a href=&#34;https://quay.io/&#34;&gt;quay.io&lt;/a&gt; are also
+available. Commercial cloud environments, such as the &lt;a href=&#34;https://cloud.google.com/&#34;&gt;Google Cloud
+Platform&lt;/a&gt; often offer their own registries that use the same secure
+access controls as other cloud services, &lt;em&gt;allowing docker images with
+proprietary or private information to be stored and accessed
+securely&lt;/em&gt;. They are also typically quite integrated with commercial
+cloud services (&lt;a href=&#34;https://cloud.google.com/container-registry/docs/&#34;&gt;gcr docs&lt;/a&gt;).&lt;/p&gt;
+&lt;p&gt;I am experimenting with the &lt;a href=&#34;https://cloud.google.com/container-registry/&#34;&gt;Google Container Registry&lt;/a&gt; (GCR) for a
+bioinformatics project that I plan to perform in on Google Cloud. This
+blog post simply serves as notes to myself about details of using that
+system.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;preliminaries&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Preliminaries&lt;/h2&gt;
+&lt;p&gt;A Google Cloud &lt;a href=&#34;https://cloud.google.com/container-registry/docs/quickstart&#34;&gt;account and project&lt;/a&gt; is required to follow along here.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://cloud.google.com/sdk/docs/&#34;&gt;Install the Google Cloud SDK&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://docs.docker.com/install/linux/docker-ce/ubuntu/&#34;&gt;Install
+Docker&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;In order to allow docker to use google for authorization, we need to
+do this one-time command to get tie docker to google.&lt;/p&gt;
+&lt;pre class=&#34;bash&#34;&gt;&lt;code&gt;gcloud auth configure-docker&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Answer “yes” to the prompt.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;building-docker-image-and-adding-to-gcr&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Building docker image and adding to GCR&lt;/h2&gt;
+&lt;p&gt;We are going to build a simple docker file that includes the
+&lt;a href=&#34;https://github.com/ncbi/sra-tools&#34;&gt;sra-tools&lt;/a&gt; package, import a private key for downloading files that
+are protected, and then store that image to GCR.&lt;/p&gt;
+&lt;p&gt;The Dockerfile is given below. Note that I &lt;strong&gt;am not including the dbGaP
+key file, as it is private&lt;/strong&gt;, but you could modify the Dockerfile to
+include your own key file(s) or simply remove the dbGaP access details
+entirely.&lt;/p&gt;
+&lt;script src=&#34;https://gist.github.com/seandavi/410cfbbed6b8db0b4928eb36236e7dda.js&#34;&gt;&lt;/script&gt;
+&lt;p&gt;Building the container is one line:&lt;/p&gt;
+&lt;pre class=&#34;bash&#34;&gt;&lt;code&gt;docker build -t sratoolkit .&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;At this point, the docker image has been created. Run it locally to
+test, for example.&lt;/p&gt;
+&lt;pre class=&#34;bash&#34;&gt;&lt;code&gt;docker run -ti sratoolkit /bin/bash&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Inside the docker container, all the sra-toolkit binaries are
+available.&lt;/p&gt;
+&lt;p&gt;Each Google Cloud Project has a private GCR. Therefore, GCR urls
+include the &lt;code&gt;PROJECT-ID&lt;/code&gt;.&lt;/p&gt;
+&lt;pre class=&#34;bash&#34;&gt;&lt;code&gt;docker tag sratoolkit gcr.io/isb-cgc-01-0006/sratoolkit:2.9.2
+docker push gcr.io/isb-cgc-01-0006/sratoolkit:2.9.2&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;div id=&#34;usage&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Usage&lt;/h2&gt;
+&lt;p&gt;For fun, we can use the image and the &lt;code&gt;fastq-dump&lt;/code&gt; utility to download
+a single SRA run. The docker image will only run as long as necessary
+to perform the fastq dump and then will terminate. This post is not
+about the details of running docker, but note that the following will
+result in the fastq file from the &lt;code&gt;fastq-dump&lt;/code&gt; command ending up in
+the &lt;code&gt;/tmp&lt;/code&gt; directory on your machine.&lt;/p&gt;
+&lt;pre class=&#34;bash&#34;&gt;&lt;code&gt;docker run -v /tmp:/data -ti  gcr.io/isb-cgc-01-0006/sratoolkit:2.9.2\
+    /bin/bash -c &amp;quot;cd /root/ncbi/dbGaP-16049/ \
+    &amp;amp;&amp;amp; fastq-dump   --split-files --gzip \
+    --skip-technical -X 10000   SRR390728&amp;quot;&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;This will result in:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;Read 10000 spots for SRR390728
+Written 10000 spots for SRR390728&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;div id=&#34;best-practices&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Best practices&lt;/h2&gt;
+&lt;p&gt;Storing keys, key files, and any other private information in a docker
+image is a risky operation and is not a best practice. Leveraging the
+security model of GCR mitigates these issues. However, it is &lt;strong&gt;really
+easy&lt;/strong&gt; to forget about the information that might be leaked if this
+image were shared or pushed to a public repository like DockerHub.&lt;/p&gt;
+&lt;p&gt;For a discussion of other models for accessing private information
+inside a docker container, see &lt;a href=&#34;https://www.ctl.io/developers/blog/post/tutorial-protecting-sensitive-info-docker&#34;&gt;this blog post, for example&lt;/a&gt;.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;from-here&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;From here&lt;/h2&gt;
+&lt;p&gt;At this point, we have created an environment for building docker
+images, stored a proprietary docker image in the Google Cloud
+Registry, and successfully used the image to run a simple command to
+perform a &lt;code&gt;fastq-dump&lt;/code&gt; with the files ending up on the docker host
+machine. This image can be used anywhere a docker image can run, but
+only if google authentication &lt;a href=&#34;#preliminaries&#34;&gt;has been tied into docker&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;The &lt;a href=&#34;https://cloud.google.com/genomics/docs/quickstart&#34;&gt;Google Genomics Pipeline API&lt;/a&gt; is built around scalable genomic
+workflows and uses docker images for workflow tasks. The image here
+can be used for dbGaP genomic data extraction as part of such a
+workflow, all within the secure environment of google cloud.&lt;/p&gt;
+&lt;/div&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>
