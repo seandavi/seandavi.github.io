@@ -34,7 +34,7 @@
   
     
   
-  <meta name="description" content="Senior Associate Scientist">
+  <meta name="description" content="Professor, Department of Medicine">
 
   
   <link rel="alternate" hreflang="en-us" href="/publication-type/2/">
@@ -60,7 +60,7 @@
   
   
   
-  <meta name="theme-color" content="#2962ff">
+  <meta name="theme-color" content="#3f51b5">
   
 
   
@@ -92,8 +92,6 @@
       
     
 
-    
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/leaflet.min.css" integrity="sha512-1xoFisiGdy9nvho8EgXuXvnpR5GAMSjFwp40gSRE3NwdUdIMIKuPa7bqoUhLD0O/5tPNhteAsE5XyyMi5reQVA==" crossorigin="anonymous">
     
 
     
@@ -240,23 +238,61 @@
   
   
   
-  <link rel="stylesheet" href="/css/wowchemy.min.2da9fc7ecccb62374ee4667dc6583d14.css">
+  <link rel="stylesheet" href="/css/wowchemy.min.8e43d31e888508b173bbc2cc83c6a116.css">
 
   
 
 
 
 
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-93043521-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+
+  function gtag() {
+      dataLayer.push(arguments);
+  }
+
+  function trackOutboundLink(url, target) {
+    gtag('event', 'click', {
+         'event_category': 'outbound',
+         'event_label': url,
+         'transport_type': 'beacon',
+         'event_callback': function () {
+           if (target !== '_blank') {
+             document.location = url;
+           }
+         }
+    });
+    console.debug("Outbound link clicked: " + url);
+  }
+
+  function onClickCallback(event) {
+    if ((event.target.tagName !== 'A') || (event.target.host === window.location.host)) {
+      return;
+    }
+    trackOutboundLink(event.target, event.target.getAttribute('target'));  
+  }
+
+  gtag('js', new Date());
+  gtag('config', 'UA-93043521-1', {});
+
   
+  document.addEventListener('click', onClickCallback, false);
+</script>
+
 
   
 
+  
+
 
   
   
 
   
-  <link rel="alternate" href="/publication-type/2/index.xml" type="application/rss+xml" title="Academic">
+  <link rel="alternate" href="/publication-type/2/index.xml" type="application/rss+xml" title="seandavi(s12)">
   
 
   <link rel="manifest" href="/index.webmanifest">
@@ -278,13 +314,16 @@
   
   <meta property="twitter:card" content="summary">
   
-  <meta property="og:site_name" content="Academic">
+  <meta property="twitter:site" content="@seandavis12">
+  <meta property="twitter:creator" content="@seandavis12">
+  
+  <meta property="og:site_name" content="seandavi(s12)">
   <meta property="og:url" content="/publication-type/2/">
-  <meta property="og:title" content="2 | Academic">
-  <meta property="og:description" content="Senior Associate Scientist"><meta property="og:image" content="/images/icon_hu0b7a4cb9992c9ac0e91bd28ffd38dd00_9727_512x512_fill_lanczos_center_2.png">
+  <meta property="og:title" content="2 | seandavi(s12)">
+  <meta property="og:description" content="Professor, Department of Medicine"><meta property="og:image" content="/images/icon_hu0b7a4cb9992c9ac0e91bd28ffd38dd00_9727_512x512_fill_lanczos_center_2.png">
   <meta property="twitter:image" content="/images/icon_hu0b7a4cb9992c9ac0e91bd28ffd38dd00_9727_512x512_fill_lanczos_center_2.png"><meta property="og:locale" content="en-us">
   
-    <meta property="og:updated_time" content="2019-01-01T00:00:00&#43;00:00">
+    <meta property="og:updated_time" content="2020-01-01T00:00:00&#43;00:00">
   
 
   
@@ -301,7 +340,7 @@
 
 
 
-  <title>2 | Academic</title>
+  <title>2 | seandavi(s12)</title>
 
 </head>
 
@@ -366,7 +405,7 @@
 
     
     <div class="d-none d-lg-inline-flex">
-      <a class="navbar-brand" href="/">Academic</a>
+      <a class="navbar-brand" href="/">seandavi(s12)</a>
     </div>
     
 
@@ -379,7 +418,7 @@
 
     
     <div class="navbar-brand-mobile-wrapper d-inline-flex d-lg-none">
-      <a class="navbar-brand" href="/">Academic</a>
+      <a class="navbar-brand" href="/">seandavi(s12)</a>
     </div>
     
 
@@ -496,43 +535,6 @@
         
 
         <li class="nav-item">
-          <a class="nav-link " href="/#projects"><span>Projects</span></a>
-        </li>
-
-        
-        
-
-        
-
-        
-        
-        
-          
-        
-
-        
-
-        
-        
-        
-        
-
-        
-          
-            
-            
-          
-          
-            
-            
-            
-              
-            
-            
-          
-        
-
-        <li class="nav-item">
           <a class="nav-link " href="/#talks"><span>Talks</span></a>
         </li>
 
@@ -570,7 +572,7 @@
         
 
         <li class="nav-item">
-          <a class="nav-link " href="/#featured"><span>Publications</span></a>
+          <a class="nav-link " href="/#publications"><span>Publications</span></a>
         </li>
 
         
@@ -608,6 +610,36 @@
 
         <li class="nav-item">
           <a class="nav-link " href="/#contact"><span>Contact</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+
+        
+        
+        
+        
+
+        
+          
+            
+            
+          
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/files/CV.pdf"><span>CV</span></a>
         </li>
 
         
@@ -697,10 +729,10 @@
     
     
     <div>
-      <h2><a href="/publication/pmid-23940108/" >Oncogenic ETS fusions deregulate E2F3 target genes in Ewing sarcoma and prostate cancer</a></h2>
+      <h2><a href="/publication/pmid-20440268/" >Epigenomic alterations and gene expression profiles in respiratory epithelia exposed to cigarette smoke condensate</a></h2>
       <div class="article-style">
         
-          Deregulated E2F transcription factor activity occurs in the vast majority of human tumors and has been solidly implicated in disturbances of cell cycle control, proliferation, and apoptosis. Aberrant E2F regulatory activity is often caused by …
+          Limited information is available regarding epigenomic events mediating initiation and progression of tobacco-induced lung cancers. In this study, we established an in vitro system to examine epigenomic effects of cigarette smoke in respiratory …
         
       </div>
     </div>
@@ -709,10 +741,10 @@
     
     
     <div>
-      <h2><a href="/publication/pmid23901115/" >Whole-genome sequencing identifies a recurrent functional synonymous mutation in melanoma</a></h2>
+      <h2><a href="/publication/pmid-20332278/" >Assessment of automated image analysis of breast cancer tissue microarrays for epidemiologic studies</a></h2>
       <div class="article-style">
         
-          Synonymous mutations, which do not alter the protein sequence, have been shown to affect protein function [Sauna ZE, Kimchi-Sarfaty C (2011) Nat Rev Genet 12(10):683-691]. However, synonymous mutations are rarely investigated in the cancer genomics …
+          A major challenge in studies of etiologic heterogeneity in breast cancer has been the limited throughput, accuracy, and reproducibility of measuring tissue markers. Computerized image analysis systems may help address these concerns, but published …
         
       </div>
     </div>
@@ -721,10 +753,10 @@
     
     
     <div>
-      <h2><a href="/publication/pmid-23901115/" >Whole-genome sequencing identifies a recurrent functional synonymous mutation in melanoma</a></h2>
+      <h2><a href="/publication/pmid-20074881/" >Chemical analysis of four capsules containing the controlled substance analogues 4-methylmethcathinone, 2-fluoromethamphetamine, alpha-phthalimidopropiophenone and N-ethylcathinone</a></h2>
       <div class="article-style">
         
-          Synonymous mutations, which do not alter the protein sequence, have been shown to affect protein function [Sauna ZE, Kimchi-Sarfaty C (2011) Nat Rev Genet 12(10):683-691]. However, synonymous mutations are rarely investigated in the cancer genomics …
+          In August 2007, four capsules containing white powders, said to have originated from an Israel-based Internet company \"Neorganics\", were anonymously delivered to the Royal Adelaide Hospital, South Australia. The capsules were analysed and the …
         
       </div>
     </div>
@@ -733,10 +765,10 @@
     
     
     <div>
-      <h2><a href="/publication/pmid23856246/" >The exomes of the NCI-60 panel: a genomic resource for cancer biology and systems pharmacology</a></h2>
+      <h2><a href="/publication/pmid-19789319/" >Vorinostat inhibits brain metastatic colonization in a model of triple-negative breast cancer and induces DNA double-strand breaks</a></h2>
       <div class="article-style">
         
-          The NCI-60 cell lines are the most frequently studied human tumor cell lines in cancer research. This panel has generated the most extensive cancer pharmacology database worldwide. In addition, these cell lines have been intensely investigated, …
+          As chemotherapy and molecular therapy improve the systemic survival of breast cancer patients, the incidence of brain metastases increases. Few therapeutic strategies exist for the treatment of brain metastases because the blood-brain barrier …
         
       </div>
     </div>
@@ -745,10 +777,10 @@
     
     
     <div>
-      <h2><a href="/publication/pmid-23856246/" >The exomes of the NCI-60 panel: a genomic resource for cancer biology and systems pharmacology</a></h2>
+      <h2><a href="/publication/pmid-19723875/" >Analyses of resected human brain metastases of breast cancer reveal the association between up-regulation of hexokinase 2 and poor prognosis</a></h2>
       <div class="article-style">
         
-          The NCI-60 cell lines are the most frequently studied human tumor cell lines in cancer research. This panel has generated the most extensive cancer pharmacology database worldwide. In addition, these cell lines have been intensely investigated, …
+          Brain metastases of breast cancer seem to be increasingin incidence as systemic therapy improves. Metastatic disease in the brain is associated with high morbidity and mortality. We present the first gene expression analysis of laser-captured …
         
       </div>
     </div>
@@ -757,10 +789,10 @@
     
     
     <div>
-      <h2><a href="/publication/pmid23271725/" >Chromothripsis and focal copy number alterations determine poor outcome in malignant melanoma</a></h2>
+      <h2><a href="/publication/pmid-19330028/" >Analysis of the matrix metalloproteinase family reveals that MMP8 is often mutated in melanoma</a></h2>
       <div class="article-style">
         
-          Genetic changes during tumorigenesis are usually acquired sequentially. However, a recent study showed that in 2% to 3% of all cancers a single catastrophic event, termed chromothripsis, can lead to massive genomic rearrangements confined to one or a …
+          A mutational analysis of the matrix metalloproteinase (MMP) gene family in human melanoma identified somatic mutations in 23% of melanomas. Five mutations in one of the most commonly mutated genes, MMP8, reduced MMP enzyme activity. Expression of …
         
       </div>
     </div>
@@ -769,10 +801,10 @@
     
     
     <div>
-      <h2><a href="/publication/pmid-23271725/" >Chromothripsis and focal copy number alterations determine poor outcome in malignant melanoma</a></h2>
+      <h2><a href="/publication/pmid-19131569/" >Kinetic complexity of the global response to glucocorticoid receptor action</a></h2>
       <div class="article-style">
         
-          Genetic changes during tumorigenesis are usually acquired sequentially. However, a recent study showed that in 2% to 3% of all cancers a single catastrophic event, termed chromothripsis, can lead to massive genomic rearrangements confined to one or a …
+          We have characterized the kinetic response of gene targets throughout the murine genome to transcriptional modulation by the glucocorticoid receptor (GR). In contrast to a model in which multiple genes are either repressed or activated during the GR …
         
       </div>
     </div>
@@ -781,10 +813,10 @@
     
     
     <div>
-      <h2><a href="/publication/pmid22935230/" >Harnessing genomics to identify environmental determinants of heritable disease</a></h2>
+      <h2><a href="/publication/pmid-19155300/" >Large-scale profiling of archival lymph nodes reveals pervasive remodeling of the follicular lymphoma methylome</a></h2>
       <div class="article-style">
         
-          Next-generation sequencing technologies can now be used to directly measure heritable de novo DNA sequence mutations in humans. However, these techniques have not been used to examine environmental factors that induce such mutations and their …
+          Emerging technologies allow broad profiling of the cancer genome for differential DNA methylation relative to benign cells. Herein, bisulfite-modified DNA from lymph nodes with either reactive hyperplasia or follicular lymphoma (FL) were analyzed …
         
       </div>
     </div>
@@ -793,10 +825,10 @@
     
     
     <div>
-      <h2><a href="/publication/pmid23193258/" >NCBI GEO: archive for functional genomics data sets--update</a></h2>
+      <h2><a href="/publication/pmid-19404404/" >A molecular function map of Ewing&#39;s sarcoma</a></h2>
       <div class="article-style">
         
-          The Gene Expression Omnibus (GEO, http://www.ncbi.nlm.nih.gov/geo/) is an international public repository for high-throughput microarray and next-generation sequence functional genomic data sets submitted by the research community. The resource …
+          EWS-FLI1 is a chimeric ETS transcription factor that is, due to a chromosomal rearrangement, specifically expressed in Ewing's sarcoma family tumors (ESFT) and is thought to initiate the development of the disease. Previous genomic profiling …
         
       </div>
     </div>
@@ -805,10 +837,10 @@
     
     
     <div>
-      <h2><a href="/publication/pmid24274149/" >Rb1 loss modifies but does not initiate alveolar rhabdomyosarcoma</a></h2>
+      <h2><a href="/publication/pmid-20028558/" >Canine tumor cross-species genomics uncovers targets linked to osteosarcoma progression</a></h2>
       <div class="article-style">
         
-          Alveolar rhabdomyosarcoma (aRMS) is a myogenic childhood sarcoma frequently associated with a translocation-mediated fusion gene, Pax3:Foxo1a. We investigated the complementary role of Rb1 loss in aRMS tumor initiation and progression using …
+          Pulmonary metastasis continues to be the most common cause of death in osteosarcoma. Indeed, the 5-year survival for newly diagnosed osteosarcoma patients has not significantly changed in over 20 years. Further understanding of the mechanisms of …
         
       </div>
     </div>
@@ -920,8 +952,6 @@
     
 
     
-    
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/leaflet.min.js" integrity="sha512-SeiQaaDh73yrb56sTW/RgVdi/mMqNeM2oBwubFHagc5BkixSpP1fvqF47mKzPGWYSSy4RwbBunrJBQ4Co8fRWA==" crossorigin="anonymous"></script>
     
 
     

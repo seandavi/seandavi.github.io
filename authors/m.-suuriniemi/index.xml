@@ -1,24 +1,16 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>M. Suuriniemi | Academic</title>
+    <title>M. Suuriniemi | seandavi(s12)</title>
     <link>/authors/m.-suuriniemi/</link>
       <atom:link href="/authors/m.-suuriniemi/index.xml" rel="self" type="application/rss+xml" />
     <description>M. Suuriniemi</description>
-    <generator>Wowchemy (https://wowchemy.com)</generator><language>en-us</language><lastBuildDate>Mon, 01 Nov 2010 00:00:00 -0400</lastBuildDate>
+    <generator>Wowchemy (https://wowchemy.com)</generator><language>en-us</language><lastBuildDate>Mon, 01 Nov 2010 00:00:00 +0000</lastBuildDate>
     <image>
       <url>/images/icon_hu0b7a4cb9992c9ac0e91bd28ffd38dd00_9727_512x512_fill_lanczos_center_2.png</url>
       <title>M. Suuriniemi</title>
       <link>/authors/m.-suuriniemi/</link>
     </image>
-    
-    <item>
-      <title>Archival fine-needle aspiration cytopathology (FNAC) samples: untapped resource for clinical molecular profiling</title>
-      <link>/publication/pmid20959611/</link>
-      <pubDate>Mon, 01 Nov 2010 00:00:00 -0400</pubDate>
-      <guid>/publication/pmid20959611/</guid>
-      <description></description>
-    </item>
     
     <item>
       <title>Archival fine-needle aspiration cytopathology (FNAC) samples: untapped resource for clinical molecular profiling</title>

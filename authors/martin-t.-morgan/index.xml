@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Martin T. Morgan | seandavi(s12)</title>
+    <link>/authors/martin-t.-morgan/</link>
+      <atom:link href="/authors/martin-t.-morgan/index.xml" rel="self" type="application/rss+xml" />
+    <description>Martin T. Morgan</description>
+    <generator>Wowchemy (https://wowchemy.com)</generator><language>en-us</language><lastBuildDate>Sun, 01 Jan 2017 00:00:00 +0000</lastBuildDate>
+    <image>
+      <url>/images/icon_hu0b7a4cb9992c9ac0e91bd28ffd38dd00_9727_512x512_fill_lanczos_center_2.png</url>
+      <title>Martin T. Morgan</title>
+      <link>/authors/martin-t.-morgan/</link>
+    </image>
+    
+    <item>
+      <title>GenomicDataCommons: a Bioconductor Interface to the NCI Genomic Data Commons</title>
+      <link>/publication/morgan-117200/</link>
+      <pubDate>Sun, 01 Jan 2017 00:00:00 +0000</pubDate>
+      <guid>/publication/morgan-117200/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>

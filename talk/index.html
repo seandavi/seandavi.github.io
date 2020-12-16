@@ -34,7 +34,7 @@
   
     
   
-  <meta name="description" content="Senior Associate Scientist">
+  <meta name="description" content="Professor, Department of Medicine">
 
   
   <link rel="alternate" hreflang="en-us" href="/talk/">
@@ -60,7 +60,7 @@
   
   
   
-  <meta name="theme-color" content="#2962ff">
+  <meta name="theme-color" content="#3f51b5">
   
 
   
@@ -92,8 +92,6 @@
       
     
 
-    
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/leaflet.min.css" integrity="sha512-1xoFisiGdy9nvho8EgXuXvnpR5GAMSjFwp40gSRE3NwdUdIMIKuPa7bqoUhLD0O/5tPNhteAsE5XyyMi5reQVA==" crossorigin="anonymous">
     
 
     
@@ -240,23 +238,61 @@
   
   
   
-  <link rel="stylesheet" href="/css/wowchemy.min.2da9fc7ecccb62374ee4667dc6583d14.css">
+  <link rel="stylesheet" href="/css/wowchemy.min.8e43d31e888508b173bbc2cc83c6a116.css">
 
   
 
 
 
 
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-93043521-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+
+  function gtag() {
+      dataLayer.push(arguments);
+  }
+
+  function trackOutboundLink(url, target) {
+    gtag('event', 'click', {
+         'event_category': 'outbound',
+         'event_label': url,
+         'transport_type': 'beacon',
+         'event_callback': function () {
+           if (target !== '_blank') {
+             document.location = url;
+           }
+         }
+    });
+    console.debug("Outbound link clicked: " + url);
+  }
+
+  function onClickCallback(event) {
+    if ((event.target.tagName !== 'A') || (event.target.host === window.location.host)) {
+      return;
+    }
+    trackOutboundLink(event.target, event.target.getAttribute('target'));  
+  }
+
+  gtag('js', new Date());
+  gtag('config', 'UA-93043521-1', {});
+
   
+  document.addEventListener('click', onClickCallback, false);
+</script>
+
 
   
 
+  
+
 
   
   
 
   
-  <link rel="alternate" href="/talk/index.xml" type="application/rss+xml" title="Academic">
+  <link rel="alternate" href="/talk/index.xml" type="application/rss+xml" title="seandavi(s12)">
   
 
   <link rel="manifest" href="/index.webmanifest">
@@ -278,10 +314,13 @@
   
   <meta property="twitter:card" content="summary">
   
-  <meta property="og:site_name" content="Academic">
+  <meta property="twitter:site" content="@seandavis12">
+  <meta property="twitter:creator" content="@seandavis12">
+  
+  <meta property="og:site_name" content="seandavi(s12)">
   <meta property="og:url" content="/talk/">
-  <meta property="og:title" content="Recent &amp; Upcoming Talks | Academic">
-  <meta property="og:description" content="Senior Associate Scientist"><meta property="og:image" content="/images/icon_hu0b7a4cb9992c9ac0e91bd28ffd38dd00_9727_512x512_fill_lanczos_center_2.png">
+  <meta property="og:title" content="Recent &amp; Upcoming Talks | seandavi(s12)">
+  <meta property="og:description" content="Professor, Department of Medicine"><meta property="og:image" content="/images/icon_hu0b7a4cb9992c9ac0e91bd28ffd38dd00_9727_512x512_fill_lanczos_center_2.png">
   <meta property="twitter:image" content="/images/icon_hu0b7a4cb9992c9ac0e91bd28ffd38dd00_9727_512x512_fill_lanczos_center_2.png"><meta property="og:locale" content="en-us">
   
     <meta property="og:updated_time" content="2017-01-01T00:00:00-05:00">
@@ -301,7 +340,7 @@
 
 
 
-  <title>Recent &amp; Upcoming Talks | Academic</title>
+  <title>Recent &amp; Upcoming Talks | seandavi(s12)</title>
 
 </head>
 
@@ -366,7 +405,7 @@
 
     
     <div class="d-none d-lg-inline-flex">
-      <a class="navbar-brand" href="/">Academic</a>
+      <a class="navbar-brand" href="/">seandavi(s12)</a>
     </div>
     
 
@@ -379,7 +418,7 @@
 
     
     <div class="navbar-brand-mobile-wrapper d-inline-flex d-lg-none">
-      <a class="navbar-brand" href="/">Academic</a>
+      <a class="navbar-brand" href="/">seandavi(s12)</a>
     </div>
     
 
@@ -496,43 +535,6 @@
         
 
         <li class="nav-item">
-          <a class="nav-link " href="/#projects"><span>Projects</span></a>
-        </li>
-
-        
-        
-
-        
-
-        
-        
-        
-          
-        
-
-        
-
-        
-        
-        
-        
-
-        
-          
-            
-            
-          
-          
-            
-            
-            
-              
-            
-            
-          
-        
-
-        <li class="nav-item">
           <a class="nav-link " href="/#talks"><span>Talks</span></a>
         </li>
 
@@ -570,7 +572,7 @@
         
 
         <li class="nav-item">
-          <a class="nav-link " href="/#featured"><span>Publications</span></a>
+          <a class="nav-link " href="/#publications"><span>Publications</span></a>
         </li>
 
         
@@ -608,6 +610,36 @@
 
         <li class="nav-item">
           <a class="nav-link " href="/#contact"><span>Contact</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+
+        
+        
+        
+        
+
+        
+          
+            
+            
+          
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/files/CV.pdf"><span>CV</span></a>
         </li>
 
         
@@ -701,6 +733,116 @@
         </div>
         <div class="col-lg-10">
 
+          
+            
+              
+
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+  
+
+
+<div class="media stream-item">
+  <div class="media-body">
+
+    <h3 class="article-title mb-0 mt-0">
+      <a href="/talk/2020-12-16-btep-ccr-bioconductor/" >Bioconductor: Tools for interpreting high-throughput biological data</a>
+    </h3>
+
+    
+    <a href="/talk/2020-12-16-btep-ccr-bioconductor/"  class="summary-link">
+      <div class="article-style">
+        In this talk, I give a high-level overview of the Bioconductor project.
+      </div>
+    </a>
+    
+
+    <div class="stream-meta article-metadata">
+
+      
+      <div>
+        <span>
+          Dec 16, 2020 12:00 AM
+        </span>
+        
+        <span class="middot-divider"></span>
+        <span>Bethesda, MD, USA</span>
+        
+      </div>
+      
+
+      
+      <div>
+        
+
+  <span >
+      <a href="/authors/sean-davis/">Sean Davis</a></span>
+      </div>
+      
+    </div>
+
+    
+    <div class="btn-links">
+      
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+<a class="btn btn-outline-primary my-1 mr-1 btn-sm" href="/https:/docs.google.com/presentation/d/1Ob62Zr39Groa5MVgatxB6rF1YsYGEKP2XzddrzskfsU/edit?usp=sharing" target="_blank" rel="noopener">
+  Slides
+</a>
+
+
+
+
+
+
+
+    </div>
+    
+
+  </div>
+  <div class="ml-3">
+    
+    
+  </div>
+</div>
+
+            
           
             
               
@@ -916,116 +1058,6 @@
     <a href="/talk/2019-10-08-hcc-stem-career-fair/" >
       <img src="/talk/2019-10-08-hcc-stem-career-fair/featured_hucc093546fb29de73926d1e7d2b7eab5e_36906_721a127ffdacb5dc7428c14fa792d60c.png" data-src="/talk/2019-10-08-hcc-stem-career-fair/featured_hucc093546fb29de73926d1e7d2b7eab5e_36906_150x0_resize_lanczos_2.png" alt="Howard County Community College STEM Career Panel" class="lazyload">
     </a>
-    
-  </div>
-</div>
-
-            
-          
-            
-              
-
-
-
-
-
-
-
-
-  
-  
-
-
-
-
-
-  
-
-
-<div class="media stream-item">
-  <div class="media-body">
-
-    <h3 class="article-title mb-0 mt-0">
-      <a href="/talk/2020-12-16-btep-ccr-bioconductor/" >Bioconductor: Tools for interpreting high-throughput biological data</a>
-    </h3>
-
-    
-    <a href="/talk/2020-12-16-btep-ccr-bioconductor/"  class="summary-link">
-      <div class="article-style">
-        In this talk, I give a high-level overview of the Bioconductor project.
-      </div>
-    </a>
-    
-
-    <div class="stream-meta article-metadata">
-
-      
-      <div>
-        <span>
-          Aug 12, 2019 12:00 AM
-        </span>
-        
-        <span class="middot-divider"></span>
-        <span>Bethesda, MD, USA</span>
-        
-      </div>
-      
-
-      
-      <div>
-        
-
-  <span >
-      <a href="/authors/sean-davis/">Sean Davis</a></span>
-      </div>
-      
-    </div>
-
-    
-    <div class="btn-links">
-      
-
-
-
-
-
-
-
-
-  
-
-
-
-
-
-
-
-
-
-
-
-
-
-  
-  
-    
-  
-<a class="btn btn-outline-primary my-1 mr-1 btn-sm" href="/https:/docs.google.com/presentation/d/1Ob62Zr39Groa5MVgatxB6rF1YsYGEKP2XzddrzskfsU/edit?usp=sharing" target="_blank" rel="noopener">
-  Slides
-</a>
-
-
-
-
-
-
-
-    </div>
-    
-
-  </div>
-  <div class="ml-3">
-    
     
   </div>
 </div>
@@ -3578,8 +3610,6 @@
     
 
     
-    
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/leaflet.min.js" integrity="sha512-SeiQaaDh73yrb56sTW/RgVdi/mMqNeM2oBwubFHagc5BkixSpP1fvqF47mKzPGWYSSy4RwbBunrJBQ4Co8fRWA==" crossorigin="anonymous"></script>
     
 
     

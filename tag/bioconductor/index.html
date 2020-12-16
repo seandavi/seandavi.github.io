@@ -34,7 +34,7 @@
   
     
   
-  <meta name="description" content="Senior Associate Scientist">
+  <meta name="description" content="Professor, Department of Medicine">
 
   
   <link rel="alternate" hreflang="en-us" href="/tag/bioconductor/">
@@ -60,7 +60,7 @@
   
   
   
-  <meta name="theme-color" content="#2962ff">
+  <meta name="theme-color" content="#3f51b5">
   
 
   
@@ -92,8 +92,6 @@
       
     
 
-    
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/leaflet.min.css" integrity="sha512-1xoFisiGdy9nvho8EgXuXvnpR5GAMSjFwp40gSRE3NwdUdIMIKuPa7bqoUhLD0O/5tPNhteAsE5XyyMi5reQVA==" crossorigin="anonymous">
     
 
     
@@ -240,23 +238,61 @@
   
   
   
-  <link rel="stylesheet" href="/css/wowchemy.min.2da9fc7ecccb62374ee4667dc6583d14.css">
+  <link rel="stylesheet" href="/css/wowchemy.min.8e43d31e888508b173bbc2cc83c6a116.css">
 
   
 
 
 
 
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-93043521-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+
+  function gtag() {
+      dataLayer.push(arguments);
+  }
+
+  function trackOutboundLink(url, target) {
+    gtag('event', 'click', {
+         'event_category': 'outbound',
+         'event_label': url,
+         'transport_type': 'beacon',
+         'event_callback': function () {
+           if (target !== '_blank') {
+             document.location = url;
+           }
+         }
+    });
+    console.debug("Outbound link clicked: " + url);
+  }
+
+  function onClickCallback(event) {
+    if ((event.target.tagName !== 'A') || (event.target.host === window.location.host)) {
+      return;
+    }
+    trackOutboundLink(event.target, event.target.getAttribute('target'));  
+  }
+
+  gtag('js', new Date());
+  gtag('config', 'UA-93043521-1', {});
+
   
+  document.addEventListener('click', onClickCallback, false);
+</script>
+
 
   
 
+  
+
 
   
   
 
   
-  <link rel="alternate" href="/tag/bioconductor/index.xml" type="application/rss+xml" title="Academic">
+  <link rel="alternate" href="/tag/bioconductor/index.xml" type="application/rss+xml" title="seandavi(s12)">
   
 
   <link rel="manifest" href="/index.webmanifest">
@@ -278,13 +314,16 @@
   
   <meta property="twitter:card" content="summary">
   
-  <meta property="og:site_name" content="Academic">
+  <meta property="twitter:site" content="@seandavis12">
+  <meta property="twitter:creator" content="@seandavis12">
+  
+  <meta property="og:site_name" content="seandavi(s12)">
   <meta property="og:url" content="/tag/bioconductor/">
-  <meta property="og:title" content="Bioconductor | Academic">
-  <meta property="og:description" content="Senior Associate Scientist"><meta property="og:image" content="/images/icon_hu0b7a4cb9992c9ac0e91bd28ffd38dd00_9727_512x512_fill_lanczos_center_2.png">
+  <meta property="og:title" content="Bioconductor | seandavi(s12)">
+  <meta property="og:description" content="Professor, Department of Medicine"><meta property="og:image" content="/images/icon_hu0b7a4cb9992c9ac0e91bd28ffd38dd00_9727_512x512_fill_lanczos_center_2.png">
   <meta property="twitter:image" content="/images/icon_hu0b7a4cb9992c9ac0e91bd28ffd38dd00_9727_512x512_fill_lanczos_center_2.png"><meta property="og:locale" content="en-us">
   
-    <meta property="og:updated_time" content="2019-10-14T12:22:47-04:00">
+    <meta property="og:updated_time" content="2020-12-16T00:00:00-05:00">
   
 
   
@@ -301,7 +340,7 @@
 
 
 
-  <title>Bioconductor | Academic</title>
+  <title>Bioconductor | seandavi(s12)</title>
 
 </head>
 
@@ -366,7 +405,7 @@
 
     
     <div class="d-none d-lg-inline-flex">
-      <a class="navbar-brand" href="/">Academic</a>
+      <a class="navbar-brand" href="/">seandavi(s12)</a>
     </div>
     
 
@@ -379,7 +418,7 @@
 
     
     <div class="navbar-brand-mobile-wrapper d-inline-flex d-lg-none">
-      <a class="navbar-brand" href="/">Academic</a>
+      <a class="navbar-brand" href="/">seandavi(s12)</a>
     </div>
     
 
@@ -496,43 +535,6 @@
         
 
         <li class="nav-item">
-          <a class="nav-link " href="/#projects"><span>Projects</span></a>
-        </li>
-
-        
-        
-
-        
-
-        
-        
-        
-          
-        
-
-        
-
-        
-        
-        
-        
-
-        
-          
-            
-            
-          
-          
-            
-            
-            
-              
-            
-            
-          
-        
-
-        <li class="nav-item">
           <a class="nav-link " href="/#talks"><span>Talks</span></a>
         </li>
 
@@ -570,7 +572,7 @@
         
 
         <li class="nav-item">
-          <a class="nav-link " href="/#featured"><span>Publications</span></a>
+          <a class="nav-link " href="/#publications"><span>Publications</span></a>
         </li>
 
         
@@ -608,6 +610,36 @@
 
         <li class="nav-item">
           <a class="nav-link " href="/#contact"><span>Contact</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+
+        
+        
+        
+        
+
+        
+          
+            
+            
+          
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/files/CV.pdf"><span>CV</span></a>
         </li>
 
         
@@ -697,6 +729,18 @@
     
     
     <div>
+      <h2><a href="/talk/2020-12-16-btep-ccr-bioconductor/" >Bioconductor: Tools for interpreting high-throughput biological data</a></h2>
+      <div class="article-style">
+        
+          In this talk, I give a high-level overview of the Bioconductor project.
+        
+      </div>
+    </div>
+  
+    
+    
+    
+    <div>
       <h2><a href="/post/build-linux-r-binary-packages/" >Building R Binary Packages for Linux</a></h2>
       <div class="article-style">
         
@@ -710,18 +754,6 @@
     
     <div>
       <h2><a href="/talk/2019-08-12-cdsl-ccr-bioconductor/" >Bioconductor: Tools for interpreting high-throughput biological data</a></h2>
-      <div class="article-style">
-        
-          In this talk, I give a high-level overview of the Bioconductor project.
-        
-      </div>
-    </div>
-  
-    
-    
-    
-    <div>
-      <h2><a href="/talk/2020-12-16-btep-ccr-bioconductor/" >Bioconductor: Tools for interpreting high-throughput biological data</a></h2>
       <div class="article-style">
         
           In this talk, I give a high-level overview of the Bioconductor project.
@@ -769,18 +801,6 @@
     
     
     <div>
-      <h2><a href="/publication/10.12688__f1000research.16516.1/" >Orchestrating a community-developed computational workshop and accompanying training materials</a></h2>
-      <div class="article-style">
-        
-          The importance of bioinformatics, computational biology, and data science in biomedical research continues to grow, driving a need for effective instruction and education.
-        
-      </div>
-    </div>
-  
-    
-    
-    
-    <div>
       <h2><a href="/publication/davis-2018-jw/" >Orchestrating a community-developed computational workshop and accompanying training materials</a></h2>
       <div class="article-style">
         
@@ -813,17 +833,20 @@
       </div>
     </div>
   
+    
+    
+    
+    <div>
+      <h2><a href="/post/2017-03-04-testing-the-genomicdatacommons-package/" >Matched tumor/normal pairs--a use case for the GenomicDataCommons Bioconductor package</a></h2>
+      <div class="article-style">
+        
+          Introduction The NCI Genomic Data Commons (GDC) is a reboot of the approach that NCI uses to manage and expose genomic and associated clinical and experimental metadata. I have been working on a Bioconductor package that interfaces with the GDC API to provide search and data retrieval from within R.
+        
+      </div>
+    </div>
+  
 
   
-<nav>
-  <ul class="pagination justify-content-center">
-    
-    
-    <li class="page-item"><a class="page-link" href="/tag/bioconductor/page/2/">&raquo;</a></li>
-    
-  </ul>
-</nav>
-
 
 </div>
   </div>
@@ -918,8 +941,6 @@
     
 
     
-    
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/leaflet.min.js" integrity="sha512-SeiQaaDh73yrb56sTW/RgVdi/mMqNeM2oBwubFHagc5BkixSpP1fvqF47mKzPGWYSSy4RwbBunrJBQ4Co8fRWA==" crossorigin="anonymous"></script>
     
 
     

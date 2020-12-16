@@ -60,7 +60,7 @@
   
   
   
-  <meta name="theme-color" content="#2962ff">
+  <meta name="theme-color" content="#3f51b5">
   
 
   
@@ -92,8 +92,6 @@
       
     
 
-    
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/leaflet.min.css" integrity="sha512-1xoFisiGdy9nvho8EgXuXvnpR5GAMSjFwp40gSRE3NwdUdIMIKuPa7bqoUhLD0O/5tPNhteAsE5XyyMi5reQVA==" crossorigin="anonymous">
     
 
     
@@ -240,11 +238,49 @@
   
   
   
-  <link rel="stylesheet" href="/css/wowchemy.min.2da9fc7ecccb62374ee4667dc6583d14.css">
+  <link rel="stylesheet" href="/css/wowchemy.min.8e43d31e888508b173bbc2cc83c6a116.css">
 
   
 
 
+
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-93043521-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+
+  function gtag() {
+      dataLayer.push(arguments);
+  }
+
+  function trackOutboundLink(url, target) {
+    gtag('event', 'click', {
+         'event_category': 'outbound',
+         'event_label': url,
+         'transport_type': 'beacon',
+         'event_callback': function () {
+           if (target !== '_blank') {
+             document.location = url;
+           }
+         }
+    });
+    console.debug("Outbound link clicked: " + url);
+  }
+
+  function onClickCallback(event) {
+    if ((event.target.tagName !== 'A') || (event.target.host === window.location.host)) {
+      return;
+    }
+    trackOutboundLink(event.target, event.target.getAttribute('target'));  
+  }
+
+  gtag('js', new Date());
+  gtag('config', 'UA-93043521-1', {});
+
+  
+  document.addEventListener('click', onClickCallback, false);
+</script>
 
 
   
@@ -276,16 +312,19 @@
   
   <meta property="twitter:card" content="summary">
   
-  <meta property="og:site_name" content="Academic">
+  <meta property="twitter:site" content="@seandavis12">
+  <meta property="twitter:creator" content="@seandavis12">
+  
+  <meta property="og:site_name" content="seandavi(s12)">
   <meta property="og:url" content="/publication/pmid-19404404/">
-  <meta property="og:title" content="A molecular function map of Ewing&#39;s sarcoma | Academic">
+  <meta property="og:title" content="A molecular function map of Ewing&#39;s sarcoma | seandavi(s12)">
   <meta property="og:description" content="EWS-FLI1 is a chimeric ETS transcription factor that is, due to a chromosomal rearrangement, specifically expressed in Ewing&#39;s sarcoma family tumors (ESFT) and is thought to initiate the development of the disease. Previous genomic profiling experiments have identified EWS-FLI1-regulated genes and genes that discriminate ESFT from other sarcomas, but so far a comprehensive analysis of EWS-FLI1-dependent molecular functions characterizing this aggressive cancer is lacking. In this study, a molecular function map of ESFT was constructed based on an integrative analysis of gene expression profiling experiments following EWS-FLI1 knockdown in a panel of five ESFT cell lines, and on gene expression data from the same platform of 59 primary ESFT. Out of 80 normal tissues tested, mesenchymal progenitor cells (MPC) were found to fit the hypothesis that EWS-FLI1 is the driving transcriptional force in ESFT best and were therefore used as the reference tissue for the construction of the molecular function map. The interrelations of molecular pathways were visualized by measuring the similarity among annotated gene functions by gene sharing. The molecular function map highlighted distinct clusters of activities for EWS-FLI1 regulated genes in ESFT and revealed a striking difference between EWS-FLI1 up- and down-regulated genes: EWS-FLI1 induced genes mainly belong to cell cycle regulation, proliferation, and response to DNA damage, while repressed genes were associated with differentiation and cell communication. This study revealed that EWS-FLI1 combines by distinct molecular mechanisms two important functions of cellular transformation in one protein, growth promotion and differentiation blockage. By taking MPC as a reference tissue, a significant EWS-FLI1 signature was discovered in ESFT that only partially overlapped with previously published EWS-FLI1-dependent gene expression patterns, identifying a series of novel targets for the chimeric protein in ESFT. Our results may guide target selection for future ESFT specific therapies."><meta property="og:image" content="/images/icon_hu0b7a4cb9992c9ac0e91bd28ffd38dd00_9727_512x512_fill_lanczos_center_2.png">
   <meta property="twitter:image" content="/images/icon_hu0b7a4cb9992c9ac0e91bd28ffd38dd00_9727_512x512_fill_lanczos_center_2.png"><meta property="og:locale" content="en-us">
   
     
-      <meta property="article:published_time" content="2019-10-04T21:24:27&#43;00:00">
+      <meta property="article:published_time" content="2020-12-16T22:24:49&#43;00:00">
     
-    <meta property="article:modified_time" content="2009-01-01T00:00:00&#43;00:00">
+    <meta property="article:modified_time" content="2020-12-16T17:24:49-05:00">
   
 
   
@@ -311,8 +350,8 @@
   },
   "headline": "A molecular function map of Ewing's sarcoma",
   
-  "datePublished": "2019-10-04T21:24:27Z",
-  "dateModified": "2009-01-01T00:00:00Z",
+  "datePublished": "2020-12-16T22:24:49Z",
+  "dateModified": "2020-12-16T17:24:49-05:00",
   
   "author": {
     "@type": "Person",
@@ -321,7 +360,7 @@
   
   "publisher": {
     "@type": "Organization",
-    "name": "Academic",
+    "name": "seandavi(s12)",
     "logo": {
       "@type": "ImageObject",
       "url": "/images/icon_hu0b7a4cb9992c9ac0e91bd28ffd38dd00_9727_192x192_fill_lanczos_center_2.png"
@@ -345,7 +384,7 @@
 
 
 
-  <title>A molecular function map of Ewing&#39;s sarcoma | Academic</title>
+  <title>A molecular function map of Ewing&#39;s sarcoma | seandavi(s12)</title>
 
 </head>
 
@@ -410,7 +449,7 @@
 
     
     <div class="d-none d-lg-inline-flex">
-      <a class="navbar-brand" href="/">Academic</a>
+      <a class="navbar-brand" href="/">seandavi(s12)</a>
     </div>
     
 
@@ -423,7 +462,7 @@
 
     
     <div class="navbar-brand-mobile-wrapper d-inline-flex d-lg-none">
-      <a class="navbar-brand" href="/">Academic</a>
+      <a class="navbar-brand" href="/">seandavi(s12)</a>
     </div>
     
 
@@ -540,43 +579,6 @@
         
 
         <li class="nav-item">
-          <a class="nav-link " href="/#projects"><span>Projects</span></a>
-        </li>
-
-        
-        
-
-        
-
-        
-        
-        
-          
-        
-
-        
-
-        
-        
-        
-        
-
-        
-          
-            
-            
-          
-          
-            
-            
-            
-              
-            
-            
-          
-        
-
-        <li class="nav-item">
           <a class="nav-link " href="/#talks"><span>Talks</span></a>
         </li>
 
@@ -614,7 +616,7 @@
         
 
         <li class="nav-item">
-          <a class="nav-link " href="/#featured"><span>Publications</span></a>
+          <a class="nav-link " href="/#publications"><span>Publications</span></a>
         </li>
 
         
@@ -652,6 +654,36 @@
 
         <li class="nav-item">
           <a class="nav-link " href="/#contact"><span>Contact</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+
+        
+        
+        
+        
+
+        
+          
+            
+            
+          
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/files/CV.pdf"><span>CV</span></a>
         </li>
 
         
@@ -798,7 +830,47 @@
 
 
 
+  
 
+
+
+<div class="btn-links mb-3">
+  
+  
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+<button type="button" class="btn btn-outline-primary my-1 mr-1 js-cite-modal"
+        data-filename="/publication/pmid-19404404/cite.bib">
+  Cite
+</button>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
 
 
   
@@ -1017,7 +1089,15 @@
     <h3>Related</h3>
     <ul>
       
-      <li><a href="/publication/pmid19404404/">A molecular function map of Ewing&#39;s sarcoma</a></li>
+      <li><a href="/publication/pmid-23940108/">Oncogenic ETS fusions deregulate E2F3 target genes in Ewing sarcoma and prostate cancer</a></li>
+      
+      <li><a href="/publication/pmid-17686054/">Constitutive Fms-like tyrosine kinase 3 activation results in specific changes in gene expression in myeloid leukaemic cells</a></li>
+      
+      <li><a href="/publication/pmid-17712417/">Detection of novel amplicons in prostate cancer by comprehensive genomic profiling of prostate cancer cell lines using oligonucleotide-based arrayCGH</a></li>
+      
+      <li><a href="/publication/pmid-18227516/">Suppressor role of activating transcription factor 2 (ATF2) in skin cancer</a></li>
+      
+      <li><a href="/publication/pmid-18243105/">High-resolution mapping and characterization of open chromatin across the genome</a></li>
       
     </ul>
   </div>
@@ -1121,8 +1201,6 @@
     
 
     
-    
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/leaflet.min.js" integrity="sha512-SeiQaaDh73yrb56sTW/RgVdi/mMqNeM2oBwubFHagc5BkixSpP1fvqF47mKzPGWYSSy4RwbBunrJBQ4Co8fRWA==" crossorigin="anonymous"></script>
     
 
     

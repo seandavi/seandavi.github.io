@@ -1,24 +1,16 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>A. Montpetit | Academic</title>
+    <title>A. Montpetit | seandavi(s12)</title>
     <link>/authors/a.-montpetit/</link>
       <atom:link href="/authors/a.-montpetit/index.xml" rel="self" type="application/rss+xml" />
     <description>A. Montpetit</description>
-    <generator>Wowchemy (https://wowchemy.com)</generator><language>en-us</language><lastBuildDate>Tue, 01 Jan 2013 00:00:00 -0500</lastBuildDate>
+    <generator>Wowchemy (https://wowchemy.com)</generator><language>en-us</language><lastBuildDate>Tue, 01 Jan 2013 00:00:00 +0000</lastBuildDate>
     <image>
       <url>/images/icon_hu0b7a4cb9992c9ac0e91bd28ffd38dd00_9727_512x512_fill_lanczos_center_2.png</url>
       <title>A. Montpetit</title>
       <link>/authors/a.-montpetit/</link>
     </image>
-    
-    <item>
-      <title>Harnessing genomics to identify environmental determinants of heritable disease</title>
-      <link>/publication/pmid22935230/</link>
-      <pubDate>Tue, 01 Jan 2013 00:00:00 -0500</pubDate>
-      <guid>/publication/pmid22935230/</guid>
-      <description></description>
-    </item>
     
     <item>
       <title>Harnessing genomics to identify environmental determinants of heritable disease</title>

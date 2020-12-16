@@ -34,7 +34,7 @@
   
     
   
-  <meta name="description" content="Senior Associate Scientist">
+  <meta name="description" content="Professor, Department of Medicine">
 
   
   <link rel="alternate" hreflang="en-us" href="/publication-type/2/">
@@ -60,7 +60,7 @@
   
   
   
-  <meta name="theme-color" content="#2962ff">
+  <meta name="theme-color" content="#3f51b5">
   
 
   
@@ -92,8 +92,6 @@
       
     
 
-    
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/leaflet.min.css" integrity="sha512-1xoFisiGdy9nvho8EgXuXvnpR5GAMSjFwp40gSRE3NwdUdIMIKuPa7bqoUhLD0O/5tPNhteAsE5XyyMi5reQVA==" crossorigin="anonymous">
     
 
     
@@ -240,23 +238,61 @@
   
   
   
-  <link rel="stylesheet" href="/css/wowchemy.min.2da9fc7ecccb62374ee4667dc6583d14.css">
+  <link rel="stylesheet" href="/css/wowchemy.min.8e43d31e888508b173bbc2cc83c6a116.css">
 
   
 
 
 
 
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-93043521-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+
+  function gtag() {
+      dataLayer.push(arguments);
+  }
+
+  function trackOutboundLink(url, target) {
+    gtag('event', 'click', {
+         'event_category': 'outbound',
+         'event_label': url,
+         'transport_type': 'beacon',
+         'event_callback': function () {
+           if (target !== '_blank') {
+             document.location = url;
+           }
+         }
+    });
+    console.debug("Outbound link clicked: " + url);
+  }
+
+  function onClickCallback(event) {
+    if ((event.target.tagName !== 'A') || (event.target.host === window.location.host)) {
+      return;
+    }
+    trackOutboundLink(event.target, event.target.getAttribute('target'));  
+  }
+
+  gtag('js', new Date());
+  gtag('config', 'UA-93043521-1', {});
+
   
+  document.addEventListener('click', onClickCallback, false);
+</script>
+
 
   
 
+  
+
 
   
   
 
   
-  <link rel="alternate" href="/publication-type/2/index.xml" type="application/rss+xml" title="Academic">
+  <link rel="alternate" href="/publication-type/2/index.xml" type="application/rss+xml" title="seandavi(s12)">
   
 
   <link rel="manifest" href="/index.webmanifest">
@@ -278,13 +314,16 @@
   
   <meta property="twitter:card" content="summary">
   
-  <meta property="og:site_name" content="Academic">
+  <meta property="twitter:site" content="@seandavis12">
+  <meta property="twitter:creator" content="@seandavis12">
+  
+  <meta property="og:site_name" content="seandavi(s12)">
   <meta property="og:url" content="/publication-type/2/">
-  <meta property="og:title" content="2 | Academic">
-  <meta property="og:description" content="Senior Associate Scientist"><meta property="og:image" content="/images/icon_hu0b7a4cb9992c9ac0e91bd28ffd38dd00_9727_512x512_fill_lanczos_center_2.png">
+  <meta property="og:title" content="2 | seandavi(s12)">
+  <meta property="og:description" content="Professor, Department of Medicine"><meta property="og:image" content="/images/icon_hu0b7a4cb9992c9ac0e91bd28ffd38dd00_9727_512x512_fill_lanczos_center_2.png">
   <meta property="twitter:image" content="/images/icon_hu0b7a4cb9992c9ac0e91bd28ffd38dd00_9727_512x512_fill_lanczos_center_2.png"><meta property="og:locale" content="en-us">
   
-    <meta property="og:updated_time" content="2019-01-01T00:00:00&#43;00:00">
+    <meta property="og:updated_time" content="2020-01-01T00:00:00&#43;00:00">
   
 
   
@@ -301,7 +340,7 @@
 
 
 
-  <title>2 | Academic</title>
+  <title>2 | seandavi(s12)</title>
 
 </head>
 
@@ -366,7 +405,7 @@
 
     
     <div class="d-none d-lg-inline-flex">
-      <a class="navbar-brand" href="/">Academic</a>
+      <a class="navbar-brand" href="/">seandavi(s12)</a>
     </div>
     
 
@@ -379,7 +418,7 @@
 
     
     <div class="navbar-brand-mobile-wrapper d-inline-flex d-lg-none">
-      <a class="navbar-brand" href="/">Academic</a>
+      <a class="navbar-brand" href="/">seandavi(s12)</a>
     </div>
     
 
@@ -496,43 +535,6 @@
         
 
         <li class="nav-item">
-          <a class="nav-link " href="/#projects"><span>Projects</span></a>
-        </li>
-
-        
-        
-
-        
-
-        
-        
-        
-          
-        
-
-        
-
-        
-        
-        
-        
-
-        
-          
-            
-            
-          
-          
-            
-            
-            
-              
-            
-            
-          
-        
-
-        <li class="nav-item">
           <a class="nav-link " href="/#talks"><span>Talks</span></a>
         </li>
 
@@ -570,7 +572,7 @@
         
 
         <li class="nav-item">
-          <a class="nav-link " href="/#featured"><span>Publications</span></a>
+          <a class="nav-link " href="/#publications"><span>Publications</span></a>
         </li>
 
         
@@ -608,6 +610,36 @@
 
         <li class="nav-item">
           <a class="nav-link " href="/#contact"><span>Contact</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+
+        
+        
+        
+        
+
+        
+          
+            
+            
+          
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/files/CV.pdf"><span>CV</span></a>
         </li>
 
         
@@ -697,10 +729,10 @@
     
     
     <div>
-      <h2><a href="/publication/pmid23937229/" >RCircos: an R package for Circos 2D track plots</a></h2>
+      <h2><a href="/publication/pmid-18266105/" >TRAIL induces apoptosis in triple-negative breast cancer cells with a mesenchymal phenotype</a></h2>
       <div class="article-style">
         
-          Circos is a Perl language based software package for visualizing similarities and differences of genome structure and positional relationships between genomic intervals. Running Circos requires extra data processing procedures to prepare plot data …
+          Tumor necrosis factor-related apoptosis-inducing ligand (TRAIL) induces apoptosis in some but not all breast cancer cell lines. Breast cancers can be divided into those which express the estrogen (ER) and progesterone (PR) receptors, those with HER-2 …
         
       </div>
     </div>
@@ -709,10 +741,10 @@
     
     
     <div>
-      <h2><a href="/publication/pmid23323543/" >SRAdb: query and use public next-generation sequencing data from within R</a></h2>
+      <h2><a href="/publication/pmid-18842599/" >GEOmetadb: powerful alternative search engine for the Gene Expression Omnibus</a></h2>
       <div class="article-style">
         
-          The Sequence Read Archive (SRA) is the largest public repository of sequencing data from the next generation of sequencing platforms including Illumina (Genome Analyzer, HiSeq, MiSeq, .etc), Roche 454 GS System, Applied Biosystems SOLiD System, …
+          The NCBI Gene Expression Omnibus (GEO) represents the largest public repository of microarray data. However, finding data in GEO can be challenging. We have developed GEOmetadb in an attempt to make querying the GEO metadata both easier and more …
         
       </div>
     </div>
@@ -721,10 +753,10 @@
     
     
     <div>
-      <h2><a href="/publication/pmid23577124/" >Whole genome and transcriptome sequencing of a B3 thymoma</a></h2>
+      <h2><a href="/publication/pmid-19088042/" >Molecular grading of ductal carcinoma in situ of the breast</a></h2>
       <div class="article-style">
         
-          Molecular pathology of thymomas is poorly understood. Genomic aberrations are frequently identified in tumors but no extensive sequencing has been reported in thymomas. Here we present the first comprehensive view of a B3 thymoma at whole genome and …
+          Increased incidence of ductal carcinoma in situ (DCIS) associated with mammographic screening for breast cancer has emphasized the challenges of managing this condition. The aim of this study was to identify informative clinical indicators of DCIS …
         
       </div>
     </div>
@@ -733,10 +765,10 @@
     
     
     <div>
-      <h2><a href="/publication/pmid-22935230/" >Harnessing genomics to identify environmental determinants of heritable disease</a></h2>
+      <h2><a href="/publication/pmid-18369103/" >Rare structural variants disrupt multiple genes in neurodevelopmental pathways in schizophrenia</a></h2>
       <div class="article-style">
         
-          Next-generation sequencing technologies can now be used to directly measure heritable de novo DNA sequence mutations in humans. However, these techniques have not been used to examine environmental factors that induce such mutations and their …
+          Schizophrenia is a devastating neurodevelopmental disorder whose genetic influences remain elusive. We hypothesize that individually rare structural variants contribute to the illness. Microdeletions and microduplications 100 kilobases were …
         
       </div>
     </div>
@@ -745,10 +777,10 @@
     
     
     <div>
-      <h2><a href="/publication/pmid-23193258/" >NCBI GEO: archive for functional genomics data sets--update</a></h2>
+      <h2><a href="/publication/pmid-18342607/" >Interaction of the glucocorticoid receptor with the chromatin landscape</a></h2>
       <div class="article-style">
         
-          The Gene Expression Omnibus (GEO, http://www.ncbi.nlm.nih.gov/geo/) is an international public repository for high-throughput microarray and next-generation sequence functional genomic data sets submitted by the research community. The resource …
+          The generality and spectrum of chromatin-remodeling requirements for nuclear receptor function are unknown. We have characterized glucocorticoid receptor (GR) binding events and chromatin structural transitions across GR-induced or -repressed genes. …
         
       </div>
     </div>
@@ -757,10 +789,10 @@
     
     
     <div>
-      <h2><a href="/publication/pmid-24274149/" >Rb1 loss modifies but does not initiate alveolar rhabdomyosarcoma</a></h2>
+      <h2><a href="/publication/pmid-18227516/" >Suppressor role of activating transcription factor 2 (ATF2) in skin cancer</a></h2>
       <div class="article-style">
         
-          Alveolar rhabdomyosarcoma (aRMS) is a myogenic childhood sarcoma frequently associated with a translocation-mediated fusion gene, Pax3:Foxo1a. We investigated the complementary role of Rb1 loss in aRMS tumor initiation and progression using …
+          Activating transcription factor 2 (ATF2) regulates transcription in response to stress and growth factor stimuli. Here, we use a mouse model in which ATF2 was selectively deleted in keratinocytes. Crossing the conditionally expressed ATF2 mutant with …
         
       </div>
     </div>
@@ -769,10 +801,10 @@
     
     
     <div>
-      <h2><a href="/publication/pmid-23937229/" >RCircos: an R package for Circos 2D track plots</a></h2>
+      <h2><a href="/publication/pmid-18243105/" >High-resolution mapping and characterization of open chromatin across the genome</a></h2>
       <div class="article-style">
         
-          Circos is a Perl language based software package for visualizing similarities and differences of genome structure and positional relationships between genomic intervals. Running Circos requires extra data processing procedures to prepare plot data …
+          Mapping DNase I hypersensitive (HS) sites is an accurate method of identifying the location of genetic regulatory elements, including promoters, enhancers, silencers, insulators, and locus control regions. We employed high-throughput sequencing and …
         
       </div>
     </div>
@@ -781,10 +813,10 @@
     
     
     <div>
-      <h2><a href="/publication/pmid-23323543/" >SRAdb: query and use public next-generation sequencing data from within R</a></h2>
+      <h2><a href="/publication/pmid-17686054/" >Constitutive Fms-like tyrosine kinase 3 activation results in specific changes in gene expression in myeloid leukaemic cells</a></h2>
       <div class="article-style">
         
-          The Sequence Read Archive (SRA) is the largest public repository of sequencing data from the next generation of sequencing platforms including Illumina (Genome Analyzer, HiSeq, MiSeq, .etc), Roche 454 GS System, Applied Biosystems SOLiD System, …
+          Constitutively activating internal tandem duplication (ITD) mutations of the receptor tyrosine kinase FLT3 (Fms-like tyrosine kinase 3) play an important role in leukaemogenesis. We have examined, by cDNA microarray analysis, the changes in gene …
         
       </div>
     </div>
@@ -793,10 +825,10 @@
     
     
     <div>
-      <h2><a href="/publication/pmid-23577124/" >Whole genome and transcriptome sequencing of a B3 thymoma</a></h2>
+      <h2><a href="/publication/pmid-17496320/" >GEOquery: a bridge between the Gene Expression Omnibus (GEO) and BioConductor</a></h2>
       <div class="article-style">
         
-          Molecular pathology of thymomas is poorly understood. Genomic aberrations are frequently identified in tumors but no extensive sequencing has been reported in thymomas. Here we present the first comprehensive view of a B3 thymoma at whole genome and …
+          Microarray technology has become a standard molecular biology tool. Experimental data have been generated on a huge number of organisms, tissue types, treatment conditions and disease states. The Gene Expression Omnibus (Barrett et al., 2005), …
         
       </div>
     </div>
@@ -805,10 +837,10 @@
     
     
     <div>
-      <h2><a href="/publication/pmid22733720/" >Exclusion of the 750-kb genetically unstable region at Xq27 as a candidate locus for prostate malignancy in HPCX1-linked families</a></h2>
+      <h2><a href="/publication/pmid-17571346/" >Identification and analysis of functional elements in 1% of the human genome by the ENCODE pilot project</a></h2>
       <div class="article-style">
         
-          Several linkage studies provided evidence for the presence of the hereditary prostate cancer locus, HPCX1, at Xq27-q28. The strongest linkage peak of prostate cancer overlies a variable region of ~750 kb at Xq27 enriched by segmental duplications …
+          We report the generation and analysis of functional data from multiple, diverse experiments performed on a targeted 1% of the human genome as part of the pilot phase of the ENCODE Project. These data have been further integrated and augmented by a …
         
       </div>
     </div>
@@ -920,8 +952,6 @@
     
 
     
-    
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/leaflet.min.js" integrity="sha512-SeiQaaDh73yrb56sTW/RgVdi/mMqNeM2oBwubFHagc5BkixSpP1fvqF47mKzPGWYSSy4RwbBunrJBQ4Co8fRWA==" crossorigin="anonymous"></script>
     
 
     

@@ -1,16 +1,27 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Bioconductor | Academic</title>
+    <title>Bioconductor | seandavi(s12)</title>
     <link>/tag/bioconductor/</link>
       <atom:link href="/tag/bioconductor/index.xml" rel="self" type="application/rss+xml" />
     <description>Bioconductor</description>
-    <generator>Wowchemy (https://wowchemy.com)</generator><language>en-us</language><lastBuildDate>Mon, 14 Oct 2019 12:22:47 -0400</lastBuildDate>
+    <generator>Wowchemy (https://wowchemy.com)</generator><language>en-us</language><lastBuildDate>Wed, 16 Dec 2020 00:00:00 -0500</lastBuildDate>
     <image>
       <url>/images/icon_hu0b7a4cb9992c9ac0e91bd28ffd38dd00_9727_512x512_fill_lanczos_center_2.png</url>
       <title>Bioconductor</title>
       <link>/tag/bioconductor/</link>
     </image>
+    
+    <item>
+      <title>Bioconductor: Tools for interpreting high-throughput biological data</title>
+      <link>/talk/2020-12-16-btep-ccr-bioconductor/</link>
+      <pubDate>Wed, 16 Dec 2020 00:00:00 -0500</pubDate>
+      <guid>/talk/2020-12-16-btep-ccr-bioconductor/</guid>
+      <description>&lt;div class=&#34;responsive-wrap&#34;&gt;
+  &lt;iframe src=&#34;https://docs.google.com/presentation/d/e/2PACX-1vSOYTfCyxmUZjPOF7zOvXWpCVLgqFU-Rkrohvu-QH16EiDnKLR8zurmhTelvbP9syqZepPIzzXM5QQe/embed?start=false&amp;amp;loop=false&amp;amp;delayms=3000&#34; frameborder=&#34;0&#34; width=&#34;960&#34; height=&#34;569&#34; allowfullscreen=&#34;true&#34; mozallowfullscreen=&#34;true&#34; webkitallowfullscreen=&#34;true&#34;&gt;&lt;/iframe&gt;
+&lt;/div&gt;
+</description>
+    </item>
     
     <item>
       <title>Building R Binary Packages for Linux</title>
@@ -129,17 +140,6 @@ be intalled very quickly like on Mac OS and Windows.&lt;/p&gt;
     </item>
     
     <item>
-      <title>Bioconductor: Tools for interpreting high-throughput biological data</title>
-      <link>/talk/2020-12-16-btep-ccr-bioconductor/</link>
-      <pubDate>Mon, 12 Aug 2019 00:00:00 -0400</pubDate>
-      <guid>/talk/2020-12-16-btep-ccr-bioconductor/</guid>
-      <description>&lt;div class=&#34;responsive-wrap&#34;&gt;
-  &lt;iframe src=&#34;https://docs.google.com/presentation/d/e/2PACX-1vSOYTfCyxmUZjPOF7zOvXWpCVLgqFU-Rkrohvu-QH16EiDnKLR8zurmhTelvbP9syqZepPIzzXM5QQe/embed?start=false&amp;amp;loop=false&amp;amp;delayms=3000&#34; frameborder=&#34;0&#34; width=&#34;960&#34; height=&#34;569&#34; allowfullscreen=&#34;true&#34; mozallowfullscreen=&#34;true&#34; webkitallowfullscreen=&#34;true&#34;&gt;&lt;/iframe&gt;
-&lt;/div&gt;
-</description>
-    </item>
-    
-    <item>
       <title>ATAC-Seq workshop</title>
       <link>/talk/2019-07-07-atac-seq-workshop-cshl/</link>
       <pubDate>Mon, 08 Jul 2019 00:00:00 +0000</pubDate>
@@ -164,14 +164,6 @@ be intalled very quickly like on Mac OS and Windows.&lt;/p&gt;
   &lt;iframe src=&#34;https://docs.google.com/presentation/d/e/2PACX-1vQI77sKlJSlFIjaF-c7CjXDaaCoB5wA_ly63ObRkGS2I2NDSTTLV-crI5XgjfefnFQ_QM4wRe2eAqh2/embed?start=true&amp;amp;loop=false&amp;amp;delayms=3000&#34; frameborder=&#34;0&#34; width=&#34;960&#34; height=&#34;569&#34; allowfullscreen=&#34;true&#34; mozallowfullscreen=&#34;true&#34; webkitallowfullscreen=&#34;true&#34;&gt;&lt;/iframe&gt;
 &lt;/div&gt;
 </description>
-    </item>
-    
-    <item>
-      <title>Orchestrating a community-developed computational workshop and accompanying training materials</title>
-      <link>/publication/10.12688__f1000research.16516.1/</link>
-      <pubDate>Sun, 07 Oct 2018 00:00:00 -0400</pubDate>
-      <guid>/publication/10.12688__f1000research.16516.1/</guid>
-      <description></description>
     </item>
     
     <item>

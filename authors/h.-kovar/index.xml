@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>H. Kovar | Academic</title>
+    <title>H. Kovar | seandavi(s12)</title>
     <link>/authors/h.-kovar/</link>
       <atom:link href="/authors/h.-kovar/index.xml" rel="self" type="application/rss+xml" />
     <description>H. Kovar</description>
-    <generator>Wowchemy (https://wowchemy.com)</generator><language>en-us</language><lastBuildDate>Fri, 01 Nov 2013 00:00:00 -0400</lastBuildDate>
+    <generator>Wowchemy (https://wowchemy.com)</generator><language>en-us</language><lastBuildDate>Fri, 01 Nov 2013 00:00:00 +0000</lastBuildDate>
     <image>
       <url>/images/icon_hu0b7a4cb9992c9ac0e91bd28ffd38dd00_9727_512x512_fill_lanczos_center_2.png</url>
       <title>H. Kovar</title>
@@ -14,25 +14,9 @@
     
     <item>
       <title>Oncogenic ETS fusions deregulate E2F3 target genes in Ewing sarcoma and prostate cancer</title>
-      <link>/publication/pmid23940108/</link>
-      <pubDate>Fri, 01 Nov 2013 00:00:00 -0400</pubDate>
-      <guid>/publication/pmid23940108/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Oncogenic ETS fusions deregulate E2F3 target genes in Ewing sarcoma and prostate cancer</title>
       <link>/publication/pmid-23940108/</link>
       <pubDate>Fri, 01 Nov 2013 00:00:00 +0000</pubDate>
       <guid>/publication/pmid-23940108/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>A molecular function map of Ewing&#39;s sarcoma</title>
-      <link>/publication/pmid19404404/</link>
-      <pubDate>Thu, 01 Jan 2009 00:00:00 -0500</pubDate>
-      <guid>/publication/pmid19404404/</guid>
       <description></description>
     </item>
     

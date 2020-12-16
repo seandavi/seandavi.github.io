@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>G. E. Crawford | Academic</title>
+    <title>G. E. Crawford | seandavi(s12)</title>
     <link>/authors/g.-e.-crawford/</link>
       <atom:link href="/authors/g.-e.-crawford/index.xml" rel="self" type="application/rss+xml" />
     <description>G. E. Crawford</description>
-    <generator>Wowchemy (https://wowchemy.com)</generator><language>en-us</language><lastBuildDate>Tue, 01 Jan 2008 00:00:00 -0500</lastBuildDate>
+    <generator>Wowchemy (https://wowchemy.com)</generator><language>en-us</language><lastBuildDate>Tue, 01 Jan 2008 00:00:00 +0000</lastBuildDate>
     <image>
       <url>/images/icon_hu0b7a4cb9992c9ac0e91bd28ffd38dd00_9727_512x512_fill_lanczos_center_2.png</url>
       <title>G. E. Crawford</title>
@@ -14,25 +14,9 @@
     
     <item>
       <title>High-resolution mapping and characterization of open chromatin across the genome</title>
-      <link>/publication/pmid18243105/</link>
-      <pubDate>Tue, 01 Jan 2008 00:00:00 -0500</pubDate>
-      <guid>/publication/pmid18243105/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>High-resolution mapping and characterization of open chromatin across the genome</title>
       <link>/publication/pmid-18243105/</link>
       <pubDate>Tue, 01 Jan 2008 00:00:00 +0000</pubDate>
       <guid>/publication/pmid-18243105/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Identification and analysis of functional elements in 1% of the human genome by the ENCODE pilot project</title>
-      <link>/publication/pmid17571346/</link>
-      <pubDate>Fri, 01 Jun 2007 00:00:00 -0400</pubDate>
-      <guid>/publication/pmid17571346/</guid>
       <description></description>
     </item>
     
@@ -46,14 +30,6 @@
     
     <item>
       <title>DNase-chip: a high-resolution method to identify DNase I hypersensitive sites using tiled microarrays</title>
-      <link>/publication/pmid16791207/</link>
-      <pubDate>Sat, 01 Jul 2006 00:00:00 -0400</pubDate>
-      <guid>/publication/pmid16791207/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>DNase-chip: a high-resolution method to identify DNase I hypersensitive sites using tiled microarrays</title>
       <link>/publication/pmid-16791207/</link>
       <pubDate>Sat, 01 Jul 2006 00:00:00 +0000</pubDate>
       <guid>/publication/pmid-16791207/</guid>
@@ -62,33 +38,9 @@
     
     <item>
       <title>Genome-wide analysis of menin binding provides insights into MEN1 tumorigenesis</title>
-      <link>/publication/pmid16604156/</link>
-      <pubDate>Sat, 01 Apr 2006 00:00:00 -0500</pubDate>
-      <guid>/publication/pmid16604156/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Genome-wide analysis of menin binding provides insights into MEN1 tumorigenesis</title>
       <link>/publication/pmid-16604156/</link>
       <pubDate>Sat, 01 Apr 2006 00:00:00 +0000</pubDate>
       <guid>/publication/pmid-16604156/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Genome-wide mapping of DNase hypersensitive sites using massively parallel signature sequencing (MPSS)</title>
-      <link>/publication/pmid16344561/</link>
-      <pubDate>Sun, 01 Jan 2006 00:00:00 -0500</pubDate>
-      <guid>/publication/pmid16344561/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Statistics for ChIP-chip and DNase hypersensitivity experiments on NimbleGen arrays</title>
-      <link>/publication/pmid16939795/</link>
-      <pubDate>Sun, 01 Jan 2006 00:00:00 -0500</pubDate>
-      <guid>/publication/pmid16939795/</guid>
       <description></description>
     </item>
     

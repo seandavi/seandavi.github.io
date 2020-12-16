@@ -60,7 +60,7 @@
   
   
   
-  <meta name="theme-color" content="#2962ff">
+  <meta name="theme-color" content="#3f51b5">
   
 
   
@@ -92,8 +92,6 @@
       
     
 
-    
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/leaflet.min.css" integrity="sha512-1xoFisiGdy9nvho8EgXuXvnpR5GAMSjFwp40gSRE3NwdUdIMIKuPa7bqoUhLD0O/5tPNhteAsE5XyyMi5reQVA==" crossorigin="anonymous">
     
 
     
@@ -240,11 +238,49 @@
   
   
   
-  <link rel="stylesheet" href="/css/wowchemy.min.2da9fc7ecccb62374ee4667dc6583d14.css">
+  <link rel="stylesheet" href="/css/wowchemy.min.8e43d31e888508b173bbc2cc83c6a116.css">
 
   
 
 
+
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-93043521-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+
+  function gtag() {
+      dataLayer.push(arguments);
+  }
+
+  function trackOutboundLink(url, target) {
+    gtag('event', 'click', {
+         'event_category': 'outbound',
+         'event_label': url,
+         'transport_type': 'beacon',
+         'event_callback': function () {
+           if (target !== '_blank') {
+             document.location = url;
+           }
+         }
+    });
+    console.debug("Outbound link clicked: " + url);
+  }
+
+  function onClickCallback(event) {
+    if ((event.target.tagName !== 'A') || (event.target.host === window.location.host)) {
+      return;
+    }
+    trackOutboundLink(event.target, event.target.getAttribute('target'));  
+  }
+
+  gtag('js', new Date());
+  gtag('config', 'UA-93043521-1', {});
+
+  
+  document.addEventListener('click', onClickCallback, false);
+</script>
 
 
   
@@ -276,16 +312,19 @@
   
   <meta property="twitter:card" content="summary">
   
-  <meta property="og:site_name" content="Academic">
+  <meta property="twitter:site" content="@seandavis12">
+  <meta property="twitter:creator" content="@seandavis12">
+  
+  <meta property="og:site_name" content="seandavi(s12)">
   <meta property="og:url" content="/publication/pmid-24423287/">
-  <meta property="og:title" content="Genome-wide methylation patterns in papillary thyroid cancer are distinct based on histological subtype and tumor genotype | Academic">
+  <meta property="og:title" content="Genome-wide methylation patterns in papillary thyroid cancer are distinct based on histological subtype and tumor genotype | seandavi(s12)">
   <meta property="og:description" content="Aberrant DNA methylation is known to be a major factor in oncogenesis and cancer progression, but effects of methylation in papillary thyroid cancer (PTC) are not well defined. The objective of the study was to identify altered methylation patterns, which may be associated with PTC disease behavior. This study was a genome-wide methylation analysis of PTC. The study was conducted at the National Institutes of Health Clinical Center. PTC tissue from 51 patients were analyzed and compared with normal thyroid tissue from seven patients. CpG methylation status was assessed using advanced genome-wide methylation bead chips. Altered methylation patterns in PTC were analyzed by stage, recurrence, histological subtype of tumor, and tumor genotype. PTC is globally hypomethylated compared with normal thyroid with 2837 differentially methylated CpG sites. The follicular variant of PTC demonstrated less differential methylation with only 569 differentially methylated CpG sites. Tumors with mutations in BRAF, RET/PTC, and RAS demonstrated a 3.6-fold increase in the number of differentially methylated sites compared with wild-type tumors. The differentially methylated genes were associated with oncological pathways including cellular movement, growth, and proliferation. PTC is epigenetically distinct from the follicular variant of PTC and by gene mutation status (BRAF, RET/PTC, and RAS)."><meta property="og:image" content="/images/icon_hu0b7a4cb9992c9ac0e91bd28ffd38dd00_9727_512x512_fill_lanczos_center_2.png">
   <meta property="twitter:image" content="/images/icon_hu0b7a4cb9992c9ac0e91bd28ffd38dd00_9727_512x512_fill_lanczos_center_2.png"><meta property="og:locale" content="en-us">
   
     
-      <meta property="article:published_time" content="2019-10-04T21:24:26&#43;00:00">
+      <meta property="article:published_time" content="2020-12-16T22:24:44&#43;00:00">
     
-    <meta property="article:modified_time" content="2014-02-01T00:00:00&#43;00:00">
+    <meta property="article:modified_time" content="2020-12-16T17:24:44-05:00">
   
 
   
@@ -311,8 +350,8 @@
   },
   "headline": "Genome-wide methylation patterns in papillary thyroid cancer are distinct based on histological subtype and tumor genotype",
   
-  "datePublished": "2019-10-04T21:24:26Z",
-  "dateModified": "2014-02-01T00:00:00Z",
+  "datePublished": "2020-12-16T22:24:44Z",
+  "dateModified": "2020-12-16T17:24:44-05:00",
   
   "author": {
     "@type": "Person",
@@ -321,7 +360,7 @@
   
   "publisher": {
     "@type": "Organization",
-    "name": "Academic",
+    "name": "seandavi(s12)",
     "logo": {
       "@type": "ImageObject",
       "url": "/images/icon_hu0b7a4cb9992c9ac0e91bd28ffd38dd00_9727_192x192_fill_lanczos_center_2.png"
@@ -345,7 +384,7 @@
 
 
 
-  <title>Genome-wide methylation patterns in papillary thyroid cancer are distinct based on histological subtype and tumor genotype | Academic</title>
+  <title>Genome-wide methylation patterns in papillary thyroid cancer are distinct based on histological subtype and tumor genotype | seandavi(s12)</title>
 
 </head>
 
@@ -410,7 +449,7 @@
 
     
     <div class="d-none d-lg-inline-flex">
-      <a class="navbar-brand" href="/">Academic</a>
+      <a class="navbar-brand" href="/">seandavi(s12)</a>
     </div>
     
 
@@ -423,7 +462,7 @@
 
     
     <div class="navbar-brand-mobile-wrapper d-inline-flex d-lg-none">
-      <a class="navbar-brand" href="/">Academic</a>
+      <a class="navbar-brand" href="/">seandavi(s12)</a>
     </div>
     
 
@@ -540,43 +579,6 @@
         
 
         <li class="nav-item">
-          <a class="nav-link " href="/#projects"><span>Projects</span></a>
-        </li>
-
-        
-        
-
-        
-
-        
-        
-        
-          
-        
-
-        
-
-        
-        
-        
-        
-
-        
-          
-            
-            
-          
-          
-            
-            
-            
-              
-            
-            
-          
-        
-
-        <li class="nav-item">
           <a class="nav-link " href="/#talks"><span>Talks</span></a>
         </li>
 
@@ -614,7 +616,7 @@
         
 
         <li class="nav-item">
-          <a class="nav-link " href="/#featured"><span>Publications</span></a>
+          <a class="nav-link " href="/#publications"><span>Publications</span></a>
         </li>
 
         
@@ -652,6 +654,36 @@
 
         <li class="nav-item">
           <a class="nav-link " href="/#contact"><span>Contact</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+
+        
+        
+        
+        
+
+        
+          
+            
+            
+          
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/files/CV.pdf"><span>CV</span></a>
         </li>
 
         
@@ -804,7 +836,47 @@
 
 
 
+  
 
+
+
+<div class="btn-links mb-3">
+  
+  
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+<button type="button" class="btn btn-outline-primary my-1 mr-1 js-cite-modal"
+        data-filename="/publication/pmid-24423287/cite.bib">
+  Cite
+</button>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
 
 
   
@@ -1059,15 +1131,15 @@
     <h3>Related</h3>
     <ul>
       
-      <li><a href="/publication/pmid24423287/">Genome-wide methylation patterns in papillary thyroid cancer are distinct based on histological subtype and tumor genotype</a></li>
-      
       <li><a href="/publication/pmid-25488748/">miR30a inhibits LOX expression and anaplastic thyroid cancer progression</a></li>
-      
-      <li><a href="/publication/pmid25488748/">miR30a inhibits LOX expression and anaplastic thyroid cancer progression</a></li>
       
       <li><a href="/publication/pmid-25944801/">Inhibition of Survivin with YM155 Induces Durable Tumor Response in Anaplastic Thyroid Cancer</a></li>
       
-      <li><a href="/publication/pmid25944801/">Inhibition of Survivin with YM155 Induces Durable Tumor Response in Anaplastic Thyroid Cancer</a></li>
+      <li><a href="/publication/pmid-25929339/">Dual inhibition of HDAC and EGFR signaling with CUDC-101 induces potent suppression of tumor growth and metastasis in anaplastic thyroid cancer</a></li>
+      
+      <li><a href="/publication/pmid-25940539/">Dual inhibition of HDAC and EGFR signaling with CUDC-101 induces potent suppression of tumor growth and metastasis in anaplastic thyroid cancer</a></li>
+      
+      <li><a href="/publication/pmid-28114280/">RARRES2 functions as a tumor suppressor by promoting $β$-catenin phosphorylation/degradation and inhibiting p38 phosphorylation in adrenocortical carcinoma</a></li>
       
     </ul>
   </div>
@@ -1171,8 +1243,6 @@
     
 
     
-    
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/leaflet.min.js" integrity="sha512-SeiQaaDh73yrb56sTW/RgVdi/mMqNeM2oBwubFHagc5BkixSpP1fvqF47mKzPGWYSSy4RwbBunrJBQ4Co8fRWA==" crossorigin="anonymous"></script>
     
 
     

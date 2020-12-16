@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Martin Morgan | Academic</title>
+    <title>Martin Morgan | seandavi(s12)</title>
     <link>/authors/martin-morgan/</link>
       <atom:link href="/authors/martin-morgan/index.xml" rel="self" type="application/rss+xml" />
     <description>Martin Morgan</description>
@@ -17,30 +17,6 @@
       <link>/publication/gopaulakrishnan-2019-em/</link>
       <pubDate>Tue, 01 Jan 2019 00:00:00 +0000</pubDate>
       <guid>/publication/gopaulakrishnan-2019-em/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>GenomicDataCommons: a Bioconductor Interface to the NCI Genomic Data Commons</title>
-      <link>/publication/sean_davis31156710/</link>
-      <pubDate>Sun, 01 Jan 2017 00:00:00 -0500</pubDate>
-      <guid>/publication/sean_davis31156710/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Software For The Integration Of Multi-Omics Experiments In Bioconductor</title>
-      <link>/publication/sean_davis33483497/</link>
-      <pubDate>Sun, 01 Jan 2017 00:00:00 -0500</pubDate>
-      <guid>/publication/sean_davis33483497/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>GenomicDataCommons: a Bioconductor Interface to the NCI Genomic Data Commons</title>
-      <link>/publication/sean-davis-31156710/</link>
-      <pubDate>Sun, 01 Jan 2017 00:00:00 +0000</pubDate>
-      <guid>/publication/sean-davis-31156710/</guid>
       <description></description>
     </item>
     

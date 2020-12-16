@@ -61,7 +61,7 @@ The rich data model at the NCI Genomic Data Commons (GDC) includes clinical and 
   
   
   
-  <meta name="theme-color" content="#2962ff">
+  <meta name="theme-color" content="#3f51b5">
   
 
   
@@ -93,8 +93,6 @@ The rich data model at the NCI Genomic Data Commons (GDC) includes clinical and 
       
     
 
-    
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/leaflet.min.css" integrity="sha512-1xoFisiGdy9nvho8EgXuXvnpR5GAMSjFwp40gSRE3NwdUdIMIKuPa7bqoUhLD0O/5tPNhteAsE5XyyMi5reQVA==" crossorigin="anonymous">
     
 
     
@@ -241,11 +239,49 @@ The rich data model at the NCI Genomic Data Commons (GDC) includes clinical and 
   
   
   
-  <link rel="stylesheet" href="/css/wowchemy.min.2da9fc7ecccb62374ee4667dc6583d14.css">
+  <link rel="stylesheet" href="/css/wowchemy.min.8e43d31e888508b173bbc2cc83c6a116.css">
 
   
 
 
+
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-93043521-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+
+  function gtag() {
+      dataLayer.push(arguments);
+  }
+
+  function trackOutboundLink(url, target) {
+    gtag('event', 'click', {
+         'event_category': 'outbound',
+         'event_label': url,
+         'transport_type': 'beacon',
+         'event_callback': function () {
+           if (target !== '_blank') {
+             document.location = url;
+           }
+         }
+    });
+    console.debug("Outbound link clicked: " + url);
+  }
+
+  function onClickCallback(event) {
+    if ((event.target.tagName !== 'A') || (event.target.host === window.location.host)) {
+      return;
+    }
+    trackOutboundLink(event.target, event.target.getAttribute('target'));  
+  }
+
+  gtag('js', new Date());
+  gtag('config', 'UA-93043521-1', {});
+
+  
+  document.addEventListener('click', onClickCallback, false);
+</script>
 
 
   
@@ -277,9 +313,12 @@ The rich data model at the NCI Genomic Data Commons (GDC) includes clinical and 
   
   <meta property="twitter:card" content="summary">
   
-  <meta property="og:site_name" content="Academic">
+  <meta property="twitter:site" content="@seandavis12">
+  <meta property="twitter:creator" content="@seandavis12">
+  
+  <meta property="og:site_name" content="seandavi(s12)">
   <meta property="og:url" content="/post/2018-03-25-extracting-clinical-information-using-the-genomicdatacommons-package/">
-  <meta property="og:title" content="Extracting Clinical Information Using the Genomicdatacommons Package | Academic">
+  <meta property="og:title" content="Extracting Clinical Information Using the Genomicdatacommons Package | seandavi(s12)">
   <meta property="og:description" content="This short post introducds the gdc_clinical() function recently added to the GenomicDataCommons package.
 The rich data model at the NCI Genomic Data Commons (GDC) includes clinical and biospecimen details. A recently added feature to the NCI GDC Data Portal is the ability to download tab-delimited files or JSON files for clinical and biospecimen details of samples."><meta property="og:image" content="/images/icon_hu0b7a4cb9992c9ac0e91bd28ffd38dd00_9727_512x512_fill_lanczos_center_2.png">
   <meta property="twitter:image" content="/images/icon_hu0b7a4cb9992c9ac0e91bd28ffd38dd00_9727_512x512_fill_lanczos_center_2.png"><meta property="og:locale" content="en-us">
@@ -320,7 +359,7 @@ The rich data model at the NCI Genomic Data Commons (GDC) includes clinical and 
   
   "publisher": {
     "@type": "Organization",
-    "name": "Academic",
+    "name": "seandavi(s12)",
     "logo": {
       "@type": "ImageObject",
       "url": "/images/icon_hu0b7a4cb9992c9ac0e91bd28ffd38dd00_9727_192x192_fill_lanczos_center_2.png"
@@ -344,7 +383,7 @@ The rich data model at the NCI Genomic Data Commons (GDC) includes clinical and 
 
 
 
-  <title>Extracting Clinical Information Using the Genomicdatacommons Package | Academic</title>
+  <title>Extracting Clinical Information Using the Genomicdatacommons Package | seandavi(s12)</title>
 
 </head>
 
@@ -409,7 +448,7 @@ The rich data model at the NCI Genomic Data Commons (GDC) includes clinical and 
 
     
     <div class="d-none d-lg-inline-flex">
-      <a class="navbar-brand" href="/">Academic</a>
+      <a class="navbar-brand" href="/">seandavi(s12)</a>
     </div>
     
 
@@ -422,7 +461,7 @@ The rich data model at the NCI Genomic Data Commons (GDC) includes clinical and 
 
     
     <div class="navbar-brand-mobile-wrapper d-inline-flex d-lg-none">
-      <a class="navbar-brand" href="/">Academic</a>
+      <a class="navbar-brand" href="/">seandavi(s12)</a>
     </div>
     
 
@@ -539,43 +578,6 @@ The rich data model at the NCI Genomic Data Commons (GDC) includes clinical and 
         
 
         <li class="nav-item">
-          <a class="nav-link " href="/#projects"><span>Projects</span></a>
-        </li>
-
-        
-        
-
-        
-
-        
-        
-        
-          
-        
-
-        
-
-        
-        
-        
-        
-
-        
-          
-            
-            
-          
-          
-            
-            
-            
-              
-            
-            
-          
-        
-
-        <li class="nav-item">
           <a class="nav-link " href="/#talks"><span>Talks</span></a>
         </li>
 
@@ -613,7 +615,7 @@ The rich data model at the NCI Genomic Data Commons (GDC) includes clinical and 
         
 
         <li class="nav-item">
-          <a class="nav-link " href="/#featured"><span>Publications</span></a>
+          <a class="nav-link " href="/#publications"><span>Publications</span></a>
         </li>
 
         
@@ -651,6 +653,36 @@ The rich data model at the NCI Genomic Data Commons (GDC) includes clinical and 
 
         <li class="nav-item">
           <a class="nav-link " href="/#contact"><span>Contact</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+
+        
+        
+        
+        
+
+        
+          
+            
+            
+          
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/files/CV.pdf"><span>CV</span></a>
         </li>
 
         
@@ -1167,7 +1199,7 @@ repository.</p>
 
     <div class="media-body">
       <h5 class="card-title"></h5>
-      <h6 class="card-subtitle">Senior Associate Scientist</h6>
+      <h6 class="card-subtitle">Professor, Department of Medicine</h6>
       <p class="card-text">My interests include biomedical data science, open data, genomics, and cancer research.</p>
       <ul class="network-icon" aria-hidden="true">
   
@@ -1388,8 +1420,6 @@ repository.</p>
     
 
     
-    
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/leaflet.min.js" integrity="sha512-SeiQaaDh73yrb56sTW/RgVdi/mMqNeM2oBwubFHagc5BkixSpP1fvqF47mKzPGWYSSy4RwbBunrJBQ4Co8fRWA==" crossorigin="anonymous"></script>
     
 
     

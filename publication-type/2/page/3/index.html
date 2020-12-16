@@ -34,7 +34,7 @@
   
     
   
-  <meta name="description" content="Senior Associate Scientist">
+  <meta name="description" content="Professor, Department of Medicine">
 
   
   <link rel="alternate" hreflang="en-us" href="/publication-type/2/">
@@ -60,7 +60,7 @@
   
   
   
-  <meta name="theme-color" content="#2962ff">
+  <meta name="theme-color" content="#3f51b5">
   
 
   
@@ -92,8 +92,6 @@
       
     
 
-    
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/leaflet.min.css" integrity="sha512-1xoFisiGdy9nvho8EgXuXvnpR5GAMSjFwp40gSRE3NwdUdIMIKuPa7bqoUhLD0O/5tPNhteAsE5XyyMi5reQVA==" crossorigin="anonymous">
     
 
     
@@ -240,23 +238,61 @@
   
   
   
-  <link rel="stylesheet" href="/css/wowchemy.min.2da9fc7ecccb62374ee4667dc6583d14.css">
+  <link rel="stylesheet" href="/css/wowchemy.min.8e43d31e888508b173bbc2cc83c6a116.css">
 
   
 
 
 
 
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-93043521-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+
+  function gtag() {
+      dataLayer.push(arguments);
+  }
+
+  function trackOutboundLink(url, target) {
+    gtag('event', 'click', {
+         'event_category': 'outbound',
+         'event_label': url,
+         'transport_type': 'beacon',
+         'event_callback': function () {
+           if (target !== '_blank') {
+             document.location = url;
+           }
+         }
+    });
+    console.debug("Outbound link clicked: " + url);
+  }
+
+  function onClickCallback(event) {
+    if ((event.target.tagName !== 'A') || (event.target.host === window.location.host)) {
+      return;
+    }
+    trackOutboundLink(event.target, event.target.getAttribute('target'));  
+  }
+
+  gtag('js', new Date());
+  gtag('config', 'UA-93043521-1', {});
+
   
+  document.addEventListener('click', onClickCallback, false);
+</script>
+
 
   
 
+  
+
 
   
   
 
   
-  <link rel="alternate" href="/publication-type/2/index.xml" type="application/rss+xml" title="Academic">
+  <link rel="alternate" href="/publication-type/2/index.xml" type="application/rss+xml" title="seandavi(s12)">
   
 
   <link rel="manifest" href="/index.webmanifest">
@@ -278,13 +314,16 @@
   
   <meta property="twitter:card" content="summary">
   
-  <meta property="og:site_name" content="Academic">
+  <meta property="twitter:site" content="@seandavis12">
+  <meta property="twitter:creator" content="@seandavis12">
+  
+  <meta property="og:site_name" content="seandavi(s12)">
   <meta property="og:url" content="/publication-type/2/">
-  <meta property="og:title" content="2 | Academic">
-  <meta property="og:description" content="Senior Associate Scientist"><meta property="og:image" content="/images/icon_hu0b7a4cb9992c9ac0e91bd28ffd38dd00_9727_512x512_fill_lanczos_center_2.png">
+  <meta property="og:title" content="2 | seandavi(s12)">
+  <meta property="og:description" content="Professor, Department of Medicine"><meta property="og:image" content="/images/icon_hu0b7a4cb9992c9ac0e91bd28ffd38dd00_9727_512x512_fill_lanczos_center_2.png">
   <meta property="twitter:image" content="/images/icon_hu0b7a4cb9992c9ac0e91bd28ffd38dd00_9727_512x512_fill_lanczos_center_2.png"><meta property="og:locale" content="en-us">
   
-    <meta property="og:updated_time" content="2019-01-01T00:00:00&#43;00:00">
+    <meta property="og:updated_time" content="2020-01-01T00:00:00&#43;00:00">
   
 
   
@@ -301,7 +340,7 @@
 
 
 
-  <title>2 | Academic</title>
+  <title>2 | seandavi(s12)</title>
 
 </head>
 
@@ -366,7 +405,7 @@
 
     
     <div class="d-none d-lg-inline-flex">
-      <a class="navbar-brand" href="/">Academic</a>
+      <a class="navbar-brand" href="/">seandavi(s12)</a>
     </div>
     
 
@@ -379,7 +418,7 @@
 
     
     <div class="navbar-brand-mobile-wrapper d-inline-flex d-lg-none">
-      <a class="navbar-brand" href="/">Academic</a>
+      <a class="navbar-brand" href="/">seandavi(s12)</a>
     </div>
     
 
@@ -496,43 +535,6 @@
         
 
         <li class="nav-item">
-          <a class="nav-link " href="/#projects"><span>Projects</span></a>
-        </li>
-
-        
-        
-
-        
-
-        
-        
-        
-          
-        
-
-        
-
-        
-        
-        
-        
-
-        
-          
-            
-            
-          
-          
-            
-            
-            
-              
-            
-            
-          
-        
-
-        <li class="nav-item">
           <a class="nav-link " href="/#talks"><span>Talks</span></a>
         </li>
 
@@ -570,7 +572,7 @@
         
 
         <li class="nav-item">
-          <a class="nav-link " href="/#featured"><span>Publications</span></a>
+          <a class="nav-link " href="/#publications"><span>Publications</span></a>
         </li>
 
         
@@ -608,6 +610,36 @@
 
         <li class="nav-item">
           <a class="nav-link " href="/#contact"><span>Contact</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+
+        
+        
+        
+        
+
+        
+          
+            
+            
+          
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/files/CV.pdf"><span>CV</span></a>
         </li>
 
         
@@ -697,91 +729,7 @@
     
     
     <div>
-      <h2><a href="/publication/pmid-27005934/" >caOmicsV: an R package for visualizing multidimensional cancer genomic data</a></h2>
-      <div class="article-style">
-        
-          Translational genomics research in cancers, e.g., International Cancer Genome Consortium (ICGC) and The Cancer Genome Atlas (TCGA), has generated large multidimensional datasets from high-throughput technologies. Data analysis at multidimensional …
-        
-      </div>
-    </div>
-  
-    
-    
-    
-    <div>
-      <h2><a href="/publication/pmid-27626441/" >On the Selective Packaging of Genomic RNA by HIV-1</a></h2>
-      <div class="article-style">
-        
-          Like other retroviruses, human immunodeficiency virus type 1 (HIV-1) selectively packages genomic RNA (gRNA) during virus assembly. However, in the absence of the gRNA, cellular messenger RNAs (mRNAs) are packaged. While the gRNA is selected because …
-        
-      </div>
-    </div>
-  
-    
-    
-    
-    <div>
-      <h2><a href="/publication/pmid-26962861/" >Whole Genome Sequencing of Newly Established Pancreatic Cancer Lines Identifies Novel Somatic Mutation (c.2587G&gt;A) in Axon Guidance Receptor Plexin A1 as Enhancer of Proliferation and Invasion</a></h2>
-      <div class="article-style">
-        
-          The genetic profile of human pancreatic cancers harbors considerable heterogeneity, which suggests a possible explanation for the pronounced inefficacy of single therapies in this disease. This observation has led to a belief that custom therapies …
-        
-      </div>
-    </div>
-  
-    
-    
-    
-    <div>
-      <h2><a href="/publication/pmid26084801/" >A Genome-Wide Scan Identifies Variants in NFIB Associated with Metastasis in Patients with Osteosarcoma</a></h2>
-      <div class="article-style">
-        
-          Metastasis is the leading cause of death in patients with osteosarcoma, the most common pediatric bone malignancy. We conducted a multistage genome-wide association study of osteosarcoma metastasis at diagnosis in 935 osteosarcoma patients to …
-        
-      </div>
-    </div>
-  
-    
-    
-    
-    <div>
-      <h2><a href="/publication/pmid25944801/" >Inhibition of Survivin with YM155 Induces Durable Tumor Response in Anaplastic Thyroid Cancer</a></h2>
-      <div class="article-style">
-        
-          Anaplastic thyroid cancer (ATC) is a rare but lethal malignancy without any effective therapy. The aim of this study is to use a high-throughput drug library screening to identify a novel therapeutic agent that targets dysregulated genes/pathways in …
-        
-      </div>
-    </div>
-  
-    
-    
-    
-    <div>
-      <h2><a href="/publication/pmid-26084801/" >A Genome-Wide Scan Identifies Variants in NFIB Associated with Metastasis in Patients with Osteosarcoma</a></h2>
-      <div class="article-style">
-        
-          Metastasis is the leading cause of death in patients with osteosarcoma, the most common pediatric bone malignancy. We conducted a multistage genome-wide association study of osteosarcoma metastasis at diagnosis in 935 osteosarcoma patients to …
-        
-      </div>
-    </div>
-  
-    
-    
-    
-    <div>
-      <h2><a href="/publication/pmid-25944801/" >Inhibition of Survivin with YM155 Induces Durable Tumor Response in Anaplastic Thyroid Cancer</a></h2>
-      <div class="article-style">
-        
-          Anaplastic thyroid cancer (ATC) is a rare but lethal malignancy without any effective therapy. The aim of this study is to use a high-throughput drug library screening to identify a novel therapeutic agent that targets dysregulated genes/pathways in …
-        
-      </div>
-    </div>
-  
-    
-    
-    
-    <div>
-      <h2><a href="/publication/pmid25929339/" >Dual inhibition of HDAC and EGFR signaling with CUDC-101 induces potent suppression of tumor growth and metastasis in anaplastic thyroid cancer</a></h2>
+      <h2><a href="/publication/pmid-25940539/" >Dual inhibition of HDAC and EGFR signaling with CUDC-101 induces potent suppression of tumor growth and metastasis in anaplastic thyroid cancer</a></h2>
       <div class="article-style">
         
           Anaplastic thyroid cancer (ATC) is one of the most lethal human malignancies that currently has no effective therapy. We performed quantitative high-throughput screening (qHTS) in three ATC cell lines using 3,282 clinically approved drugs and drug …
@@ -793,22 +741,106 @@
     
     
     <div>
-      <h2><a href="/publication/pmid25940539/" >Dual inhibition of HDAC and EGFR signaling with CUDC-101 induces potent suppression of tumor growth and metastasis in anaplastic thyroid cancer</a></h2>
-      <div class="article-style">
-        
-          Anaplastic thyroid cancer (ATC) is one of the most lethal human malignancies that currently has no effective therapy. We performed quantitative high-throughput screening (qHTS) in three ATC cell lines using 3,282 clinically approved drugs and drug …
-        
-      </div>
-    </div>
-  
-    
-    
-    
-    <div>
-      <h2><a href="/publication/pmid25773928/" >Integrated analysis of DNA methylation, immunohistochemistry and mRNA expression, data identifies a methylation expression index (MEI) robustly associated with survival of ER-positive breast cancer patients</a></h2>
+      <h2><a href="/publication/pmid-25773928/" >Integrated analysis of DNA methylation, immunohistochemistry and mRNA expression, data identifies a methylation expression index (MEI) robustly associated with survival of ER-positive breast cancer patients</a></h2>
       <div class="article-style">
         
           Identification of prognostic gene expression signatures may enable improved decisions about management of breast cancer. To identify a prognostic signature for breast cancer, we performed DNA methylation profiling and identified methylation markers …
+        
+      </div>
+    </div>
+  
+    
+    
+    
+    <div>
+      <h2><a href="/publication/pmid-25686607/" >Super-enhancers delineate disease-associated regulatory nodes in T cells</a></h2>
+      <div class="article-style">
+        
+          Enhancers regulate spatiotemporal gene expression and impart cell-specific transcriptional outputs that drive cell identity. Super-enhancers (SEs), also known as stretch-enhancers, are a subset of enhancers especially important for genes associated …
+        
+      </div>
+    </div>
+  
+    
+    
+    
+    <div>
+      <h2><a href="/publication/pmid-25633503/" >Orchestrating high-throughput genomic analysis with Bioconductor</a></h2>
+      <div class="article-style">
+        
+          Bioconductor is an open-source, open-development software project for the analysis and comprehension of high-throughput data in genomics and molecular biology. The project aims to enable interdisciplinary research, collaboration and rapid development …
+        
+      </div>
+    </div>
+  
+    
+    
+    
+    <div>
+      <h2><a href="/publication/pmid-25629959/" >Antagonistic cross-regulation between Sox9 and Sox10 controls an anti-tumorigenic program in melanoma</a></h2>
+      <div class="article-style">
+        
+          Melanoma is the most fatal skin cancer, but the etiology of this devastating disease is still poorly understood. Recently, the transcription factor Sox10 has been shown to promote both melanoma initiation and progression. Reducing SOX10 expression …
+        
+      </div>
+    </div>
+  
+    
+    
+    
+    <div>
+      <h2><a href="/publication/pmid-25764003/" >Characterization of genomic alterations in radiation-associated breast cancer among childhood cancer survivors, using comparative genomic hybridization (CGH) arrays</a></h2>
+      <div class="article-style">
+        
+          Ionizing radiation is an established risk factor for breast cancer. Epidemiologic studies of radiation-exposed cohorts have been primarily descriptive; molecular events responsible for the development of radiation-associated breast cancer have not …
+        
+      </div>
+    </div>
+  
+    
+    
+    
+    <div>
+      <h2><a href="/publication/pmid-25488748/" >miR30a inhibits LOX expression and anaplastic thyroid cancer progression</a></h2>
+      <div class="article-style">
+        
+          Anaplastic thyroid cancer (ATC) is one of the most lethal human malignancies, but its genetic drivers remain little understood. In this study, we report losses in expression of the miRNA miR30a, which is downregulated in ATC compared with …
+        
+      </div>
+    </div>
+  
+    
+    
+    
+    <div>
+      <h2><a href="/publication/pmid-26998224/" >The Bioconductor channel in F1000Research</a></h2>
+      <div class="article-style">
+        
+          Bioconductor ( bioconductor.org) is a rich source of software and know-how for the integrative analysis of genomic data. The Bioconductor channel in F1000Research provides a forum for task-oriented workflows that cover a solution to a current, …
+        
+      </div>
+    </div>
+  
+    
+    
+    
+    <div>
+      <h2><a href="/publication/pmid-24292683/" >Downregulation of IGFBP2 is associated with resistance to IGF1R therapy in rhabdomyosarcoma</a></h2>
+      <div class="article-style">
+        
+          Agents targeting the insulin-like growth factor-1 receptor (IGF1R) are in clinical development, but, despite some initial success of single agents in sarcoma, response rates are low with brief durations. Thus, it is important to identify markers …
+        
+      </div>
+    </div>
+  
+    
+    
+    
+    <div>
+      <h2><a href="/publication/pmid-25030697/" >Lineage of origin in rhabdomyosarcoma informs pharmacological response</a></h2>
+      <div class="article-style">
+        
+          Lineage or cell of origin of cancers is often unknown and thus is not a consideration in therapeutic approaches. Alveolar rhabdomyosarcoma (aRMS) is an aggressive childhood cancer for which the cell of origin remains debated. We used conditional …
         
       </div>
     </div>
@@ -920,8 +952,6 @@
     
 
     
-    
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/leaflet.min.js" integrity="sha512-SeiQaaDh73yrb56sTW/RgVdi/mMqNeM2oBwubFHagc5BkixSpP1fvqF47mKzPGWYSSy4RwbBunrJBQ4Co8fRWA==" crossorigin="anonymous"></script>
     
 
     

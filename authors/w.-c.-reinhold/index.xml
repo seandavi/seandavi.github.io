@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>W. C. Reinhold | Academic</title>
+    <title>W. C. Reinhold | seandavi(s12)</title>
     <link>/authors/w.-c.-reinhold/</link>
       <atom:link href="/authors/w.-c.-reinhold/index.xml" rel="self" type="application/rss+xml" />
     <description>W. C. Reinhold</description>
-    <generator>Wowchemy (https://wowchemy.com)</generator><language>en-us</language><lastBuildDate>Wed, 01 Jan 2014 00:00:00 -0500</lastBuildDate>
+    <generator>Wowchemy (https://wowchemy.com)</generator><language>en-us</language><lastBuildDate>Wed, 01 Jan 2014 00:00:00 +0000</lastBuildDate>
     <image>
       <url>/images/icon_hu0b7a4cb9992c9ac0e91bd28ffd38dd00_9727_512x512_fill_lanczos_center_2.png</url>
       <title>W. C. Reinhold</title>
@@ -14,25 +14,9 @@
     
     <item>
       <title>NCI-60 whole exome sequencing and pharmacological CellMiner analyses</title>
-      <link>/publication/pmid25032700/</link>
-      <pubDate>Wed, 01 Jan 2014 00:00:00 -0500</pubDate>
-      <guid>/publication/pmid25032700/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>NCI-60 whole exome sequencing and pharmacological CellMiner analyses</title>
       <link>/publication/pmid-25032700/</link>
       <pubDate>Wed, 01 Jan 2014 00:00:00 +0000</pubDate>
       <guid>/publication/pmid-25032700/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>The exomes of the NCI-60 panel: a genomic resource for cancer biology and systems pharmacology</title>
-      <link>/publication/pmid23856246/</link>
-      <pubDate>Mon, 01 Jul 2013 00:00:00 -0400</pubDate>
-      <guid>/publication/pmid23856246/</guid>
       <description></description>
     </item>
     
@@ -46,14 +30,6 @@
     
     <item>
       <title>Exclusion of the 750-kb genetically unstable region at Xq27 as a candidate locus for prostate malignancy in HPCX1-linked families</title>
-      <link>/publication/pmid22733720/</link>
-      <pubDate>Mon, 01 Oct 2012 00:00:00 -0400</pubDate>
-      <guid>/publication/pmid22733720/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Exclusion of the 750-kb genetically unstable region at Xq27 as a candidate locus for prostate malignancy in HPCX1-linked families</title>
       <link>/publication/pmid-22733720/</link>
       <pubDate>Mon, 01 Oct 2012 00:00:00 +0000</pubDate>
       <guid>/publication/pmid-22733720/</guid>
@@ -62,25 +38,9 @@
     
     <item>
       <title>CHEK2 genomic and proteomic analyses reveal genetic inactivation or endogenous activation across the 60 cell lines of the US National Cancer Institute</title>
-      <link>/publication/pmid21765476/</link>
-      <pubDate>Sun, 01 Jan 2012 00:00:00 -0500</pubDate>
-      <guid>/publication/pmid21765476/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>CHEK2 genomic and proteomic analyses reveal genetic inactivation or endogenous activation across the 60 cell lines of the US National Cancer Institute</title>
       <link>/publication/pmid-21765476/</link>
       <pubDate>Sun, 01 Jan 2012 00:00:00 +0000</pubDate>
       <guid>/publication/pmid-21765476/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Genome-wide depletion of replication initiation events in highly transcribed regions</title>
-      <link>/publication/pmid21813623/</link>
-      <pubDate>Tue, 01 Nov 2011 00:00:00 -0400</pubDate>
-      <guid>/publication/pmid21813623/</guid>
       <description></description>
     </item>
     

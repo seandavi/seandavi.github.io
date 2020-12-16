@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Markus Riester | Academic</title>
+    <title>Markus Riester | seandavi(s12)</title>
     <link>/authors/markus-riester/</link>
       <atom:link href="/authors/markus-riester/index.xml" rel="self" type="application/rss+xml" />
     <description>Markus Riester</description>
-    <generator>Wowchemy (https://wowchemy.com)</generator><language>en-us</language><lastBuildDate>Sun, 01 Jan 2017 00:00:00 -0500</lastBuildDate>
+    <generator>Wowchemy (https://wowchemy.com)</generator><language>en-us</language><lastBuildDate>Wed, 01 Jan 2020 00:00:00 +0000</lastBuildDate>
     <image>
       <url>/images/icon_hu0b7a4cb9992c9ac0e91bd28ffd38dd00_9727_512x512_fill_lanczos_center_2.png</url>
       <title>Markus Riester</title>
@@ -13,10 +13,10 @@
     </image>
     
     <item>
-      <title>Software For The Integration Of Multi-Omics Experiments In Bioconductor</title>
-      <link>/publication/sean_davis33483497/</link>
-      <pubDate>Sun, 01 Jan 2017 00:00:00 -0500</pubDate>
-      <guid>/publication/sean_davis33483497/</guid>
+      <title>HGNChelper: Identification and correction of invalid gene symbols for human and mouse</title>
+      <link>/publication/oh-2020-hgnchelper/</link>
+      <pubDate>Wed, 01 Jan 2020 00:00:00 +0000</pubDate>
+      <guid>/publication/oh-2020-hgnchelper/</guid>
       <description></description>
     </item>
     

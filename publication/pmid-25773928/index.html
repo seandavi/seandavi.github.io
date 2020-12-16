@@ -60,7 +60,7 @@
   
   
   
-  <meta name="theme-color" content="#2962ff">
+  <meta name="theme-color" content="#3f51b5">
   
 
   
@@ -92,8 +92,6 @@
       
     
 
-    
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/leaflet.min.css" integrity="sha512-1xoFisiGdy9nvho8EgXuXvnpR5GAMSjFwp40gSRE3NwdUdIMIKuPa7bqoUhLD0O/5tPNhteAsE5XyyMi5reQVA==" crossorigin="anonymous">
     
 
     
@@ -240,11 +238,49 @@
   
   
   
-  <link rel="stylesheet" href="/css/wowchemy.min.2da9fc7ecccb62374ee4667dc6583d14.css">
+  <link rel="stylesheet" href="/css/wowchemy.min.8e43d31e888508b173bbc2cc83c6a116.css">
 
   
 
 
+
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-93043521-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+
+  function gtag() {
+      dataLayer.push(arguments);
+  }
+
+  function trackOutboundLink(url, target) {
+    gtag('event', 'click', {
+         'event_category': 'outbound',
+         'event_label': url,
+         'transport_type': 'beacon',
+         'event_callback': function () {
+           if (target !== '_blank') {
+             document.location = url;
+           }
+         }
+    });
+    console.debug("Outbound link clicked: " + url);
+  }
+
+  function onClickCallback(event) {
+    if ((event.target.tagName !== 'A') || (event.target.host === window.location.host)) {
+      return;
+    }
+    trackOutboundLink(event.target, event.target.getAttribute('target'));  
+  }
+
+  gtag('js', new Date());
+  gtag('config', 'UA-93043521-1', {});
+
+  
+  document.addEventListener('click', onClickCallback, false);
+</script>
 
 
   
@@ -276,16 +312,19 @@
   
   <meta property="twitter:card" content="summary">
   
-  <meta property="og:site_name" content="Academic">
+  <meta property="twitter:site" content="@seandavis12">
+  <meta property="twitter:creator" content="@seandavis12">
+  
+  <meta property="og:site_name" content="seandavi(s12)">
   <meta property="og:url" content="/publication/pmid-25773928/">
-  <meta property="og:title" content="Integrated analysis of DNA methylation, immunohistochemistry and mRNA expression, data identifies a methylation expression index (MEI) robustly associated with survival of ER-positive breast cancer patients | Academic">
+  <meta property="og:title" content="Integrated analysis of DNA methylation, immunohistochemistry and mRNA expression, data identifies a methylation expression index (MEI) robustly associated with survival of ER-positive breast cancer patients | seandavi(s12)">
   <meta property="og:description" content="Identification of prognostic gene expression signatures may enable improved decisions about management of breast cancer. To identify a prognostic signature for breast cancer, we performed DNA methylation profiling and identified methylation markers that were associated with expression of ER, PR, HER2, CK5/6, and EGFR proteins. Methylation markers that were correlated with corresponding mRNA expression levels were identified using 208 invasive tumors from a population-based case-control study conducted in Poland. Using this approach, we defined the methylation expression index (MEI) signature that was based on a weighted sum of mRNA levels of 57 genes. Classification of cases as low or high MEI scores was related to survival using Cox regression models. In the Polish study, women with ER-positive low MEI cancers had reduced survival at a median of 5.20 years of follow-up, HR = 2.85 95% CI = 1.25-6.47. Low MEI was also related to decreased survival in four independent datasets totaling over 2500 ER-positive breast cancers. These results suggest that integrated analysis of tumor expression markers, DNA methylation, and mRNA data may be an important approach for identifying breast cancer prognostic signatures. Prospective assessment of MEI along with other prognostic signatures should be evaluated in future studies."><meta property="og:image" content="/images/icon_hu0b7a4cb9992c9ac0e91bd28ffd38dd00_9727_512x512_fill_lanczos_center_2.png">
   <meta property="twitter:image" content="/images/icon_hu0b7a4cb9992c9ac0e91bd28ffd38dd00_9727_512x512_fill_lanczos_center_2.png"><meta property="og:locale" content="en-us">
   
     
-      <meta property="article:published_time" content="2019-10-04T21:24:26&#43;00:00">
+      <meta property="article:published_time" content="2020-12-16T22:24:43&#43;00:00">
     
-    <meta property="article:modified_time" content="2015-04-01T00:00:00&#43;00:00">
+    <meta property="article:modified_time" content="2020-12-16T17:24:43-05:00">
   
 
   
@@ -311,8 +350,8 @@
   },
   "headline": "Integrated analysis of DNA methylation, immunohistochemistry and mRNA expression, data identifies a methylation expression index (MEI) robustly associated with survival of ER-positive breast cancer patients",
   
-  "datePublished": "2019-10-04T21:24:26Z",
-  "dateModified": "2015-04-01T00:00:00Z",
+  "datePublished": "2020-12-16T22:24:43Z",
+  "dateModified": "2020-12-16T17:24:43-05:00",
   
   "author": {
     "@type": "Person",
@@ -321,7 +360,7 @@
   
   "publisher": {
     "@type": "Organization",
-    "name": "Academic",
+    "name": "seandavi(s12)",
     "logo": {
       "@type": "ImageObject",
       "url": "/images/icon_hu0b7a4cb9992c9ac0e91bd28ffd38dd00_9727_192x192_fill_lanczos_center_2.png"
@@ -345,7 +384,7 @@
 
 
 
-  <title>Integrated analysis of DNA methylation, immunohistochemistry and mRNA expression, data identifies a methylation expression index (MEI) robustly associated with survival of ER-positive breast cancer patients | Academic</title>
+  <title>Integrated analysis of DNA methylation, immunohistochemistry and mRNA expression, data identifies a methylation expression index (MEI) robustly associated with survival of ER-positive breast cancer patients | seandavi(s12)</title>
 
 </head>
 
@@ -410,7 +449,7 @@
 
     
     <div class="d-none d-lg-inline-flex">
-      <a class="navbar-brand" href="/">Academic</a>
+      <a class="navbar-brand" href="/">seandavi(s12)</a>
     </div>
     
 
@@ -423,7 +462,7 @@
 
     
     <div class="navbar-brand-mobile-wrapper d-inline-flex d-lg-none">
-      <a class="navbar-brand" href="/">Academic</a>
+      <a class="navbar-brand" href="/">seandavi(s12)</a>
     </div>
     
 
@@ -540,43 +579,6 @@
         
 
         <li class="nav-item">
-          <a class="nav-link " href="/#projects"><span>Projects</span></a>
-        </li>
-
-        
-        
-
-        
-
-        
-        
-        
-          
-        
-
-        
-
-        
-        
-        
-        
-
-        
-          
-            
-            
-          
-          
-            
-            
-            
-              
-            
-            
-          
-        
-
-        <li class="nav-item">
           <a class="nav-link " href="/#talks"><span>Talks</span></a>
         </li>
 
@@ -614,7 +616,7 @@
         
 
         <li class="nav-item">
-          <a class="nav-link " href="/#featured"><span>Publications</span></a>
+          <a class="nav-link " href="/#publications"><span>Publications</span></a>
         </li>
 
         
@@ -652,6 +654,36 @@
 
         <li class="nav-item">
           <a class="nav-link " href="/#contact"><span>Contact</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+
+        
+        
+        
+        
+
+        
+          
+            
+            
+          
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/files/CV.pdf"><span>CV</span></a>
         </li>
 
         
@@ -800,7 +832,47 @@
 
 
 
+  
 
+
+
+<div class="btn-links mb-3">
+  
+  
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+<button type="button" class="btn btn-outline-primary my-1 mr-1 js-cite-modal"
+        data-filename="/publication/pmid-25773928/cite.bib">
+  Cite
+</button>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
 
 
   
@@ -1031,11 +1103,15 @@
     <h3>Related</h3>
     <ul>
       
-      <li><a href="/publication/pmid25773928/">Integrated analysis of DNA methylation, immunohistochemistry and mRNA expression, data identifies a methylation expression index (MEI) robustly associated with survival of ER-positive breast cancer patients</a></li>
-      
       <li><a href="/publication/pmid-20332278/">Assessment of automated image analysis of breast cancer tissue microarrays for epidemiologic studies</a></li>
       
-      <li><a href="/publication/pmid20332278/">Assessment of automated image analysis of breast cancer tissue microarrays for epidemiologic studies</a></li>
+      <li><a href="/publication/pmid-17686054/">Constitutive Fms-like tyrosine kinase 3 activation results in specific changes in gene expression in myeloid leukaemic cells</a></li>
+      
+      <li><a href="/publication/pmid-17712417/">Detection of novel amplicons in prostate cancer by comprehensive genomic profiling of prostate cancer cell lines using oligonucleotide-based arrayCGH</a></li>
+      
+      <li><a href="/publication/pmid-18227516/">Suppressor role of activating transcription factor 2 (ATF2) in skin cancer</a></li>
+      
+      <li><a href="/publication/pmid-18243105/">High-resolution mapping and characterization of open chromatin across the genome</a></li>
       
     </ul>
   </div>
@@ -1139,8 +1215,6 @@
     
 
     
-    
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/leaflet.min.js" integrity="sha512-SeiQaaDh73yrb56sTW/RgVdi/mMqNeM2oBwubFHagc5BkixSpP1fvqF47mKzPGWYSSy4RwbBunrJBQ4Co8fRWA==" crossorigin="anonymous"></script>
     
 
     

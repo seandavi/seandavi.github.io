@@ -1,24 +1,16 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>A. Mendoza | Academic</title>
+    <title>A. Mendoza | seandavi(s12)</title>
     <link>/authors/a.-mendoza/</link>
       <atom:link href="/authors/a.-mendoza/index.xml" rel="self" type="application/rss+xml" />
     <description>A. Mendoza</description>
-    <generator>Wowchemy (https://wowchemy.com)</generator><language>en-us</language><lastBuildDate>Wed, 01 Jun 2011 00:00:00 -0400</lastBuildDate>
+    <generator>Wowchemy (https://wowchemy.com)</generator><language>en-us</language><lastBuildDate>Wed, 01 Jun 2011 00:00:00 +0000</lastBuildDate>
     <image>
       <url>/images/icon_hu0b7a4cb9992c9ac0e91bd28ffd38dd00_9727_512x512_fill_lanczos_center_2.png</url>
       <title>A. Mendoza</title>
       <link>/authors/a.-mendoza/</link>
     </image>
-    
-    <item>
-      <title>Identification of an inhibitor of the EWS-FLI1 oncogenic transcription factor by high-throughput screening</title>
-      <link>/publication/pmid21653923/</link>
-      <pubDate>Wed, 01 Jun 2011 00:00:00 -0400</pubDate>
-      <guid>/publication/pmid21653923/</guid>
-      <description></description>
-    </item>
     
     <item>
       <title>Identification of an inhibitor of the EWS-FLI1 oncogenic transcription factor by high-throughput screening</title>

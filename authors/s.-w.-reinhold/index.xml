@@ -1,24 +1,16 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>S. W. Reinhold | Academic</title>
+    <title>S. W. Reinhold | seandavi(s12)</title>
     <link>/authors/s.-w.-reinhold/</link>
       <atom:link href="/authors/s.-w.-reinhold/index.xml" rel="self" type="application/rss+xml" />
     <description>S. W. Reinhold</description>
-    <generator>Wowchemy (https://wowchemy.com)</generator><language>en-us</language><lastBuildDate>Wed, 01 Jan 2014 00:00:00 -0500</lastBuildDate>
+    <generator>Wowchemy (https://wowchemy.com)</generator><language>en-us</language><lastBuildDate>Wed, 01 Jan 2014 00:00:00 +0000</lastBuildDate>
     <image>
       <url>/images/icon_hu0b7a4cb9992c9ac0e91bd28ffd38dd00_9727_512x512_fill_lanczos_center_2.png</url>
       <title>S. W. Reinhold</title>
       <link>/authors/s.-w.-reinhold/</link>
     </image>
-    
-    <item>
-      <title>NCI-60 whole exome sequencing and pharmacological CellMiner analyses</title>
-      <link>/publication/pmid25032700/</link>
-      <pubDate>Wed, 01 Jan 2014 00:00:00 -0500</pubDate>
-      <guid>/publication/pmid25032700/</guid>
-      <description></description>
-    </item>
     
     <item>
       <title>NCI-60 whole exome sequencing and pharmacological CellMiner analyses</title>

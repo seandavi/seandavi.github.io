@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>bioinformatics | Academic</title>
+    <title>bioinformatics | seandavi(s12)</title>
     <link>/category/bioinformatics/</link>
       <atom:link href="/category/bioinformatics/index.xml" rel="self" type="application/rss+xml" />
     <description>bioinformatics</description>
@@ -341,14 +341,6 @@ can be used for dbGaP genomic data extraction as part of such a
 workflow, all within the secure environment of google cloud.&lt;/p&gt;
 &lt;/div&gt;
 </description>
-    </item>
-    
-    <item>
-      <title>Orchestrating a community-developed computational workshop and accompanying training materials</title>
-      <link>/publication/10.12688__f1000research.16516.1/</link>
-      <pubDate>Sun, 07 Oct 2018 00:00:00 -0400</pubDate>
-      <guid>/publication/10.12688__f1000research.16516.1/</guid>
-      <description></description>
     </item>
     
   </channel>

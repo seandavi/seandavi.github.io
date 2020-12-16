@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>F. Yang | Academic</title>
+    <title>F. Yang | seandavi(s12)</title>
     <link>/authors/f.-yang/</link>
       <atom:link href="/authors/f.-yang/index.xml" rel="self" type="application/rss+xml" />
     <description>F. Yang</description>
-    <generator>Wowchemy (https://wowchemy.com)</generator><language>en-us</language><lastBuildDate>Fri, 01 Nov 2013 00:00:00 -0400</lastBuildDate>
+    <generator>Wowchemy (https://wowchemy.com)</generator><language>en-us</language><lastBuildDate>Fri, 01 Nov 2013 00:00:00 +0000</lastBuildDate>
     <image>
       <url>/images/icon_hu0b7a4cb9992c9ac0e91bd28ffd38dd00_9727_512x512_fill_lanczos_center_2.png</url>
       <title>F. Yang</title>
@@ -14,25 +14,9 @@
     
     <item>
       <title>Oncogenic ETS fusions deregulate E2F3 target genes in Ewing sarcoma and prostate cancer</title>
-      <link>/publication/pmid23940108/</link>
-      <pubDate>Fri, 01 Nov 2013 00:00:00 -0400</pubDate>
-      <guid>/publication/pmid23940108/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Oncogenic ETS fusions deregulate E2F3 target genes in Ewing sarcoma and prostate cancer</title>
       <link>/publication/pmid-23940108/</link>
       <pubDate>Fri, 01 Nov 2013 00:00:00 +0000</pubDate>
       <guid>/publication/pmid-23940108/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Preferential localization of human origins of DNA replication at the 5&#39;-ends of expressed genes and at evolutionarily conserved DNA sequences</title>
-      <link>/publication/pmid21602917/</link>
-      <pubDate>Sat, 01 Jan 2011 00:00:00 -0500</pubDate>
-      <guid>/publication/pmid21602917/</guid>
       <description></description>
     </item>
     

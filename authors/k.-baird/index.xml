@@ -1,24 +1,16 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>K. Baird | Academic</title>
+    <title>K. Baird | seandavi(s12)</title>
     <link>/authors/k.-baird/</link>
       <atom:link href="/authors/k.-baird/index.xml" rel="self" type="application/rss+xml" />
     <description>K. Baird</description>
-    <generator>Wowchemy (https://wowchemy.com)</generator><language>en-us</language><lastBuildDate>Tue, 01 Nov 2016 00:00:00 -0400</lastBuildDate>
+    <generator>Wowchemy (https://wowchemy.com)</generator><language>en-us</language><lastBuildDate>Tue, 01 Nov 2016 00:00:00 +0000</lastBuildDate>
     <image>
       <url>/images/icon_hu0b7a4cb9992c9ac0e91bd28ffd38dd00_9727_512x512_fill_lanczos_center_2.png</url>
       <title>K. Baird</title>
       <link>/authors/k.-baird/</link>
     </image>
-    
-    <item>
-      <title>Upregulation of IFN-Inducible and Damage-Response Pathways in Chronic Graft-versus-Host Disease</title>
-      <link>/publication/pmid27694491/</link>
-      <pubDate>Tue, 01 Nov 2016 00:00:00 -0400</pubDate>
-      <guid>/publication/pmid27694491/</guid>
-      <description></description>
-    </item>
     
     <item>
       <title>Upregulation of IFN-Inducible and Damage-Response Pathways in Chronic Graft-versus-Host Disease</title>
@@ -30,25 +22,9 @@
     
     <item>
       <title>Constitutive Fms-like tyrosine kinase 3 activation results in specific changes in gene expression in myeloid leukaemic cells</title>
-      <link>/publication/pmid17686054/</link>
-      <pubDate>Sat, 01 Sep 2007 00:00:00 -0400</pubDate>
-      <guid>/publication/pmid17686054/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Constitutive Fms-like tyrosine kinase 3 activation results in specific changes in gene expression in myeloid leukaemic cells</title>
       <link>/publication/pmid-17686054/</link>
       <pubDate>Sat, 01 Sep 2007 00:00:00 +0000</pubDate>
       <guid>/publication/pmid-17686054/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Gene expression profiling of human sarcomas: insights into sarcoma biology</title>
-      <link>/publication/pmid16230383/</link>
-      <pubDate>Sat, 01 Oct 2005 00:00:00 -0400</pubDate>
-      <guid>/publication/pmid16230383/</guid>
       <description></description>
     </item>
     

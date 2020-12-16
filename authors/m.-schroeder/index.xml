@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>M. Schroeder | Academic</title>
+    <title>M. Schroeder | seandavi(s12)</title>
     <link>/authors/m.-schroeder/</link>
       <atom:link href="/authors/m.-schroeder/index.xml" rel="self" type="application/rss+xml" />
     <description>M. Schroeder</description>
-    <generator>Wowchemy (https://wowchemy.com)</generator><language>en-us</language><lastBuildDate>Wed, 01 Jan 1997 00:00:00 -0500</lastBuildDate>
+    <generator>Wowchemy (https://wowchemy.com)</generator><language>en-us</language><lastBuildDate>Wed, 01 Jan 1997 00:00:00 +0000</lastBuildDate>
     <image>
       <url>/images/icon_hu0b7a4cb9992c9ac0e91bd28ffd38dd00_9727_512x512_fill_lanczos_center_2.png</url>
       <title>M. Schroeder</title>
@@ -14,25 +14,9 @@
     
     <item>
       <title>Nonparametric simulation based linkage statistics for general pedigrees</title>
-      <link>/publication/pmid9002040/</link>
-      <pubDate>Wed, 01 Jan 1997 00:00:00 -0500</pubDate>
-      <guid>/publication/pmid9002040/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Nonparametric simulation based linkage statistics for general pedigrees</title>
       <link>/publication/pmid-9002040/</link>
       <pubDate>Wed, 01 Jan 1997 00:00:00 +0000</pubDate>
       <guid>/publication/pmid-9002040/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Nonparametric simulation-based statistics for detecting linkage in general pedigrees</title>
-      <link>/publication/pmid8644751/</link>
-      <pubDate>Mon, 01 Apr 1996 00:00:00 -0500</pubDate>
-      <guid>/publication/pmid8644751/</guid>
       <description></description>
     </item>
     

@@ -34,7 +34,7 @@
   
     
   
-  <meta name="description" content="Exome sequencing provides unprecedented insights into cancer biology and pharmacological response. Here we assess these two parameters for the NCI-60, which is among the richest genomic and pharmacological publicly available cancer cell line databases. Homozygous genetic variants that putatively affect protein function were identified in 1,199 genes (approximately 6% of all genes). Variants that are either enriched or depleted compared to non-cancerous genomes, and thus may be influential in cancer progression and differential drug response were identified for 2,546 genes. Potential gene knockouts are made available. Assessment of cell line response to 19,940 compounds, including 110 FDA-approved drugs, reveals â‰ˆ80-fold range in resistance versus sensitivity response across cell lines. 103,422 gene variants were significantly correlated with at least one compound (at p&lt;0.0002). These include genes of known pharmacological importance such as IGF1R, BRAF, RAD52, MTOR, STAT2 and TSC2 as well as a large number of candidate genes such as NOM1, TLL2, and XDH. We introduce two new web-based CellMiner applications that enable exploration of variant-to-compound relationships for a broad range of researchers, especially those without bioinformatics support. The first tool, &#34;Genetic variant versus drug visualization&#34;, provides a visualization of significant correlations between drug activity-gene variant combinations. Examples are given for the known vemurafenib-BRAF, and novel ifosfamide-RAD52 pairings. The second, &#34;Genetic variant summation&#34; allows an assessment of cumulative genetic variations for up to 150 combined genes together; and is designed to identify the variant burden for molecular pathways or functional grouping of genes. An example of its use is provided for the EGFR-ERBB2 pathway gene variant data and the identification of correlated EGFR, ERBB2, MTOR, BRAF, MEK and ERK inhibitors. The new tools are implemented as an updated web-based CellMiner version, for which the present publication serves as a compendium.">
+  <meta name="description" content="Exome sequencing provides unprecedented insights into cancer biology and pharmacological response. Here we assess these two parameters for the NCI-60, which is among the richest genomic and pharmacological publicly available cancer cell line databases. Homozygous genetic variants that putatively affect protein function were identified in 1,199 genes (approximately 6% of all genes). Variants that are either enriched or depleted compared to non-cancerous genomes, and thus may be influential in cancer progression and differential drug response were identified for 2,546 genes. Potential gene knockouts are made available. Assessment of cell line response to 19,940 compounds, including 110 FDA-approved drugs, reveals â‰ˆ80-fold range in resistance versus sensitivity response across cell lines. 103,422 gene variants were significantly correlated with at least one compound (at p&lt;0.0002). These include genes of known pharmacological importance such as IGF1R, BRAF, RAD52, MTOR, STAT2 and TSC2 as well as a large number of candidate genes such as NOM1, TLL2, and XDH. We introduce two new web-based CellMiner applications that enable exploration of variant-to-compound relationships for a broad range of researchers, especially those without bioinformatics support. The first tool, \&#34;Genetic variant versus drug visualization\&#34;, provides a visualization of significant correlations between drug activity-gene variant combinations. Examples are given for the known vemurafenib-BRAF, and novel ifosfamide-RAD52 pairings. The second, \&#34;Genetic variant summation\&#34; allows an assessment of cumulative genetic variations for up to 150 combined genes together; and is designed to identify the variant burden for molecular pathways or functional grouping of genes. An example of its use is provided for the EGFR-ERBB2 pathway gene variant data and the identification of correlated EGFR, ERBB2, MTOR, BRAF, MEK and ERK inhibitors. The new tools are implemented as an updated web-based CellMiner version, for which the present publication serves as a compendium.">
 
   
   <link rel="alternate" hreflang="en-us" href="/publication/pmid-25032700/">
@@ -60,7 +60,7 @@
   
   
   
-  <meta name="theme-color" content="#2962ff">
+  <meta name="theme-color" content="#3f51b5">
   
 
   
@@ -92,8 +92,6 @@
       
     
 
-    
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/leaflet.min.css" integrity="sha512-1xoFisiGdy9nvho8EgXuXvnpR5GAMSjFwp40gSRE3NwdUdIMIKuPa7bqoUhLD0O/5tPNhteAsE5XyyMi5reQVA==" crossorigin="anonymous">
     
 
     
@@ -240,11 +238,49 @@
   
   
   
-  <link rel="stylesheet" href="/css/wowchemy.min.2da9fc7ecccb62374ee4667dc6583d14.css">
+  <link rel="stylesheet" href="/css/wowchemy.min.8e43d31e888508b173bbc2cc83c6a116.css">
 
   
 
 
+
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-93043521-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+
+  function gtag() {
+      dataLayer.push(arguments);
+  }
+
+  function trackOutboundLink(url, target) {
+    gtag('event', 'click', {
+         'event_category': 'outbound',
+         'event_label': url,
+         'transport_type': 'beacon',
+         'event_callback': function () {
+           if (target !== '_blank') {
+             document.location = url;
+           }
+         }
+    });
+    console.debug("Outbound link clicked: " + url);
+  }
+
+  function onClickCallback(event) {
+    if ((event.target.tagName !== 'A') || (event.target.host === window.location.host)) {
+      return;
+    }
+    trackOutboundLink(event.target, event.target.getAttribute('target'));  
+  }
+
+  gtag('js', new Date());
+  gtag('config', 'UA-93043521-1', {});
+
+  
+  document.addEventListener('click', onClickCallback, false);
+</script>
 
 
   
@@ -276,16 +312,19 @@
   
   <meta property="twitter:card" content="summary">
   
-  <meta property="og:site_name" content="Academic">
+  <meta property="twitter:site" content="@seandavis12">
+  <meta property="twitter:creator" content="@seandavis12">
+  
+  <meta property="og:site_name" content="seandavi(s12)">
   <meta property="og:url" content="/publication/pmid-25032700/">
-  <meta property="og:title" content="NCI-60 whole exome sequencing and pharmacological CellMiner analyses | Academic">
-  <meta property="og:description" content="Exome sequencing provides unprecedented insights into cancer biology and pharmacological response. Here we assess these two parameters for the NCI-60, which is among the richest genomic and pharmacological publicly available cancer cell line databases. Homozygous genetic variants that putatively affect protein function were identified in 1,199 genes (approximately 6% of all genes). Variants that are either enriched or depleted compared to non-cancerous genomes, and thus may be influential in cancer progression and differential drug response were identified for 2,546 genes. Potential gene knockouts are made available. Assessment of cell line response to 19,940 compounds, including 110 FDA-approved drugs, reveals â‰ˆ80-fold range in resistance versus sensitivity response across cell lines. 103,422 gene variants were significantly correlated with at least one compound (at p&lt;0.0002). These include genes of known pharmacological importance such as IGF1R, BRAF, RAD52, MTOR, STAT2 and TSC2 as well as a large number of candidate genes such as NOM1, TLL2, and XDH. We introduce two new web-based CellMiner applications that enable exploration of variant-to-compound relationships for a broad range of researchers, especially those without bioinformatics support. The first tool, &#34;Genetic variant versus drug visualization&#34;, provides a visualization of significant correlations between drug activity-gene variant combinations. Examples are given for the known vemurafenib-BRAF, and novel ifosfamide-RAD52 pairings. The second, &#34;Genetic variant summation&#34; allows an assessment of cumulative genetic variations for up to 150 combined genes together; and is designed to identify the variant burden for molecular pathways or functional grouping of genes. An example of its use is provided for the EGFR-ERBB2 pathway gene variant data and the identification of correlated EGFR, ERBB2, MTOR, BRAF, MEK and ERK inhibitors. The new tools are implemented as an updated web-based CellMiner version, for which the present publication serves as a compendium."><meta property="og:image" content="/images/icon_hu0b7a4cb9992c9ac0e91bd28ffd38dd00_9727_512x512_fill_lanczos_center_2.png">
+  <meta property="og:title" content="NCI-60 whole exome sequencing and pharmacological CellMiner analyses | seandavi(s12)">
+  <meta property="og:description" content="Exome sequencing provides unprecedented insights into cancer biology and pharmacological response. Here we assess these two parameters for the NCI-60, which is among the richest genomic and pharmacological publicly available cancer cell line databases. Homozygous genetic variants that putatively affect protein function were identified in 1,199 genes (approximately 6% of all genes). Variants that are either enriched or depleted compared to non-cancerous genomes, and thus may be influential in cancer progression and differential drug response were identified for 2,546 genes. Potential gene knockouts are made available. Assessment of cell line response to 19,940 compounds, including 110 FDA-approved drugs, reveals â‰ˆ80-fold range in resistance versus sensitivity response across cell lines. 103,422 gene variants were significantly correlated with at least one compound (at p&lt;0.0002). These include genes of known pharmacological importance such as IGF1R, BRAF, RAD52, MTOR, STAT2 and TSC2 as well as a large number of candidate genes such as NOM1, TLL2, and XDH. We introduce two new web-based CellMiner applications that enable exploration of variant-to-compound relationships for a broad range of researchers, especially those without bioinformatics support. The first tool, \&#34;Genetic variant versus drug visualization\&#34;, provides a visualization of significant correlations between drug activity-gene variant combinations. Examples are given for the known vemurafenib-BRAF, and novel ifosfamide-RAD52 pairings. The second, \&#34;Genetic variant summation\&#34; allows an assessment of cumulative genetic variations for up to 150 combined genes together; and is designed to identify the variant burden for molecular pathways or functional grouping of genes. An example of its use is provided for the EGFR-ERBB2 pathway gene variant data and the identification of correlated EGFR, ERBB2, MTOR, BRAF, MEK and ERK inhibitors. The new tools are implemented as an updated web-based CellMiner version, for which the present publication serves as a compendium."><meta property="og:image" content="/images/icon_hu0b7a4cb9992c9ac0e91bd28ffd38dd00_9727_512x512_fill_lanczos_center_2.png">
   <meta property="twitter:image" content="/images/icon_hu0b7a4cb9992c9ac0e91bd28ffd38dd00_9727_512x512_fill_lanczos_center_2.png"><meta property="og:locale" content="en-us">
   
     
-      <meta property="article:published_time" content="2019-10-04T21:24:26&#43;00:00">
+      <meta property="article:published_time" content="2020-12-16T22:24:44&#43;00:00">
     
-    <meta property="article:modified_time" content="2014-01-01T00:00:00&#43;00:00">
+    <meta property="article:modified_time" content="2020-12-16T17:24:44-05:00">
   
 
   
@@ -311,8 +350,8 @@
   },
   "headline": "NCI-60 whole exome sequencing and pharmacological CellMiner analyses",
   
-  "datePublished": "2019-10-04T21:24:26Z",
-  "dateModified": "2014-01-01T00:00:00Z",
+  "datePublished": "2020-12-16T22:24:44Z",
+  "dateModified": "2020-12-16T17:24:44-05:00",
   
   "author": {
     "@type": "Person",
@@ -321,13 +360,13 @@
   
   "publisher": {
     "@type": "Organization",
-    "name": "Academic",
+    "name": "seandavi(s12)",
     "logo": {
       "@type": "ImageObject",
       "url": "/images/icon_hu0b7a4cb9992c9ac0e91bd28ffd38dd00_9727_192x192_fill_lanczos_center_2.png"
     }
   },
-  "description": "Exome sequencing provides unprecedented insights into cancer biology and pharmacological response. Here we assess these two parameters for the NCI-60, which is among the richest genomic and pharmacological publicly available cancer cell line databases. Homozygous genetic variants that putatively affect protein function were identified in 1,199 genes (approximately 6% of all genes). Variants that are either enriched or depleted compared to non-cancerous genomes, and thus may be influential in cancer progression and differential drug response were identified for 2,546 genes. Potential gene knockouts are made available. Assessment of cell line response to 19,940 compounds, including 110 FDA-approved drugs, reveals â‰ˆ80-fold range in resistance versus sensitivity response across cell lines. 103,422 gene variants were significantly correlated with at least one compound (at p\u003c0.0002). These include genes of known pharmacological importance such as IGF1R, BRAF, RAD52, MTOR, STAT2 and TSC2 as well as a large number of candidate genes such as NOM1, TLL2, and XDH. We introduce two new web-based CellMiner applications that enable exploration of variant-to-compound relationships for a broad range of researchers, especially those without bioinformatics support. The first tool, \"Genetic variant versus drug visualization\", provides a visualization of significant correlations between drug activity-gene variant combinations. Examples are given for the known vemurafenib-BRAF, and novel ifosfamide-RAD52 pairings. The second, \"Genetic variant summation\" allows an assessment of cumulative genetic variations for up to 150 combined genes together; and is designed to identify the variant burden for molecular pathways or functional grouping of genes. An example of its use is provided for the EGFR-ERBB2 pathway gene variant data and the identification of correlated EGFR, ERBB2, MTOR, BRAF, MEK and ERK inhibitors. The new tools are implemented as an updated web-based CellMiner version, for which the present publication serves as a compendium."
+  "description": "Exome sequencing provides unprecedented insights into cancer biology and pharmacological response. Here we assess these two parameters for the NCI-60, which is among the richest genomic and pharmacological publicly available cancer cell line databases. Homozygous genetic variants that putatively affect protein function were identified in 1,199 genes (approximately 6% of all genes). Variants that are either enriched or depleted compared to non-cancerous genomes, and thus may be influential in cancer progression and differential drug response were identified for 2,546 genes. Potential gene knockouts are made available. Assessment of cell line response to 19,940 compounds, including 110 FDA-approved drugs, reveals â‰ˆ80-fold range in resistance versus sensitivity response across cell lines. 103,422 gene variants were significantly correlated with at least one compound (at p\u003c0.0002). These include genes of known pharmacological importance such as IGF1R, BRAF, RAD52, MTOR, STAT2 and TSC2 as well as a large number of candidate genes such as NOM1, TLL2, and XDH. We introduce two new web-based CellMiner applications that enable exploration of variant-to-compound relationships for a broad range of researchers, especially those without bioinformatics support. The first tool, \\\"Genetic variant versus drug visualization\\\", provides a visualization of significant correlations between drug activity-gene variant combinations. Examples are given for the known vemurafenib-BRAF, and novel ifosfamide-RAD52 pairings. The second, \\\"Genetic variant summation\\\" allows an assessment of cumulative genetic variations for up to 150 combined genes together; and is designed to identify the variant burden for molecular pathways or functional grouping of genes. An example of its use is provided for the EGFR-ERBB2 pathway gene variant data and the identification of correlated EGFR, ERBB2, MTOR, BRAF, MEK and ERK inhibitors. The new tools are implemented as an updated web-based CellMiner version, for which the present publication serves as a compendium."
 }
 </script>
 
@@ -345,7 +384,7 @@
 
 
 
-  <title>NCI-60 whole exome sequencing and pharmacological CellMiner analyses | Academic</title>
+  <title>NCI-60 whole exome sequencing and pharmacological CellMiner analyses | seandavi(s12)</title>
 
 </head>
 
@@ -410,7 +449,7 @@
 
     
     <div class="d-none d-lg-inline-flex">
-      <a class="navbar-brand" href="/">Academic</a>
+      <a class="navbar-brand" href="/">seandavi(s12)</a>
     </div>
     
 
@@ -423,7 +462,7 @@
 
     
     <div class="navbar-brand-mobile-wrapper d-inline-flex d-lg-none">
-      <a class="navbar-brand" href="/">Academic</a>
+      <a class="navbar-brand" href="/">seandavi(s12)</a>
     </div>
     
 
@@ -540,43 +579,6 @@
         
 
         <li class="nav-item">
-          <a class="nav-link " href="/#projects"><span>Projects</span></a>
-        </li>
-
-        
-        
-
-        
-
-        
-        
-        
-          
-        
-
-        
-
-        
-        
-        
-        
-
-        
-          
-            
-            
-          
-          
-            
-            
-            
-              
-            
-            
-          
-        
-
-        <li class="nav-item">
           <a class="nav-link " href="/#talks"><span>Talks</span></a>
         </li>
 
@@ -614,7 +616,7 @@
         
 
         <li class="nav-item">
-          <a class="nav-link " href="/#featured"><span>Publications</span></a>
+          <a class="nav-link " href="/#publications"><span>Publications</span></a>
         </li>
 
         
@@ -652,6 +654,36 @@
 
         <li class="nav-item">
           <a class="nav-link " href="/#contact"><span>Contact</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+
+        
+        
+        
+        
+
+        
+          
+            
+            
+          
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/files/CV.pdf"><span>CV</span></a>
         </li>
 
         
@@ -803,7 +835,47 @@
 
 
 
+  
 
+
+
+<div class="btn-links mb-3">
+  
+  
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+<button type="button" class="btn btn-outline-primary my-1 mr-1 js-cite-modal"
+        data-filename="/publication/pmid-25032700/cite.bib">
+  Cite
+</button>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
 
 
   
@@ -815,7 +887,7 @@
 
     
     <h3>Abstract</h3>
-    <p class="pub-abstract">Exome sequencing provides unprecedented insights into cancer biology and pharmacological response. Here we assess these two parameters for the NCI-60, which is among the richest genomic and pharmacological publicly available cancer cell line databases. Homozygous genetic variants that putatively affect protein function were identified in 1,199 genes (approximately 6% of all genes). Variants that are either enriched or depleted compared to non-cancerous genomes, and thus may be influential in cancer progression and differential drug response were identified for 2,546 genes. Potential gene knockouts are made available. Assessment of cell line response to 19,940 compounds, including 110 FDA-approved drugs, reveals â‰ˆ80-fold range in resistance versus sensitivity response across cell lines. 103,422 gene variants were significantly correlated with at least one compound (at p&lt;0.0002). These include genes of known pharmacological importance such as IGF1R, BRAF, RAD52, MTOR, STAT2 and TSC2 as well as a large number of candidate genes such as NOM1, TLL2, and XDH. We introduce two new web-based CellMiner applications that enable exploration of variant-to-compound relationships for a broad range of researchers, especially those without bioinformatics support. The first tool, &ldquo;Genetic variant versus drug visualization&rdquo;, provides a visualization of significant correlations between drug activity-gene variant combinations. Examples are given for the known vemurafenib-BRAF, and novel ifosfamide-RAD52 pairings. The second, &ldquo;Genetic variant summation&rdquo; allows an assessment of cumulative genetic variations for up to 150 combined genes together; and is designed to identify the variant burden for molecular pathways or functional grouping of genes. An example of its use is provided for the EGFR-ERBB2 pathway gene variant data and the identification of correlated EGFR, ERBB2, MTOR, BRAF, MEK and ERK inhibitors. The new tools are implemented as an updated web-based CellMiner version, for which the present publication serves as a compendium.</p>
+    <p class="pub-abstract">Exome sequencing provides unprecedented insights into cancer biology and pharmacological response. Here we assess these two parameters for the NCI-60, which is among the richest genomic and pharmacological publicly available cancer cell line databases. Homozygous genetic variants that putatively affect protein function were identified in 1,199 genes (approximately 6% of all genes). Variants that are either enriched or depleted compared to non-cancerous genomes, and thus may be influential in cancer progression and differential drug response were identified for 2,546 genes. Potential gene knockouts are made available. Assessment of cell line response to 19,940 compounds, including 110 FDA-approved drugs, reveals â‰ˆ80-fold range in resistance versus sensitivity response across cell lines. 103,422 gene variants were significantly correlated with at least one compound (at p&lt;0.0002). These include genes of known pharmacological importance such as IGF1R, BRAF, RAD52, MTOR, STAT2 and TSC2 as well as a large number of candidate genes such as NOM1, TLL2, and XDH. We introduce two new web-based CellMiner applications that enable exploration of variant-to-compound relationships for a broad range of researchers, especially those without bioinformatics support. The first tool, &quot;Genetic variant versus drug visualization&quot;, provides a visualization of significant correlations between drug activity-gene variant combinations. Examples are given for the known vemurafenib-BRAF, and novel ifosfamide-RAD52 pairings. The second, &quot;Genetic variant summation&quot; allows an assessment of cumulative genetic variations for up to 150 combined genes together; and is designed to identify the variant burden for molecular pathways or functional grouping of genes. An example of its use is provided for the EGFR-ERBB2 pathway gene variant data and the identification of correlated EGFR, ERBB2, MTOR, BRAF, MEK and ERK inhibitors. The new tools are implemented as an updated web-based CellMiner version, for which the present publication serves as a compendium.</p>
     
 
     
@@ -1052,15 +1124,15 @@
     <h3>Related</h3>
     <ul>
       
-      <li><a href="/publication/pmid25032700/">NCI-60 whole exome sequencing and pharmacological CellMiner analyses</a></li>
-      
       <li><a href="/publication/pmid-21765476/">CHEK2 genomic and proteomic analyses reveal genetic inactivation or endogenous activation across the 60 cell lines of the US National Cancer Institute</a></li>
       
       <li><a href="/publication/pmid-23856246/">The exomes of the NCI-60 panel: a genomic resource for cancer biology and systems pharmacology</a></li>
       
-      <li><a href="/publication/pmid23856246/">The exomes of the NCI-60 panel: a genomic resource for cancer biology and systems pharmacology</a></li>
+      <li><a href="/publication/pmid-21813623/">Genome-wide depletion of replication initiation events in highly transcribed regions</a></li>
       
-      <li><a href="/publication/pmid21765476/">CHEK2 genomic and proteomic analyses reveal genetic inactivation or endogenous activation across the 60 cell lines of the US National Cancer Institute</a></li>
+      <li><a href="/publication/pmid-22733720/">Exclusion of the 750-kb genetically unstable region at Xq27 as a candidate locus for prostate malignancy in HPCX1-linked families</a></li>
+      
+      <li><a href="/publication/pmid-24241536/">High prevalence of MAP2K1 mutations in variant and IGHV4-34-expressing hairy-cell leukemias</a></li>
       
     </ul>
   </div>
@@ -1164,8 +1236,6 @@
     
 
     
-    
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/leaflet.min.js" integrity="sha512-SeiQaaDh73yrb56sTW/RgVdi/mMqNeM2oBwubFHagc5BkixSpP1fvqF47mKzPGWYSSy4RwbBunrJBQ4Co8fRWA==" crossorigin="anonymous"></script>
     
 
     

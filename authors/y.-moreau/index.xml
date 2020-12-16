@@ -1,24 +1,16 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Y. Moreau | Academic</title>
+    <title>Y. Moreau | seandavi(s12)</title>
     <link>/authors/y.-moreau/</link>
       <atom:link href="/authors/y.-moreau/index.xml" rel="self" type="application/rss+xml" />
     <description>Y. Moreau</description>
-    <generator>Wowchemy (https://wowchemy.com)</generator><language>en-us</language><lastBuildDate>Mon, 01 Aug 2005 00:00:00 -0400</lastBuildDate>
+    <generator>Wowchemy (https://wowchemy.com)</generator><language>en-us</language><lastBuildDate>Mon, 01 Aug 2005 00:00:00 +0000</lastBuildDate>
     <image>
       <url>/images/icon_hu0b7a4cb9992c9ac0e91bd28ffd38dd00_9727_512x512_fill_lanczos_center_2.png</url>
       <title>Y. Moreau</title>
       <link>/authors/y.-moreau/</link>
     </image>
-    
-    <item>
-      <title>BioMart and Bioconductor: a powerful link between biological databases and microarray data analysis</title>
-      <link>/publication/pmid16082012/</link>
-      <pubDate>Mon, 01 Aug 2005 00:00:00 -0400</pubDate>
-      <guid>/publication/pmid16082012/</guid>
-      <description></description>
-    </item>
     
     <item>
       <title>BioMart and Bioconductor: a powerful link between biological databases and microarray data analysis</title>

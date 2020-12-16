@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Recent &amp; Upcoming Talks | Academic</title>
+    <title>Recent &amp; Upcoming Talks | seandavi(s12)</title>
     <link>/talk/</link>
       <atom:link href="/talk/index.xml" rel="self" type="application/rss+xml" />
     <description>Recent &amp; Upcoming Talks</description>
@@ -11,6 +11,17 @@
       <title>Recent &amp; Upcoming Talks</title>
       <link>/talk/</link>
     </image>
+    
+    <item>
+      <title>Bioconductor: Tools for interpreting high-throughput biological data</title>
+      <link>/talk/2020-12-16-btep-ccr-bioconductor/</link>
+      <pubDate>Wed, 16 Dec 2020 00:00:00 -0500</pubDate>
+      <guid>/talk/2020-12-16-btep-ccr-bioconductor/</guid>
+      <description>&lt;div class=&#34;responsive-wrap&#34;&gt;
+  &lt;iframe src=&#34;https://docs.google.com/presentation/d/e/2PACX-1vSOYTfCyxmUZjPOF7zOvXWpCVLgqFU-Rkrohvu-QH16EiDnKLR8zurmhTelvbP9syqZepPIzzXM5QQe/embed?start=false&amp;amp;loop=false&amp;amp;delayms=3000&#34; frameborder=&#34;0&#34; width=&#34;960&#34; height=&#34;569&#34; allowfullscreen=&#34;true&#34; mozallowfullscreen=&#34;true&#34; webkitallowfullscreen=&#34;true&#34;&gt;&lt;/iframe&gt;
+&lt;/div&gt;
+</description>
+    </item>
     
     <item>
       <title>Big Data Approaches</title>
@@ -249,17 +260,6 @@ organisms, technologies&lt;/li&gt;
       <guid>/talk/2019-08-12-cdsl-ccr-bioconductor/</guid>
       <description>&lt;div class=&#34;responsive-wrap&#34;&gt;
   &lt;iframe src=&#34;https://docs.google.com/presentation/d/e/2PACX-1vQQPGPUs8fp0Lw2YdpVyAFNvP5GD41iOKYHdEExXCUmZzssQks4tHsrNiAsxeBZXc0XgUQQv_VinB-l/embed?start=false&amp;amp;loop=false&amp;amp;delayms=3000&#34; frameborder=&#34;0&#34; width=&#34;960&#34; height=&#34;569&#34; allowfullscreen=&#34;true&#34; mozallowfullscreen=&#34;true&#34; webkitallowfullscreen=&#34;true&#34;&gt;&lt;/iframe&gt;
-&lt;/div&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>Bioconductor: Tools for interpreting high-throughput biological data</title>
-      <link>/talk/2020-12-16-btep-ccr-bioconductor/</link>
-      <pubDate>Mon, 12 Aug 2019 00:00:00 -0400</pubDate>
-      <guid>/talk/2020-12-16-btep-ccr-bioconductor/</guid>
-      <description>&lt;div class=&#34;responsive-wrap&#34;&gt;
-  &lt;iframe src=&#34;https://docs.google.com/presentation/d/e/2PACX-1vSOYTfCyxmUZjPOF7zOvXWpCVLgqFU-Rkrohvu-QH16EiDnKLR8zurmhTelvbP9syqZepPIzzXM5QQe/embed?start=false&amp;amp;loop=false&amp;amp;delayms=3000&#34; frameborder=&#34;0&#34; width=&#34;960&#34; height=&#34;569&#34; allowfullscreen=&#34;true&#34; mozallowfullscreen=&#34;true&#34; webkitallowfullscreen=&#34;true&#34;&gt;&lt;/iframe&gt;
 &lt;/div&gt;
 </description>
     </item>

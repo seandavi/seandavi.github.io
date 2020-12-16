@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>R. Cornelison | Academic</title>
+    <title>R. Cornelison | seandavi(s12)</title>
     <link>/authors/r.-cornelison/</link>
       <atom:link href="/authors/r.-cornelison/index.xml" rel="self" type="application/rss+xml" />
     <description>R. Cornelison</description>
-    <generator>Wowchemy (https://wowchemy.com)</generator><language>en-us</language><lastBuildDate>Sun, 01 Jan 2012 00:00:00 -0500</lastBuildDate>
+    <generator>Wowchemy (https://wowchemy.com)</generator><language>en-us</language><lastBuildDate>Sun, 01 Jan 2012 00:00:00 +0000</lastBuildDate>
     <image>
       <url>/images/icon_hu0b7a4cb9992c9ac0e91bd28ffd38dd00_9727_512x512_fill_lanczos_center_2.png</url>
       <title>R. Cornelison</title>
@@ -14,25 +14,9 @@
     
     <item>
       <title>Genome-wide methylation profiling in archival formalin-fixed paraffin-embedded tissue samples</title>
-      <link>/publication/pmid22081342/</link>
-      <pubDate>Sun, 01 Jan 2012 00:00:00 -0500</pubDate>
-      <guid>/publication/pmid22081342/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Genome-wide methylation profiling in archival formalin-fixed paraffin-embedded tissue samples</title>
       <link>/publication/pmid-22081342/</link>
       <pubDate>Sun, 01 Jan 2012 00:00:00 +0000</pubDate>
       <guid>/publication/pmid-22081342/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Archival fine-needle aspiration cytopathology (FNAC) samples: untapped resource for clinical molecular profiling</title>
-      <link>/publication/pmid20959611/</link>
-      <pubDate>Mon, 01 Nov 2010 00:00:00 -0400</pubDate>
-      <guid>/publication/pmid20959611/</guid>
       <description></description>
     </item>
     
@@ -46,25 +30,9 @@
     
     <item>
       <title>Assessment of automated image analysis of breast cancer tissue microarrays for epidemiologic studies</title>
-      <link>/publication/pmid20332278/</link>
-      <pubDate>Thu, 01 Apr 2010 00:00:00 -0400</pubDate>
-      <guid>/publication/pmid20332278/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Assessment of automated image analysis of breast cancer tissue microarrays for epidemiologic studies</title>
       <link>/publication/pmid-20332278/</link>
       <pubDate>Thu, 01 Apr 2010 00:00:00 +0000</pubDate>
       <guid>/publication/pmid-20332278/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Large-scale profiling of archival lymph nodes reveals pervasive remodeling of the follicular lymphoma methylome</title>
-      <link>/publication/pmid19155300/</link>
-      <pubDate>Sun, 01 Feb 2009 00:00:00 -0500</pubDate>
-      <guid>/publication/pmid19155300/</guid>
       <description></description>
     </item>
     

@@ -60,7 +60,7 @@
   
   
   
-  <meta name="theme-color" content="#2962ff">
+  <meta name="theme-color" content="#3f51b5">
   
 
   
@@ -92,8 +92,6 @@
       
     
 
-    
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/leaflet.min.css" integrity="sha512-1xoFisiGdy9nvho8EgXuXvnpR5GAMSjFwp40gSRE3NwdUdIMIKuPa7bqoUhLD0O/5tPNhteAsE5XyyMi5reQVA==" crossorigin="anonymous">
     
 
     
@@ -240,11 +238,49 @@
   
   
   
-  <link rel="stylesheet" href="/css/wowchemy.min.2da9fc7ecccb62374ee4667dc6583d14.css">
+  <link rel="stylesheet" href="/css/wowchemy.min.8e43d31e888508b173bbc2cc83c6a116.css">
 
   
 
 
+
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-93043521-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+
+  function gtag() {
+      dataLayer.push(arguments);
+  }
+
+  function trackOutboundLink(url, target) {
+    gtag('event', 'click', {
+         'event_category': 'outbound',
+         'event_label': url,
+         'transport_type': 'beacon',
+         'event_callback': function () {
+           if (target !== '_blank') {
+             document.location = url;
+           }
+         }
+    });
+    console.debug("Outbound link clicked: " + url);
+  }
+
+  function onClickCallback(event) {
+    if ((event.target.tagName !== 'A') || (event.target.host === window.location.host)) {
+      return;
+    }
+    trackOutboundLink(event.target, event.target.getAttribute('target'));  
+  }
+
+  gtag('js', new Date());
+  gtag('config', 'UA-93043521-1', {});
+
+  
+  document.addEventListener('click', onClickCallback, false);
+</script>
 
 
   
@@ -276,9 +312,12 @@
   
   <meta property="twitter:card" content="summary">
   
-  <meta property="og:site_name" content="Academic">
+  <meta property="twitter:site" content="@seandavis12">
+  <meta property="twitter:creator" content="@seandavis12">
+  
+  <meta property="og:site_name" content="seandavi(s12)">
   <meta property="og:url" content="/post/elasticsearch-strings-runthrough/">
-  <meta property="og:title" content="Elasticsearch Strings Runthrough | Academic">
+  <meta property="og:title" content="Elasticsearch Strings Runthrough | seandavi(s12)">
   <meta property="og:description" content="This little post is just a brain-dump post on elasticsearch testing and searching. I am writing it to allow easy testing of elasticsearch searching and querying for my own purposes."><meta property="og:image" content="/images/icon_hu0b7a4cb9992c9ac0e91bd28ffd38dd00_9727_512x512_fill_lanczos_center_2.png">
   <meta property="twitter:image" content="/images/icon_hu0b7a4cb9992c9ac0e91bd28ffd38dd00_9727_512x512_fill_lanczos_center_2.png"><meta property="og:locale" content="en-us">
   
@@ -318,7 +357,7 @@
   
   "publisher": {
     "@type": "Organization",
-    "name": "Academic",
+    "name": "seandavi(s12)",
     "logo": {
       "@type": "ImageObject",
       "url": "/images/icon_hu0b7a4cb9992c9ac0e91bd28ffd38dd00_9727_192x192_fill_lanczos_center_2.png"
@@ -342,7 +381,7 @@
 
 
 
-  <title>Elasticsearch Strings Runthrough | Academic</title>
+  <title>Elasticsearch Strings Runthrough | seandavi(s12)</title>
 
 </head>
 
@@ -407,7 +446,7 @@
 
     
     <div class="d-none d-lg-inline-flex">
-      <a class="navbar-brand" href="/">Academic</a>
+      <a class="navbar-brand" href="/">seandavi(s12)</a>
     </div>
     
 
@@ -420,7 +459,7 @@
 
     
     <div class="navbar-brand-mobile-wrapper d-inline-flex d-lg-none">
-      <a class="navbar-brand" href="/">Academic</a>
+      <a class="navbar-brand" href="/">seandavi(s12)</a>
     </div>
     
 
@@ -537,43 +576,6 @@
         
 
         <li class="nav-item">
-          <a class="nav-link " href="/#projects"><span>Projects</span></a>
-        </li>
-
-        
-        
-
-        
-
-        
-        
-        
-          
-        
-
-        
-
-        
-        
-        
-        
-
-        
-          
-            
-            
-          
-          
-            
-            
-            
-              
-            
-            
-          
-        
-
-        <li class="nav-item">
           <a class="nav-link " href="/#talks"><span>Talks</span></a>
         </li>
 
@@ -611,7 +613,7 @@
         
 
         <li class="nav-item">
-          <a class="nav-link " href="/#featured"><span>Publications</span></a>
+          <a class="nav-link " href="/#publications"><span>Publications</span></a>
         </li>
 
         
@@ -649,6 +651,36 @@
 
         <li class="nav-item">
           <a class="nav-link " href="/#contact"><span>Contact</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+
+        
+        
+        
+        
+
+        
+          
+            
+            
+          
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/files/CV.pdf"><span>CV</span></a>
         </li>
 
         
@@ -954,9 +986,7 @@ EOF
 }
 EOF</code></pre>
 <pre><code>## {&quot;took&quot;:22,&quot;timed_out&quot;:false,&quot;_shards&quot;:{&quot;total&quot;:1,&quot;successful&quot;:1,&quot;skipped&quot;:0,&quot;failed&quot;:0},&quot;hits&quot;:{&quot;total&quot;:{&quot;value&quot;:1,&quot;relation&quot;:&quot;eq&quot;},&quot;max_score&quot;:0.9530774,&quot;hits&quot;:[{&quot;_index&quot;:&quot;test_index&quot;,&quot;_type&quot;:&quot;_doc&quot;,&quot;_id&quot;:&quot;2&quot;,&quot;_score&quot;:0.9530774,&quot;_source&quot;:{&quot;states&quot;:[&quot;New York&quot;,&quot;North Carolina&quot;,&quot;North Dakota&quot;]}}]}}</code></pre>
-<p>
-
-<div class="alert alert-note">
+<p><div class="alert alert-note">
   <div>
     Doing a <code>term</code> or related <code>term</code> searches on a full text field will
 typically not work as expected.
@@ -976,9 +1006,7 @@ typically not work as expected.
 EOF
 </code></pre>
 <pre><code>## {&quot;count&quot;:0,&quot;_shards&quot;:{&quot;total&quot;:1,&quot;successful&quot;:1,&quot;skipped&quot;:0,&quot;failed&quot;:0}}</code></pre>
-<p>
-
-<div class="alert alert-note">
+<p><div class="alert alert-note">
   <div>
     Keyword fields are indexed <em>as-is</em>, so trying to do a term
 search on just part of the term will return no records.
@@ -1135,9 +1163,7 @@ EOF
 ##     }
 ##   ]
 ## }</code></pre>
-<p>
-
-<div class="alert alert-note">
+<p><div class="alert alert-note">
   <div>
     Note that a full-text search by default does not do partial matching.
   </div>
@@ -1330,7 +1356,7 @@ EOF
 
     <div class="media-body">
       <h5 class="card-title"></h5>
-      <h6 class="card-subtitle">Senior Associate Scientist</h6>
+      <h6 class="card-subtitle">Professor, Department of Medicine</h6>
       <p class="card-text">My interests include biomedical data science, open data, genomics, and cancer research.</p>
       <ul class="network-icon" aria-hidden="true">
   
@@ -1534,8 +1560,6 @@ EOF
     
 
     
-    
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/leaflet.min.js" integrity="sha512-SeiQaaDh73yrb56sTW/RgVdi/mMqNeM2oBwubFHagc5BkixSpP1fvqF47mKzPGWYSSy4RwbBunrJBQ4Co8fRWA==" crossorigin="anonymous"></script>
     
 
     

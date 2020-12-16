@@ -60,7 +60,7 @@
   
   
   
-  <meta name="theme-color" content="#2962ff">
+  <meta name="theme-color" content="#3f51b5">
   
 
   
@@ -92,8 +92,6 @@
       
     
 
-    
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/leaflet.min.css" integrity="sha512-1xoFisiGdy9nvho8EgXuXvnpR5GAMSjFwp40gSRE3NwdUdIMIKuPa7bqoUhLD0O/5tPNhteAsE5XyyMi5reQVA==" crossorigin="anonymous">
     
 
     
@@ -240,11 +238,49 @@
   
   
   
-  <link rel="stylesheet" href="/css/wowchemy.min.2da9fc7ecccb62374ee4667dc6583d14.css">
+  <link rel="stylesheet" href="/css/wowchemy.min.8e43d31e888508b173bbc2cc83c6a116.css">
 
   
 
 
+
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-93043521-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+
+  function gtag() {
+      dataLayer.push(arguments);
+  }
+
+  function trackOutboundLink(url, target) {
+    gtag('event', 'click', {
+         'event_category': 'outbound',
+         'event_label': url,
+         'transport_type': 'beacon',
+         'event_callback': function () {
+           if (target !== '_blank') {
+             document.location = url;
+           }
+         }
+    });
+    console.debug("Outbound link clicked: " + url);
+  }
+
+  function onClickCallback(event) {
+    if ((event.target.tagName !== 'A') || (event.target.host === window.location.host)) {
+      return;
+    }
+    trackOutboundLink(event.target, event.target.getAttribute('target'));  
+  }
+
+  gtag('js', new Date());
+  gtag('config', 'UA-93043521-1', {});
+
+  
+  document.addEventListener('click', onClickCallback, false);
+</script>
 
 
   
@@ -276,16 +312,19 @@
   
   <meta property="twitter:card" content="summary">
   
-  <meta property="og:site_name" content="Academic">
+  <meta property="twitter:site" content="@seandavis12">
+  <meta property="twitter:creator" content="@seandavis12">
+  
+  <meta property="og:site_name" content="seandavi(s12)">
   <meta property="og:url" content="/publication/pmid-21765476/">
-  <meta property="og:title" content="CHEK2 genomic and proteomic analyses reveal genetic inactivation or endogenous activation across the 60 cell lines of the US National Cancer Institute | Academic">
+  <meta property="og:title" content="CHEK2 genomic and proteomic analyses reveal genetic inactivation or endogenous activation across the 60 cell lines of the US National Cancer Institute | seandavi(s12)">
   <meta property="og:description" content="CHEK2 encodes a serine/threonine kinase (Chk2) activated by ATM in response to DNA double-strand breaks. On the one hand, CHEK2 has been described as a tumor suppressor with proapoptotic, cell-cycle checkpoint and mitotic functions. On the other hand, Chk2 is also commonly activated (phosphorylated at T68) in cancers and precancerous lesions. Here, we report an extensive characterization of CHEK2 across the panel of 60 established cancer cell lines from the NCI Anticancer Screen (the NCI-60) using genomic and proteomic analyses, including exon-specific mRNA expression, DNA copy-number variation (CNV) by aCGH, exome sequencing, as well as western blot analyses for total and activated (pT68-Chk2) Chk2. We show that the high heterogeneity of Chk2 levels in cancer cells is primarily due to its inactivation (owing to low gene expression, alternative splicing, point mutations, copy-number alterations and premature truncation) or reduction of protein levels. Moreover, we observe that a significant percentage of cancer cells (12% of the NCI-60 and HeLa cells) show high endogenous Chk2 activation, which is always associated with p53 inactivation, and which is accompanied by downregulation of the Fanconi anemia and homologous recombination pathways. We also report the presence of activated Chk2 (pT68-Chk2) along with histone Î³-H2AX in centrosomes."><meta property="og:image" content="/images/icon_hu0b7a4cb9992c9ac0e91bd28ffd38dd00_9727_512x512_fill_lanczos_center_2.png">
   <meta property="twitter:image" content="/images/icon_hu0b7a4cb9992c9ac0e91bd28ffd38dd00_9727_512x512_fill_lanczos_center_2.png"><meta property="og:locale" content="en-us">
   
     
-      <meta property="article:published_time" content="2019-10-04T21:24:27&#43;00:00">
+      <meta property="article:published_time" content="2020-12-16T22:24:53&#43;00:00">
     
-    <meta property="article:modified_time" content="2012-01-01T00:00:00&#43;00:00">
+    <meta property="article:modified_time" content="2020-12-16T17:24:53-05:00">
   
 
   
@@ -311,8 +350,8 @@
   },
   "headline": "CHEK2 genomic and proteomic analyses reveal genetic inactivation or endogenous activation across the 60 cell lines of the US National Cancer Institute",
   
-  "datePublished": "2019-10-04T21:24:27Z",
-  "dateModified": "2012-01-01T00:00:00Z",
+  "datePublished": "2020-12-16T22:24:53Z",
+  "dateModified": "2020-12-16T17:24:53-05:00",
   
   "author": {
     "@type": "Person",
@@ -321,7 +360,7 @@
   
   "publisher": {
     "@type": "Organization",
-    "name": "Academic",
+    "name": "seandavi(s12)",
     "logo": {
       "@type": "ImageObject",
       "url": "/images/icon_hu0b7a4cb9992c9ac0e91bd28ffd38dd00_9727_192x192_fill_lanczos_center_2.png"
@@ -345,7 +384,7 @@
 
 
 
-  <title>CHEK2 genomic and proteomic analyses reveal genetic inactivation or endogenous activation across the 60 cell lines of the US National Cancer Institute | Academic</title>
+  <title>CHEK2 genomic and proteomic analyses reveal genetic inactivation or endogenous activation across the 60 cell lines of the US National Cancer Institute | seandavi(s12)</title>
 
 </head>
 
@@ -410,7 +449,7 @@
 
     
     <div class="d-none d-lg-inline-flex">
-      <a class="navbar-brand" href="/">Academic</a>
+      <a class="navbar-brand" href="/">seandavi(s12)</a>
     </div>
     
 
@@ -423,7 +462,7 @@
 
     
     <div class="navbar-brand-mobile-wrapper d-inline-flex d-lg-none">
-      <a class="navbar-brand" href="/">Academic</a>
+      <a class="navbar-brand" href="/">seandavi(s12)</a>
     </div>
     
 
@@ -540,43 +579,6 @@
         
 
         <li class="nav-item">
-          <a class="nav-link " href="/#projects"><span>Projects</span></a>
-        </li>
-
-        
-        
-
-        
-
-        
-        
-        
-          
-        
-
-        
-
-        
-        
-        
-        
-
-        
-          
-            
-            
-          
-          
-            
-            
-            
-              
-            
-            
-          
-        
-
-        <li class="nav-item">
           <a class="nav-link " href="/#talks"><span>Talks</span></a>
         </li>
 
@@ -614,7 +616,7 @@
         
 
         <li class="nav-item">
-          <a class="nav-link " href="/#featured"><span>Publications</span></a>
+          <a class="nav-link " href="/#publications"><span>Publications</span></a>
         </li>
 
         
@@ -652,6 +654,36 @@
 
         <li class="nav-item">
           <a class="nav-link " href="/#contact"><span>Contact</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+
+        
+        
+        
+        
+
+        
+          
+            
+            
+          
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/files/CV.pdf"><span>CV</span></a>
         </li>
 
         
@@ -803,7 +835,47 @@
 
 
 
+  
 
+
+
+<div class="btn-links mb-3">
+  
+  
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+<button type="button" class="btn btn-outline-primary my-1 mr-1 js-cite-modal"
+        data-filename="/publication/pmid-21765476/cite.bib">
+  Cite
+</button>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
 
 
   
@@ -1052,15 +1124,15 @@
     <h3>Related</h3>
     <ul>
       
-      <li><a href="/publication/pmid21765476/">CHEK2 genomic and proteomic analyses reveal genetic inactivation or endogenous activation across the 60 cell lines of the US National Cancer Institute</a></li>
-      
       <li><a href="/publication/pmid-21813623/">Genome-wide depletion of replication initiation events in highly transcribed regions</a></li>
       
       <li><a href="/publication/pmid-23856246/">The exomes of the NCI-60 panel: a genomic resource for cancer biology and systems pharmacology</a></li>
       
       <li><a href="/publication/pmid-25032700/">NCI-60 whole exome sequencing and pharmacological CellMiner analyses</a></li>
       
-      <li><a href="/publication/pmid25032700/">NCI-60 whole exome sequencing and pharmacological CellMiner analyses</a></li>
+      <li><a href="/publication/pmid-24241536/">High prevalence of MAP2K1 mutations in variant and IGHV4-34-expressing hairy-cell leukemias</a></li>
+      
+      <li><a href="/publication/pmid-17418406/">Modeling synovial sarcoma: timing is everything</a></li>
       
     </ul>
   </div>
@@ -1164,8 +1236,6 @@
     
 
     
-    
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/leaflet.min.js" integrity="sha512-SeiQaaDh73yrb56sTW/RgVdi/mMqNeM2oBwubFHagc5BkixSpP1fvqF47mKzPGWYSSy4RwbBunrJBQ4Co8fRWA==" crossorigin="anonymous"></script>
     
 
     

@@ -1,24 +1,16 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>P. C. Scacheri | Academic</title>
+    <title>P. C. Scacheri | seandavi(s12)</title>
     <link>/authors/p.-c.-scacheri/</link>
       <atom:link href="/authors/p.-c.-scacheri/index.xml" rel="self" type="application/rss+xml" />
     <description>P. C. Scacheri</description>
-    <generator>Wowchemy (https://wowchemy.com)</generator><language>en-us</language><lastBuildDate>Sat, 01 Jul 2006 00:00:00 -0400</lastBuildDate>
+    <generator>Wowchemy (https://wowchemy.com)</generator><language>en-us</language><lastBuildDate>Sat, 01 Jul 2006 00:00:00 +0000</lastBuildDate>
     <image>
       <url>/images/icon_hu0b7a4cb9992c9ac0e91bd28ffd38dd00_9727_512x512_fill_lanczos_center_2.png</url>
       <title>P. C. Scacheri</title>
       <link>/authors/p.-c.-scacheri/</link>
     </image>
-    
-    <item>
-      <title>DNase-chip: a high-resolution method to identify DNase I hypersensitive sites using tiled microarrays</title>
-      <link>/publication/pmid16791207/</link>
-      <pubDate>Sat, 01 Jul 2006 00:00:00 -0400</pubDate>
-      <guid>/publication/pmid16791207/</guid>
-      <description></description>
-    </item>
     
     <item>
       <title>DNase-chip: a high-resolution method to identify DNase I hypersensitive sites using tiled microarrays</title>
@@ -30,25 +22,9 @@
     
     <item>
       <title>Genome-wide analysis of menin binding provides insights into MEN1 tumorigenesis</title>
-      <link>/publication/pmid16604156/</link>
-      <pubDate>Sat, 01 Apr 2006 00:00:00 -0500</pubDate>
-      <guid>/publication/pmid16604156/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Genome-wide analysis of menin binding provides insights into MEN1 tumorigenesis</title>
       <link>/publication/pmid-16604156/</link>
       <pubDate>Sat, 01 Apr 2006 00:00:00 +0000</pubDate>
       <guid>/publication/pmid-16604156/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Statistics for ChIP-chip and DNase hypersensitivity experiments on NimbleGen arrays</title>
-      <link>/publication/pmid16939795/</link>
-      <pubDate>Sun, 01 Jan 2006 00:00:00 -0500</pubDate>
-      <guid>/publication/pmid16939795/</guid>
       <description></description>
     </item>
     
