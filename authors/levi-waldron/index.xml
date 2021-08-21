@@ -29,14 +29,6 @@
     </item>
     
     <item>
-      <title>HGNChelper: identification and correction of invalid gene symbols for human and mouse</title>
-      <link>https://seandavi.github.io/publication2/oh-2020-rt/</link>
-      <pubDate>Tue, 01 Dec 2020 00:00:00 +0000</pubDate>
-      <guid>https://seandavi.github.io/publication2/oh-2020-rt/</guid>
-      <description></description>
-    </item>
-    
-    <item>
       <title>Toward a gold standard for benchmarking gene set enrichment analysis</title>
       <link>https://seandavi.github.io/publication/10-1093-bibbbz-158/</link>
       <pubDate>Sun, 01 Mar 2020 00:00:00 +0000</pubDate>
@@ -53,14 +45,6 @@
     </item>
     
     <item>
-      <title>restfulSE: A semantically rich interface for cloud-scale genomics with Bioconductor</title>
-      <link>https://seandavi.github.io/publication2/gopaulakrishnan-2019-em/</link>
-      <pubDate>Tue, 01 Jan 2019 00:00:00 +0000</pubDate>
-      <guid>https://seandavi.github.io/publication2/gopaulakrishnan-2019-em/</guid>
-      <description></description>
-    </item>
-    
-    <item>
       <title>Orchestrating a community-developed computational workshop and accompanying training materials</title>
       <link>https://seandavi.github.io/publication/davis-2018-jw/</link>
       <pubDate>Mon, 01 Oct 2018 00:00:00 +0000</pubDate>
@@ -69,26 +53,10 @@
     </item>
     
     <item>
-      <title>Orchestrating a community-developed computational workshop and accompanying training materials</title>
-      <link>https://seandavi.github.io/publication2/davis-2018-jw/</link>
-      <pubDate>Mon, 01 Oct 2018 00:00:00 +0000</pubDate>
-      <guid>https://seandavi.github.io/publication2/davis-2018-jw/</guid>
-      <description></description>
-    </item>
-    
-    <item>
       <title>Software For The Integration Of Multi-Omics Experiments In Bioconductor</title>
       <link>https://seandavi.github.io/publication/sean-davis-33483497/</link>
       <pubDate>Sun, 01 Jan 2017 00:00:00 +0000</pubDate>
       <guid>https://seandavi.github.io/publication/sean-davis-33483497/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Software For The Integration Of Multi-Omics Experiments In Bioconductor</title>
-      <link>https://seandavi.github.io/publication2/sean-davis-33483497/</link>
-      <pubDate>Sun, 01 Jan 2017 00:00:00 +0000</pubDate>
-      <guid>https://seandavi.github.io/publication2/sean-davis-33483497/</guid>
       <description></description>
     </item>
     
