@@ -1,0 +1,521 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>cloud | seandavi(s12)</title>
+    <link>https://seandavi.github.io/tags/cloud/</link>
+      <atom:link href="https://seandavi.github.io/tags/cloud/index.xml" rel="self" type="application/rss+xml" />
+    <description>cloud</description>
+    <generator>Wowchemy (https://wowchemy.com)</generator><language>en-us</language><copyright>© 2016-2020</copyright><lastBuildDate>Thu, 05 Mar 2020 00:00:00 +0000</lastBuildDate>
+    <image>
+      <url>https://seandavi.github.io/images/icon_hu0b7a4cb9992c9ac0e91bd28ffd38dd00_9727_512x512_fill_lanczos_center_3.png</url>
+      <title>cloud</title>
+      <link>https://seandavi.github.io/tags/cloud/</link>
+    </image>
+    
+    <item>
+      <title>Build and deploy an NCBI GEO metadata fetch API</title>
+      <link>https://seandavi.github.io/post/cloud-run-notes/</link>
+      <pubDate>Thu, 05 Mar 2020 00:00:00 +0000</pubDate>
+      <guid>https://seandavi.github.io/post/cloud-run-notes/</guid>
+      <description>&lt;p&gt;In this post, I want to demonstrate building a simple web API converts
+an NCBI &lt;a href=&#34;https://ncbi.nlm.nih.gov/geo&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;GEO&lt;/a&gt; accession and associated metadata to &lt;a href=&#34;https://www.digitalocean.com/community/tutorials/an-introduction-to-json&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;json&lt;/a&gt; format, and
+then deploy that application as a web service on Google Cloud Platform
+&lt;a href=&#34;https://cloud.google.com/run&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Cloud Run&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;I hear from GEOquery users that sometimes they just want to get the
+metadata for one or more accessions rather than getting the entire GEO
+record. My &lt;a href=&#34;https://github.com/omicidx/omicidx-parsers&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;omicidx-parser&lt;/a&gt; library has functionality to do this
+conversion. We will leverage this functionality to build a small web
+application that we can deploy using &lt;a href=&#34;https://en.wikipedia.org/wiki/Serverless_computing&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;serverless&lt;/a&gt; approach to stand up
+an API that returns a &lt;a href=&#34;https://www.digitalocean.com/community/tutorials/an-introduction-to-json&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;json&lt;/a&gt; conversion of GEO metadata.&lt;/p&gt;
+&lt;h2 id=&#34;tooling&#34;&gt;Tooling&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Google cloud platform, specifically &lt;a href=&#34;https://en.wikipedia.org/wiki/Serverless_computing&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;serverless&lt;/a&gt; &lt;a href=&#34;https://cloud.google.com/run&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Cloud Run&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;python programming language&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href=&#34;https://fastapi.tiangolo.com/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;fastapi&lt;/a&gt; library for web API development&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;[docker] containers&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;git and github&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Code: &lt;a href=&#34;https://github.com/seandavi/blog-code/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;https://github.com/seandavi/blog-code/&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;what-will-i-learn-and-do&#34;&gt;What will I learn and do?&lt;/h2&gt;
+&lt;p&gt;In this post, we will learn the basics of &lt;a href=&#34;https://cloud.google.com/run&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Cloud Run&lt;/a&gt; through
+examples. Additionally, we will learn a bit about web app development
+using the &lt;a href=&#34;https://fastapi.tiangolo.com/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;fastapi&lt;/a&gt; python web framework.&lt;/p&gt;
+&lt;p&gt;At the end of this post, you will have a containerized web application
+running locally that can take a GEO accession and return a &lt;a href=&#34;https://www.digitalocean.com/community/tutorials/an-introduction-to-json&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;json&lt;/a&gt;
+version of the metadata.&lt;/p&gt;
+&lt;p&gt;If you have a Google Cloud Platform account that allows you to create
+projects, you should be able to run your application in Google Cloud
+Run.&lt;/p&gt;
+&lt;h2 id=&#34;what-is-cloud-run&#34;&gt;What is Cloud Run?&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://cloud.google.com/run&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Cloud Run&lt;/a&gt; is a fully managed compute platform that automatically
+scales your stateless containers. In other words, write a web
+application, place it in a &lt;a href=&#34;https://docker.io/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;docker container&lt;/a&gt;, and then deploy to the
+cloud. Cloud Run is one of a family of technologies referred to as
+&lt;a href=&#34;https://en.wikipedia.org/wiki/Serverless_computing&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;serverless&lt;/a&gt; it abstracts away all infrastructure management. Cloud
+Run is built upon an open standard, &lt;a href=&#34;https://knative.dev/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Knative&lt;/a&gt;, enabling the
+portability of your applications.&lt;/p&gt;
+&lt;h2 id=&#34;build-your-app&#34;&gt;Build your app&lt;/h2&gt;
+&lt;p&gt;Sorry, but I&amp;rsquo;m going to let the code do most of the talking here. In
+short, Google Cloud Run supports any web development language or
+framework that can be deployed as a docker container.&lt;/p&gt;
+&lt;p&gt;Here, I will use python and adopt &lt;a href=&#34;https://fastapi.tiangolo.com/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;fastapi&lt;/a&gt; a framework for building
+performant REST APIs.&lt;/p&gt;
+&lt;p&gt;The GEO parsing will leverage the &lt;a href=&#34;https://github.com/omicidx/omicidx-parsers&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;omicidx-parser&lt;/a&gt; library.&lt;/p&gt;
+&lt;h2 id=&#34;containers-are-front-and-center&#34;&gt;Containers are front-and-center&lt;/h2&gt;
+&lt;p&gt;Google&amp;rsquo;s &lt;a href=&#34;https://cloud.google.com/run&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Cloud Run&lt;/a&gt; creates a &amp;ldquo;service&amp;rdquo; that accepts http requests
+and returns responses. The requests and responses are not predefined
+by Cloud Run, allowing any approach that your chosen programming
+language supports. Once your web application is written and tested
+locally, create a &lt;a href=&#34;https://docs.docker.com/develop/develop-images/dockerfile_best-practices/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Dockerfile&lt;/a&gt; that generates a containerized version
+of it. The generated docker container is what you will pass along to
+&lt;a href=&#34;https://cloud.google.com/run&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Cloud Run&lt;/a&gt; as the application. &lt;a href=&#34;https://cloud.google.com/run&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Cloud Run&lt;/a&gt; will then create a
+&amp;ldquo;service&amp;rdquo; by setting up your docker container to run &amp;ldquo;on demand&amp;rdquo; when
+a web request is directed to it.&lt;/p&gt;
+&lt;p&gt;Any programming dependencies, operating system or system dependencies,
+or necessary software are simply included in the &lt;a href=&#34;https://docs.docker.com/develop/develop-images/dockerfile_best-practices/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Dockerfile&lt;/a&gt;
+description to be incorporated into the container. Local testing is
+straightforward by simply running the docker container locally.&lt;/p&gt;
+&lt;h2 id=&#34;example-application-and-deployment&#34;&gt;Example application and deployment&lt;/h2&gt;
+&lt;p&gt;As of today, I am using &lt;a href=&#34;https://python-poetry.org/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;poetry&lt;/a&gt; for python dependency management
+(think pip and virtualenv replacement) and package building. To get
+started with poetry, install:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;curl -sSL https://raw.githubusercontent.com/python-poetry/poetry/master/get-poetry.py &lt;span style=&#34;color:#ae81ff&#34;&gt;\
+&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;&lt;/span&gt;  | python
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;I&amp;rsquo;ll leave the poetry parts of things out for now, but you will see
+some poetry command lines to build the cloud run environment.&lt;/p&gt;
+&lt;p&gt;Next, checkout the &lt;a href=&#34;https://github.com/seandavi/blog-code&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;example repo&lt;/a&gt;.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;git clone https://github.com/seandavi/blog-code
+cd blog-code/geo-metadata-cloud-run/
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;To set up a local development environment and then test the app
+locally, I use a couple of poetry commands (see poetry docs for what
+these do, specifically).&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;poetry install
+poetry run uvicorn app.main:app
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Then, navigate to http://localhost:8000/docs. There, by default, you are redirected to the auto-generated &lt;a href=&#34;https://swagger.io/docs/specification/about/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;OpenAPI&lt;/a&gt; API documentation (yes, you get this &lt;em&gt;for free&lt;/em&gt;).&lt;/p&gt;
+&lt;p&gt;To see the results for a specific accession, click here: http://localhost:8000/geo/GSM48743. An example response will look like:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-json&#34; data-lang=&#34;json&#34;&gt;{
+    &lt;span style=&#34;color:#f92672&#34;&gt;&amp;#34;GSM48743&amp;#34;&lt;/span&gt;: {
+        &lt;span style=&#34;color:#f92672&#34;&gt;&amp;#34;title&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Patient sample ST163, Liposarcoma&amp;#34;&lt;/span&gt;,
+        &lt;span style=&#34;color:#f92672&#34;&gt;&amp;#34;status&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Public on Oct 11 2005&amp;#34;&lt;/span&gt;,
+        &lt;span style=&#34;color:#f92672&#34;&gt;&amp;#34;submission_date&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;2005-04-21&amp;#34;&lt;/span&gt;,
+        &lt;span style=&#34;color:#f92672&#34;&gt;&amp;#34;last_update_date&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;2005-11-22&amp;#34;&lt;/span&gt;,
+        &lt;span style=&#34;color:#f92672&#34;&gt;&amp;#34;type&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;RNA&amp;#34;&lt;/span&gt;,
+        &lt;span style=&#34;color:#f92672&#34;&gt;&amp;#34;anchor&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#66d9ef&#34;&gt;null&lt;/span&gt;,
+        &lt;span style=&#34;color:#f92672&#34;&gt;&amp;#34;contact&amp;#34;&lt;/span&gt;: {
+            &lt;span style=&#34;color:#f92672&#34;&gt;&amp;#34;city&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Bethesda&amp;#34;&lt;/span&gt;,
+            &lt;span style=&#34;color:#f92672&#34;&gt;&amp;#34;name&amp;#34;&lt;/span&gt;: {
+                &lt;span style=&#34;color:#f92672&#34;&gt;&amp;#34;first&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Sean&amp;#34;&lt;/span&gt;,
+                &lt;span style=&#34;color:#f92672&#34;&gt;&amp;#34;middle&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&amp;#34;&lt;/span&gt;,
+                &lt;span style=&#34;color:#f92672&#34;&gt;&amp;#34;last&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Davis&amp;#34;&lt;/span&gt;
+            },
+            &lt;span style=&#34;color:#f92672&#34;&gt;&amp;#34;email&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;sdavis2@mail.nih.gov&amp;#34;&lt;/span&gt;,
+            &lt;span style=&#34;color:#f92672&#34;&gt;&amp;#34;state&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;MD&amp;#34;&lt;/span&gt;,
+            &lt;span style=&#34;color:#f92672&#34;&gt;&amp;#34;address&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;37 Convent Drive, Room 6138&amp;#34;&lt;/span&gt;,
+            &lt;span style=&#34;color:#f92672&#34;&gt;&amp;#34;department&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#66d9ef&#34;&gt;null&lt;/span&gt;,
+            &lt;span style=&#34;color:#f92672&#34;&gt;&amp;#34;country&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;USA&amp;#34;&lt;/span&gt;,
+            &lt;span style=&#34;color:#f92672&#34;&gt;&amp;#34;web_link&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#66d9ef&#34;&gt;null&lt;/span&gt;,
+            &lt;span style=&#34;color:#f92672&#34;&gt;&amp;#34;institute&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;National Cancer Institute&amp;#34;&lt;/span&gt;,
+            &lt;span style=&#34;color:#f92672&#34;&gt;&amp;#34;zip_postal_code&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#66d9ef&#34;&gt;null&lt;/span&gt;,
+            &lt;span style=&#34;color:#f92672&#34;&gt;&amp;#34;phone&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;301-435-2652&amp;#34;&lt;/span&gt;
+        },
+        &lt;span style=&#34;color:#f92672&#34;&gt;&amp;#34;description&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Diagnosis: Liposarcoma\nKeywords = sarcoma, cDNA, Liposarcoma&amp;#34;&lt;/span&gt;,
+        &lt;span style=&#34;color:#f92672&#34;&gt;&amp;#34;accession&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;GSM48743&amp;#34;&lt;/span&gt;,
+        &lt;span style=&#34;color:#f92672&#34;&gt;&amp;#34;biosample&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#66d9ef&#34;&gt;null&lt;/span&gt;,
+        &lt;span style=&#34;color:#f92672&#34;&gt;&amp;#34;tag_count&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#66d9ef&#34;&gt;null&lt;/span&gt;,
+        &lt;span style=&#34;color:#f92672&#34;&gt;&amp;#34;tag_length&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#66d9ef&#34;&gt;null&lt;/span&gt;,
+        &lt;span style=&#34;color:#f92672&#34;&gt;&amp;#34;platform_id&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;GPL1977&amp;#34;&lt;/span&gt;,
+        &lt;span style=&#34;color:#f92672&#34;&gt;&amp;#34;hyb_protocol&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#66d9ef&#34;&gt;null&lt;/span&gt;,
+        &lt;span style=&#34;color:#f92672&#34;&gt;&amp;#34;channel_count&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#ae81ff&#34;&gt;2&lt;/span&gt;,
+        &lt;span style=&#34;color:#f92672&#34;&gt;&amp;#34;scan_protocol&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#66d9ef&#34;&gt;null&lt;/span&gt;,
+        &lt;span style=&#34;color:#f92672&#34;&gt;&amp;#34;data_row_count&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#ae81ff&#34;&gt;12600&lt;/span&gt;,
+        &lt;span style=&#34;color:#f92672&#34;&gt;&amp;#34;library_source&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#66d9ef&#34;&gt;null&lt;/span&gt;,
+        &lt;span style=&#34;color:#f92672&#34;&gt;&amp;#34;overall_design&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#66d9ef&#34;&gt;null&lt;/span&gt;,
+        &lt;span style=&#34;color:#f92672&#34;&gt;&amp;#34;sra_experiment&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#66d9ef&#34;&gt;null&lt;/span&gt;,
+        &lt;span style=&#34;color:#f92672&#34;&gt;&amp;#34;data_processing&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#66d9ef&#34;&gt;null&lt;/span&gt;,
+        &lt;span style=&#34;color:#f92672&#34;&gt;&amp;#34;supplemental_files&amp;#34;&lt;/span&gt;: [
+            &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;NONE&amp;#34;&lt;/span&gt;
+        ],
+        &lt;span style=&#34;color:#f92672&#34;&gt;&amp;#34;channels&amp;#34;&lt;/span&gt;: [
+            {
+                &lt;span style=&#34;color:#f92672&#34;&gt;&amp;#34;label&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#66d9ef&#34;&gt;null&lt;/span&gt;,
+                &lt;span style=&#34;color:#f92672&#34;&gt;&amp;#34;taxid&amp;#34;&lt;/span&gt;: [
+                    &lt;span style=&#34;color:#ae81ff&#34;&gt;9606&lt;/span&gt;
+                ],
+                &lt;span style=&#34;color:#f92672&#34;&gt;&amp;#34;molecule&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;total RNA&amp;#34;&lt;/span&gt;,
+                &lt;span style=&#34;color:#f92672&#34;&gt;&amp;#34;organism&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Homo sapiens&amp;#34;&lt;/span&gt;,
+                &lt;span style=&#34;color:#f92672&#34;&gt;&amp;#34;source_name&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Liposarcoma&amp;#34;&lt;/span&gt;,
+                &lt;span style=&#34;color:#f92672&#34;&gt;&amp;#34;label_protocol&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#66d9ef&#34;&gt;null&lt;/span&gt;,
+                &lt;span style=&#34;color:#f92672&#34;&gt;&amp;#34;growth_protocol&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#66d9ef&#34;&gt;null&lt;/span&gt;,
+                &lt;span style=&#34;color:#f92672&#34;&gt;&amp;#34;extract_protocol&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#66d9ef&#34;&gt;null&lt;/span&gt;,
+                &lt;span style=&#34;color:#f92672&#34;&gt;&amp;#34;treatment_protocol&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#66d9ef&#34;&gt;null&lt;/span&gt;,
+                &lt;span style=&#34;color:#f92672&#34;&gt;&amp;#34;characteristics&amp;#34;&lt;/span&gt;: [
+                    
+                ]
+            },
+            {
+                &lt;span style=&#34;color:#f92672&#34;&gt;&amp;#34;label&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#66d9ef&#34;&gt;null&lt;/span&gt;,
+                &lt;span style=&#34;color:#f92672&#34;&gt;&amp;#34;taxid&amp;#34;&lt;/span&gt;: [
+                    &lt;span style=&#34;color:#ae81ff&#34;&gt;9606&lt;/span&gt;
+                ],
+                &lt;span style=&#34;color:#f92672&#34;&gt;&amp;#34;molecule&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;total RNA&amp;#34;&lt;/span&gt;,
+                &lt;span style=&#34;color:#f92672&#34;&gt;&amp;#34;organism&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Homo sapiens&amp;#34;&lt;/span&gt;,
+                &lt;span style=&#34;color:#f92672&#34;&gt;&amp;#34;source_name&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Pooled sarcoma cell lines&amp;#34;&lt;/span&gt;,
+                &lt;span style=&#34;color:#f92672&#34;&gt;&amp;#34;label_protocol&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#66d9ef&#34;&gt;null&lt;/span&gt;,
+                &lt;span style=&#34;color:#f92672&#34;&gt;&amp;#34;growth_protocol&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#66d9ef&#34;&gt;null&lt;/span&gt;,
+                &lt;span style=&#34;color:#f92672&#34;&gt;&amp;#34;extract_protocol&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#66d9ef&#34;&gt;null&lt;/span&gt;,
+                &lt;span style=&#34;color:#f92672&#34;&gt;&amp;#34;treatment_protocol&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#66d9ef&#34;&gt;null&lt;/span&gt;,
+                &lt;span style=&#34;color:#f92672&#34;&gt;&amp;#34;characteristics&amp;#34;&lt;/span&gt;: [
+                    
+                ]
+            }
+        ],
+        &lt;span style=&#34;color:#f92672&#34;&gt;&amp;#34;contributor&amp;#34;&lt;/span&gt;: [
+            
+        ]
+    }
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;At this point, the web application is running locally. We can
+&amp;ldquo;containerize&amp;rdquo; the application by building the docker container. The
+&lt;a href=&#34;https://github.com/seandavi/blog-code/blob/master/geo-metadata-cloud-run/Dockerfile&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;associated Dockerfile&lt;/a&gt; has instructions for doing so. To actually
+build the docker image, do the following, replacing &lt;code&gt;PROJECT_ID&lt;/code&gt; below with
+your GCP project ID. You can view your project ID by running the
+command.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;gcloud config get-value project.
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;export PROJECT_ID&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;my-google-project-name&amp;#39;&lt;/span&gt;
+docker build -t gcr.io/&lt;span style=&#34;color:#e6db74&#34;&gt;${&lt;/span&gt;PROJECT_ID&lt;span style=&#34;color:#e6db74&#34;&gt;}&lt;/span&gt;/geo-cloud-run .
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Push the docker image to the Google Cloud Project image
+repository. You can also use dockerhub name/url if you like.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;docker push gcr.io/&lt;span style=&#34;color:#e6db74&#34;&gt;${&lt;/span&gt;PROJECT_ID&lt;span style=&#34;color:#e6db74&#34;&gt;}&lt;/span&gt;/geo-cloud-run
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Run the app as a dockerized app locally.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;docker run -p 8000:80 gcr.io/&lt;span style=&#34;color:#e6db74&#34;&gt;${&lt;/span&gt;PROJECT_ID&lt;span style=&#34;color:#e6db74&#34;&gt;}&lt;/span&gt;/geo-cloud-run 
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Again, you should now be able to access the API at http://localhost:8000/docs.&lt;/p&gt;
+&lt;p&gt;One more step, deployment, gets us the application running in the
+cloud as a serverless application. Deploy using the following command:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;gcloud run deploy --image gcr.io/&lt;span style=&#34;color:#e6db74&#34;&gt;${&lt;/span&gt;PROJECT_ID&lt;span style=&#34;color:#e6db74&#34;&gt;}&lt;/span&gt;/geo-cloud-run --platform managed
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ul&gt;
+&lt;li&gt;You will be prompted for the service name: press Enter to accept the
+default name, geo-cloud-run&lt;/li&gt;
+&lt;li&gt;You will be prompted for region: select the region of your choice,
+for example us-central1.&lt;/li&gt;
+&lt;li&gt;You will be prompted to allow unauthenticated invocations: respond &lt;code&gt;y&lt;/code&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Then wait a few moments until the deployment is complete. On success,
+the command line displays the service URL. If you navigate to that
+service URL, you will be accessing your &lt;em&gt;entirely serverless&lt;/em&gt;
+application. Build more complicated applications by simply:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Adjust python code.&lt;/li&gt;
+&lt;li&gt;Rebuild docker image.&lt;/li&gt;
+&lt;li&gt;run &lt;code&gt;gcloud run update ....&lt;/code&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;When completed, simply run &lt;code&gt;gcloud run delete ....&lt;/code&gt; to remove your
+service and application.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>The cancer data ecosystem: data and cloud resources for cancer genomic data science</title>
+      <link>https://seandavi.github.io/talk/2018-10-16-cancer-data-ecosystem-cmu/</link>
+      <pubDate>Tue, 16 Oct 2018 00:00:00 +0000</pubDate>
+      <guid>https://seandavi.github.io/talk/2018-10-16-cancer-data-ecosystem-cmu/</guid>
+      <description>&lt;div class=&#34;responsive-wrap&#34;&gt;
+  &lt;iframe src=&#34;https://docs.google.com/presentation/d/e/2PACX-1vSksBmgOBEjIdxxATW3fWG-EZoULxDc-tg94y8QdNdKa6NPnDWI6el8yHRSrXDLr09wDRNy4n-xeEqR/embed?start=true&amp;amp;loop=true&amp;amp;delayms=3000&#34; frameborder=&#34;0&#34; width=&#34;960&#34; height=&#34;569&#34; allowfullscreen=&#34;true&#34; mozallowfullscreen=&#34;true&#34; webkitallowfullscreen=&#34;true&#34;&gt;&lt;/iframe&gt;
+&lt;/div&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Infrastructure-as-Code: Building the Bioconductor Conference AMI With Packer</title>
+      <link>https://seandavi.github.io/post/2018-07-19-infrastructure-as-code-building-the-bioconductor-conference-ami-with-packer/</link>
+      <pubDate>Thu, 19 Jul 2018 14:35:47 -0400</pubDate>
+      <guid>https://seandavi.github.io/post/2018-07-19-infrastructure-as-code-building-the-bioconductor-conference-ami-with-packer/</guid>
+      <description>
+
+
+&lt;p&gt;One of the main features of the annual &lt;a href=&#34;https://bioc2018.bioconductor.org&#34;&gt;Bioconductor Conference&lt;/a&gt; is the
+proportion of time spent working with code in the form of &lt;a href=&#34;https://github.com/bioconductor/BiocWorkshops&#34;&gt;workshops&lt;/a&gt;.
+To support these workshops, we ask workshop presenters to supply &lt;a href=&#34;https://rmarkdown.rstudio.com/&#34;&gt;Rmarkdown&lt;/a&gt;
+materials which we collate into workshop materials. Using literate programming
+approaches like Rmarkdown ensures that the workflows are self-consistent
+and work as expected.&lt;/p&gt;
+&lt;p&gt;In addition to the Rmarkdown workshop materials, we also need a consistent
+computing environment that can support reasonably large computation, provide
+high-performance network and file system access, and is essentially unlimited
+in scale (we expect to have &amp;gt;150 participants, each with his/her own machine).
+To do so, we use &lt;a href=&#34;https://aws.amazon.com/ec2&#34;&gt;Amazon Web Services EC2&lt;/a&gt;. The EC2 system allows us to prepare
+a &lt;a href=&#34;https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/AMIs.html&#34;&gt;Amazon machine “image”&lt;/a&gt;, or AMI, that contains the operating system, libraries,
+the newest version of R, and all packages needed for the workshops. In the past,
+creating the “image” was a manual process. This year, thanks to the work
+of the workshop organizers, we had a single DESCRIPTION file that contained
+all the necessary packages, allowing us to automate the process of building
+and keeping updated the AMI that would be used by all participants.&lt;/p&gt;
+&lt;p&gt;The &lt;a href=&#34;https://www.packer.io/&#34;&gt;Packer project&lt;/a&gt; is an open source tool for creating identical
+machine images for multiple platforms from a single source
+configuration. Packer is lightweight, runs on every major operating
+system, and is highly performant, creating machine images for multiple
+platforms in parallel. In this context, a machine image is a single
+static unit that contains a pre-configured operating system and
+installed software which is used to quickly create new running
+machines. Machine image formats change for each platform. Some
+examples include AMIs for EC2, VMDK/VMX files for VMware, OVF exports
+for VirtualBox, etc.&lt;/p&gt;
+&lt;p&gt;Biocoductor is cloud-ready and maintains &lt;a href=&#34;https://bioconductor.org/help/bioconductor-cloud-ami/&#34;&gt;basic AMIs for Bioconductor&lt;/a&gt;. Rather
+than needing to start with a generic Linux AMI as the “base” for our
+Bioconductor conference AMI, I will use
+the most recent &lt;a href=&#34;https://bioconductor.org/help/bioconductor-cloud-ami/#ami_ids&#34;&gt;Bioc-devel AMI&lt;/a&gt; as the base. Packer uses a &lt;a href=&#34;https://www.packer.io/intro/getting-started/build-image.html#the-template&#34;&gt;json format file&lt;/a&gt;
+to describe, &lt;em&gt;in code&lt;/em&gt;, the AMI that we want to build. The file for building the image
+is listed below in its entirety. The current version of the packer json file
+is available in this &lt;a href=&#34;https://github.com/seandavi/terraform-can/tree/master/packer&#34;&gt;github repo&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;To build the image, first &lt;a href=&#34;https://www.packer.io/docs/builders/amazon.html#authentication&#34;&gt;set up AWS authentication&lt;/a&gt; as outlined on the
+packer website. If you do not have an AWS account, you will not be able
+to actually build the AMI. Next, &lt;a href=&#34;https://www.packer.io/intro/getting-started/install.html&#34;&gt;install packer&lt;/a&gt; and ensure that it is in the path.
+Finally, save the file below as, for example, &lt;code&gt;bioc_2018.json&lt;/code&gt;. In the
+directory containing the json file, execute packer:&lt;/p&gt;
+&lt;pre class=&#34;sh&#34;&gt;&lt;code&gt;packer build bioc_2018.json&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;This build takes quite some time (perhaps 20 minutes or so).&lt;/p&gt;
+&lt;p&gt;In terms of details, briefly, the &lt;code&gt;instance_type&lt;/code&gt;
+below was chosen to allow multicore installation using 16 threads. AWS [spot pricing]
+is used to minimize costs (see &lt;code&gt;spot_pricing&lt;/code&gt; and &lt;code&gt;spot_pricing_auto_product&lt;/code&gt; below).
+Adding the &lt;code&gt;ami_groups&lt;/code&gt; set to &lt;code&gt;all&lt;/code&gt; will enable public access to the AMI. The &lt;code&gt;source_ami_filter&lt;/code&gt;
+section below chooses the “base” image. In this case, I used the AMI &lt;code&gt;name&lt;/code&gt; and
+specified that the AMI was “owned” by the Bioconductor organization (&lt;code&gt;&amp;quot;owners&amp;quot;: [&amp;quot;555219204010&amp;quot;]&lt;/code&gt;).
+I set the disk size to 128GB of SSD storage in the &lt;code&gt;launch_block_device_mappings&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;The real work is done in the &lt;code&gt;provisioners&lt;/code&gt; block. In this case, the provisioner
+block specifies just two shell commands that install the necessary packages. Note
+that the installation of the “Bioconductor/Biocworkshops” github package will
+install all packages in the &lt;a href=&#34;https://github.com/Bioconductor/BiocWorkshops/blob/master/DESCRIPTION&#34;&gt;DESCRIPTION&lt;/a&gt; file. The final line of the packer
+output will list the AMI ID that can be shared with others (since we made it public).
+The AMI may take a few minutes to become fully public.&lt;/p&gt;
+&lt;pre class=&#34;js&#34;&gt;&lt;code&gt;{
+    &amp;quot;variables&amp;quot;: {
+        &amp;quot;profile&amp;quot;: &amp;quot;default&amp;quot;,
+        &amp;quot;region&amp;quot;:  &amp;quot;us-east-1&amp;quot;
+    },
+    &amp;quot;builders&amp;quot;: [
+        {
+            &amp;quot;access_key&amp;quot;: &amp;quot;{{user `aws_access_key`}}&amp;quot;,
+            &amp;quot;ami_name&amp;quot;: &amp;quot;Bioconductor_Conference_2018-{{timestamp}}&amp;quot;,
+            &amp;quot;instance_type&amp;quot;: &amp;quot;c5.4xlarge&amp;quot;,
+            &amp;quot;region&amp;quot;: &amp;quot;us-east-1&amp;quot;,
+            &amp;quot;secret_key&amp;quot;: &amp;quot;{{user `aws_secret_key`}}&amp;quot;,
+            &amp;quot;source_ami_filter&amp;quot;: {
+                &amp;quot;filters&amp;quot;: {
+                    &amp;quot;virtualization-type&amp;quot;: &amp;quot;hvm&amp;quot;,
+                    &amp;quot;name&amp;quot;: &amp;quot;Bioc 3.8 R 3.5.1&amp;quot;,
+                    &amp;quot;root-device-type&amp;quot;: &amp;quot;ebs&amp;quot;
+                },
+                &amp;quot;owners&amp;quot;: [&amp;quot;555219204010&amp;quot;],
+                &amp;quot;most_recent&amp;quot;: true
+            },
+            &amp;quot;ssh_username&amp;quot;: &amp;quot;ubuntu&amp;quot;,
+            &amp;quot;spot_price&amp;quot;: &amp;quot;auto&amp;quot;,
+            &amp;quot;spot_price_auto_product&amp;quot;: &amp;quot;Linux/UNIX&amp;quot;,
+            &amp;quot;type&amp;quot;: &amp;quot;amazon-ebs&amp;quot;,
+            &amp;quot;ami_groups&amp;quot;: [&amp;quot;all&amp;quot;],
+            &amp;quot;launch_block_device_mappings&amp;quot;: [
+                {
+                    &amp;quot;device_name&amp;quot;: &amp;quot;/dev/sda1&amp;quot;,
+                    &amp;quot;volume_size&amp;quot;: 128,
+                    &amp;quot;volume_type&amp;quot;: &amp;quot;gp2&amp;quot;,
+                    &amp;quot;delete_on_termination&amp;quot;: true
+                }
+            ]
+        }
+    ],
+    &amp;quot;provisioners&amp;quot;: [
+        {
+            &amp;quot;type&amp;quot;: &amp;quot;shell&amp;quot;,
+            &amp;quot;inline&amp;quot;:[
+                &amp;quot;Rscript -e &amp;#39;BiocManager::install(\&amp;quot;remotes\&amp;quot;)&amp;#39;&amp;quot;,
+                &amp;quot;Rscript -e &amp;#39;options(Ncpus=16); BiocManager::install(\&amp;quot;Bioconductor/BiocWorkshops\&amp;quot;)&amp;#39;&amp;quot;,
+            ]
+        }
+    ]
+}
+    &lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;By maintaining the AMI description as code, we can ensure that the AMI is
+fully reproducible (no manual installations, etc.) and, therefore, highly
+reproducible and even reusable.&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://github.com/seandavi/terraform-can/tree/master/packer&#34;&gt;The current version of the packer file is available on github&lt;/a&gt;. Thanks to Levi
+Waldron, Lori Shepherd, Marcel Ramos, Martin Morgan, and multiple workshop
+authors for their contributions.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Protect Against Secrets in Git Repositories</title>
+      <link>https://seandavi.github.io/post/protect-against-secrets-in-git-repositories/</link>
+      <pubDate>Sat, 02 Dec 2017 07:50:15 -0500</pubDate>
+      <guid>https://seandavi.github.io/post/protect-against-secrets-in-git-repositories/</guid>
+      <description>&lt;p&gt;I made a mistake and am going to share it here. Please be gentle when
+judging me. As penance, I spent some time to learn how to
+systematically avoid making the same mistake and share that solution
+here.&lt;/p&gt;
+&lt;h2 id=&#34;the-prelude&#34;&gt;The prelude&lt;/h2&gt;
+&lt;p&gt;I had been working on some code that I thought was
+going to be throw-away example code for loading a large dataset into
+&lt;a href=&#34;https://elastic.co/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;ElasticSearch&lt;/a&gt;. That said, I have been saved often enough by using a
+version control system (now, &lt;em&gt;always&lt;/em&gt; &lt;a href=&#34;https://git-scm.com/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;git&lt;/a&gt;), that I use it all the
+time. &amp;ldquo;Knowing&amp;rdquo; that this code would never be shared, I was careless
+and included my [Amazon Web Service (AWS)] [keys] in the code while I sorted out whether
+[logstash] would pick up the keys from a central config file. At some
+point, I committed the file that included the keys to git. As these
+things go, several days passed and I found that I had a useful project
+worthy of a push to github. No keys
+present in the code, etc.&amp;ndash;I checked.&lt;/p&gt;
+&lt;p&gt;Within minutes (or maybe it was an hour&amp;ndash;not sure) of when I pushed the code
+to github, I got an email from &lt;a href=&#34;https://aws.amazon.com/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;AWS&lt;/a&gt; that, paraphrased, read:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&amp;ldquo;We have
+found your AWS keys in a github repository. Please fix
+the problem and &lt;strong&gt;DON&amp;rsquo;T DO THAT AGAIN&lt;/strong&gt;.&amp;rdquo;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Almost immediately after, I
+got another email from AWS thanking me for deleting my keys. AWS
+apparently scans GitHub repositories for AWS keys and has a system (I
+suspect somewhat automated) for removing the exposed keys. I deleted
+the GitHub repo and did some local checking and, in
+retrospect, realized my mistake. Git had dutifully saved the entire
+history of my project including a version of one file with AWS keys in
+it. Upon pushing to GitHub, the keys were there in the history. I
+breathed a sigh of relief that no harm had been done.&lt;/p&gt;
+&lt;p&gt;Thankfully, I use AWS often. I logged in the next day and found that I
+had about 100 servers running, in many different regions even, that I
+hadn&amp;rsquo;t started. In the short period of time that the keys had been
+exposed, someone had been able to create two ssh keypairs and started
+the machines. Needless to say, I spent quite a bit of time working to
+clean up any instances and to remove keys, etc. that could have been
+exposed (all of them, of course). The speed with which someone was
+able to capitalize on my mistake was simply astonishing to me. That
+said, I do want to hand it to the AWS folks who take a proactive role
+in protecting my account security.&lt;/p&gt;
+&lt;h2 id=&#34;dont-do-that-again&#34;&gt;Don&amp;rsquo;t do that again&lt;/h2&gt;
+&lt;p&gt;While I probably will not forget to check my code for &amp;ldquo;secrets&amp;rdquo; again
+anytime soon, I started to look into ways to systematically check and
+then preempt such occurrences. Ironically (or not), the folks at &lt;a href=&#34;https://github.com/awslabs&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;AWS
+Labs&lt;/a&gt; have created a nice little project called &lt;a href=&#34;https://github.com/awslabs/git-secrets&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;git-secrets&lt;/a&gt; that
+purports to:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Prevent you from committing secrets and credentials into git repositories&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;And in more detail:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;code&gt;git-secrets&lt;/code&gt; scans commits, commit messages, and &lt;code&gt;--no-ff&lt;/code&gt; merges
+to prevent adding secrets into your git repositories. If a commit,
+commit message, or any commit in a &lt;code&gt;--no-ff&lt;/code&gt; merge history matches
+one of your configured prohibited regular expression patterns, then
+the commit is rejected.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;In other words, &lt;em&gt;prevent&lt;/em&gt; keys and secrets from &lt;em&gt;ever&lt;/em&gt; entering the git history.&lt;/p&gt;
+&lt;h2 id=&#34;example-walkthrough-with-git-secrets&#34;&gt;Example walkthrough with git-secrets&lt;/h2&gt;
+&lt;p&gt;In this section, I just document for myself what it takes to get and
+use &lt;code&gt;git-secrets&lt;/code&gt; to protect a repository from inadvertently
+committing keys to a git repository.&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://github.com/awslabs/git-secrets#installing-git-secrets&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Installation instructions&lt;/a&gt; include both simple &lt;code&gt;Makefile&lt;/code&gt;-based installation or using &lt;a href=&#34;https://brew.sh/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;homebrew&lt;/a&gt; on my Mac.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;brew install git-secrets
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;At this point, the &lt;code&gt;git-secrets&lt;/code&gt; executable should be in the
+&lt;code&gt;PATH&lt;/code&gt;. In typical git style, one can use either &lt;code&gt;git-secrets&lt;/code&gt; or &lt;code&gt;git secrets&lt;/code&gt; to access functionality.&lt;/p&gt;
+&lt;p&gt;To play, I create a simple git repo and &amp;ldquo;install&amp;rdquo; the &lt;code&gt;git-secrets&lt;/code&gt;
+&lt;a href=&#34;https://git-scm.com/book/gr/v2/Customizing-Git-Git-Hooks&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;git hooks&lt;/a&gt;. Before any commit can succeed, these hook
+scripts must exit successfully.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# create an example git repo&lt;/span&gt;
+mkdir secrets_example
+cd secrets_example
+git init
+&lt;span style=&#34;color:#75715e&#34;&gt;# now &amp;#34;install&amp;#34; the git-secrets hook&lt;/span&gt;
+git secrets --install
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;And the result:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;Installed commit-msg hook to .git/hooks/commit-msg
+Installed pre-commmit hook to .git/hooks/pre-commit
+Installed prepare-commit-msg hook to .git/hooks/prepare-commit-msg
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;At this point, the &lt;code&gt;secrets_example&lt;/code&gt; git repository has been created
+and the &lt;code&gt;git-secrets&lt;/code&gt; pre-commit hook added. However, &lt;code&gt;git-secrets&lt;/code&gt;
+needs to be told about what secrets to look for. We can check what
+&lt;code&gt;git-secrets&lt;/code&gt; thinks is a secret.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;git secrets --list
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;This will return &amp;ldquo;nothing&amp;rdquo; at this poing. In my case, I want to
+have &lt;code&gt;git-secrets&lt;/code&gt; check for AWS keys. &lt;code&gt;git-secrets&lt;/code&gt; has a special
+function for doing just that&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;git secrets --register-aws
+git secrets --list
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;And now the result:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;secrets.providers git secrets --aws-provider
+secrets.patterns &lt;span style=&#34;color:#f92672&#34;&gt;[&lt;/span&gt;A-Z0-9&lt;span style=&#34;color:#f92672&#34;&gt;]{&lt;/span&gt;20&lt;span style=&#34;color:#f92672&#34;&gt;}&lt;/span&gt;
+secrets.patterns &lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;|&amp;#39;)?(AWS|aws|Aws)?_?(SECRET|secret|Secret)?_?(ACCESS|access|Access)?_?(KEY|key|Key)(&amp;#34;&lt;/span&gt;|&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;)?\s*(:|=&amp;gt;|=)\s*(&amp;#34;|&amp;#39;&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt;?&lt;span style=&#34;color:#f92672&#34;&gt;[&lt;/span&gt;A-Za-z0-9/&lt;span style=&#34;color:#ae81ff&#34;&gt;\+&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;=]{&lt;/span&gt;40&lt;span style=&#34;color:#f92672&#34;&gt;}(&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;|&amp;#39;)?
+&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;secrets.patterns (&amp;#34;&lt;/span&gt;|&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;)?(AWS|aws|Aws)?_?(ACCOUNT|account|Account)_?(ID|id|Id)?(&amp;#34;|&amp;#39;&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt;?&lt;span style=&#34;color:#ae81ff&#34;&gt;\s&lt;/span&gt;*&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;:|&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&amp;gt;|&lt;span style=&#34;color:#f92672&#34;&gt;=)&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;\s&lt;/span&gt;*&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;|&amp;#39;)?[0-9]{4}\-?[0-9]{4}\-?[0-9]{4}(&amp;#34;&lt;/span&gt;|&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;&amp;#39;&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt;?
+secrets.allowed AKIAIOSFODNN7EXAMPLE
+secrets.allowed wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;code&gt;git-secrets&lt;/code&gt; has added a set of patterns (regular expressions) that
+will be matched against text before a commit can succeed. Adding a
+specific pattern for another password is also straightford.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;git secrets --add &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;MyPASSWORD[0-9]+&amp;#39;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Trying to commit a file with &lt;code&gt;MyPASSWORD123&lt;/code&gt; fails.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;echo &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;MyPASSWORD123&amp;#39;&lt;/span&gt; &amp;gt;&amp;gt; test.file
+git add test.file
+git commit -m &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;test file with password&amp;#39;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;And the output&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;test.file:1:MyPASSWORD123
+
+&lt;span style=&#34;color:#f92672&#34;&gt;[&lt;/span&gt;ERROR&lt;span style=&#34;color:#f92672&#34;&gt;]&lt;/span&gt; Matched one or more prohibited patterns
+
+Possible mitigations:
+- Mark false positives as allowed using: git config --add secrets.allowed ...
+- Mark false positives as allowed by adding regular expressions to .gitallowed at repository&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;s root directory
+&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;- List your configured patterns: git config --get-all secrets.patterns
+&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;- List your configured allowed patterns: git config --get-all secrets.allowed
+&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;- List your configured allowed patterns in .gitallowed at repository&amp;#39;&lt;/span&gt;s root directory
+- Use --no-verify &lt;span style=&#34;color:#66d9ef&#34;&gt;if&lt;/span&gt; this is a one-time false positive
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;code&gt;git-secrets&lt;/code&gt; has a number of other &lt;a href=&#34;https://github.com/awslabs/git-secrets#options&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;features and functions&lt;/a&gt;, but the
+walkthrough above is enought to get me started.&lt;/p&gt;
+&lt;h2 id=&#34;additional-links&#34;&gt;Additional links&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://console.aws.amazon.com/cloudwatch/home&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Cloudwatch alarms&lt;/a&gt; can be set to alert you about spending above a
+threshold.&lt;/li&gt;
+&lt;li&gt;The ironically-named &lt;a href=&#34;https://github.com/michenriksen/gitrob&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;gitrob tool&lt;/a&gt; can scan existing GitHub repositories&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://docs.aws.amazon.com/general/latest/gr/aws-access-keys-best-practices.html&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;AWS access keys best practices&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Follow the principle of &lt;a href=&#34;http://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html#grant-least-privilege&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;least privileges&lt;/a&gt; on cloud accounts&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://seandavi.github.io/post/google-kubernetes-autoscale-with-preemptible-instances/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://seandavi.github.io/post/google-kubernetes-autoscale-with-preemptible-instances/</guid>
+      <description>&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;export POOL_NAME&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;preempt-1&amp;#39;&lt;/span&gt;
+export CLUSTER_NAME&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;cluster-1&amp;#39;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;gcloud beta container node-pools create &lt;span style=&#34;color:#e6db74&#34;&gt;${&lt;/span&gt;POOL_NAME&lt;span style=&#34;color:#e6db74&#34;&gt;}&lt;/span&gt; --preemptible &lt;span style=&#34;color:#ae81ff&#34;&gt;\
+&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;&lt;/span&gt;	   --cluster &lt;span style=&#34;color:#e6db74&#34;&gt;${&lt;/span&gt;CLUSTER_NAME&lt;span style=&#34;color:#e6db74&#34;&gt;}&lt;/span&gt; --enable-autoscaling &lt;span style=&#34;color:#ae81ff&#34;&gt;\
+&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;&lt;/span&gt;	   --min-nodes&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt; --max-nodes&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;50&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;\
+&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;&lt;/span&gt;	   --machine-type&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;n1-standard-2                                    
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-yaml&#34; data-lang=&#34;yaml&#34;&gt;&lt;span style=&#34;color:#f92672&#34;&gt;apiVersion&lt;/span&gt;: &lt;span style=&#34;color:#ae81ff&#34;&gt;v1&lt;/span&gt;
+&lt;span style=&#34;color:#f92672&#34;&gt;kind&lt;/span&gt;: &lt;span style=&#34;color:#ae81ff&#34;&gt;Job&lt;/span&gt;
+&lt;span style=&#34;color:#f92672&#34;&gt;spec&lt;/span&gt;:
+  &lt;span style=&#34;color:#f92672&#34;&gt;nodeSelector&lt;/span&gt;:
+    &lt;span style=&#34;color:#f92672&#34;&gt;cloud.google.com/gke-preemptible&lt;/span&gt;: &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;true&amp;#34;&lt;/span&gt;
+  &lt;span style=&#34;color:#f92672&#34;&gt;template&lt;/span&gt;:
+    &lt;span style=&#34;color:#f92672&#34;&gt;spec&lt;/span&gt;:
+      &lt;span style=&#34;color:#f92672&#34;&gt;containers&lt;/span&gt;:
+      - &lt;span style=&#34;color:#f92672&#34;&gt;name&lt;/span&gt;: &lt;span style=&#34;color:#ae81ff&#34;&gt;pyversion&lt;/span&gt;
+        &lt;span style=&#34;color:#f92672&#34;&gt;image&lt;/span&gt;: &lt;span style=&#34;color:#ae81ff&#34;&gt;python:3.7&lt;/span&gt;
+        &lt;span style=&#34;color:#f92672&#34;&gt;command&lt;/span&gt;: [&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;python&amp;#34;&lt;/span&gt;,  &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;--version&amp;#34;&lt;/span&gt;]
+      &lt;span style=&#34;color:#f92672&#34;&gt;restartPolicy&lt;/span&gt;: &lt;span style=&#34;color:#ae81ff&#34;&gt;Never&lt;/span&gt;
+  &lt;span style=&#34;color:#f92672&#34;&gt;backoffLimit&lt;/span&gt;: &lt;span style=&#34;color:#ae81ff&#34;&gt;4&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

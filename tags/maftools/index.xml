@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>maftools | seandavi(s12)</title>
+    <link>https://seandavi.github.io/tags/maftools/</link>
+      <atom:link href="https://seandavi.github.io/tags/maftools/index.xml" rel="self" type="application/rss+xml" />
+    <description>maftools</description>
+    <generator>Wowchemy (https://wowchemy.com)</generator><language>en-us</language><copyright>© 2016-2020</copyright><lastBuildDate>Fri, 26 Jan 2018 00:00:00 +0000</lastBuildDate>
+    <image>
+      <url>https://seandavi.github.io/images/icon_hu0b7a4cb9992c9ac0e91bd28ffd38dd00_9727_512x512_fill_lanczos_center_3.png</url>
+      <title>maftools</title>
+      <link>https://seandavi.github.io/tags/maftools/</link>
+    </image>
+    
+    <item>
+      <title>Leveraging Bioconductor for somatic variant analysis of TCGA data</title>
+      <link>https://seandavi.github.io/post/leveraging-bioconductor-for-somatic-variant-analysis-of-tcga-datarmd/</link>
+      <pubDate>Fri, 26 Jan 2018 00:00:00 +0000</pubDate>
+      <guid>https://seandavi.github.io/post/leveraging-bioconductor-for-somatic-variant-analysis-of-tcga-datarmd/</guid>
+      <description>
+
+
+&lt;p&gt;The &lt;a href=&#34;https://gdc.cancer.gov&#34;&gt;NCI Genomic Data Commons (GDC)&lt;/a&gt; now contains the authoritative
+source of data from The Cancer Genome Atlas (TCGA) as well as several
+other projects of import to the cancer research community. One of the
+available assays produces somatic variant calls, formally identified
+by comparing tumor reads and normal reads to identify variants
+relative to the human reference genome that are not present in the
+normal genome of the patient. Unfortunately, this process for
+discovering these variants is less precise relative to finding
+germline variants. Because a gold standard bioinformatics approach for
+somatic variant calling has not been identified, the GDC runs four
+separate pipelines and has two levels of data for each. This post
+demonstrates the use of the Bioconductor &lt;a href=&#34;https://bioconductor.org/packages/GenomicDataCommons&#34;&gt;GenomicDataCommons package&lt;/a&gt;
+to identify and then fetch somatic variant results from the NCI GDC
+and then provide a high-level assessment of those variants using the
+&lt;a href=&#34;https://bioconductor.org/packages/maftools&#34;&gt;maftools package&lt;/a&gt;. The workflow will be:&lt;/p&gt;
+&lt;ol style=&#34;list-style-type: decimal&#34;&gt;
+&lt;li&gt;Install packages if not already installed&lt;/li&gt;
+&lt;li&gt;Load libraries&lt;/li&gt;
+&lt;li&gt;Identify and download somatic variants for a representative TCGA
+dataset, in this case cutaneous melanoma.&lt;/li&gt;
+&lt;li&gt;Use maftools to provide rich summaries of the data.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;Identifying appropriate resources at the GDC starts with a bit of
+browsing on the website or with equivalent browsing using one of the
+GenomicDataCommons introspection functions, &lt;code&gt;available_fields()&lt;/code&gt; and
+&lt;code&gt;available_values()&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;To work through these code examples, the maftools and
+GenomicDataCommons packages must first be installed.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;source(&amp;quot;https://bioconductor.org/biocLite.R&amp;quot;)
+biocLite(c(&amp;quot;GenomicDataCommons&amp;quot;, &amp;quot;maftools&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Once installed, load the packages, as usual.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;library(GenomicDataCommons)
+library(maftools)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;The data model (how data are described and linked to each other) is
+quite complicated, but documentation is available. In general, though,
+linking Bioconductor tools to data involves finding files that meet
+some criteria. Each file in the GDC is identified by a “UUID” that
+carries no meaning other than it is unique. TCGA barcodes are not
+&lt;em&gt;directly&lt;/em&gt; used for identifying files, though filtering files by TCGA
+barcodes is possible (and not shown here). So, the first step is to
+find barcodes associated with a [MAF format file] for TCGA project
+“TCGA-SKCM”. Searching based on &lt;code&gt;data_type&lt;/code&gt;, &lt;code&gt;data_format&lt;/code&gt;, and
+&lt;code&gt;analysis.workflow_type&lt;/code&gt; will limit results to the file of interest,
+namely the &lt;a href=&#34;https://docs.gdc.cancer.gov/Data_Dictionary/viewer/#?view=table-definition-view&amp;amp;id=somatic_aggregation_workflow&amp;amp;_top=1&#34;&gt;MuTect2 workflow&lt;/a&gt; variant calls, converted to MAF format.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;uuids = files() %&amp;gt;% 
+    GenomicDataCommons::filter(~ cases.project.project_id==&amp;#39;TCGA-SKCM&amp;#39; &amp;amp; 
+        data_type==&amp;#39;Masked Somatic Mutation&amp;#39; &amp;amp;
+        data_format==&amp;#39;MAF&amp;#39; &amp;amp;
+        analysis.workflow_type==&amp;#39;MuTect2 Variant Aggregation and Masking&amp;#39;) %&amp;gt;%
+    ids()&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Once the uuids have been identified (in this case, only 4b7a5729-b83e-4837-9b61-a6002dce1c0a),
+the &lt;code&gt;gdcdata()&lt;/code&gt; function downloads the associated files and returns a
+filename for each uuid.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;maffile = gdcdata(uuids)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;The MAF file is now stored locally and the &lt;a href=&#34;https://bioconductor.org/packages/maftools&#34;&gt;maftools package&lt;/a&gt;
+workflow, which starts with a MAF file, can proceed, starting with
+reading the melanoma MAF file.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;melanoma_vars = read.maf(maf = maffile, verbose = FALSE)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;With the data available as a maftools MAF object, a lot of
+functionality is available with little code. While the maftools
+package offers quite a few functions, here are a few
+highlights. Cancer genomics and bioinformatics researchers will
+recognize these plots, most likely.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;plotmafSummary(maf = melanoma_vars, rmOutlier = TRUE,
+               addStat = &amp;#39;median&amp;#39;, dashboard = TRUE,
+               titvRaw = FALSE)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;https://seandavi.github.io/post/2018-01-26-leveraging-bioconductor-for-somatic-variant-analysis-of-tcga-data_files/figure-html/mafsummary-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# exclude a couple of &amp;quot;noise&amp;quot; genes--common practice, unfortunately
+oncoplot(maf = melanoma_vars, top = 15, fontSize = 12,
+         genes = getGeneSummary(melanoma_vars)$Hugo_Symbol[3:20])&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;https://seandavi.github.io/post/2018-01-26-leveraging-bioconductor-for-somatic-variant-analysis-of-tcga-data_files/figure-html/oncoprint-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;braf.lpop = lollipopPlot(maf = melanoma_vars, gene = &amp;#39;BRAF&amp;#39;,
+                           AACol = &amp;#39;HGVSp_Short&amp;#39;, showMutationRate = TRUE,
+                           domainLabelSize = 3, defaultYaxis = FALSE)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Additional functionality is available for both the GenomicDataCommons
+and maftools packages. This post just highlights how one can leverage
+two Bioconductor packages to quickly gain insight into public cancer
+genomics datasets.&lt;/p&gt;
+&lt;div id=&#34;appendix&#34; class=&#34;section level1&#34;&gt;
+&lt;h1&gt;Appendix&lt;/h1&gt;
+&lt;p&gt;Examining available values in the GDC is straightforward, allowing for
+variations on the workflow above.&lt;/p&gt;
+&lt;div id=&#34;available-data_types&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Available data_types:&lt;/h2&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;available_values(&amp;#39;files&amp;#39;,&amp;#39;data_type&amp;#39;)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;##  [1] &amp;quot;Annotated Somatic Mutation&amp;quot;       
+##  [2] &amp;quot;Raw Simple Somatic Mutation&amp;quot;      
+##  [3] &amp;quot;Aligned Reads&amp;quot;                    
+##  [4] &amp;quot;Gene Expression Quantification&amp;quot;   
+##  [5] &amp;quot;Slide Image&amp;quot;                      
+##  [6] &amp;quot;Biospecimen Supplement&amp;quot;           
+##  [7] &amp;quot;Copy Number Segment&amp;quot;              
+##  [8] &amp;quot;Masked Copy Number Segment&amp;quot;       
+##  [9] &amp;quot;Clinical Supplement&amp;quot;              
+## [10] &amp;quot;Methylation Beta Value&amp;quot;           
+## [11] &amp;quot;Isoform Expression Quantification&amp;quot;
+## [12] &amp;quot;miRNA Expression Quantification&amp;quot;  
+## [13] &amp;quot;Raw CGI Variant&amp;quot;                  
+## [14] &amp;quot;Aggregated Somatic Mutation&amp;quot;      
+## [15] &amp;quot;Masked Somatic Mutation&amp;quot;&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;div id=&#34;available-data_formats&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Available data_formats:&lt;/h2&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;available_values(&amp;#39;files&amp;#39;,&amp;#39;data_format&amp;#39;)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;##  [1] &amp;quot;VCF&amp;quot;               &amp;quot;TXT&amp;quot;               &amp;quot;BAM&amp;quot;              
+##  [4] &amp;quot;SVS&amp;quot;               &amp;quot;BCR XML&amp;quot;           &amp;quot;BCR SSF XML&amp;quot;      
+##  [7] &amp;quot;BCR Auxiliary XML&amp;quot; &amp;quot;BCR OMF XML&amp;quot;       &amp;quot;BCR Biotab&amp;quot;       
+## [10] &amp;quot;MAF&amp;quot;               &amp;quot;XLSX&amp;quot;&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;div id=&#34;available-analysis-workflows&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Available analysis workflows:&lt;/h2&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;available_values(&amp;#39;files&amp;#39;,&amp;#39;analysis.workflow_type&amp;#39;)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;##  [1] &amp;quot;DNAcopy&amp;quot;                                      
+##  [2] &amp;quot;BCGSC miRNA Profiling&amp;quot;                        
+##  [3] &amp;quot;BWA with Mark Duplicates and Cocleaning&amp;quot;      
+##  [4] &amp;quot;FM Simple Somatic Mutation&amp;quot;                   
+##  [5] &amp;quot;FoundationOne Annotation&amp;quot;                     
+##  [6] &amp;quot;Liftover&amp;quot;                                     
+##  [7] &amp;quot;STAR 2-Pass&amp;quot;                                  
+##  [8] &amp;quot;HTSeq - Counts&amp;quot;                               
+##  [9] &amp;quot;HTSeq - FPKM&amp;quot;                                 
+## [10] &amp;quot;HTSeq - FPKM-UQ&amp;quot;                              
+## [11] &amp;quot;BWA-aln&amp;quot;                                      
+## [12] &amp;quot;SomaticSniper&amp;quot;                                
+## [13] &amp;quot;SomaticSniper Annotation&amp;quot;                     
+## [14] &amp;quot;MuTect2&amp;quot;                                      
+## [15] &amp;quot;MuTect2 Annotation&amp;quot;                           
+## [16] &amp;quot;VarScan2&amp;quot;                                     
+## [17] &amp;quot;VarScan2 Annotation&amp;quot;                          
+## [18] &amp;quot;MuSE&amp;quot;                                         
+## [19] &amp;quot;MuSE Annotation&amp;quot;                              
+## [20] &amp;quot;BWA with Mark Duplicates and BQSR&amp;quot;            
+## [21] &amp;quot;BWA with BQSR&amp;quot;                                
+## [22] &amp;quot;VCF LiftOver&amp;quot;                                 
+## [23] &amp;quot;MuSE Variant Aggregation and Masking&amp;quot;         
+## [24] &amp;quot;MuTect2 Variant Aggregation and Masking&amp;quot;      
+## [25] &amp;quot;SomaticSniper Variant Aggregation and Masking&amp;quot;
+## [26] &amp;quot;VarScan2 Variant Aggregation and Masking&amp;quot;     
+## [27] &amp;quot;FoundationOne Variant Aggregation and Masking&amp;quot;
+## [28] &amp;quot;_missing&amp;quot;&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

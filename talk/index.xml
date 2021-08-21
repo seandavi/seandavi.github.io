@@ -2,41 +2,30 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Recent &amp; Upcoming Talks | seandavi(s12)</title>
-    <link>/talk/</link>
-      <atom:link href="/talk/index.xml" rel="self" type="application/rss+xml" />
+    <link>https://seandavi.github.io/talk/</link>
+      <atom:link href="https://seandavi.github.io/talk/index.xml" rel="self" type="application/rss+xml" />
     <description>Recent &amp; Upcoming Talks</description>
-    <generator>Wowchemy (https://wowchemy.com)</generator><language>en-us</language><lastBuildDate>Sun, 01 Jan 2017 00:00:00 -0500</lastBuildDate>
+    <generator>Wowchemy (https://wowchemy.com)</generator><language>en-us</language><copyright>© 2016-2020</copyright><lastBuildDate>Sun, 01 Jan 2017 00:00:00 +0000</lastBuildDate>
     <image>
-      <url>/images/icon_hu0b7a4cb9992c9ac0e91bd28ffd38dd00_9727_512x512_fill_lanczos_center_2.png</url>
+      <url>https://seandavi.github.io/images/icon_hu0b7a4cb9992c9ac0e91bd28ffd38dd00_9727_512x512_fill_lanczos_center_3.png</url>
       <title>Recent &amp; Upcoming Talks</title>
-      <link>/talk/</link>
+      <link>https://seandavi.github.io/talk/</link>
     </image>
     
     <item>
-      <title>Bioconductor: Tools for interpreting high-throughput biological data</title>
-      <link>/talk/2020-12-16-btep-ccr-bioconductor/</link>
-      <pubDate>Wed, 16 Dec 2020 00:00:00 -0500</pubDate>
-      <guid>/talk/2020-12-16-btep-ccr-bioconductor/</guid>
-      <description>&lt;div class=&#34;responsive-wrap&#34;&gt;
-  &lt;iframe src=&#34;https://docs.google.com/presentation/d/e/2PACX-1vSOYTfCyxmUZjPOF7zOvXWpCVLgqFU-Rkrohvu-QH16EiDnKLR8zurmhTelvbP9syqZepPIzzXM5QQe/embed?start=false&amp;amp;loop=false&amp;amp;delayms=3000&#34; frameborder=&#34;0&#34; width=&#34;960&#34; height=&#34;569&#34; allowfullscreen=&#34;true&#34; mozallowfullscreen=&#34;true&#34; webkitallowfullscreen=&#34;true&#34;&gt;&lt;/iframe&gt;
-&lt;/div&gt;
-</description>
-    </item>
-    
-    <item>
       <title>Big Data Approaches</title>
-      <link>/talk/2020-06-04-bioc-techboard-big-data/</link>
+      <link>https://seandavi.github.io/talk/2020-06-04-bioc-techboard-big-data/</link>
       <pubDate>Thu, 04 Jun 2020 00:00:00 +0000</pubDate>
-      <guid>/talk/2020-06-04-bioc-techboard-big-data/</guid>
+      <guid>https://seandavi.github.io/talk/2020-06-04-bioc-techboard-big-data/</guid>
       <description>
-&lt;script src=&#34;/rmarkdown-libs/htmlwidgets/htmlwidgets.js&#34;&gt;&lt;/script&gt;
-&lt;script src=&#34;/rmarkdown-libs/plotly-binding/plotly.js&#34;&gt;&lt;/script&gt;
-&lt;script src=&#34;/rmarkdown-libs/typedarray/typedarray.min.js&#34;&gt;&lt;/script&gt;
-&lt;script src=&#34;/rmarkdown-libs/jquery/jquery.min.js&#34;&gt;&lt;/script&gt;
-&lt;link href=&#34;/rmarkdown-libs/crosstalk/css/crosstalk.css&#34; rel=&#34;stylesheet&#34; /&gt;
-&lt;script src=&#34;/rmarkdown-libs/crosstalk/js/crosstalk.min.js&#34;&gt;&lt;/script&gt;
-&lt;link href=&#34;/rmarkdown-libs/plotly-htmlwidgets-css/plotly-htmlwidgets.css&#34; rel=&#34;stylesheet&#34; /&gt;
-&lt;script src=&#34;/rmarkdown-libs/plotly-main/plotly-latest.min.js&#34;&gt;&lt;/script&gt;
+&lt;script src=&#34;https://seandavi.github.io/rmarkdown-libs/htmlwidgets/htmlwidgets.js&#34;&gt;&lt;/script&gt;
+&lt;script src=&#34;https://seandavi.github.io/rmarkdown-libs/plotly-binding/plotly.js&#34;&gt;&lt;/script&gt;
+&lt;script src=&#34;https://seandavi.github.io/rmarkdown-libs/typedarray/typedarray.min.js&#34;&gt;&lt;/script&gt;
+&lt;script src=&#34;https://seandavi.github.io/rmarkdown-libs/jquery/jquery.min.js&#34;&gt;&lt;/script&gt;
+&lt;link href=&#34;https://seandavi.github.io/rmarkdown-libs/crosstalk/css/crosstalk.css&#34; rel=&#34;stylesheet&#34; /&gt;
+&lt;script src=&#34;https://seandavi.github.io/rmarkdown-libs/crosstalk/js/crosstalk.min.js&#34;&gt;&lt;/script&gt;
+&lt;link href=&#34;https://seandavi.github.io/rmarkdown-libs/plotly-htmlwidgets-css/plotly-htmlwidgets.css&#34; rel=&#34;stylesheet&#34; /&gt;
+&lt;script src=&#34;https://seandavi.github.io/rmarkdown-libs/plotly-main/plotly-latest.min.js&#34;&gt;&lt;/script&gt;
 
 
 &lt;div id=&#34;introduction&#34; class=&#34;section level1&#34;&gt;
@@ -247,17 +236,17 @@ organisms, technologies&lt;/li&gt;
     
     <item>
       <title>Howard County Community College STEM Career Panel</title>
-      <link>/talk/2019-10-08-hcc-stem-career-fair/</link>
+      <link>https://seandavi.github.io/talk/2019-10-08-hcc-stem-career-fair/</link>
       <pubDate>Tue, 08 Oct 2019 16:30:00 -0400</pubDate>
-      <guid>/talk/2019-10-08-hcc-stem-career-fair/</guid>
+      <guid>https://seandavi.github.io/talk/2019-10-08-hcc-stem-career-fair/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Bioconductor: Tools for interpreting high-throughput biological data</title>
-      <link>/talk/2019-08-12-cdsl-ccr-bioconductor/</link>
-      <pubDate>Mon, 12 Aug 2019 00:00:00 -0400</pubDate>
-      <guid>/talk/2019-08-12-cdsl-ccr-bioconductor/</guid>
+      <link>https://seandavi.github.io/talk/2019-08-12-cdsl-ccr-bioconductor/</link>
+      <pubDate>Mon, 12 Aug 2019 00:00:00 +0000</pubDate>
+      <guid>https://seandavi.github.io/talk/2019-08-12-cdsl-ccr-bioconductor/</guid>
       <description>&lt;div class=&#34;responsive-wrap&#34;&gt;
   &lt;iframe src=&#34;https://docs.google.com/presentation/d/e/2PACX-1vQQPGPUs8fp0Lw2YdpVyAFNvP5GD41iOKYHdEExXCUmZzssQks4tHsrNiAsxeBZXc0XgUQQv_VinB-l/embed?start=false&amp;amp;loop=false&amp;amp;delayms=3000&#34; frameborder=&#34;0&#34; width=&#34;960&#34; height=&#34;569&#34; allowfullscreen=&#34;true&#34; mozallowfullscreen=&#34;true&#34; webkitallowfullscreen=&#34;true&#34;&gt;&lt;/iframe&gt;
 &lt;/div&gt;
@@ -266,25 +255,25 @@ organisms, technologies&lt;/li&gt;
     
     <item>
       <title>ATAC-Seq workshop</title>
-      <link>/talk/2019-07-07-atac-seq-workshop-cshl/</link>
+      <link>https://seandavi.github.io/talk/2019-07-07-atac-seq-workshop-cshl/</link>
       <pubDate>Mon, 08 Jul 2019 00:00:00 +0000</pubDate>
-      <guid>/talk/2019-07-07-atac-seq-workshop-cshl/</guid>
+      <guid>https://seandavi.github.io/talk/2019-07-07-atac-seq-workshop-cshl/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Statistical Methods in Functional Genomics</title>
-      <link>/talk/2019-07-01-cshl-fungeno-2019/</link>
+      <link>https://seandavi.github.io/talk/2019-07-01-cshl-fungeno-2019/</link>
       <pubDate>Mon, 01 Jul 2019 00:00:00 +0000</pubDate>
-      <guid>/talk/2019-07-01-cshl-fungeno-2019/</guid>
+      <guid>https://seandavi.github.io/talk/2019-07-01-cshl-fungeno-2019/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Public Data Resources and Bioconductor</title>
-      <link>/talk/2019-06-26-bioconductor-public-data-workshop/</link>
-      <pubDate>Wed, 26 Jun 2019 00:00:00 -0400</pubDate>
-      <guid>/talk/2019-06-26-bioconductor-public-data-workshop/</guid>
+      <link>https://seandavi.github.io/talk/2019-06-26-bioconductor-public-data-workshop/</link>
+      <pubDate>Wed, 26 Jun 2019 00:00:00 +0000</pubDate>
+      <guid>https://seandavi.github.io/talk/2019-06-26-bioconductor-public-data-workshop/</guid>
       <description>&lt;div class=&#34;responsive-wrap&#34;&gt;
   &lt;iframe src=&#34;https://docs.google.com/presentation/d/e/2PACX-1vS_-rZqmInUi9XjJB4KijTtLy7k7rpcK20WMzYtXN4w4rTNXJjo-VhRjqBkquraoC7hBi4TL8bjagtI/embed?start=false&amp;amp;loop=false&amp;amp;delayms=3000&#34; frameborder=&#34;0&#34; width=&#34;960&#34; height=&#34;569&#34; allowfullscreen=&#34;true&#34; mozallowfullscreen=&#34;true&#34; webkitallowfullscreen=&#34;true&#34;&gt;&lt;/iframe&gt;
 &lt;/div&gt;
@@ -293,18 +282,18 @@ organisms, technologies&lt;/li&gt;
     
     <item>
       <title>Lightweight data engineering, tools, and software to facilitate data reuse and data science</title>
-      <link>/talk/2019-05-14-artificial-intelligence-for-data-discovery-reuse-data-engineering-bioconductor/</link>
-      <pubDate>Tue, 14 May 2019 00:00:00 -0400</pubDate>
-      <guid>/talk/2019-05-14-artificial-intelligence-for-data-discovery-reuse-data-engineering-bioconductor/</guid>
-      <description>&lt;iframe src=&#34;https://widgets.figshare.com/articles/8141768/embed&#34; width=&#34;800&#34; height=&#34;494&#34; allowfullscreen=&#34;true&#34; frameborder=&#34;0&#34;&gt;&lt;/iframe&gt;
+      <link>https://seandavi.github.io/talk/2019-05-14-artificial-intelligence-for-data-discovery-reuse-data-engineering-bioconductor/</link>
+      <pubDate>Tue, 14 May 2019 00:00:00 +0000</pubDate>
+      <guid>https://seandavi.github.io/talk/2019-05-14-artificial-intelligence-for-data-discovery-reuse-data-engineering-bioconductor/</guid>
+      <description>&lt;!-- raw HTML omitted --&gt;
 </description>
     </item>
     
     <item>
       <title>Bioconductor: software for interpreting high-throughput biological data</title>
-      <link>/talk/2018-12-03-wake-forest-bioconductor/</link>
-      <pubDate>Mon, 03 Dec 2018 00:00:00 -0500</pubDate>
-      <guid>/talk/2018-12-03-wake-forest-bioconductor/</guid>
+      <link>https://seandavi.github.io/talk/2018-12-03-wake-forest-bioconductor/</link>
+      <pubDate>Mon, 03 Dec 2018 00:00:00 +0000</pubDate>
+      <guid>https://seandavi.github.io/talk/2018-12-03-wake-forest-bioconductor/</guid>
       <description>&lt;div class=&#34;responsive-wrap&#34;&gt;
   &lt;iframe src=&#34;https://docs.google.com/presentation/d/e/2PACX-1vQI77sKlJSlFIjaF-c7CjXDaaCoB5wA_ly63ObRkGS2I2NDSTTLV-crI5XgjfefnFQ_QM4wRe2eAqh2/embed?start=true&amp;amp;loop=false&amp;amp;delayms=3000&#34; frameborder=&#34;0&#34; width=&#34;960&#34; height=&#34;569&#34; allowfullscreen=&#34;true&#34; mozallowfullscreen=&#34;true&#34; webkitallowfullscreen=&#34;true&#34;&gt;&lt;/iframe&gt;
 &lt;/div&gt;
@@ -313,9 +302,9 @@ organisms, technologies&lt;/li&gt;
     
     <item>
       <title>Practical Data Science and Informatics Training</title>
-      <link>/talk/2018-12-3-wake-forest-biomedical-informatics-datasci-ed/</link>
-      <pubDate>Mon, 03 Dec 2018 00:00:00 -0500</pubDate>
-      <guid>/talk/2018-12-3-wake-forest-biomedical-informatics-datasci-ed/</guid>
+      <link>https://seandavi.github.io/talk/2018-12-3-wake-forest-biomedical-informatics-datasci-ed/</link>
+      <pubDate>Mon, 03 Dec 2018 00:00:00 +0000</pubDate>
+      <guid>https://seandavi.github.io/talk/2018-12-3-wake-forest-biomedical-informatics-datasci-ed/</guid>
       <description>&lt;div class=&#34;responsive-wrap&#34;&gt;
   &lt;iframe src=&#34;https://docs.google.com/presentation/d/e/2PACX-1vRGJiv0PbsSpytcoiPClSlZs7JhztGPiKOd-GptnFDaOemA6KPpYac71ATSDsDtdhOLk1Cm10-f4bBA/embed?start=false&amp;amp;loop=false&amp;amp;delayms=3000&#34; frameborder=&#34;0&#34; width=&#34;960&#34; height=&#34;569&#34; allowfullscreen=&#34;true&#34; mozallowfullscreen=&#34;true&#34; webkitallowfullscreen=&#34;true&#34;&gt;&lt;/iframe&gt;
 &lt;/div&gt;
@@ -324,9 +313,9 @@ organisms, technologies&lt;/li&gt;
     
     <item>
       <title>The cancer data ecosystem: data and cloud resources for cancer genomic data science</title>
-      <link>/talk/2018-10-16-cancer-data-ecosystem-cmu/</link>
-      <pubDate>Tue, 16 Oct 2018 00:00:00 -0400</pubDate>
-      <guid>/talk/2018-10-16-cancer-data-ecosystem-cmu/</guid>
+      <link>https://seandavi.github.io/talk/2018-10-16-cancer-data-ecosystem-cmu/</link>
+      <pubDate>Tue, 16 Oct 2018 00:00:00 +0000</pubDate>
+      <guid>https://seandavi.github.io/talk/2018-10-16-cancer-data-ecosystem-cmu/</guid>
       <description>&lt;div class=&#34;responsive-wrap&#34;&gt;
   &lt;iframe src=&#34;https://docs.google.com/presentation/d/e/2PACX-1vSksBmgOBEjIdxxATW3fWG-EZoULxDc-tg94y8QdNdKa6NPnDWI6el8yHRSrXDLr09wDRNy4n-xeEqR/embed?start=true&amp;amp;loop=true&amp;amp;delayms=3000&#34; frameborder=&#34;0&#34; width=&#34;960&#34; height=&#34;569&#34; allowfullscreen=&#34;true&#34; mozallowfullscreen=&#34;true&#34; webkitallowfullscreen=&#34;true&#34;&gt;&lt;/iframe&gt;
 &lt;/div&gt;
@@ -335,9 +324,9 @@ organisms, technologies&lt;/li&gt;
     
     <item>
       <title>Cloud Computing Approaches to Genomic Data Science</title>
-      <link>/talk/2018-07-31-jsm-cloud-computing/</link>
-      <pubDate>Tue, 31 Jul 2018 00:00:00 -0400</pubDate>
-      <guid>/talk/2018-07-31-jsm-cloud-computing/</guid>
+      <link>https://seandavi.github.io/talk/2018-07-31-jsm-cloud-computing/</link>
+      <pubDate>Tue, 31 Jul 2018 00:00:00 +0000</pubDate>
+      <guid>https://seandavi.github.io/talk/2018-07-31-jsm-cloud-computing/</guid>
       <description>&lt;div class=&#34;responsive-wrap&#34;&gt;
   &lt;iframe src=&#34;https://docs.google.com/presentation/d/e/2PACX-1vSnqvGFO5ozLu2g2KfaKJwWF3ndJMJmoAzNww6wc0F3Tkryxkgvc0ZqV5I3ATZYYr2715EDwHbr2UZS/embed?start=false&amp;amp;loop=false&amp;amp;delayms=3000&#34; frameborder=&#34;0&#34; width=&#34;960&#34; height=&#34;569&#34; allowfullscreen=&#34;true&#34; mozallowfullscreen=&#34;true&#34; webkitallowfullscreen=&#34;true&#34;&gt;&lt;/iframe&gt;
 &lt;/div&gt;
@@ -346,9 +335,9 @@ organisms, technologies&lt;/li&gt;
     
     <item>
       <title>Accessing and Using Public Data Resources with Bioconductor</title>
-      <link>/talk/2018-07-28-bioconductor-toronto-public-data-workshop/</link>
-      <pubDate>Sat, 28 Jul 2018 00:00:00 -0400</pubDate>
-      <guid>/talk/2018-07-28-bioconductor-toronto-public-data-workshop/</guid>
+      <link>https://seandavi.github.io/talk/2018-07-28-bioconductor-toronto-public-data-workshop/</link>
+      <pubDate>Sat, 28 Jul 2018 00:00:00 +0000</pubDate>
+      <guid>https://seandavi.github.io/talk/2018-07-28-bioconductor-toronto-public-data-workshop/</guid>
       <description>&lt;h2 id=&#34;workshop-description&#34;&gt;Workshop Description&lt;/h2&gt;
 &lt;p&gt;The goal of this workshop is to introduce Bioconductor packages for finding,
 accessing, and using large-scale public data resources including the
@@ -374,9 +363,9 @@ Genome Atlas.&lt;/p&gt;
     
     <item>
       <title>The NCI SevenBridges Cancer Genomics Cloud Resource</title>
-      <link>/talk/2018-07-06-cshl-cgc-walkthrough/</link>
-      <pubDate>Sat, 07 Jul 2018 00:00:00 -0400</pubDate>
-      <guid>/talk/2018-07-06-cshl-cgc-walkthrough/</guid>
+      <link>https://seandavi.github.io/talk/2018-07-06-cshl-cgc-walkthrough/</link>
+      <pubDate>Sat, 07 Jul 2018 00:00:00 +0000</pubDate>
+      <guid>https://seandavi.github.io/talk/2018-07-06-cshl-cgc-walkthrough/</guid>
       <description>&lt;h2 id=&#34;introduction&#34;&gt;Introduction&lt;/h2&gt;
 &lt;p&gt;In this guided workshop, we will use the &lt;a href=&#34;https://cgc.sbgenomics.com&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;SevenBridges Cancer Genomics Cloud Resource&lt;/a&gt; to run simple RNA-seq
 workflow on cloud resources. Each participant will:&lt;/p&gt;
@@ -389,14 +378,14 @@ workflow on cloud resources. Each participant will:&lt;/p&gt;
 &lt;h2 id=&#34;example-data&#34;&gt;Example Data&lt;/h2&gt;
 &lt;p&gt;RNA-seq&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;http://starbuck1.s3.amazonaws.com/rnaseq-examples/G41676_pe_1.fastq.gz&#34;&gt;http://starbuck1.s3.amazonaws.com/rnaseq-examples/G41676_pe_1.fastq.gz&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;http://starbuck1.s3.amazonaws.com/rnaseq-examples/G41676_pe_2.fastq.gz&#34;&gt;http://starbuck1.s3.amazonaws.com/rnaseq-examples/G41676_pe_2.fastq.gz&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;http://starbuck1.s3.amazonaws.com/rnaseq-examples/G41707_pe_1.fastq.gz&#34;&gt;http://starbuck1.s3.amazonaws.com/rnaseq-examples/G41707_pe_1.fastq.gz&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;http://starbuck1.s3.amazonaws.com/rnaseq-examples/G41707_pe_2.fastq.gz&#34;&gt;http://starbuck1.s3.amazonaws.com/rnaseq-examples/G41707_pe_2.fastq.gz&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://starbuck1.s3.amazonaws.com/rnaseq-examples/G41676_pe_1.fastq.gz&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;http://starbuck1.s3.amazonaws.com/rnaseq-examples/G41676_pe_1.fastq.gz&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://starbuck1.s3.amazonaws.com/rnaseq-examples/G41676_pe_2.fastq.gz&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;http://starbuck1.s3.amazonaws.com/rnaseq-examples/G41676_pe_2.fastq.gz&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://starbuck1.s3.amazonaws.com/rnaseq-examples/G41707_pe_1.fastq.gz&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;http://starbuck1.s3.amazonaws.com/rnaseq-examples/G41707_pe_1.fastq.gz&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://starbuck1.s3.amazonaws.com/rnaseq-examples/G41707_pe_2.fastq.gz&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;http://starbuck1.s3.amazonaws.com/rnaseq-examples/G41707_pe_2.fastq.gz&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;DNAse-seq&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;http://starbuck1.s3.amazonaws.com/dnase-examples/ENCFF000SWA.fastq.gz&#34;&gt;http://starbuck1.s3.amazonaws.com/dnase-examples/ENCFF000SWA.fastq.gz&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://starbuck1.s3.amazonaws.com/dnase-examples/ENCFF000SWA.fastq.gz&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;http://starbuck1.s3.amazonaws.com/dnase-examples/ENCFF000SWA.fastq.gz&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;div class=&#34;responsive-wrap&#34;&gt;
   &lt;iframe src=&#34;https://docs.google.com/presentation/d/e/2PACX-1vS35-3t9RF63vEEiET7q2gAIzRW2D3Lq_W6sfj8utiwX_luj7fv8866VsddiolN2uBA18JzVD88o835/embed?start=true&amp;amp;loop=true&amp;amp;delayms=3000&#34; frameborder=&#34;0&#34; width=&#34;960&#34; height=&#34;569&#34; allowfullscreen=&#34;true&#34; mozallowfullscreen=&#34;true&#34; webkitallowfullscreen=&#34;true&#34;&gt;&lt;/iframe&gt;
@@ -406,9 +395,9 @@ workflow on cloud resources. Each participant will:&lt;/p&gt;
     
     <item>
       <title>Bioconductor: software for reproducible genomic data science</title>
-      <link>/talk/2018-07-02-bioconductor-introduction-cshl-data-course/</link>
-      <pubDate>Mon, 02 Jul 2018 00:00:00 -0400</pubDate>
-      <guid>/talk/2018-07-02-bioconductor-introduction-cshl-data-course/</guid>
+      <link>https://seandavi.github.io/talk/2018-07-02-bioconductor-introduction-cshl-data-course/</link>
+      <pubDate>Mon, 02 Jul 2018 00:00:00 +0000</pubDate>
+      <guid>https://seandavi.github.io/talk/2018-07-02-bioconductor-introduction-cshl-data-course/</guid>
       <description>&lt;div class=&#34;responsive-wrap&#34;&gt;
   &lt;iframe src=&#34;https://docs.google.com/presentation/d/e/2PACX-1vRsIHPF4CHMhGj0W9K416_JcA3VL4EDOc03KC3CiwyeXeytGWNxr8xxTlGB4VJB8J6WoqagFvAMlK9k/embed?start=false&amp;amp;loop=false&amp;amp;delayms=3000&#34; frameborder=&#34;0&#34; width=&#34;960&#34; height=&#34;569&#34; allowfullscreen=&#34;true&#34; mozallowfullscreen=&#34;true&#34; webkitallowfullscreen=&#34;true&#34;&gt;&lt;/iframe&gt;
 &lt;/div&gt;
@@ -417,9 +406,9 @@ workflow on cloud resources. Each participant will:&lt;/p&gt;
     
     <item>
       <title>Brief Introduction to Machine Learning in Biomedical Informatics</title>
-      <link>/talk/2018-06-18-bigtap-machine-learning/</link>
-      <pubDate>Mon, 18 Jun 2018 00:00:00 -0400</pubDate>
-      <guid>/talk/2018-06-18-bigtap-machine-learning/</guid>
+      <link>https://seandavi.github.io/talk/2018-06-18-bigtap-machine-learning/</link>
+      <pubDate>Mon, 18 Jun 2018 00:00:00 +0000</pubDate>
+      <guid>https://seandavi.github.io/talk/2018-06-18-bigtap-machine-learning/</guid>
       <description>&lt;div class=&#34;responsive-wrap&#34;&gt;
   &lt;iframe src=&#34;https://docs.google.com/presentation/d/e/2PACX-1vTUFAHt5r_E6qA86qORNfEnFB4bxDQ11LH9QgtKwqHBD1tyUWmeQ9LbI6lxUdltiU0GZqShjcj7g-XH/embed?start=false&amp;amp;loop=false&amp;amp;delayms=3000&#34; frameborder=&#34;0&#34; width=&#34;960&#34; height=&#34;569&#34; allowfullscreen=&#34;true&#34; mozallowfullscreen=&#34;true&#34; webkitallowfullscreen=&#34;true&#34;&gt;&lt;/iframe&gt;
 &lt;/div&gt;
@@ -428,9 +417,9 @@ workflow on cloud resources. Each participant will:&lt;/p&gt;
     
     <item>
       <title>Tutorial: Using the NCI SevenBridges Cancer Genomics Cloud Resources</title>
-      <link>/talk/2018-06-18-bigtap-sbg-cgc-rna-seq-walkthrough/</link>
-      <pubDate>Mon, 18 Jun 2018 00:00:00 -0400</pubDate>
-      <guid>/talk/2018-06-18-bigtap-sbg-cgc-rna-seq-walkthrough/</guid>
+      <link>https://seandavi.github.io/talk/2018-06-18-bigtap-sbg-cgc-rna-seq-walkthrough/</link>
+      <pubDate>Mon, 18 Jun 2018 00:00:00 +0000</pubDate>
+      <guid>https://seandavi.github.io/talk/2018-06-18-bigtap-sbg-cgc-rna-seq-walkthrough/</guid>
       <description>&lt;h2 id=&#34;introduction&#34;&gt;Introduction&lt;/h2&gt;
 &lt;p&gt;In this guided workshop, we will use the &lt;a href=&#34;https://cgc.sbgenomics.com&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;SevenBridges Cancer Genomics Cloud Resource&lt;/a&gt; to run simple RNA-seq
 workflow on cloud resources. Each participant will:&lt;/p&gt;
@@ -442,10 +431,10 @@ workflow on cloud resources. Each participant will:&lt;/p&gt;
 &lt;/ol&gt;
 &lt;h2 id=&#34;example-data&#34;&gt;Example Data&lt;/h2&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;http://starbuck1.s3.amazonaws.com/rnaseq-examples/G41676_pe_1.fastq.gz&#34;&gt;http://starbuck1.s3.amazonaws.com/rnaseq-examples/G41676_pe_1.fastq.gz&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;http://starbuck1.s3.amazonaws.com/rnaseq-examples/G41676_pe_2.fastq.gz&#34;&gt;http://starbuck1.s3.amazonaws.com/rnaseq-examples/G41676_pe_2.fastq.gz&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;http://starbuck1.s3.amazonaws.com/rnaseq-examples/G41707_pe_1.fastq.gz&#34;&gt;http://starbuck1.s3.amazonaws.com/rnaseq-examples/G41707_pe_1.fastq.gz&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;http://starbuck1.s3.amazonaws.com/rnaseq-examples/G41707_pe_2.fastq.gz&#34;&gt;http://starbuck1.s3.amazonaws.com/rnaseq-examples/G41707_pe_2.fastq.gz&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://starbuck1.s3.amazonaws.com/rnaseq-examples/G41676_pe_1.fastq.gz&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;http://starbuck1.s3.amazonaws.com/rnaseq-examples/G41676_pe_1.fastq.gz&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://starbuck1.s3.amazonaws.com/rnaseq-examples/G41676_pe_2.fastq.gz&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;http://starbuck1.s3.amazonaws.com/rnaseq-examples/G41676_pe_2.fastq.gz&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://starbuck1.s3.amazonaws.com/rnaseq-examples/G41707_pe_1.fastq.gz&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;http://starbuck1.s3.amazonaws.com/rnaseq-examples/G41707_pe_1.fastq.gz&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://starbuck1.s3.amazonaws.com/rnaseq-examples/G41707_pe_2.fastq.gz&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;http://starbuck1.s3.amazonaws.com/rnaseq-examples/G41707_pe_2.fastq.gz&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;div class=&#34;responsive-wrap&#34;&gt;
   &lt;iframe src=&#34;https://docs.google.com/presentation/d/e/2PACX-1vSnuY5oXgkCTgYenpq33DUck5H_IaEWM3Mr3Ql9rg7SmbaGMfckwYmxpwmNMIJmL0xKcgpZQHrIQqVE/embed?start=false&amp;amp;loop=false&amp;amp;delayms=3000&#34; frameborder=&#34;0&#34; width=&#34;960&#34; height=&#34;569&#34; allowfullscreen=&#34;true&#34; mozallowfullscreen=&#34;true&#34; webkitallowfullscreen=&#34;true&#34;&gt;&lt;/iframe&gt;
@@ -455,9 +444,9 @@ workflow on cloud resources. Each participant will:&lt;/p&gt;
     
     <item>
       <title>Cancer Bioinformatics Primer -- Papillary Renal Cell Carcinoma Hackathon</title>
-      <link>/talk/2018-05-19-cancer-bioinformatics-for-svai-prcc/</link>
-      <pubDate>Sat, 19 May 2018 00:00:00 -0400</pubDate>
-      <guid>/talk/2018-05-19-cancer-bioinformatics-for-svai-prcc/</guid>
+      <link>https://seandavi.github.io/talk/2018-05-19-cancer-bioinformatics-for-svai-prcc/</link>
+      <pubDate>Sat, 19 May 2018 00:00:00 +0000</pubDate>
+      <guid>https://seandavi.github.io/talk/2018-05-19-cancer-bioinformatics-for-svai-prcc/</guid>
       <description>&lt;p&gt;This talk serves as a very short primer on cancer genomics for non-biologists. Topics covered include:&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;Basic principles of cancer biology and genomics&lt;/li&gt;
@@ -478,9 +467,9 @@ workflow on cloud resources. Each participant will:&lt;/p&gt;
     
     <item>
       <title>Bioconductor: A Hub in the Cancer Data Ecosystem</title>
-      <link>/talk/2018-04-26-bioconductor-genomic-data-science/</link>
-      <pubDate>Thu, 26 Apr 2018 00:00:00 -0400</pubDate>
-      <guid>/talk/2018-04-26-bioconductor-genomic-data-science/</guid>
+      <link>https://seandavi.github.io/talk/2018-04-26-bioconductor-genomic-data-science/</link>
+      <pubDate>Thu, 26 Apr 2018 00:00:00 +0000</pubDate>
+      <guid>https://seandavi.github.io/talk/2018-04-26-bioconductor-genomic-data-science/</guid>
       <description>&lt;div class=&#34;responsive-wrap&#34;&gt;
   &lt;iframe src=&#34;https://docs.google.com/presentation/d/e/2PACX-1vTceB6vR4SV-yAjH_cxPr3f7p6utPALtJjQylRs142qGPg_2zdYv-io8PH7ZnxsaoEzUeETJHW9i0Ra/embed?start=true&amp;amp;loop=false&amp;amp;delayms=3000&#34; frameborder=&#34;0&#34; width=&#34;960&#34; height=&#34;569&#34; allowfullscreen=&#34;true&#34; mozallowfullscreen=&#34;true&#34; webkitallowfullscreen=&#34;true&#34;&gt;&lt;/iframe&gt;
 &lt;/div&gt;
@@ -489,9 +478,9 @@ workflow on cloud resources. Each participant will:&lt;/p&gt;
     
     <item>
       <title>The GenomicDataCommons Package: The bridge between the NCI Genomic Data Commons and Bioconductor</title>
-      <link>/talk/2018-04-25-genomic-data-commons-bioc-package/</link>
-      <pubDate>Wed, 25 Apr 2018 00:00:00 -0400</pubDate>
-      <guid>/talk/2018-04-25-genomic-data-commons-bioc-package/</guid>
+      <link>https://seandavi.github.io/talk/2018-04-25-genomic-data-commons-bioc-package/</link>
+      <pubDate>Wed, 25 Apr 2018 00:00:00 +0000</pubDate>
+      <guid>https://seandavi.github.io/talk/2018-04-25-genomic-data-commons-bioc-package/</guid>
       <description>&lt;div class=&#34;responsive-wrap&#34;&gt;
   &lt;iframe src=&#34;https://docs.google.com/presentation/d/e/2PACX-1vTCg8DLAvQdf0TZ0CcfoFarbp72frA-pCt_lB0GSy8w5J45cK9Y0e7ZLFDiq29C_jKzf5416iXwFtZ6/embed?start=false&amp;amp;loop=false&amp;amp;delayms=3000&#34; frameborder=&#34;0&#34; width=&#34;960&#34; height=&#34;569&#34; allowfullscreen=&#34;true&#34; mozallowfullscreen=&#34;true&#34; webkitallowfullscreen=&#34;true&#34;&gt;&lt;/iframe&gt;
 &lt;/div&gt;
@@ -500,9 +489,9 @@ workflow on cloud resources. Each participant will:&lt;/p&gt;
     
     <item>
       <title>Bioconductor: A Potential Hub in the Cancer Biomarker Data Ecosystem</title>
-      <link>/talk/2018-02-08-bioconductor-in-the-cancer-biomarker-data-commons/</link>
-      <pubDate>Thu, 08 Feb 2018 00:00:00 -0500</pubDate>
-      <guid>/talk/2018-02-08-bioconductor-in-the-cancer-biomarker-data-commons/</guid>
+      <link>https://seandavi.github.io/talk/2018-02-08-bioconductor-in-the-cancer-biomarker-data-commons/</link>
+      <pubDate>Thu, 08 Feb 2018 00:00:00 +0000</pubDate>
+      <guid>https://seandavi.github.io/talk/2018-02-08-bioconductor-in-the-cancer-biomarker-data-commons/</guid>
       <description>&lt;div class=&#34;responsive-wrap&#34;&gt;
   &lt;iframe src=&#34;https://docs.google.com/presentation/d/e/2PACX-1vTceB6vR4SV-yAjH_cxPr3f7p6utPALtJjQylRs142qGPg_2zdYv-io8PH7ZnxsaoEzUeETJHW9i0Ra/embed?start=true&amp;amp;loop=false&amp;amp;delayms=3000&#34; frameborder=&#34;0&#34; width=&#34;960&#34; height=&#34;569&#34; allowfullscreen=&#34;true&#34; mozallowfullscreen=&#34;true&#34; webkitallowfullscreen=&#34;true&#34;&gt;&lt;/iframe&gt;
 &lt;/div&gt;
@@ -511,9 +500,9 @@ workflow on cloud resources. Each participant will:&lt;/p&gt;
     
     <item>
       <title>A quick tour of the cancer genomics landscape (in 45 minutes)</title>
-      <link>/talk/2018_01_18_wake-forrest-grand-rounds-cancer-genomics-resources/</link>
-      <pubDate>Thu, 18 Jan 2018 00:00:00 -0500</pubDate>
-      <guid>/talk/2018_01_18_wake-forrest-grand-rounds-cancer-genomics-resources/</guid>
+      <link>https://seandavi.github.io/talk/2018_01_18_wake-forrest-grand-rounds-cancer-genomics-resources/</link>
+      <pubDate>Thu, 18 Jan 2018 00:00:00 +0000</pubDate>
+      <guid>https://seandavi.github.io/talk/2018_01_18_wake-forrest-grand-rounds-cancer-genomics-resources/</guid>
       <description>&lt;div class=&#34;responsive-wrap&#34;&gt;
   &lt;iframe src=&#34;https://docs.google.com/presentation/d/e/2PACX-1vSIUEtiVBL8AjM0IZQcdzsQDnxkqKFUbEjhC-68BX-P1gbJd0tTfL8ltNv6J3AHViHX7FDIG3a8ke6T/embed?start=false&amp;amp;loop=false&amp;amp;delayms=3000&#34; frameborder=&#34;0&#34; width=&#34;960&#34; height=&#34;569&#34; allowfullscreen=&#34;true&#34; mozallowfullscreen=&#34;true&#34; webkitallowfullscreen=&#34;true&#34;&gt;&lt;/iframe&gt;
 &lt;/div&gt;
@@ -522,11 +511,11 @@ workflow on cloud resources. Each participant will:&lt;/p&gt;
     
     <item>
       <title>Bioconductor: orchestrating high-throughput biological data analysis</title>
-      <link>/talk/2017-12-04-ccr-nci-bioconductor-short-talk/</link>
-      <pubDate>Mon, 04 Dec 2017 00:00:00 -0500</pubDate>
-      <guid>/talk/2017-12-04-ccr-nci-bioconductor-short-talk/</guid>
+      <link>https://seandavi.github.io/talk/2017-12-04-ccr-nci-bioconductor-short-talk/</link>
+      <pubDate>Mon, 04 Dec 2017 00:00:00 +0000</pubDate>
+      <guid>https://seandavi.github.io/talk/2017-12-04-ccr-nci-bioconductor-short-talk/</guid>
       <description>&lt;p&gt;Click in the window below and hit &amp;ldquo;f&amp;rdquo; to go to full screen.&lt;/p&gt;
-&lt;iframe src=&#34;https://seandavi.github.io/biocshorttalk/&#34; frameborder=&#34;0&#34; width=&#34;801&#34; height=&#34;480&#34; allowfullscreen=&#34;true&#34; mozallowfullscreen=&#34;true&#34; webkitallowfullscreen=&#34;true&#34;&gt;&lt;/iframe&gt;
+&lt;!-- raw HTML omitted --&gt;
 &lt;p&gt;Progress in biotechnology is continually leading to new types of data,
 resulting in data sets that are rapidly increasing in volume,
 resolution and diversity. The promise of unprecedented advances in our
@@ -559,7 +548,7 @@ evidenced by more than 250,000 downloads per year and tens of
 thousands of citations in the literature. I will present an overview
 of the project for prospective users and contributors.&lt;/p&gt;
 &lt;p&gt;I presented this talk as a representative of the Bioconductor community:&lt;/p&gt;
-&lt;p&gt;DAVIS SR&lt;sup&gt;1&lt;/sup&gt;, CAREY VJ&lt;sup&gt;2&lt;/sup&gt;, WALDRON L&lt;sup&gt;3&lt;/sup&gt;, CULHANE A&lt;sup&gt;4&lt;/sup&gt;, LAWRENCE M&lt;sup&gt;5&lt;/sup&gt;, IRIZZARY RA&lt;sup&gt;6&lt;/sup&gt;, HUBER W&lt;sup&gt;7&lt;/sup&gt;, GENTLEMAN R&lt;sup&gt;8&lt;/sup&gt;, HANSEN KD&lt;sup&gt;9&lt;/sup&gt;, AND MORGAN M&lt;sup&gt;10&lt;/sup&gt;&lt;/p&gt;
+&lt;p&gt;DAVIS SR&lt;!-- raw HTML omitted --&gt;1&lt;!-- raw HTML omitted --&gt;, CAREY VJ&lt;!-- raw HTML omitted --&gt;2&lt;!-- raw HTML omitted --&gt;, WALDRON L&lt;!-- raw HTML omitted --&gt;3&lt;!-- raw HTML omitted --&gt;, CULHANE A&lt;!-- raw HTML omitted --&gt;4&lt;!-- raw HTML omitted --&gt;, LAWRENCE M&lt;!-- raw HTML omitted --&gt;5&lt;!-- raw HTML omitted --&gt;, IRIZZARY RA&lt;!-- raw HTML omitted --&gt;6&lt;!-- raw HTML omitted --&gt;, HUBER W&lt;!-- raw HTML omitted --&gt;7&lt;!-- raw HTML omitted --&gt;, GENTLEMAN R&lt;!-- raw HTML omitted --&gt;8&lt;!-- raw HTML omitted --&gt;, HANSEN KD&lt;!-- raw HTML omitted --&gt;9&lt;!-- raw HTML omitted --&gt;, AND MORGAN M&lt;!-- raw HTML omitted --&gt;10&lt;!-- raw HTML omitted --&gt;&lt;/p&gt;
 &lt;ol&gt;
 &lt;li&gt;Center for Cancer Research, National Cancer Institute, National Institutes of Health, Bethesda, MD, USA.&lt;/li&gt;
 &lt;li&gt;Channing Division of Network Medicine, Brigham and Women’s Hospital and Harvard Medical School, Boston, MA, USA.&lt;/li&gt;
@@ -577,9 +566,9 @@ of the project for prospective users and contributors.&lt;/p&gt;
     
     <item>
       <title>Thoughts on an Agricultural Data Ecosystem</title>
-      <link>/talk/2017-11-15-usda-agricultural-data-ecosystem/</link>
-      <pubDate>Wed, 15 Nov 2017 00:00:00 -0500</pubDate>
-      <guid>/talk/2017-11-15-usda-agricultural-data-ecosystem/</guid>
+      <link>https://seandavi.github.io/talk/2017-11-15-usda-agricultural-data-ecosystem/</link>
+      <pubDate>Wed, 15 Nov 2017 00:00:00 +0000</pubDate>
+      <guid>https://seandavi.github.io/talk/2017-11-15-usda-agricultural-data-ecosystem/</guid>
       <description>&lt;div class=&#34;responsive-wrap&#34;&gt;
   &lt;iframe src=&#34;https://docs.google.com/presentation/d/e/2PACX-1vR1pMCUv-rWTuB4zPZOXOV46hhOsVBbe-si0Cr7kef3bFbhbcQ1yspM-64gsL0m7Uzbg6WOJhYXOhj4/embed?start=false&amp;amp;loop=false&amp;amp;delayms=3000&#34; frameborder=&#34;0&#34; width=&#34;960&#34; height=&#34;569&#34; allowfullscreen=&#34;true&#34; mozallowfullscreen=&#34;true&#34; webkitallowfullscreen=&#34;true&#34;&gt;&lt;/iframe&gt;
 &lt;/div&gt;
@@ -588,19 +577,19 @@ of the project for prospective users and contributors.&lt;/p&gt;
     
     <item>
       <title>Data Visualization Per Karl Broman and Rafa Irizzary</title>
-      <link>/talk/2017-09-12-genetics-branch-good-graphics/</link>
+      <link>https://seandavi.github.io/talk/2017-09-12-genetics-branch-good-graphics/</link>
       <pubDate>Tue, 12 Sep 2017 12:00:00 -0400</pubDate>
-      <guid>/talk/2017-09-12-genetics-branch-good-graphics/</guid>
+      <guid>https://seandavi.github.io/talk/2017-09-12-genetics-branch-good-graphics/</guid>
       <description>&lt;p&gt;&lt;a href=&#34;https://cdn.rawgit.com/seandavi/Talk_Graphs/643a1cc8f9f9714193386b1249f78117263e4fb9/GoodGraphics.html&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Link to slideshow&lt;/a&gt;&lt;/p&gt;
-&lt;!--&lt;iframe height=&#34;500px&#34; width=&#34;800px&#34; src=&#34;https://cdn.rawgit.com/seandavi/Talk_Graphs/643a1cc8f9f9714193386b1249f78117263e4fb9/GoodGraphics.html&#34; name=&#34;iframe_a&#34;&gt;&lt;/iframe&gt; --&gt;
+&lt;!-- raw HTML omitted --&gt;
 </description>
     </item>
     
     <item>
       <title>Machine Learning in Biomedicine</title>
-      <link>/talk/2017-07-09-cshl-machine-learning-in-biomedicine/</link>
-      <pubDate>Sun, 09 Jul 2017 00:00:00 -0400</pubDate>
-      <guid>/talk/2017-07-09-cshl-machine-learning-in-biomedicine/</guid>
+      <link>https://seandavi.github.io/talk/2017-07-09-cshl-machine-learning-in-biomedicine/</link>
+      <pubDate>Sun, 09 Jul 2017 00:00:00 +0000</pubDate>
+      <guid>https://seandavi.github.io/talk/2017-07-09-cshl-machine-learning-in-biomedicine/</guid>
       <description>&lt;p&gt;The accompanying hands-on exercises are available at the &lt;code&gt;code&lt;/code&gt; link.&lt;/p&gt;
 &lt;div class=&#34;responsive-wrap&#34;&gt;
   &lt;iframe src=&#34;https://docs.google.com/presentation/d/e/2PACX-1vRmjiESVeqL91vtdJdlkwtcb2_Ke4t8fJ0lGqkaGm29KS2rVQGI1zjEPreRlNxWe-wvxd8bc1E7G0bR/embed?start=true&amp;amp;loop=true&amp;amp;delayms=3000&#34; frameborder=&#34;0&#34; width=&#34;960&#34; height=&#34;569&#34; allowfullscreen=&#34;true&#34; mozallowfullscreen=&#34;true&#34; webkitallowfullscreen=&#34;true&#34;&gt;&lt;/iframe&gt;

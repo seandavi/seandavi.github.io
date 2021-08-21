@@ -1,0 +1,344 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>data science | seandavi(s12)</title>
+    <link>https://seandavi.github.io/tags/data-science/</link>
+      <atom:link href="https://seandavi.github.io/tags/data-science/index.xml" rel="self" type="application/rss+xml" />
+    <description>data science</description>
+    <generator>Wowchemy (https://wowchemy.com)</generator><language>en-us</language><copyright>© 2016-2020</copyright><lastBuildDate>Fri, 04 Oct 2019 17:04:04 -0400</lastBuildDate>
+    <image>
+      <url>https://seandavi.github.io/images/icon_hu0b7a4cb9992c9ac0e91bd28ffd38dd00_9727_512x512_fill_lanczos_center_3.png</url>
+      <title>data science</title>
+      <link>https://seandavi.github.io/tags/data-science/</link>
+    </image>
+    
+    <item>
+      <title>Container Notes</title>
+      <link>https://seandavi.github.io/docs/container-notes/</link>
+      <pubDate>Fri, 04 Oct 2019 17:04:04 -0400</pubDate>
+      <guid>https://seandavi.github.io/docs/container-notes/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Bioconductor: software for interpreting high-throughput biological data</title>
+      <link>https://seandavi.github.io/talk/2018-12-03-wake-forest-bioconductor/</link>
+      <pubDate>Mon, 03 Dec 2018 00:00:00 +0000</pubDate>
+      <guid>https://seandavi.github.io/talk/2018-12-03-wake-forest-bioconductor/</guid>
+      <description>&lt;div class=&#34;responsive-wrap&#34;&gt;
+  &lt;iframe src=&#34;https://docs.google.com/presentation/d/e/2PACX-1vQI77sKlJSlFIjaF-c7CjXDaaCoB5wA_ly63ObRkGS2I2NDSTTLV-crI5XgjfefnFQ_QM4wRe2eAqh2/embed?start=true&amp;amp;loop=false&amp;amp;delayms=3000&#34; frameborder=&#34;0&#34; width=&#34;960&#34; height=&#34;569&#34; allowfullscreen=&#34;true&#34; mozallowfullscreen=&#34;true&#34; webkitallowfullscreen=&#34;true&#34;&gt;&lt;/iframe&gt;
+&lt;/div&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Practical Data Science and Informatics Training</title>
+      <link>https://seandavi.github.io/talk/2018-12-3-wake-forest-biomedical-informatics-datasci-ed/</link>
+      <pubDate>Mon, 03 Dec 2018 00:00:00 +0000</pubDate>
+      <guid>https://seandavi.github.io/talk/2018-12-3-wake-forest-biomedical-informatics-datasci-ed/</guid>
+      <description>&lt;div class=&#34;responsive-wrap&#34;&gt;
+  &lt;iframe src=&#34;https://docs.google.com/presentation/d/e/2PACX-1vRGJiv0PbsSpytcoiPClSlZs7JhztGPiKOd-GptnFDaOemA6KPpYac71ATSDsDtdhOLk1Cm10-f4bBA/embed?start=false&amp;amp;loop=false&amp;amp;delayms=3000&#34; frameborder=&#34;0&#34; width=&#34;960&#34; height=&#34;569&#34; allowfullscreen=&#34;true&#34; mozallowfullscreen=&#34;true&#34; webkitallowfullscreen=&#34;true&#34;&gt;&lt;/iframe&gt;
+&lt;/div&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>The cancer data ecosystem: data and cloud resources for cancer genomic data science</title>
+      <link>https://seandavi.github.io/talk/2018-10-16-cancer-data-ecosystem-cmu/</link>
+      <pubDate>Tue, 16 Oct 2018 00:00:00 +0000</pubDate>
+      <guid>https://seandavi.github.io/talk/2018-10-16-cancer-data-ecosystem-cmu/</guid>
+      <description>&lt;div class=&#34;responsive-wrap&#34;&gt;
+  &lt;iframe src=&#34;https://docs.google.com/presentation/d/e/2PACX-1vSksBmgOBEjIdxxATW3fWG-EZoULxDc-tg94y8QdNdKa6NPnDWI6el8yHRSrXDLr09wDRNy4n-xeEqR/embed?start=true&amp;amp;loop=true&amp;amp;delayms=3000&#34; frameborder=&#34;0&#34; width=&#34;960&#34; height=&#34;569&#34; allowfullscreen=&#34;true&#34; mozallowfullscreen=&#34;true&#34; webkitallowfullscreen=&#34;true&#34;&gt;&lt;/iframe&gt;
+&lt;/div&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Create a basic Apache Spark cluster in the cloud (in 5 minutes)</title>
+      <link>https://seandavi.github.io/post/create-a-basic-apache-spark-cluster-in-the-cloud-in-5-minutes/</link>
+      <pubDate>Fri, 02 Feb 2018 00:00:00 +0000</pubDate>
+      <guid>https://seandavi.github.io/post/create-a-basic-apache-spark-cluster-in-the-cloud-in-5-minutes/</guid>
+      <description>
+
+
+&lt;div id=&#34;apache-spark-in-a-few-words&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Apache Spark in a few words&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://spark.apache.org/&#34;&gt;Apache Spark&lt;/a&gt; is a software and data science platform that is
+purpose-built for large- to massive-scale data processing. Spark
+supports processing of data in batch mode (run as a pipeline) or in
+interactive mode using command-line programming style or in popular
+notebook style of coding. While &lt;a href=&#34;http://www.scala-lang.org/&#34;&gt;scala&lt;/a&gt; is the native language for
+Spark, language bindings exist for python, R, and Java as well.&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://spark.apache.org&#34; &gt;
+&lt;img
+src=&#34;https://www.onlinebooksreview.com/uploads/blog_images/2017/11/27_file.png&#34;
+ style=&#34;width:300px;float:left;padding-right:10px&#34; /&gt;
+&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Spark is built around an underlying data abstraction called Resilient
+Distributed Dataset, or RDD. The RDD represents an immutable,
+distributed, and partitioned collection of elements that can be
+operated on in parallel. The collection of elements in the RDD need
+not fit into memory, though the performance is maximal when the RDD
+fits into the Spark “cluster” memory.&lt;/p&gt;
+&lt;p&gt;Spark is capable of processing
+data &lt;a href=&#34;https://spark.apache.org/faq.html&#34;&gt;at very large scales&lt;/a&gt;. That
+said, code for Spark need not be written on a large cluster. Spark can
+be deployed on a laptop as well, facilitating code development and
+testing at a small scale.&lt;/p&gt;
+&lt;p&gt;I am not going to delve into working with Spark just yet. Rather, I am
+starting with a quick walkthrough of creating a Spark cluster on the
+Amazon Web Services Elastic Map Reduce
+service &lt;a href=&#34;https://aws.amazon.com/emr/&#34;&gt;AWS EMR&lt;/a&gt;. This is not a
+recommendation of AWS over other potential providers and choices in
+the following workflow are &lt;em&gt;not&lt;/em&gt; meant as best practices. This is just
+a documentation of the process with a little text.&lt;/p&gt;
+&lt;style&gt;
+img {
+  width: 100%
+    }
+.alert {
+  background-color: #fcc2c2;
+  border-radius: 10px;
+  padding: 5px;
+  padding-left: 20px;
+  padding-right: 20px;
+  }
+&lt;/style&gt;
+&lt;div class=&#34;alert&#34;&gt;
+&lt;p&gt;&lt;strong&gt;Note:&lt;/strong&gt; This blog post creates resources on a commercial cloud which
+will continue to cost money until they are terminated. In
+order to keep from getting charged for unused resources, be sure to
+clean up by terminating the resources once you are done.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&#34;prerequisites&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Prerequisites&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;The main prerequisite is an AWS account.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;div id=&#34;objectives&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Objectives&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Walk through creating an Apache Spark cluster on AWS using the EMR
+service.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;div id=&#34;lets-go&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Let’s go&lt;/h2&gt;
+&lt;p&gt;Login to your AWS &lt;a href=&#34;https://console.aws.amazon.com&#34;&gt;console&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;After logging in, you should see a window with a lot of AWS services
+listed. At the top left, choose the “Services” button and type “EMR”
+into the search box. Then, choose EMR.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://seandavi.github.io/img/spark-intro/chooseEMRService.png&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;On the next screen, choose “Create Cluster” by clicking the blue
+button. Just a note that the “AWS Glue Catalog” that is featured
+prominently in a couple of places in the configuration is a separatemarkdow
+service from AWS, &lt;a href=&#34;https://docs.aws.amazon.com/glue/latest/dg/populate-data-catalog.html&#34;&gt;detailed here&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://seandavi.github.io/img/spark-intro/createcluster.png&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;On this screen, choose an arbitrary name for your cluster. You can
+choose no logging for now, or specify a logging s3 bucket/path if you
+like. Change the software configuration to Spark as shown (version
+numbers may differ–that is OK).&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://seandavi.github.io/img/spark-intro/configuration2.png&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;The next step is to configure the hardware that will comprise the
+cluster. Choosing the appropriate size and number of machines while
+balancing costs is an art form that I have not mastered. However, you
+will likely want at least a master and one worker (specify 2 or
+more). Starting with the defaults for “experimentation” is probably
+not bad. Roughly speaking, you’ll want enough memory on your cluster
+to support keeping your datasets in memory for maximum performance.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://seandavi.github.io/img/spark-intro/hardwareconfigbasic.png&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;Unlike many commercially-offered online services, AWS EMR is not, by
+default, configured for “open” access. To gain access to the cluster,
+you will need to provide an SSH key &lt;a href=&#34;https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-key-pairs.html#having-ec2-create-your-key-pair&#34;&gt;see her for how to generate an
+ssh key on AWS&lt;/a&gt; that
+you will later use to enable access to the Spark notebook and
+web-based user interface for monitoring. Assuming that you have an SSH
+key created, choose that key in the dropdown as pictured below.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://seandavi.github.io/img/spark-intro/sshkey.png&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;Click the “Create Cluster” at the bottom right of the screen. You
+should then be presented with a page that shows the cluster
+details.&lt;/p&gt;
+&lt;p&gt;On AWS, cluster creation takes several minutes to up to 30 minutes. My
+only other experience with cloud Spark-as-a-service is on Google Cloud
+Platform which has a much faster startup time.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://seandavi.github.io/img/spark-intro/startingup.png&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;After a few minutes, you will have a running Apache Spark cluster that
+you can begin to experiment with. That will need to wait for another
+post, but to gain access to the cluster, including a Zeppelin notebook
+(quite similar to Jupyter), click the “Enable Web Connection” and
+follow the instructions (a little involved, including establishing a
+proxy connection and installing a proxy plugin for your browser).&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://seandavi.github.io/img/spark-intro/enablesshconn.png&#34; /&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;cleanup-very-important&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Cleanup: VERY IMPORTANT&lt;/h2&gt;
+&lt;div class=&#34;alert&#34;&gt;
+&lt;p&gt;After you have created the Spark cluster, it &lt;strong&gt;costs money&lt;/strong&gt; until you
+destroy it. &lt;em&gt;Please do not forget&lt;/em&gt; to click “Terminate” and then check
+back to &lt;em&gt;make doubly sure&lt;/em&gt; that the cluster is terminated.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Matched tumor/normal pairs--a use case for the GenomicDataCommons Bioconductor package</title>
+      <link>https://seandavi.github.io/post/2017-03-04-testing-the-genomicdatacommons-package/</link>
+      <pubDate>Sat, 04 Mar 2017 00:00:00 +0000</pubDate>
+      <guid>https://seandavi.github.io/post/2017-03-04-testing-the-genomicdatacommons-package/</guid>
+      <description>
+
+
+&lt;div id=&#34;introduction&#34; class=&#34;section level1&#34;&gt;
+&lt;h1&gt;Introduction&lt;/h1&gt;
+&lt;p&gt;The NCI Genomic Data Commons (&lt;a href=&#34;https://gdc.nci.nih.gov&#34;&gt;GDC&lt;/a&gt;) is a reboot of the approach that NCI uses to manage and expose genomic and associated clinical and experimental metadata. I have been working on a &lt;a href=&#34;https://bioconductor.org&#34;&gt;Bioconductor&lt;/a&gt; package that interfaces with the &lt;a href=&#34;https://gdc-api.nci.nih.gov&#34;&gt;GDC API&lt;/a&gt; to provide search and data retrieval from within R.&lt;/p&gt;
+&lt;div id=&#34;testing&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;testing&lt;/h2&gt;
+&lt;p&gt;In the first of what will likely be a set of use cases for the &lt;a href=&#34;https://github.com/Bioconductor/GenomicDataCommons&#34;&gt;GenomicDataCommons&lt;/a&gt;, I am going to address a question that came up on twitter from &lt;a href=&#34;https://twitter.com/sleight82&#34;&gt;@sleight82&lt;/a&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;a href=&#34;https://twitter.com/sleight82/status/837898737540198400&#34;&gt;Asking for a non-tweeter: can you find matched control samples?&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;blockquote class=&#34;twitter-tweet&#34;&gt;&lt;p lang=&#34;en&#34; dir=&#34;ltr&#34;&gt;asking for a non-tweeter: can you find matched control samples?&lt;/p&gt;&amp;mdash; Kenneth Daily (@sleight82) &lt;a href=&#34;https://twitter.com/sleight82/status/837898737540198400?ref_src=twsrc%5Etfw&#34;&gt;March 4, 2017&lt;/a&gt;&lt;/blockquote&gt;
+&lt;script async src=&#34;https://platform.twitter.com/widgets.js&#34; charset=&#34;utf-8&#34;&gt;&lt;/script&gt;
+
+&lt;p&gt;The answer is, “Yes.” I am going to assume that what the “non-tweeter” friend meant was that he or she was interested in finding matched tumor/normal data related to, for example, gene expression, and that the interest is in a specific disease category or TCGA. So, I am going to answer the more specific question:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Can you find matched primary tumor/solid tissue normal samples and associated RNA-Seq gene expression files from TCGA breast cancer cases?&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;library(GenomicDataCommons)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## Loading required package: magrittr&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## 
+## Attaching package: &amp;#39;GenomicDataCommons&amp;#39;&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## The following object is masked from &amp;#39;package:stats&amp;#39;:
+## 
+##     filter&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;library(dplyr)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## 
+## Attaching package: &amp;#39;dplyr&amp;#39;&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## The following objects are masked from &amp;#39;package:GenomicDataCommons&amp;#39;:
+## 
+##     count, filter, select&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## The following objects are masked from &amp;#39;package:stats&amp;#39;:
+## 
+##     filter, lag&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## The following objects are masked from &amp;#39;package:base&amp;#39;:
+## 
+##     intersect, setdiff, setequal, union&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;The GDC API puts some constraints on what can be done directly. But, since we are working in R, we have a toolbox that allows us to build a solution out of component parts. The strategy that I am going to employ is a three-step approach&lt;/p&gt;
+&lt;ol style=&#34;list-style-type: decimal&#34;&gt;
+&lt;li&gt;Find RNA-Seq gene expression files derived from “Solid Tissue Normal”&lt;/li&gt;
+&lt;li&gt;Find RNA-Seq gene expression files derived from “Primary Tumor”&lt;/li&gt;
+&lt;li&gt;Limit cases from #1 and #2 that have gene expression results from both normal and tumor.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;In this code block, find all “HTSeq - Counts” files that are derived from “Solid Tissue Normal” in the project “TCGA-BRCA”. I used a combination of &lt;code&gt;files() %&amp;gt;% select(available_fields(&#39;files&#39;) %&amp;gt;% results()&lt;/code&gt; to get an overview of the data available in the &lt;code&gt;files()&lt;/code&gt; endpoint, followed by &lt;code&gt;grep_fields()&lt;/code&gt; and &lt;code&gt;available_values()&lt;/code&gt; to determine how to build filters.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;nl_ge_files = files() %&amp;gt;%
+    GenomicDataCommons::filter(~   cases.samples.sample_type==&amp;#39;Solid Tissue Normal&amp;#39; &amp;amp;
+               cases.project.project_id == &amp;#39;TCGA-BRCA&amp;#39; &amp;amp;
+               analysis.workflow_type == &amp;quot;HTSeq - Counts&amp;quot;) %&amp;gt;%
+    expand(c(&amp;#39;cases&amp;#39;,&amp;#39;cases.samples&amp;#39;)) %&amp;gt;%
+    results_all() %&amp;gt;%
+    as_tibble()&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;And do the same, but now looking for gene expression from tumors.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;tm_ge_files = files() %&amp;gt;%
+    GenomicDataCommons::filter(~   cases.samples.sample_type==&amp;#39;Primary Tumor&amp;#39; &amp;amp;
+               cases.project.project_id == &amp;#39;TCGA-BRCA&amp;#39; &amp;amp;
+               analysis.workflow_type == &amp;quot;HTSeq - Counts&amp;quot;) %&amp;gt;%
+    expand(c(&amp;#39;cases&amp;#39;,&amp;#39;cases.samples&amp;#39;)) %&amp;gt;%
+    results_all() %&amp;gt;%
+    as_tibble()&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Now, we have two data frames describing the normal- and tumor-derived TCGA-BRCA gene expression files. Note that I asked the GDC to provide &lt;code&gt;cases.case_id&lt;/code&gt; as part of the record using &lt;code&gt;select()&lt;/code&gt;. By looking for the intersection of cases between these two sets of files, we can find cases that contain files derived from both tumor and normal tissue.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;nl_cases = bind_rows(nl_ge_files$cases, .id=&amp;#39;file_id&amp;#39;)
+tm_cases = bind_rows(tm_ge_files$cases, .id=&amp;#39;file_id&amp;#39;)
+matchedcases = intersect(nl_cases$case_id,
+                         tm_cases$case_id)
+# how many matched cases?
+length(matchedcases)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] 112&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;We can now create a &lt;code&gt;data.frame&lt;/code&gt; that contains file information for only the matched samples. Note
+that the names of the matched cases are the file ids.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;matched_nl_files = nl_cases[nl_cases$case_id %in% matchedcases, &amp;#39;file_id&amp;#39;]
+matched_tm_files = tm_cases[tm_cases$case_id %in% matchedcases, &amp;#39;file_id&amp;#39;]
+
+matched_tn_ge_file_info = rbind(subset(nl_ge_files,file_id %in% matched_nl_files),
+                                subset(tm_ge_files,file_id %in% matched_tm_files))
+head(matched_tn_ge_file_info)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## # A tibble: 6 x 17
+##   data_type updated_datetime file_name submitter_id file_id file_size cases
+##   &amp;lt;chr&amp;gt;     &amp;lt;chr&amp;gt;            &amp;lt;chr&amp;gt;     &amp;lt;chr&amp;gt;        &amp;lt;chr&amp;gt;       &amp;lt;int&amp;gt; &amp;lt;lis&amp;gt;
+## 1 Gene Exp… 2018-09-08T01:0… 6598740f… 6598740f-64… 7d62fa…    261441 &amp;lt;dat…
+## 2 Gene Exp… 2018-09-08T01:0… d7047346… d7047346-49… ec3848…    258388 &amp;lt;dat…
+## 3 Gene Exp… 2018-09-08T01:0… e84e835c… e84e835c-ce… af091e…    252106 &amp;lt;dat…
+## 4 Gene Exp… 2018-09-08T01:0… 2c6a02ee… 2c6a02ee-c8… eed6ce…    258278 &amp;lt;dat…
+## 5 Gene Exp… 2018-09-08T01:0… 73bcbb60… 73bcbb60-38… bde7dd…    253859 &amp;lt;dat…
+## 6 Gene Exp… 2018-09-08T01:0… f1afa28b… f1afa28b-fa… 61da65…    259028 &amp;lt;dat…
+## # ... with 10 more variables: id &amp;lt;chr&amp;gt;, created_datetime &amp;lt;chr&amp;gt;,
+## #   md5sum &amp;lt;chr&amp;gt;, data_format &amp;lt;chr&amp;gt;, acl &amp;lt;list&amp;gt;, access &amp;lt;chr&amp;gt;,
+## #   state &amp;lt;chr&amp;gt;, data_category &amp;lt;chr&amp;gt;, type &amp;lt;chr&amp;gt;,
+## #   experimental_strategy &amp;lt;chr&amp;gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Since the gene expression data are not that big, we can use the GDC API to download the data files directly. The GenomicDataCommons uses a cache for files, so the first time the code
+below is run, data will be downloaded. After that, if the cache is in place, the cached
+files will be used.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;fnames = lapply(as.character(matched_tn_ge_file_info$file_id),
+                  function(file_id) {
+                      gdcdata(file_id, progress = FALSE)
+                  })&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Now, &lt;code&gt;fnames&lt;/code&gt; should be a list of file names that can be read into and processed with R.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;sessionInfo()&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## R version 3.5.1 (2018-07-02)
+## Platform: x86_64-apple-darwin15.6.0 (64-bit)
+## Running under: macOS Sierra 10.12.6
+## 
+## Matrix products: default
+## BLAS: /Library/Frameworks/R.framework/Versions/3.5/Resources/lib/libRblas.0.dylib
+## LAPACK: /Library/Frameworks/R.framework/Versions/3.5/Resources/lib/libRlapack.dylib
+## 
+## locale:
+## [1] en_US.UTF-8/en_US.UTF-8/en_US.UTF-8/C/en_US.UTF-8/en_US.UTF-8
+## 
+## attached base packages:
+## [1] stats     graphics  grDevices utils     datasets  methods   base     
+## 
+## other attached packages:
+## [1] dplyr_0.7.7              GenomicDataCommons_1.4.3
+## [3] magrittr_1.5            
+## 
+## loaded via a namespace (and not attached):
+##  [1] SummarizedExperiment_1.10.1 tidyselect_0.2.5           
+##  [3] xfun_0.3                    purrr_0.2.5                
+##  [5] lattice_0.20-35             htmltools_0.3.6            
+##  [7] stats4_3.5.1                yaml_2.2.0                 
+##  [9] utf8_1.1.4                  rlang_0.3.0.1              
+## [11] pillar_1.3.0                glue_1.3.0                 
+## [13] BiocParallel_1.14.2         rappdirs_0.3.1             
+## [15] BiocGenerics_0.26.0         bindrcpp_0.2.2             
+## [17] matrixStats_0.54.0          GenomeInfoDbData_1.1.0     
+## [19] bindr_0.1.1                 stringr_1.3.1              
+## [21] zlibbioc_1.26.0             blogdown_0.8               
+## [23] evaluate_0.12               Biobase_2.40.0             
+## [25] knitr_1.20                  IRanges_2.14.12            
+## [27] GenomeInfoDb_1.16.0         parallel_3.5.1             
+## [29] curl_3.2                    fansi_0.4.0                
+## [31] Rcpp_0.12.19                readr_1.1.1                
+## [33] backports_1.1.2             DelayedArray_0.6.6         
+## [35] S4Vectors_0.18.3            jsonlite_1.5               
+## [37] XVector_0.20.0              hms_0.4.2                  
+## [39] digest_0.6.18               stringi_1.2.4              
+## [41] bookdown_0.7                GenomicRanges_1.32.7       
+## [43] grid_3.5.1                  rprojroot_1.3-2            
+## [45] cli_1.0.1                   tools_3.5.1                
+## [47] bitops_1.0-6                RCurl_1.95-4.11            
+## [49] lazyeval_0.2.1              tibble_1.4.2               
+## [51] crayon_1.3.4                pkgconfig_2.0.2            
+## [53] Matrix_1.2-14               xml2_1.2.0                 
+## [55] assertthat_0.2.0            rmarkdown_1.10             
+## [57] httr_1.3.1                  R6_2.3.0                   
+## [59] compiler_3.5.1&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

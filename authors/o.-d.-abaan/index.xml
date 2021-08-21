@@ -2,45 +2,77 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>O. D. Abaan | seandavi(s12)</title>
-    <link>/authors/o.-d.-abaan/</link>
-      <atom:link href="/authors/o.-d.-abaan/index.xml" rel="self" type="application/rss+xml" />
+    <link>https://seandavi.github.io/authors/o.-d.-abaan/</link>
+      <atom:link href="https://seandavi.github.io/authors/o.-d.-abaan/index.xml" rel="self" type="application/rss+xml" />
     <description>O. D. Abaan</description>
-    <generator>Wowchemy (https://wowchemy.com)</generator><language>en-us</language><lastBuildDate>Wed, 01 Jan 2014 00:00:00 +0000</lastBuildDate>
+    <generator>Wowchemy (https://wowchemy.com)</generator><language>en-us</language><copyright>© 2016-2020</copyright><lastBuildDate>Wed, 01 Jan 2014 00:00:00 +0000</lastBuildDate>
     <image>
-      <url>/images/icon_hu0b7a4cb9992c9ac0e91bd28ffd38dd00_9727_512x512_fill_lanczos_center_2.png</url>
+      <url>https://seandavi.github.io/images/icon_hu0b7a4cb9992c9ac0e91bd28ffd38dd00_9727_512x512_fill_lanczos_center_3.png</url>
       <title>O. D. Abaan</title>
-      <link>/authors/o.-d.-abaan/</link>
+      <link>https://seandavi.github.io/authors/o.-d.-abaan/</link>
     </image>
     
     <item>
       <title>High prevalence of MAP2K1 mutations in variant and IGHV4-34-expressing hairy-cell leukemias</title>
-      <link>/publication/pmid-24241536/</link>
+      <link>https://seandavi.github.io/publication/pmid-24241536/</link>
       <pubDate>Wed, 01 Jan 2014 00:00:00 +0000</pubDate>
-      <guid>/publication/pmid-24241536/</guid>
+      <guid>https://seandavi.github.io/publication/pmid-24241536/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>High prevalence of MAP2K1 mutations in variant and IGHV4-34-expressing hairy-cell leukemias</title>
+      <link>https://seandavi.github.io/publication2/pmid-24241536/</link>
+      <pubDate>Wed, 01 Jan 2014 00:00:00 +0000</pubDate>
+      <guid>https://seandavi.github.io/publication2/pmid-24241536/</guid>
       <description></description>
     </item>
     
     <item>
       <title>NCI-60 whole exome sequencing and pharmacological CellMiner analyses</title>
-      <link>/publication/pmid-25032700/</link>
+      <link>https://seandavi.github.io/publication/pmid-25032700/</link>
       <pubDate>Wed, 01 Jan 2014 00:00:00 +0000</pubDate>
-      <guid>/publication/pmid-25032700/</guid>
+      <guid>https://seandavi.github.io/publication/pmid-25032700/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>NCI-60 whole exome sequencing and pharmacological CellMiner analyses</title>
+      <link>https://seandavi.github.io/publication2/pmid-25032700/</link>
+      <pubDate>Wed, 01 Jan 2014 00:00:00 +0000</pubDate>
+      <guid>https://seandavi.github.io/publication2/pmid-25032700/</guid>
       <description></description>
     </item>
     
     <item>
       <title>The exomes of the NCI-60 panel: a genomic resource for cancer biology and systems pharmacology</title>
-      <link>/publication/pmid-23856246/</link>
+      <link>https://seandavi.github.io/publication/pmid-23856246/</link>
       <pubDate>Mon, 01 Jul 2013 00:00:00 +0000</pubDate>
-      <guid>/publication/pmid-23856246/</guid>
+      <guid>https://seandavi.github.io/publication/pmid-23856246/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>The exomes of the NCI-60 panel: a genomic resource for cancer biology and systems pharmacology</title>
+      <link>https://seandavi.github.io/publication2/pmid-23856246/</link>
+      <pubDate>Mon, 01 Jul 2013 00:00:00 +0000</pubDate>
+      <guid>https://seandavi.github.io/publication2/pmid-23856246/</guid>
       <description></description>
     </item>
     
     <item>
       <title>CHEK2 genomic and proteomic analyses reveal genetic inactivation or endogenous activation across the 60 cell lines of the US National Cancer Institute</title>
-      <link>/publication/pmid-21765476/</link>
+      <link>https://seandavi.github.io/publication/pmid-21765476/</link>
       <pubDate>Sun, 01 Jan 2012 00:00:00 +0000</pubDate>
-      <guid>/publication/pmid-21765476/</guid>
+      <guid>https://seandavi.github.io/publication/pmid-21765476/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>CHEK2 genomic and proteomic analyses reveal genetic inactivation or endogenous activation across the 60 cell lines of the US National Cancer Institute</title>
+      <link>https://seandavi.github.io/publication2/pmid-21765476/</link>
+      <pubDate>Sun, 01 Jan 2012 00:00:00 +0000</pubDate>
+      <guid>https://seandavi.github.io/publication2/pmid-21765476/</guid>
       <description></description>
     </item>
     

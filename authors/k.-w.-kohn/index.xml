@@ -2,21 +2,29 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>K. W. Kohn | seandavi(s12)</title>
-    <link>/authors/k.-w.-kohn/</link>
-      <atom:link href="/authors/k.-w.-kohn/index.xml" rel="self" type="application/rss+xml" />
+    <link>https://seandavi.github.io/authors/k.-w.-kohn/</link>
+      <atom:link href="https://seandavi.github.io/authors/k.-w.-kohn/index.xml" rel="self" type="application/rss+xml" />
     <description>K. W. Kohn</description>
-    <generator>Wowchemy (https://wowchemy.com)</generator><language>en-us</language><lastBuildDate>Wed, 01 Jan 2014 00:00:00 +0000</lastBuildDate>
+    <generator>Wowchemy (https://wowchemy.com)</generator><language>en-us</language><copyright>© 2016-2020</copyright><lastBuildDate>Wed, 01 Jan 2014 00:00:00 +0000</lastBuildDate>
     <image>
-      <url>/images/icon_hu0b7a4cb9992c9ac0e91bd28ffd38dd00_9727_512x512_fill_lanczos_center_2.png</url>
+      <url>https://seandavi.github.io/images/icon_hu0b7a4cb9992c9ac0e91bd28ffd38dd00_9727_512x512_fill_lanczos_center_3.png</url>
       <title>K. W. Kohn</title>
-      <link>/authors/k.-w.-kohn/</link>
+      <link>https://seandavi.github.io/authors/k.-w.-kohn/</link>
     </image>
     
     <item>
       <title>NCI-60 whole exome sequencing and pharmacological CellMiner analyses</title>
-      <link>/publication/pmid-25032700/</link>
+      <link>https://seandavi.github.io/publication/pmid-25032700/</link>
       <pubDate>Wed, 01 Jan 2014 00:00:00 +0000</pubDate>
-      <guid>/publication/pmid-25032700/</guid>
+      <guid>https://seandavi.github.io/publication/pmid-25032700/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>NCI-60 whole exome sequencing and pharmacological CellMiner analyses</title>
+      <link>https://seandavi.github.io/publication2/pmid-25032700/</link>
+      <pubDate>Wed, 01 Jan 2014 00:00:00 +0000</pubDate>
+      <guid>https://seandavi.github.io/publication2/pmid-25032700/</guid>
       <description></description>
     </item>
     

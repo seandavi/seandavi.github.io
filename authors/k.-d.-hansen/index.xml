@@ -2,37 +2,61 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>K. D. Hansen | seandavi(s12)</title>
-    <link>/authors/k.-d.-hansen/</link>
-      <atom:link href="/authors/k.-d.-hansen/index.xml" rel="self" type="application/rss+xml" />
+    <link>https://seandavi.github.io/authors/k.-d.-hansen/</link>
+      <atom:link href="https://seandavi.github.io/authors/k.-d.-hansen/index.xml" rel="self" type="application/rss+xml" />
     <description>K. D. Hansen</description>
-    <generator>Wowchemy (https://wowchemy.com)</generator><language>en-us</language><lastBuildDate>Fri, 01 Jul 2016 00:00:00 +0000</lastBuildDate>
+    <generator>Wowchemy (https://wowchemy.com)</generator><language>en-us</language><copyright>© 2016-2020</copyright><lastBuildDate>Fri, 01 Jul 2016 00:00:00 +0000</lastBuildDate>
     <image>
-      <url>/images/icon_hu0b7a4cb9992c9ac0e91bd28ffd38dd00_9727_512x512_fill_lanczos_center_2.png</url>
+      <url>https://seandavi.github.io/images/icon_hu0b7a4cb9992c9ac0e91bd28ffd38dd00_9727_512x512_fill_lanczos_center_3.png</url>
       <title>K. D. Hansen</title>
-      <link>/authors/k.-d.-hansen/</link>
+      <link>https://seandavi.github.io/authors/k.-d.-hansen/</link>
     </image>
     
     <item>
       <title>Public data and open source tools for multi-assay genomic investigation of disease</title>
-      <link>/publication/pmid-26463000/</link>
+      <link>https://seandavi.github.io/publication/pmid-26463000/</link>
       <pubDate>Fri, 01 Jul 2016 00:00:00 +0000</pubDate>
-      <guid>/publication/pmid-26463000/</guid>
+      <guid>https://seandavi.github.io/publication/pmid-26463000/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Public data and open source tools for multi-assay genomic investigation of disease</title>
+      <link>https://seandavi.github.io/publication2/pmid-26463000/</link>
+      <pubDate>Fri, 01 Jul 2016 00:00:00 +0000</pubDate>
+      <guid>https://seandavi.github.io/publication2/pmid-26463000/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Orchestrating high-throughput genomic analysis with Bioconductor</title>
-      <link>/publication/pmid-25633503/</link>
+      <link>https://seandavi.github.io/publication/pmid-25633503/</link>
       <pubDate>Sun, 01 Feb 2015 00:00:00 +0000</pubDate>
-      <guid>/publication/pmid-25633503/</guid>
+      <guid>https://seandavi.github.io/publication/pmid-25633503/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Orchestrating high-throughput genomic analysis with Bioconductor</title>
+      <link>https://seandavi.github.io/publication2/pmid-25633503/</link>
+      <pubDate>Sun, 01 Feb 2015 00:00:00 +0000</pubDate>
+      <guid>https://seandavi.github.io/publication2/pmid-25633503/</guid>
       <description></description>
     </item>
     
     <item>
       <title>The Bioconductor channel in F1000Research</title>
-      <link>/publication/pmid-26998224/</link>
+      <link>https://seandavi.github.io/publication/pmid-26998224/</link>
       <pubDate>Thu, 01 Jan 2015 00:00:00 +0000</pubDate>
-      <guid>/publication/pmid-26998224/</guid>
+      <guid>https://seandavi.github.io/publication/pmid-26998224/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>The Bioconductor channel in F1000Research</title>
+      <link>https://seandavi.github.io/publication2/pmid-26998224/</link>
+      <pubDate>Thu, 01 Jan 2015 00:00:00 +0000</pubDate>
+      <guid>https://seandavi.github.io/publication2/pmid-26998224/</guid>
       <description></description>
     </item>
     

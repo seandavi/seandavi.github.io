@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Notes | seandavi(s12)</title>
-    <link>/docs/</link>
-      <atom:link href="/docs/index.xml" rel="self" type="application/rss+xml" />
+    <link>https://seandavi.github.io/docs/</link>
+      <atom:link href="https://seandavi.github.io/docs/index.xml" rel="self" type="application/rss+xml" />
     <description>Notes</description>
-    <generator>Wowchemy (https://wowchemy.com)</generator><language>en-us</language><lastBuildDate>Sat, 05 Oct 2019 12:29:22 -0400</lastBuildDate>
+    <generator>Wowchemy (https://wowchemy.com)</generator><language>en-us</language><copyright>© 2016-2020</copyright>
     <image>
-      <url>/images/icon_hu0b7a4cb9992c9ac0e91bd28ffd38dd00_9727_512x512_fill_lanczos_center_2.png</url>
+      <url>https://seandavi.github.io/images/icon_hu0b7a4cb9992c9ac0e91bd28ffd38dd00_9727_512x512_fill_lanczos_center_3.png</url>
       <title>Notes</title>
-      <link>/docs/</link>
+      <link>https://seandavi.github.io/docs/</link>
     </image>
     
     <item>
       <title>Emacs Notes</title>
-      <link>/docs/emacs-notes/</link>
+      <link>https://seandavi.github.io/docs/emacs-notes/</link>
       <pubDate>Sat, 05 Oct 2019 12:29:22 -0400</pubDate>
-      <guid>/docs/emacs-notes/</guid>
+      <guid>https://seandavi.github.io/docs/emacs-notes/</guid>
       <description>&lt;h1 id=&#34;projectile&#34;&gt;Projectile&lt;/h1&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;code&gt;C-c p ?&lt;/code&gt; : show keybindings&lt;/li&gt;
@@ -47,33 +47,24 @@
     
     <item>
       <title>REST and Graphql</title>
-      <link>/docs/rest-and-graphql/</link>
+      <link>https://seandavi.github.io/docs/rest-and-graphql/</link>
       <pubDate>Fri, 04 Oct 2019 18:36:43 -0400</pubDate>
-      <guid>/docs/rest-and-graphql/</guid>
+      <guid>https://seandavi.github.io/docs/rest-and-graphql/</guid>
       <description>&lt;h1 id=&#34;graphql&#34;&gt;GraphQL&lt;/h1&gt;
 &lt;h2 id=&#34;introspection-queries&#34;&gt;Introspection queries&lt;/h2&gt;
 &lt;ul&gt;
 &lt;li&gt;Get all possible root-level queries:&lt;/li&gt;
 &lt;/ul&gt;
-&lt;pre&gt;&lt;code&gt;query {
-  __schema {
-    queryType {
-      fields {
-        name
-      }
-    }
-  }
-}
-&lt;/code&gt;
-&lt;/pre&gt;
+&lt;!-- raw HTML omitted --&gt;
+&lt;!-- raw HTML omitted --&gt;
 </description>
     </item>
     
     <item>
       <title>Container Notes</title>
-      <link>/docs/container-notes/</link>
+      <link>https://seandavi.github.io/docs/container-notes/</link>
       <pubDate>Fri, 04 Oct 2019 17:04:04 -0400</pubDate>
-      <guid>/docs/container-notes/</guid>
+      <guid>https://seandavi.github.io/docs/container-notes/</guid>
       <description></description>
     </item>
     

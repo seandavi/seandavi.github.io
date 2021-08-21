@@ -2,21 +2,29 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>P. Brown | seandavi(s12)</title>
-    <link>/authors/p.-brown/</link>
-      <atom:link href="/authors/p.-brown/index.xml" rel="self" type="application/rss+xml" />
+    <link>https://seandavi.github.io/authors/p.-brown/</link>
+      <atom:link href="https://seandavi.github.io/authors/p.-brown/index.xml" rel="self" type="application/rss+xml" />
     <description>P. Brown</description>
-    <generator>Wowchemy (https://wowchemy.com)</generator><language>en-us</language><lastBuildDate>Mon, 01 Nov 2010 00:00:00 +0000</lastBuildDate>
+    <generator>Wowchemy (https://wowchemy.com)</generator><language>en-us</language><copyright>© 2016-2020</copyright><lastBuildDate>Mon, 01 Nov 2010 00:00:00 +0000</lastBuildDate>
     <image>
-      <url>/images/icon_hu0b7a4cb9992c9ac0e91bd28ffd38dd00_9727_512x512_fill_lanczos_center_2.png</url>
+      <url>https://seandavi.github.io/images/icon_hu0b7a4cb9992c9ac0e91bd28ffd38dd00_9727_512x512_fill_lanczos_center_3.png</url>
       <title>P. Brown</title>
-      <link>/authors/p.-brown/</link>
+      <link>https://seandavi.github.io/authors/p.-brown/</link>
     </image>
     
     <item>
       <title>High frequencies of leukemia stem cells in poor-outcome childhood precursor-B acute lymphoblastic leukemias</title>
-      <link>/publication/pmid-20739953/</link>
+      <link>https://seandavi.github.io/publication/pmid-20739953/</link>
       <pubDate>Mon, 01 Nov 2010 00:00:00 +0000</pubDate>
-      <guid>/publication/pmid-20739953/</guid>
+      <guid>https://seandavi.github.io/publication/pmid-20739953/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>High frequencies of leukemia stem cells in poor-outcome childhood precursor-B acute lymphoblastic leukemias</title>
+      <link>https://seandavi.github.io/publication2/pmid-20739953/</link>
+      <pubDate>Mon, 01 Nov 2010 00:00:00 +0000</pubDate>
+      <guid>https://seandavi.github.io/publication2/pmid-20739953/</guid>
       <description></description>
     </item>
     

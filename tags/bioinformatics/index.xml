@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>bioinformatics | seandavi(s12)</title>
+    <link>https://seandavi.github.io/tags/bioinformatics/</link>
+      <atom:link href="https://seandavi.github.io/tags/bioinformatics/index.xml" rel="self" type="application/rss+xml" />
+    <description>bioinformatics</description>
+    <generator>Wowchemy (https://wowchemy.com)</generator><language>en-us</language><copyright>© 2016-2020</copyright><lastBuildDate>Mon, 08 Jul 2019 00:00:00 +0000</lastBuildDate>
+    <image>
+      <url>https://seandavi.github.io/images/icon_hu0b7a4cb9992c9ac0e91bd28ffd38dd00_9727_512x512_fill_lanczos_center_3.png</url>
+      <title>bioinformatics</title>
+      <link>https://seandavi.github.io/tags/bioinformatics/</link>
+    </image>
+    
+    <item>
+      <title>ATAC-Seq workshop</title>
+      <link>https://seandavi.github.io/talk/2019-07-07-atac-seq-workshop-cshl/</link>
+      <pubDate>Mon, 08 Jul 2019 00:00:00 +0000</pubDate>
+      <guid>https://seandavi.github.io/talk/2019-07-07-atac-seq-workshop-cshl/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Statistical Methods in Functional Genomics</title>
+      <link>https://seandavi.github.io/talk/2019-07-01-cshl-fungeno-2019/</link>
+      <pubDate>Mon, 01 Jul 2019 00:00:00 +0000</pubDate>
+      <guid>https://seandavi.github.io/talk/2019-07-01-cshl-fungeno-2019/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Orchestrating a community-developed computational workshop and accompanying training materials</title>
+      <link>https://seandavi.github.io/publication/davis-2018-jw/</link>
+      <pubDate>Mon, 01 Oct 2018 00:00:00 +0000</pubDate>
+      <guid>https://seandavi.github.io/publication/davis-2018-jw/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Orchestrating a community-developed computational workshop and accompanying training materials</title>
+      <link>https://seandavi.github.io/publication2/davis-2018-jw/</link>
+      <pubDate>Mon, 01 Oct 2018 00:00:00 +0000</pubDate>
+      <guid>https://seandavi.github.io/publication2/davis-2018-jw/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>GenomicDataCommons Example: UUID to TCGA and TARGET Barcode Translation</title>
+      <link>https://seandavi.github.io/post/2017-12-29-genomicdatacommons-id-mapping/</link>
+      <pubDate>Fri, 29 Dec 2017 00:00:00 +0000</pubDate>
+      <guid>https://seandavi.github.io/post/2017-12-29-genomicdatacommons-id-mapping/</guid>
+      <description>
+
+
+&lt;p&gt;One of the features of the NCI Genomic Data Commons is that
+&lt;em&gt;everything&lt;/em&gt; has a unique identifier in the form of a &lt;a href=&#34;https://en.wikipedia.org/wiki/Universally_unique_identifier&#34;&gt;UUID&lt;/a&gt;. However,
+because &lt;em&gt;many&lt;/em&gt; legacy projects and much of the literature do not use
+UUIDs but instead use &lt;a href=&#34;https://wiki.nci.nih.gov/display/TCGA/TCGA+barcode&#34;&gt;TCGA sample barcodes&lt;/a&gt;, one simple use case for the
+GenomicDataCommons package is to map from the UUID for a file or a set
+of files back to the associated TCGA barcode(s).&lt;/p&gt;
+&lt;p&gt;Given a set of file ids (which I simulate here by fetching some from
+the GDC API), I build a small function that maps those file UUIDs back
+to the associated TCGA barcodes. Because the GDC also contains data
+from TARGET as well as Foundation Medicine, the same code will return
+associated legacy identifiers for those types of samples as well.&lt;/p&gt;
+&lt;p&gt;Get started by loading the &lt;a href=&#34;https://bioconductor.org/packages/GenomicDataCommons&#34;&gt;GenomicDataCommons&lt;/a&gt; library:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;library(GenomicDataCommons)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Fetch some file IDs:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;file_uuids = files() %&amp;gt;% results(size=15) %&amp;gt;% ids()
+head(file_uuids)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] &amp;quot;d86ea2f8-93bb-42f3-a195-1914a4839bb4&amp;quot;
+## [2] &amp;quot;79e05e92-e616-4690-b507-3ffc531e9e79&amp;quot;
+## [3] &amp;quot;a39afa84-fbfb-4f0f-8176-5975f589fc83&amp;quot;
+## [4] &amp;quot;8fa12ac8-68c8-454f-95f0-11dcf996c06c&amp;quot;
+## [5] &amp;quot;7248e30c-367a-401f-a52a-315b7add965d&amp;quot;
+## [6] &amp;quot;ee877659-00fa-4e88-8293-16317bd337b4&amp;quot;&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;The TCGA barcodes are nested in the file records, but we can access
+them in the &lt;code&gt;cases.samples.submitter_id&lt;/code&gt;. The
+&lt;code&gt;available_fields&lt;/code&gt; and &lt;code&gt;available_values&lt;/code&gt; functions are useful
+GenomicDataCommons package functions for examining available fields
+and their associated values to find information of interest. Another
+common approach is to fetch all available fields and then examine the
+results using &lt;code&gt;str&lt;/code&gt;.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;fres = files() %&amp;gt;%
+    select(available_fields(&amp;#39;files&amp;#39;)) %&amp;gt;%
+    results()
+str(fres)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;In the code below, I simply start with a &lt;code&gt;files()&lt;/code&gt; query against the
+GenomicDataCommons API, filter to include only those files that match
+the supplied &lt;code&gt;file_ids&lt;/code&gt;, and then gather the
+&lt;code&gt;cases.samples.submitter_id&lt;/code&gt; and file UUIDs into a data frame. The
+most complicated (and fragile, since it will break if the GDC changes
+its data model) iw the lapply statement that accesses the barcodes in
+the nested results returned.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;library(GenomicDataCommons)
+library(magrittr)
+
+TCGAtranslateID = function(file_ids, legacy = FALSE) {
+    info = files(legacy = legacy) %&amp;gt;%
+        filter( ~ file_id %in% file_ids) %&amp;gt;%
+        select(&amp;#39;cases.samples.submitter_id&amp;#39;) %&amp;gt;%
+        results_all()
+    # The mess of code below is to extract TCGA barcodes
+    # id_list will contain a list (one item for each file_id)
+    # of TCGA barcodes of the form &amp;#39;TCGA-XX-YYYY-ZZZ&amp;#39;
+    id_list = lapply(info$cases,function(a) {
+        a[[1]][[1]][[1]]})
+    # so we can later expand to a data.frame of the right size
+    barcodes_per_file = sapply(id_list,length)
+    # And build the data.frame
+    return(data.frame(file_id = rep(ids(info),barcodes_per_file),
+                      submitter_id = unlist(id_list)))
+    }&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Now, we can translate our example &lt;code&gt;file_uuids&lt;/code&gt;:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;res = TCGAtranslateID(file_uuids)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;head(res)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;##                                file_id   submitter_id
+## 1 d86ea2f8-93bb-42f3-a195-1914a4839bb4 AD16567_sample
+## 2 79e05e92-e616-4690-b507-3ffc531e9e79 AD10500_sample
+## 3 a39afa84-fbfb-4f0f-8176-5975f589fc83  AD6758_sample
+## 4 8fa12ac8-68c8-454f-95f0-11dcf996c06c AD14707_sample
+## 5 7248e30c-367a-401f-a52a-315b7add965d  AD1751_sample
+## 6 ee877659-00fa-4e88-8293-16317bd337b4  AD4226_sample&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;This little function is a bit “niche”, but it does illustrate how one
+can leverage GenomicDataCommons package functionality to create useful
+higher-level functionality like ID mapping.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;EDIT [01-02-2018]: Added &lt;code&gt;legacy&lt;/code&gt; flag to function to allow mapping
+of legacy file UUIDs. See &lt;a href=&#34;http://disq.us/p/1ozinq7&#34;&gt;comment below&lt;/a&gt; for rationale.&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -2,29 +2,45 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Benjamin Haibe-Kains | seandavi(s12)</title>
-    <link>/authors/benjamin-haibe-kains/</link>
-      <atom:link href="/authors/benjamin-haibe-kains/index.xml" rel="self" type="application/rss+xml" />
+    <link>https://seandavi.github.io/authors/benjamin-haibe-kains/</link>
+      <atom:link href="https://seandavi.github.io/authors/benjamin-haibe-kains/index.xml" rel="self" type="application/rss+xml" />
     <description>Benjamin Haibe-Kains</description>
-    <generator>Wowchemy (https://wowchemy.com)</generator><language>en-us</language><lastBuildDate>Mon, 01 Oct 2018 00:00:00 +0000</lastBuildDate>
+    <generator>Wowchemy (https://wowchemy.com)</generator><language>en-us</language><copyright>© 2016-2020</copyright><lastBuildDate>Mon, 01 Oct 2018 00:00:00 +0000</lastBuildDate>
     <image>
-      <url>/images/icon_hu0b7a4cb9992c9ac0e91bd28ffd38dd00_9727_512x512_fill_lanczos_center_2.png</url>
+      <url>https://seandavi.github.io/images/icon_hu0b7a4cb9992c9ac0e91bd28ffd38dd00_9727_512x512_fill_lanczos_center_3.png</url>
       <title>Benjamin Haibe-Kains</title>
-      <link>/authors/benjamin-haibe-kains/</link>
+      <link>https://seandavi.github.io/authors/benjamin-haibe-kains/</link>
     </image>
     
     <item>
       <title>Orchestrating a community-developed computational workshop and accompanying training materials</title>
-      <link>/publication/davis-2018-jw/</link>
+      <link>https://seandavi.github.io/publication/davis-2018-jw/</link>
       <pubDate>Mon, 01 Oct 2018 00:00:00 +0000</pubDate>
-      <guid>/publication/davis-2018-jw/</guid>
+      <guid>https://seandavi.github.io/publication/davis-2018-jw/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Orchestrating a community-developed computational workshop and accompanying training materials</title>
+      <link>https://seandavi.github.io/publication2/davis-2018-jw/</link>
+      <pubDate>Mon, 01 Oct 2018 00:00:00 +0000</pubDate>
+      <guid>https://seandavi.github.io/publication2/davis-2018-jw/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Software For The Integration Of Multi-Omics Experiments In Bioconductor</title>
-      <link>/publication/sean-davis-33483497/</link>
+      <link>https://seandavi.github.io/publication/sean-davis-33483497/</link>
       <pubDate>Sun, 01 Jan 2017 00:00:00 +0000</pubDate>
-      <guid>/publication/sean-davis-33483497/</guid>
+      <guid>https://seandavi.github.io/publication/sean-davis-33483497/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Software For The Integration Of Multi-Omics Experiments In Bioconductor</title>
+      <link>https://seandavi.github.io/publication2/sean-davis-33483497/</link>
+      <pubDate>Sun, 01 Jan 2017 00:00:00 +0000</pubDate>
+      <guid>https://seandavi.github.io/publication2/sean-davis-33483497/</guid>
       <description></description>
     </item>
     

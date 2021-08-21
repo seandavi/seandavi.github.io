@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>R | seandavi(s12)</title>
+    <link>https://seandavi.github.io/categories/r/</link>
+      <atom:link href="https://seandavi.github.io/categories/r/index.xml" rel="self" type="application/rss+xml" />
+    <description>R</description>
+    <generator>Wowchemy (https://wowchemy.com)</generator><language>en-us</language><copyright>© 2016-2020</copyright><lastBuildDate>Mon, 14 Oct 2019 12:22:47 -0400</lastBuildDate>
+    <image>
+      <url>https://seandavi.github.io/images/icon_hu0b7a4cb9992c9ac0e91bd28ffd38dd00_9727_512x512_fill_lanczos_center_3.png</url>
+      <title>R</title>
+      <link>https://seandavi.github.io/categories/r/</link>
+    </image>
+    
+    <item>
+      <title>Building R Binary Packages for Linux</title>
+      <link>https://seandavi.github.io/post/build-linux-r-binary-packages/</link>
+      <pubDate>Mon, 14 Oct 2019 12:22:47 -0400</pubDate>
+      <guid>https://seandavi.github.io/post/build-linux-r-binary-packages/</guid>
+      <description>&lt;h2 id=&#34;background&#34;&gt;Background&lt;/h2&gt;
+&lt;p&gt;One of the challenges of producing a performant build environment for linux, such as what might
+be used to have developers test software in &lt;em&gt;identical&lt;/em&gt; environments, is the need to compile
+R packages from source on linux. If, however, one had an identical set of installed libraries, kernel
+version, compiler, etc., we could use binary packages in linux as well.&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://docker.io&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Docker&lt;/a&gt; provides just such a shareable and identical environment for linux. Recent work by
+Levi Waldron and Nitesh Turaga to produce the &lt;a href=&#34;https://hub.docker.com/r/bioconductor/bioconductor_full&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;bioconductor_full&lt;/a&gt; docker image will allow for
+nearly &lt;strong&gt;all&lt;/strong&gt; bioconductor packages to be installed, as the underlying system dependencies
+are all included.&lt;/p&gt;
+&lt;h2 id=&#34;docs-from-r-on-building-binaries&#34;&gt;Docs from R on building binaries&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;http://www.hep.by/gnu/r-patched/r-exts/R-exts_20.html&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;docs on building binary R packages&lt;/a&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;The recommended method of building binary packages is to use
+&lt;code&gt;R CMD INSTALL --build pkg&lt;/code&gt; where &lt;code&gt;pkg&lt;/code&gt; is either the name of a source tarball (in the usual &lt;code&gt;.tar.gz&lt;/code&gt; format) or the location of the directory of the package source to be built.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;code&gt;R CMD INSTALL --build&lt;/code&gt; operates by first installing the package and then packing the installed binaries into the appropriate binary package file for the particular platform.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;blockquote&gt;
+&lt;p&gt;By default, &lt;code&gt;R CMD INSTALL --build&lt;/code&gt; will attempt to install the package into the default library tree for the local installation of R. This has two implications:&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;blockquote&gt;
+&lt;p&gt;If the installation is successful, it will overwrite any existing installation of the same package. The default library tree must have write permission; if not, the package will not install and the binary will not be created. To prevent changes to the present working installation or to provide an install location with write access, create a suitably located directory with write access and use the -l option to build the package in the chosen location. The usage is then&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;pre&gt;&lt;code&gt;R CMD INSTALL -l location --build pkg
+&lt;/code&gt;&lt;/pre&gt;&lt;blockquote&gt;
+&lt;p&gt;where &lt;code&gt;location&lt;/code&gt; is the chosen directory with write access. The package will be installed as a subdirectory of &lt;code&gt;location&lt;/code&gt;, and the package binary will be created in the current directory.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&#34;walkthrough&#34;&gt;Walkthrough&lt;/h2&gt;
+&lt;p&gt;With that background in place, by starting a docker container from bioconductor_full, we can
+build binary packages that can be shared with others who are also running using bioconductor_full.&lt;/p&gt;
+&lt;p&gt;The next command assumes that docker is running.&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;docker run -v PATH_TO_LOCAL_STORAGE_DIRECTORY:/data \
+  --name bioc_full \
+  -e PASSWORD=&amp;lt;YOUR_PASSWORD_OF_CHOICE&amp;gt; \
+  -p 8787:8787 \
+  bioconductor/bioconductor_full:devel 
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;The &lt;code&gt;PATH_TO_LOCAL_STORAGE_DIRECTORY&lt;/code&gt; should be replaced with the local directlry
+where the binary packages will land as they are built inside the container. Packages can
+then be reused or copied somewhere else for installation as binaries.&lt;/p&gt;
+&lt;p&gt;After running the &lt;code&gt;docker run&lt;/code&gt; command above, you should be able to navigate to
+https://localhost:8787/ (or whatever your docker host address is). You will be presented
+with an Rstudio login. Login with username=&lt;code&gt;rstudio&lt;/code&gt; and
+password=&lt;code&gt;YOUR_PASSWORD_OF_CHOICE&lt;/code&gt; as set above.&lt;/p&gt;
+&lt;h2 id=&#34;install-and-build-binaries&#34;&gt;Install and build binaries&lt;/h2&gt;
+&lt;p&gt;Binary packages, after being installed and built, will be placed in the current working
+directory. I switch to the directory that is mapped back to the host so that I can
+keep the binary packages around after the container stops.&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-{r}&#34; data-lang=&#34;{r}&#34;&gt;setwd(&#39;/data&#39;) # to drop binary tarballs into this directory
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;After logging into Rstudio, execute the following command. Note the &lt;code&gt;INSTALL_opts&lt;/code&gt;.&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-{r}&#34; data-lang=&#34;{r}&#34;&gt;# Biocmanager will be installed already for bioconductor_full
+BiocManager::install(&#39;limma&#39;, INSTALL_opts=&#39;--build&#39;)
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;These installation options will copy the installed binary package(s) to &lt;code&gt;/data&lt;/code&gt;. These will end
+up on the docker host machine in the &lt;code&gt;PATH_TO_LOCAL_STORAGE_DIRECTORY&lt;/code&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-{r}&#34; data-lang=&#34;{r}&#34;&gt;Bioconductor version 3.10 (BiocManager 1.30.4), R 3.6.1 (2019-07-05)
+Installing package(s) &#39;limma&#39;
+trying URL &#39;https://bioconductor.org/packages/3.10/bioc/src/contrib/limma_3.41.18.tar.gz&#39;
+Content type &#39;application/x-gzip&#39; length 1493044 bytes (1.4 MB)
+==================================================
+downloaded 1.4 MB
+
+* installing *source* package ‘limma’ ...
+** using staged installation
+** libs
+gcc -I&amp;quot;/usr/local/lib/R/include&amp;quot; -DNDEBUG   -I/usr/local/include  -fpic  -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -Wdate-time -D_FORTIFY_SOURCE=2 -g  -c init.c -o init.o
+gcc -I&amp;quot;/usr/local/lib/R/include&amp;quot; -DNDEBUG   -I/usr/local/include  -fpic  -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -Wdate-time -D_FORTIFY_SOURCE=2 -g  -c normexp.c -o normexp.o
+gcc -I&amp;quot;/usr/local/lib/R/include&amp;quot; -DNDEBUG   -I/usr/local/include  -fpic  -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -Wdate-time -D_FORTIFY_SOURCE=2 -g  -c weighted_lowess.c -o weighted_lowess.o
+gcc -shared -L/usr/local/lib/R/lib -L/usr/local/lib -o limma.so init.o normexp.o weighted_lowess.o -L/usr/local/lib/R/lib -lR
+installing to /usr/local/lib/R/site-library/00LOCK-limma/00new/limma/libs
+** R
+** inst
+** byte-compile and prepare package for lazy loading
+** help
+*** installing help indices
+** building package indices
+** installing vignettes
+** testing if installed package can be loaded from temporary location
+** checking absolute paths in shared objects and dynamic libraries
+** testing if installed package can be loaded from final location
+** testing if installed package keeps a record of temporary installation path
+* creating tarball
+packaged installation of ‘limma’ as ‘limma_3.41.18_R_x86_64-pc-linux-gnu.tar.gz’
+* DONE (limma)
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Check what we created:&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-{r}&#34; data-lang=&#34;{r}&#34;&gt;dir(&#39;/data&#39;)
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Your version of limma may differ.&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-{r}&#34; data-lang=&#34;{r}&#34;&gt;[1] &amp;quot;limma_3.41.18_R_x86_64-pc-linux-gnu.tar.gz&amp;quot;
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;These binary packages can be installed just like any &lt;code&gt;.tar.gz&lt;/code&gt; package but will
+be intalled very quickly like on Mac OS and Windows.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Remember to kill the docker container after you are done&lt;/strong&gt;.&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

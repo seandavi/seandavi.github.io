@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>0 | seandavi(s12)</title>
+    <link>https://seandavi.github.io/publication_types/0/</link>
+      <atom:link href="https://seandavi.github.io/publication_types/0/index.xml" rel="self" type="application/rss+xml" />
+    <description>0</description>
+    <generator>Wowchemy (https://wowchemy.com)</generator><language>en-us</language><copyright>© 2016-2020</copyright><lastBuildDate>Sun, 01 Jan 2017 00:00:00 +0000</lastBuildDate>
+    <image>
+      <url>https://seandavi.github.io/images/icon_hu0b7a4cb9992c9ac0e91bd28ffd38dd00_9727_512x512_fill_lanczos_center_3.png</url>
+      <title>0</title>
+      <link>https://seandavi.github.io/publication_types/0/</link>
+    </image>
+    
+    <item>
+      <title>Comparison of somatic alterations in the genome and transcriptome of 1,705 pediatric leukemia and solid tumors: a report from the Children’s Oncology Group (COG)-NCI TARGET Project</title>
+      <link>https://seandavi.github.io/publication/ma-2017-comparison/</link>
+      <pubDate>Sun, 01 Jan 2017 00:00:00 +0000</pubDate>
+      <guid>https://seandavi.github.io/publication/ma-2017-comparison/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Comparison of somatic alterations in the genome and transcriptome of 1,705 pediatric leukemia and solid tumors: a report from the Children’s Oncology Group (COG)-NCI TARGET Project</title>
+      <link>https://seandavi.github.io/publication2/ma-2017-comparison/</link>
+      <pubDate>Sun, 01 Jan 2017 00:00:00 +0000</pubDate>
+      <guid>https://seandavi.github.io/publication2/ma-2017-comparison/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Software For The Integration Of Multi-Omics Experiments In Bioconductor</title>
+      <link>https://seandavi.github.io/publication/sean-davis-33483497/</link>
+      <pubDate>Sun, 01 Jan 2017 00:00:00 +0000</pubDate>
+      <guid>https://seandavi.github.io/publication/sean-davis-33483497/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Software For The Integration Of Multi-Omics Experiments In Bioconductor</title>
+      <link>https://seandavi.github.io/publication2/sean-davis-33483497/</link>
+      <pubDate>Sun, 01 Jan 2017 00:00:00 +0000</pubDate>
+      <guid>https://seandavi.github.io/publication2/sean-davis-33483497/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>

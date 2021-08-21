@@ -2,21 +2,29 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>N. Boisvert | seandavi(s12)</title>
-    <link>/authors/n.-boisvert/</link>
-      <atom:link href="/authors/n.-boisvert/index.xml" rel="self" type="application/rss+xml" />
+    <link>https://seandavi.github.io/authors/n.-boisvert/</link>
+      <atom:link href="https://seandavi.github.io/authors/n.-boisvert/index.xml" rel="self" type="application/rss+xml" />
     <description>N. Boisvert</description>
-    <generator>Wowchemy (https://wowchemy.com)</generator><language>en-us</language><lastBuildDate>Mon, 01 Nov 2010 00:00:00 +0000</lastBuildDate>
+    <generator>Wowchemy (https://wowchemy.com)</generator><language>en-us</language><copyright>© 2016-2020</copyright><lastBuildDate>Mon, 01 Nov 2010 00:00:00 +0000</lastBuildDate>
     <image>
-      <url>/images/icon_hu0b7a4cb9992c9ac0e91bd28ffd38dd00_9727_512x512_fill_lanczos_center_2.png</url>
+      <url>https://seandavi.github.io/images/icon_hu0b7a4cb9992c9ac0e91bd28ffd38dd00_9727_512x512_fill_lanczos_center_3.png</url>
       <title>N. Boisvert</title>
-      <link>/authors/n.-boisvert/</link>
+      <link>https://seandavi.github.io/authors/n.-boisvert/</link>
     </image>
     
     <item>
       <title>Archival fine-needle aspiration cytopathology (FNAC) samples: untapped resource for clinical molecular profiling</title>
-      <link>/publication/pmid-20959611/</link>
+      <link>https://seandavi.github.io/publication/pmid-20959611/</link>
       <pubDate>Mon, 01 Nov 2010 00:00:00 +0000</pubDate>
-      <guid>/publication/pmid-20959611/</guid>
+      <guid>https://seandavi.github.io/publication/pmid-20959611/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Archival fine-needle aspiration cytopathology (FNAC) samples: untapped resource for clinical molecular profiling</title>
+      <link>https://seandavi.github.io/publication2/pmid-20959611/</link>
+      <pubDate>Mon, 01 Nov 2010 00:00:00 +0000</pubDate>
+      <guid>https://seandavi.github.io/publication2/pmid-20959611/</guid>
       <description></description>
     </item>
     

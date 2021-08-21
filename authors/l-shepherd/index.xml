@@ -2,21 +2,29 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>L Shepherd | seandavi(s12)</title>
-    <link>/authors/l-shepherd/</link>
-      <atom:link href="/authors/l-shepherd/index.xml" rel="self" type="application/rss+xml" />
+    <link>https://seandavi.github.io/authors/l-shepherd/</link>
+      <atom:link href="https://seandavi.github.io/authors/l-shepherd/index.xml" rel="self" type="application/rss+xml" />
     <description>L Shepherd</description>
-    <generator>Wowchemy (https://wowchemy.com)</generator><language>en-us</language><lastBuildDate>Tue, 01 Jan 2019 00:00:00 +0000</lastBuildDate>
+    <generator>Wowchemy (https://wowchemy.com)</generator><language>en-us</language><copyright>© 2016-2020</copyright><lastBuildDate>Tue, 01 Jan 2019 00:00:00 +0000</lastBuildDate>
     <image>
-      <url>/images/icon_hu0b7a4cb9992c9ac0e91bd28ffd38dd00_9727_512x512_fill_lanczos_center_2.png</url>
+      <url>https://seandavi.github.io/images/icon_hu0b7a4cb9992c9ac0e91bd28ffd38dd00_9727_512x512_fill_lanczos_center_3.png</url>
       <title>L Shepherd</title>
-      <link>/authors/l-shepherd/</link>
+      <link>https://seandavi.github.io/authors/l-shepherd/</link>
     </image>
     
     <item>
-      <title>BiocPkgTools: Toolkit for mining the Bioconductor package ecosystem [version 1; peer review: 2 approved, 1 approved with reservations]</title>
-      <link>/publication/10-12688-f-1000-research-19410-1/</link>
+      <title>BiocPkgTools: Toolkit for mining the Bioconductor package ecosystem</title>
+      <link>https://seandavi.github.io/publication/10-12688-f-1000-research-19410-1/</link>
       <pubDate>Tue, 01 Jan 2019 00:00:00 +0000</pubDate>
-      <guid>/publication/10-12688-f-1000-research-19410-1/</guid>
+      <guid>https://seandavi.github.io/publication/10-12688-f-1000-research-19410-1/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>BiocPkgTools: Toolkit for mining the Bioconductor package ecosystem</title>
+      <link>https://seandavi.github.io/publication2/10-12688-f-1000-research-19410-1/</link>
+      <pubDate>Tue, 01 Jan 2019 00:00:00 +0000</pubDate>
+      <guid>https://seandavi.github.io/publication2/10-12688-f-1000-research-19410-1/</guid>
       <description></description>
     </item>
     

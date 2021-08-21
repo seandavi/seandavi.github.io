@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Projects | seandavi(s12)</title>
-    <link>/project/</link>
-      <atom:link href="/project/index.xml" rel="self" type="application/rss+xml" />
+    <link>https://seandavi.github.io/project/</link>
+      <atom:link href="https://seandavi.github.io/project/index.xml" rel="self" type="application/rss+xml" />
     <description>Projects</description>
-    <generator>Wowchemy (https://wowchemy.com)</generator><language>en-us</language><lastBuildDate>Wed, 11 Mar 2020 00:00:00 +0000</lastBuildDate>
+    <generator>Wowchemy (https://wowchemy.com)</generator><language>en-us</language><copyright>© 2016-2020</copyright><lastBuildDate>Wed, 11 Mar 2020 00:00:00 +0000</lastBuildDate>
     <image>
-      <url>/images/icon_hu0b7a4cb9992c9ac0e91bd28ffd38dd00_9727_512x512_fill_lanczos_center_2.png</url>
+      <url>https://seandavi.github.io/images/icon_hu0b7a4cb9992c9ac0e91bd28ffd38dd00_9727_512x512_fill_lanczos_center_3.png</url>
       <title>Projects</title>
-      <link>/project/</link>
+      <link>https://seandavi.github.io/project/</link>
     </image>
     
     <item>
       <title>OmicIDX</title>
-      <link>/project/omicidx/</link>
+      <link>https://seandavi.github.io/project/omicidx/</link>
       <pubDate>Wed, 11 Mar 2020 00:00:00 +0000</pubDate>
-      <guid>/project/omicidx/</guid>
+      <guid>https://seandavi.github.io/project/omicidx/</guid>
       <description>&lt;p&gt;OmicIDX is an ecosystem that &lt;em&gt;treats metadata&lt;/em&gt; from public genomics
 repositories as &lt;em&gt;data&lt;/em&gt;. Metadata collection from source repositories
 updates occur regularly and processing using a purpose-build &lt;a href=&#34;https://github.com/omicidx/omicidx-parsers&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;parsing
@@ -67,9 +67,9 @@ heuristic text matching to map terms to ontologies.&lt;/p&gt;
     
     <item>
       <title>Symposium: Participants Share Data 2019</title>
-      <link>/project/nci-participants-share-data-2019/</link>
+      <link>https://seandavi.github.io/project/nci-participants-share-data-2019/</link>
       <pubDate>Thu, 26 Sep 2019 17:44:07 -0400</pubDate>
-      <guid>/project/nci-participants-share-data-2019/</guid>
+      <guid>https://seandavi.github.io/project/nci-participants-share-data-2019/</guid>
       <description>&lt;p&gt;We convened a &lt;a href=&#34;https://events.cancer.gov/dccp/pcgdr/agenda&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;symposium on September 26-27,
 2019&lt;/a&gt;.&lt;/p&gt;
 &lt;p&gt;The landscape of genomic medicine is rapidly evolving and includes

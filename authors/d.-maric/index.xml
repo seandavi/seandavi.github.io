@@ -2,21 +2,29 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>D. Maric | seandavi(s12)</title>
-    <link>/authors/d.-maric/</link>
-      <atom:link href="/authors/d.-maric/index.xml" rel="self" type="application/rss+xml" />
+    <link>https://seandavi.github.io/authors/d.-maric/</link>
+      <atom:link href="https://seandavi.github.io/authors/d.-maric/index.xml" rel="self" type="application/rss+xml" />
     <description>D. Maric</description>
-    <generator>Wowchemy (https://wowchemy.com)</generator><language>en-us</language><lastBuildDate>Tue, 01 May 2012 00:00:00 +0000</lastBuildDate>
+    <generator>Wowchemy (https://wowchemy.com)</generator><language>en-us</language><copyright>© 2016-2020</copyright><lastBuildDate>Tue, 01 May 2012 00:00:00 +0000</lastBuildDate>
     <image>
-      <url>/images/icon_hu0b7a4cb9992c9ac0e91bd28ffd38dd00_9727_512x512_fill_lanczos_center_2.png</url>
+      <url>https://seandavi.github.io/images/icon_hu0b7a4cb9992c9ac0e91bd28ffd38dd00_9727_512x512_fill_lanczos_center_3.png</url>
       <title>D. Maric</title>
-      <link>/authors/d.-maric/</link>
+      <link>https://seandavi.github.io/authors/d.-maric/</link>
     </image>
     
     <item>
       <title>In vivo role of alternative splicing and serine phosphorylation of the microphthalmia-associated transcription factor</title>
-      <link>/publication/pmid-22367038/</link>
+      <link>https://seandavi.github.io/publication/pmid-22367038/</link>
       <pubDate>Tue, 01 May 2012 00:00:00 +0000</pubDate>
-      <guid>/publication/pmid-22367038/</guid>
+      <guid>https://seandavi.github.io/publication/pmid-22367038/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>In vivo role of alternative splicing and serine phosphorylation of the microphthalmia-associated transcription factor</title>
+      <link>https://seandavi.github.io/publication2/pmid-22367038/</link>
+      <pubDate>Tue, 01 May 2012 00:00:00 +0000</pubDate>
+      <guid>https://seandavi.github.io/publication2/pmid-22367038/</guid>
       <description></description>
     </item>
     

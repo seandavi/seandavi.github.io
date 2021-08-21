@@ -8,7 +8,7 @@
   
   
   
-  <meta name="generator" content="Wowchemy 5.0.0-beta.1 for Hugo">
+  <meta name="generator" content="Wowchemy 4.8.0 for Hugo">
   
 
   
@@ -35,10 +35,10 @@
     
   
   <meta name="description" content="This short post introducds the gdc_clinical() function recently added to the GenomicDataCommons package.
-The rich data model at the NCI Genomic Data Commons (GDC) includes clinical and biospecimen details. A recently added feature to the NCI GDC Data Portal is the ability to download tab-delimited files or JSON files for clinical and biospecimen details of samples.">
+The rich data model at the NCI Genomic Data Commons (GDC) includes clinical and biospecimen details. A recently added feature to the NCI GDC Data Portal is the ability to download tab-delimited files or JSON files for clinical and biospecimen details of samples. The details available in these simplified formats are also available via the GDC API.">
 
   
-  <link rel="alternate" hreflang="en-us" href="/post/2018-03-25-extracting-clinical-information-using-the-genomicdatacommons-package/">
+  <link rel="alternate" hreflang="en-us" href="https://seandavi.github.io/post/2018-03-25-extracting-clinical-information-using-the-genomicdatacommons-package/">
 
   
 
@@ -66,14 +66,15 @@ The rich data model at the NCI Genomic Data Commons (GDC) includes clinical and 
 
   
   
+  
+  <script src="/js/mathjax-config.js"></script>
+  
 
   
   
   
   
     
-    
-      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/academicons/1.9.0/css/academicons.min.css" integrity="sha512-W4yqoT1+8NLkinBLBZko+dFB2ZbHsYLDdr50VElllRcNt2Q4/GSs6u71UHKxB7S6JEMCp5Ve4xjh3eGQl/HRvg==" crossorigin="anonymous">
     
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" integrity="sha256-FMvZuGapsJLjouA6k7Eo2lusoAX9i0ShlWFG6qt7SLc=" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css" integrity="sha256-Vzbj7sDDS/woiFS3uNKo8eIuni59rjyNGtXfstRzStA=" crossorigin="anonymous">
@@ -86,13 +87,13 @@ The rich data model at the NCI Genomic Data Commons (GDC) includes clinical and 
     
       
       
-        
-          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.2.0/styles/github.min.css" crossorigin="anonymous" title="hl-light">
-          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.2.0/styles/dracula.min.css" crossorigin="anonymous" title="hl-dark" disabled>
-        
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.2.0/styles/atom-one-light.min.css" crossorigin="anonymous" title="hl-light">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.2.0/styles/atom-one-light.min.css" crossorigin="anonymous" title="hl-dark" disabled>
       
     
 
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/leaflet.min.css" integrity="sha512-1xoFisiGdy9nvho8EgXuXvnpR5GAMSjFwp40gSRE3NwdUdIMIKuPa7bqoUhLD0O/5tPNhteAsE5XyyMi5reQVA==" crossorigin="anonymous">
     
 
     
@@ -203,9 +204,9 @@ The rich data model at the NCI Genomic Data Commons (GDC) includes clinical and 
 
       
       
-        
-      
 
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" integrity="" crossorigin="anonymous" async></script>
       
     
       
@@ -239,7 +240,7 @@ The rich data model at the NCI Genomic Data Commons (GDC) includes clinical and 
   
   
   
-  <link rel="stylesheet" href="/css/wowchemy.min.8e43d31e888508b173bbc2cc83c6a116.css">
+  <link rel="stylesheet" href="/css/wowchemy.css">
 
   
 
@@ -286,8 +287,6 @@ The rich data model at the NCI Genomic Data Commons (GDC) includes clinical and 
 
   
 
-  
-
 
   
   
@@ -295,10 +294,10 @@ The rich data model at the NCI Genomic Data Commons (GDC) includes clinical and 
   
 
   <link rel="manifest" href="/index.webmanifest">
-  <link rel="icon" type="image/png" href="/images/icon_hu0b7a4cb9992c9ac0e91bd28ffd38dd00_9727_32x32_fill_lanczos_center_2.png">
-  <link rel="apple-touch-icon" type="image/png" href="/images/icon_hu0b7a4cb9992c9ac0e91bd28ffd38dd00_9727_192x192_fill_lanczos_center_2.png">
+  <link rel="icon" type="image/png" href="/images/icon_hu0b7a4cb9992c9ac0e91bd28ffd38dd00_9727_32x32_fill_lanczos_center_3.png">
+  <link rel="apple-touch-icon" type="image/png" href="/images/icon_hu0b7a4cb9992c9ac0e91bd28ffd38dd00_9727_192x192_fill_lanczos_center_3.png">
 
-  <link rel="canonical" href="/post/2018-03-25-extracting-clinical-information-using-the-genomicdatacommons-package/">
+  <link rel="canonical" href="https://seandavi.github.io/post/2018-03-25-extracting-clinical-information-using-the-genomicdatacommons-package/">
 
   
   
@@ -317,16 +316,16 @@ The rich data model at the NCI Genomic Data Commons (GDC) includes clinical and 
   <meta property="twitter:creator" content="@seandavis12">
   
   <meta property="og:site_name" content="seandavi(s12)">
-  <meta property="og:url" content="/post/2018-03-25-extracting-clinical-information-using-the-genomicdatacommons-package/">
+  <meta property="og:url" content="https://seandavi.github.io/post/2018-03-25-extracting-clinical-information-using-the-genomicdatacommons-package/">
   <meta property="og:title" content="Extracting Clinical Information Using the Genomicdatacommons Package | seandavi(s12)">
   <meta property="og:description" content="This short post introducds the gdc_clinical() function recently added to the GenomicDataCommons package.
-The rich data model at the NCI Genomic Data Commons (GDC) includes clinical and biospecimen details. A recently added feature to the NCI GDC Data Portal is the ability to download tab-delimited files or JSON files for clinical and biospecimen details of samples."><meta property="og:image" content="/images/icon_hu0b7a4cb9992c9ac0e91bd28ffd38dd00_9727_512x512_fill_lanczos_center_2.png">
-  <meta property="twitter:image" content="/images/icon_hu0b7a4cb9992c9ac0e91bd28ffd38dd00_9727_512x512_fill_lanczos_center_2.png"><meta property="og:locale" content="en-us">
+The rich data model at the NCI Genomic Data Commons (GDC) includes clinical and biospecimen details. A recently added feature to the NCI GDC Data Portal is the ability to download tab-delimited files or JSON files for clinical and biospecimen details of samples. The details available in these simplified formats are also available via the GDC API."><meta property="og:image" content="https://seandavi.github.io/images/icon_hu0b7a4cb9992c9ac0e91bd28ffd38dd00_9727_512x512_fill_lanczos_center_3.png">
+  <meta property="twitter:image" content="https://seandavi.github.io/images/icon_hu0b7a4cb9992c9ac0e91bd28ffd38dd00_9727_512x512_fill_lanczos_center_3.png"><meta property="og:locale" content="en-us">
   
     
       <meta property="article:published_time" content="2018-03-25T11:18:36-04:00">
     
-    <meta property="article:modified_time" content="2018-03-25T11:18:36-04:00">
+    <meta property="article:modified_time" content="2018-11-03T11:28:09-04:00">
   
 
   
@@ -350,22 +349,22 @@ The rich data model at the NCI Genomic Data Commons (GDC) includes clinical and 
   "@type": "BlogPosting",
   "mainEntityOfPage": {
     "@type": "WebPage",
-    "@id": "/post/2018-03-25-extracting-clinical-information-using-the-genomicdatacommons-package/"
+    "@id": "https://seandavi.github.io/post/2018-03-25-extracting-clinical-information-using-the-genomicdatacommons-package/"
   },
   "headline": "Extracting Clinical Information Using the Genomicdatacommons Package",
   
   "datePublished": "2018-03-25T11:18:36-04:00",
-  "dateModified": "2018-03-25T11:18:36-04:00",
+  "dateModified": "2018-11-03T11:28:09-04:00",
   
   "publisher": {
     "@type": "Organization",
     "name": "seandavi(s12)",
     "logo": {
       "@type": "ImageObject",
-      "url": "/images/icon_hu0b7a4cb9992c9ac0e91bd28ffd38dd00_9727_192x192_fill_lanczos_center_2.png"
+      "url": "https://seandavi.github.io/images/icon_hu0b7a4cb9992c9ac0e91bd28ffd38dd00_9727_192x192_fill_lanczos_center_3.png"
     }
   },
-  "description": "This short post introducds the gdc_clinical() function recently added to the GenomicDataCommons package.\nThe rich data model at the NCI Genomic Data Commons (GDC) includes clinical and biospecimen details. A recently added feature to the NCI GDC Data Portal is the ability to download tab-delimited files or JSON files for clinical and biospecimen details of samples."
+  "description": "This short post introducds the gdc_clinical() function recently added to the GenomicDataCommons package.\nThe rich data model at the NCI Genomic Data Commons (GDC) includes clinical and biospecimen details. A recently added feature to the NCI GDC Data Portal is the ability to download tab-delimited files or JSON files for clinical and biospecimen details of samples. The details available in these simplified formats are also available via the GDC API."
 }
 </script>
 
@@ -388,14 +387,16 @@ The rich data model at the NCI Genomic Data Commons (GDC) includes clinical and 
 </head>
 
 
-<body id="top" data-spy="scroll" data-offset="70" data-target="#TableOfContents" class="page-wrapper  ">
+<body id="top" data-spy="scroll" data-offset="70" data-target="#TableOfContents" class=" ">
 
   
   
   
   
+    <script>const isSiteThemeDark = false;</script>
   
-  <script src="/js/wowchemy-init.js"></script>
+  
+  <script src="/js/load-theme.js"></script>
 
   <aside class="search-results" id="search">
   <div class="container">
@@ -429,8 +430,7 @@ The rich data model at the NCI Genomic Data Commons (GDC) includes clinical and 
 </aside>
 
 
-  <div class="page-header">
-    
+  
 
 
 
@@ -504,7 +504,7 @@ The rich data model at the NCI Genomic Data Commons (GDC) includes clinical and 
         
 
         <li class="nav-item">
-          <a class="nav-link " href="/#about"><span>Home</span></a>
+          <a class="nav-link " href="/#about"><span>About</span></a>
         </li>
 
         
@@ -642,17 +642,10 @@ The rich data model at the NCI Genomic Data Commons (GDC) includes clinical and 
             
           
           
-            
-            
-            
-              
-            
-            
-          
         
 
         <li class="nav-item">
-          <a class="nav-link " href="/#contact"><span>Contact</span></a>
+          <a class="nav-link " href="/project/"><span>Projects</span></a>
         </li>
 
         
@@ -679,10 +672,17 @@ The rich data model at the NCI Genomic Data Commons (GDC) includes clinical and 
             
           
           
+            
+            
+            
+              
+            
+            
+          
         
 
         <li class="nav-item">
-          <a class="nav-link " href="/files/CV.pdf"><span>CV</span></a>
+          <a class="nav-link " href="/#contact"><span>Contact</span></a>
         </li>
 
         
@@ -704,23 +704,6 @@ The rich data model at the NCI Genomic Data Commons (GDC) includes clinical and 
 
       
       
-      <li class="nav-item dropdown theme-dropdown">
-        <a href="#" class="nav-link" data-toggle="dropdown" aria-haspopup="true" aria-label="Display preferences">
-          <i class="fas fa-moon" aria-hidden="true"></i>
-        </a>
-        <div class="dropdown-menu">
-          <a href="#" class="dropdown-item js-set-theme-light">
-            <span>Light</span>
-          </a>
-          <a href="#" class="dropdown-item js-set-theme-dark">
-            <span>Dark</span>
-          </a>
-          <a href="#" class="dropdown-item js-set-theme-auto">
-            <span>Automatic</span>
-          </a>
-        </div>
-      </li>
-      
 
       
 
@@ -730,10 +713,8 @@ The rich data model at the NCI Genomic Data Commons (GDC) includes clinical and 
 </nav>
 
 
-  </div>
 
-  <div class="page-body">
-    <article class="article">
+  <article class="article">
 
   
 
@@ -772,8 +753,10 @@ The rich data model at the NCI Genomic Data Commons (GDC) includes clinical and 
     
     
       
+          Last updated on
+      
     
-    Mar 25, 2018
+    Nov 3, 2018
   </span>
   
 
@@ -789,14 +772,15 @@ The rich data model at the NCI Genomic Data Commons (GDC) includes clinical and 
   
   
   
-  
+  <span class="middot-divider"></span>
+  <a href="/post/2018-03-25-extracting-clinical-information-using-the-genomicdatacommons-package/#disqus_thread"></a>
   
 
   
   
   <span class="middot-divider"></span>
   <span class="article-categories">
-    <i class="fas fa-folder mr-1"></i><a href="/category/bioconductor/">Bioconductor</a></span>
+    <i class="fas fa-folder mr-1"></i><a href="/categories/bioconductor/">Bioconductor</a></span>
   
 
 </div>
@@ -861,12 +845,12 @@ then, looks like:</p>
     results(size=100) %&gt;%
     ids()
 head(case_ids)</code></pre>
-<pre><code>## [1] &quot;645903b5-ba37-48a1-985b-a019b8db3236&quot;
-## [2] &quot;9e640ff7-996e-427b-b56c-519a1e23baab&quot;
-## [3] &quot;0232d299-4cdf-4fd7-9a5e-8d13c208b40c&quot;
-## [4] &quot;15340dd3-84ae-49fb-989a-eb212f3e73da&quot;
-## [5] &quot;474b86d9-d897-467d-85d4-51dfa26ea107&quot;
-## [6] &quot;e254aaeb-012c-4d92-8a03-cce1f6a2bcd6&quot;</code></pre>
+<pre><code>## [1] &quot;ffb0c0b7-165e-4439-b3e6-62431f40b7fe&quot;
+## [2] &quot;f98ecd8a-b878-4f53-b911-20cd8e17281c&quot;
+## [3] &quot;ccfdad76-cc45-447f-bed8-ede8f6a8844d&quot;
+## [4] &quot;9fcdccae-676e-4071-93c3-23d2d3ab0c00&quot;
+## [5] &quot;0232d299-4cdf-4fd7-9a5e-8d13c208b40c&quot;
+## [6] &quot;bc4c4079-b449-485d-84e4-a40496e563e8&quot;</code></pre>
 <p>These case_ids, each representing a single case (patient) in the GDC,
 can be be fed directly to <code>gdc_clinical</code>.</p>
 <pre class="r"><code>clin_res = gdc_clinical(case_ids)</code></pre>
@@ -879,57 +863,49 @@ can be be fed directly to <code>gdc_clinical</code>.</p>
     data.frame() %&gt;%
     set_names(c(&#39;rows&#39;,&#39;columns&#39;))</code></pre>
 <pre><code>##             rows columns
-## demographic  100      15
-## diagnoses     83      30
-## exposures     83      14
+## demographic  100      11
+## diagnoses     82      23
+## exposures     82      13
 ## main         100       8</code></pre>
 <p>And the column names for each are helpful to examine:</p>
 <pre class="r"><code>sapply(clin_res, colnames)</code></pre>
 <pre><code>## $demographic
 ##  [1] &quot;updated_datetime&quot; &quot;created_datetime&quot; &quot;gender&quot;          
-##  [4] &quot;year_of_birth&quot;    &quot;demographic_id&quot;   &quot;state&quot;           
-##  [7] &quot;race&quot;             &quot;age_at_index&quot;     &quot;vital_status&quot;    
-## [10] &quot;submitter_id&quot;     &quot;ethnicity&quot;        &quot;year_of_death&quot;   
-## [13] &quot;days_to_birth&quot;    &quot;days_to_death&quot;    &quot;case_id&quot;         
+##  [4] &quot;year_of_birth&quot;    &quot;submitter_id&quot;     &quot;state&quot;           
+##  [7] &quot;race&quot;             &quot;demographic_id&quot;   &quot;ethnicity&quot;       
+## [10] &quot;year_of_death&quot;    &quot;case_id&quot;         
 ## 
 ## $diagnoses
 ##  [1] &quot;case_id&quot;                          
-##  [2] &quot;year_of_diagnosis&quot;                
-##  [3] &quot;classification_of_tumor&quot;          
-##  [4] &quot;last_known_disease_status&quot;        
-##  [5] &quot;updated_datetime&quot;                 
-##  [6] &quot;primary_diagnosis&quot;                
-##  [7] &quot;submitter_id&quot;                     
-##  [8] &quot;tumor_stage&quot;                      
-##  [9] &quot;age_at_diagnosis&quot;                 
+##  [2] &quot;classification_of_tumor&quot;          
+##  [3] &quot;last_known_disease_status&quot;        
+##  [4] &quot;updated_datetime&quot;                 
+##  [5] &quot;primary_diagnosis&quot;                
+##  [6] &quot;submitter_id&quot;                     
+##  [7] &quot;tumor_stage&quot;                      
+##  [8] &quot;age_at_diagnosis&quot;                 
+##  [9] &quot;vital_status&quot;                     
 ## [10] &quot;morphology&quot;                       
-## [11] &quot;days_to_last_known_disease_status&quot;
-## [12] &quot;created_datetime&quot;                 
-## [13] &quot;prior_treatment&quot;                  
-## [14] &quot;ajcc_pathologic_n&quot;                
-## [15] &quot;ajcc_pathologic_m&quot;                
-## [16] &quot;state&quot;                            
-## [17] &quot;days_to_last_follow_up&quot;           
-## [18] &quot;days_to_recurrence&quot;               
-## [19] &quot;diagnosis_id&quot;                     
-## [20] &quot;tumor_grade&quot;                      
-## [21] &quot;icd_10_code&quot;                      
-## [22] &quot;tissue_or_organ_of_origin&quot;        
-## [23] &quot;progression_or_recurrence&quot;        
-## [24] &quot;prior_malignancy&quot;                 
-## [25] &quot;ajcc_staging_system_edition&quot;      
-## [26] &quot;ajcc_pathologic_stage&quot;            
-## [27] &quot;synchronous_malignancy&quot;           
-## [28] &quot;site_of_resection_or_biopsy&quot;      
-## [29] &quot;ajcc_pathologic_t&quot;                
-## [30] &quot;days_to_diagnosis&quot;                
+## [11] &quot;days_to_death&quot;                    
+## [12] &quot;days_to_last_known_disease_status&quot;
+## [13] &quot;created_datetime&quot;                 
+## [14] &quot;state&quot;                            
+## [15] &quot;days_to_recurrence&quot;               
+## [16] &quot;diagnosis_id&quot;                     
+## [17] &quot;tumor_grade&quot;                      
+## [18] &quot;tissue_or_organ_of_origin&quot;        
+## [19] &quot;days_to_birth&quot;                    
+## [20] &quot;progression_or_recurrence&quot;        
+## [21] &quot;prior_malignancy&quot;                 
+## [22] &quot;site_of_resection_or_biopsy&quot;      
+## [23] &quot;days_to_last_follow_up&quot;           
 ## 
 ## $exposures
 ##  [1] &quot;case_id&quot;            &quot;cigarettes_per_day&quot; &quot;weight&quot;            
-##  [4] &quot;updated_datetime&quot;   &quot;created_datetime&quot;   &quot;alcohol_intensity&quot; 
+##  [4] &quot;updated_datetime&quot;   &quot;alcohol_history&quot;    &quot;alcohol_intensity&quot; 
 ##  [7] &quot;bmi&quot;                &quot;years_smoked&quot;       &quot;submitter_id&quot;      
-## [10] &quot;alcohol_history&quot;    &quot;state&quot;              &quot;exposure_id&quot;       
-## [13] &quot;height&quot;             &quot;pack_years_smoked&quot; 
+## [10] &quot;created_datetime&quot;   &quot;state&quot;              &quot;exposure_id&quot;       
+## [13] &quot;height&quot;            
 ## 
 ## $main
 ## [1] &quot;updated_datetime&quot; &quot;submitter_id&quot;     &quot;case_id&quot;         
@@ -952,7 +928,7 @@ full_clin = with(clin_res,
 <p>Above, I have used the tidyverse approach, applying <code>dplyr</code>
 <code>left_join()</code>s. Using base R <code>merge</code> would also work.</p>
 <pre class="r"><code>dim(full_clin)</code></pre>
-<pre><code>## [1] 100  64</code></pre>
+<pre><code>## [1] 100  52</code></pre>
 <pre class="r"><code>colnames(full_clin)</code></pre>
 <pre><code>##  [1] &quot;updated_datetime.x&quot;               
 ##  [2] &quot;submitter_id.x&quot;                   
@@ -966,70 +942,58 @@ full_clin = with(clin_res,
 ## [10] &quot;created_datetime.y&quot;               
 ## [11] &quot;gender&quot;                           
 ## [12] &quot;year_of_birth&quot;                    
-## [13] &quot;demographic_id&quot;                   
+## [13] &quot;submitter_id.y&quot;                   
 ## [14] &quot;state.y&quot;                          
 ## [15] &quot;race&quot;                             
-## [16] &quot;age_at_index&quot;                     
-## [17] &quot;vital_status&quot;                     
-## [18] &quot;submitter_id.y&quot;                   
-## [19] &quot;ethnicity&quot;                        
-## [20] &quot;year_of_death&quot;                    
-## [21] &quot;days_to_birth&quot;                    
-## [22] &quot;days_to_death&quot;                    
-## [23] &quot;cigarettes_per_day&quot;               
-## [24] &quot;weight&quot;                           
-## [25] &quot;updated_datetime.x.x&quot;             
-## [26] &quot;created_datetime.x.x&quot;             
-## [27] &quot;alcohol_intensity&quot;                
-## [28] &quot;bmi&quot;                              
-## [29] &quot;years_smoked&quot;                     
-## [30] &quot;submitter_id.x.x&quot;                 
-## [31] &quot;alcohol_history&quot;                  
-## [32] &quot;state.x.x&quot;                        
-## [33] &quot;exposure_id&quot;                      
-## [34] &quot;height&quot;                           
-## [35] &quot;pack_years_smoked&quot;                
-## [36] &quot;year_of_diagnosis&quot;                
-## [37] &quot;classification_of_tumor&quot;          
-## [38] &quot;last_known_disease_status&quot;        
-## [39] &quot;updated_datetime.y.y&quot;             
-## [40] &quot;primary_diagnosis&quot;                
-## [41] &quot;submitter_id.y.y&quot;                 
-## [42] &quot;tumor_stage&quot;                      
-## [43] &quot;age_at_diagnosis&quot;                 
-## [44] &quot;morphology&quot;                       
-## [45] &quot;days_to_last_known_disease_status&quot;
-## [46] &quot;created_datetime.y.y&quot;             
-## [47] &quot;prior_treatment&quot;                  
-## [48] &quot;ajcc_pathologic_n&quot;                
-## [49] &quot;ajcc_pathologic_m&quot;                
-## [50] &quot;state.y.y&quot;                        
-## [51] &quot;days_to_last_follow_up&quot;           
-## [52] &quot;days_to_recurrence&quot;               
-## [53] &quot;diagnosis_id&quot;                     
-## [54] &quot;tumor_grade&quot;                      
-## [55] &quot;icd_10_code&quot;                      
-## [56] &quot;tissue_or_organ_of_origin&quot;        
-## [57] &quot;progression_or_recurrence&quot;        
-## [58] &quot;prior_malignancy&quot;                 
-## [59] &quot;ajcc_staging_system_edition&quot;      
-## [60] &quot;ajcc_pathologic_stage&quot;            
-## [61] &quot;synchronous_malignancy&quot;           
-## [62] &quot;site_of_resection_or_biopsy&quot;      
-## [63] &quot;ajcc_pathologic_t&quot;                
-## [64] &quot;days_to_diagnosis&quot;</code></pre>
+## [16] &quot;demographic_id&quot;                   
+## [17] &quot;ethnicity&quot;                        
+## [18] &quot;year_of_death&quot;                    
+## [19] &quot;cigarettes_per_day&quot;               
+## [20] &quot;weight&quot;                           
+## [21] &quot;updated_datetime.x.x&quot;             
+## [22] &quot;alcohol_history&quot;                  
+## [23] &quot;alcohol_intensity&quot;                
+## [24] &quot;bmi&quot;                              
+## [25] &quot;years_smoked&quot;                     
+## [26] &quot;submitter_id.x.x&quot;                 
+## [27] &quot;created_datetime.x.x&quot;             
+## [28] &quot;state.x.x&quot;                        
+## [29] &quot;exposure_id&quot;                      
+## [30] &quot;height&quot;                           
+## [31] &quot;classification_of_tumor&quot;          
+## [32] &quot;last_known_disease_status&quot;        
+## [33] &quot;updated_datetime.y.y&quot;             
+## [34] &quot;primary_diagnosis&quot;                
+## [35] &quot;submitter_id.y.y&quot;                 
+## [36] &quot;tumor_stage&quot;                      
+## [37] &quot;age_at_diagnosis&quot;                 
+## [38] &quot;vital_status&quot;                     
+## [39] &quot;morphology&quot;                       
+## [40] &quot;days_to_death&quot;                    
+## [41] &quot;days_to_last_known_disease_status&quot;
+## [42] &quot;created_datetime.y.y&quot;             
+## [43] &quot;state.y.y&quot;                        
+## [44] &quot;days_to_recurrence&quot;               
+## [45] &quot;diagnosis_id&quot;                     
+## [46] &quot;tumor_grade&quot;                      
+## [47] &quot;tissue_or_organ_of_origin&quot;        
+## [48] &quot;days_to_birth&quot;                    
+## [49] &quot;progression_or_recurrence&quot;        
+## [50] &quot;prior_malignancy&quot;                 
+## [51] &quot;site_of_resection_or_biopsy&quot;      
+## [52] &quot;days_to_last_follow_up&quot;</code></pre>
 <p>In conclusion, the <code>gdc_clinical</code> functionality from the
 GenomicDataCommons is a high-level function for capturing unified and
 harmonized clinical information for <em>any</em> case in the NCI GDC
 repository.</p>
 <pre class="r"><code>sessionInfo()</code></pre>
-<pre><code>## R Under development (unstable) (2019-01-14 r75992)
+<pre><code>## R version 3.5.1 (2018-07-02)
 ## Platform: x86_64-apple-darwin15.6.0 (64-bit)
-## Running under: macOS Mojave 10.14.2
+## Running under: macOS Sierra 10.12.6
 ## 
 ## Matrix products: default
-## BLAS: /Library/Frameworks/R.framework/Versions/3.6/Resources/lib/libRblas.0.dylib
-## LAPACK: /Library/Frameworks/R.framework/Versions/3.6/Resources/lib/libRlapack.dylib
+## BLAS: /Library/Frameworks/R.framework/Versions/3.5/Resources/lib/libRblas.0.dylib
+## LAPACK: /Library/Frameworks/R.framework/Versions/3.5/Resources/lib/libRlapack.dylib
 ## 
 ## locale:
 ## [1] en_US.UTF-8/en_US.UTF-8/en_US.UTF-8/C/en_US.UTF-8/en_US.UTF-8
@@ -1038,36 +1002,38 @@ repository.</p>
 ## [1] stats     graphics  grDevices utils     datasets  methods   base     
 ## 
 ## other attached packages:
-## [1] dplyr_0.8.1              GenomicDataCommons_1.9.0
-## [3] magrittr_1.5             knitr_1.23              
+## [1] dplyr_0.7.7              GenomicDataCommons_1.4.3
+## [3] magrittr_1.5             knitr_1.20              
 ## 
 ## loaded via a namespace (and not attached):
-##  [1] Rcpp_1.0.1                  pillar_1.4.2               
-##  [3] compiler_3.6.0              GenomeInfoDb_1.21.1        
-##  [5] XVector_0.25.0              bitops_1.0-6               
-##  [7] tools_3.6.0                 zlibbioc_1.31.0            
-##  [9] digest_0.6.19               jsonlite_1.6               
-## [11] evaluate_0.14               tibble_2.1.3               
-## [13] lattice_0.20-38             pkgconfig_2.0.2            
-## [15] rlang_0.4.0                 Matrix_1.2-17              
-## [17] DelayedArray_0.11.2         curl_3.3                   
-## [19] yaml_2.2.0                  parallel_3.6.0             
-## [21] blogdown_0.16               xfun_0.8                   
-## [23] GenomeInfoDbData_1.2.1      xml2_1.2.0                 
-## [25] httr_1.4.0                  stringr_1.4.0              
-## [27] hms_0.4.2                   rappdirs_0.3.1             
-## [29] S4Vectors_0.23.17           IRanges_2.19.10            
-## [31] tidyselect_0.2.5            stats4_3.6.0               
-## [33] grid_3.6.0                  glue_1.3.1                 
-## [35] Biobase_2.45.0              R6_2.4.0                   
-## [37] BiocParallel_1.19.0         rmarkdown_1.13             
-## [39] bookdown_0.11               readr_1.3.1                
-## [41] purrr_0.3.2                 codetools_0.2-16           
-## [43] htmltools_0.3.6             matrixStats_0.54.0         
-## [45] BiocGenerics_0.31.4         GenomicRanges_1.37.14      
-## [47] assertthat_0.2.1            SummarizedExperiment_1.15.5
-## [49] stringi_1.4.3               RCurl_1.95-4.12            
-## [51] crayon_1.3.4</code></pre>
+##  [1] SummarizedExperiment_1.10.1 tidyselect_0.2.5           
+##  [3] xfun_0.3                    purrr_0.2.5                
+##  [5] lattice_0.20-35             htmltools_0.3.6            
+##  [7] stats4_3.5.1                yaml_2.2.0                 
+##  [9] rlang_0.3.0.1               pillar_1.3.0               
+## [11] glue_1.3.0                  BiocParallel_1.14.2        
+## [13] rappdirs_0.3.1              BiocGenerics_0.26.0        
+## [15] bindrcpp_0.2.2              matrixStats_0.54.0         
+## [17] GenomeInfoDbData_1.1.0      bindr_0.1.1                
+## [19] stringr_1.3.1               zlibbioc_1.26.0            
+## [21] blogdown_0.8                codetools_0.2-15           
+## [23] evaluate_0.12               Biobase_2.40.0             
+## [25] IRanges_2.14.12             GenomeInfoDb_1.16.0        
+## [27] parallel_3.5.1              curl_3.2                   
+## [29] Rcpp_0.12.19                readr_1.1.1                
+## [31] backports_1.1.2             DelayedArray_0.6.6         
+## [33] S4Vectors_0.18.3            jsonlite_1.5               
+## [35] XVector_0.20.0              hms_0.4.2                  
+## [37] digest_0.6.18               stringi_1.2.4              
+## [39] bookdown_0.7                GenomicRanges_1.32.7       
+## [41] grid_3.5.1                  rprojroot_1.3-2            
+## [43] tools_3.5.1                 bitops_1.0-6               
+## [45] RCurl_1.95-4.11             lazyeval_0.2.1             
+## [47] tibble_1.4.2                crayon_1.3.4               
+## [49] pkgconfig_2.0.2             Matrix_1.2-14              
+## [51] xml2_1.2.0                  assertthat_0.2.0           
+## [53] rmarkdown_1.10              httr_1.3.1                 
+## [55] R6_2.3.0                    compiler_3.5.1</code></pre>
 
     </div>
 
@@ -1080,9 +1046,9 @@ repository.</p>
 
 <div class="article-tags">
   
-  <a class="badge badge-light" href="/tag/cancer-genomics/">Cancer Genomics</a>
+  <a class="badge badge-light" href="/tags/cancer-genomics/">Cancer Genomics</a>
   
-  <a class="badge badge-light" href="/tag/genomicdatacommons/">GenomicDataCommons</a>
+  <a class="badge badge-light" href="/tags/genomicdatacommons/">GenomicDataCommons</a>
   
 </div>
 
@@ -1099,7 +1065,7 @@ repository.</p>
       
       
       <li>
-        <a href="https://twitter.com/intent/tweet?url=/post/2018-03-25-extracting-clinical-information-using-the-genomicdatacommons-package/&amp;text=Extracting%20Clinical%20Information%20Using%20the%20Genomicdatacommons%20Package" target="_blank" rel="noopener" class="share-btn-twitter">
+        <a href="https://twitter.com/intent/tweet?url=https://seandavi.github.io/post/2018-03-25-extracting-clinical-information-using-the-genomicdatacommons-package/&amp;text=Extracting%20Clinical%20Information%20Using%20the%20Genomicdatacommons%20Package" target="_blank" rel="noopener" class="share-btn-twitter">
           <i class="fab fa-twitter"></i>
         </a>
       </li>
@@ -1112,7 +1078,7 @@ repository.</p>
       
       
       <li>
-        <a href="https://www.facebook.com/sharer.php?u=/post/2018-03-25-extracting-clinical-information-using-the-genomicdatacommons-package/&amp;t=Extracting%20Clinical%20Information%20Using%20the%20Genomicdatacommons%20Package" target="_blank" rel="noopener" class="share-btn-facebook">
+        <a href="https://www.facebook.com/sharer.php?u=https://seandavi.github.io/post/2018-03-25-extracting-clinical-information-using-the-genomicdatacommons-package/&amp;t=Extracting%20Clinical%20Information%20Using%20the%20Genomicdatacommons%20Package" target="_blank" rel="noopener" class="share-btn-facebook">
           <i class="fab fa-facebook"></i>
         </a>
       </li>
@@ -1125,7 +1091,7 @@ repository.</p>
       
       
       <li>
-        <a href="mailto:?subject=Extracting%20Clinical%20Information%20Using%20the%20Genomicdatacommons%20Package&amp;body=/post/2018-03-25-extracting-clinical-information-using-the-genomicdatacommons-package/" target="_blank" rel="noopener" class="share-btn-email">
+        <a href="mailto:?subject=Extracting%20Clinical%20Information%20Using%20the%20Genomicdatacommons%20Package&amp;body=https://seandavi.github.io/post/2018-03-25-extracting-clinical-information-using-the-genomicdatacommons-package/" target="_blank" rel="noopener" class="share-btn-email">
           <i class="fas fa-envelope"></i>
         </a>
       </li>
@@ -1138,7 +1104,7 @@ repository.</p>
       
       
       <li>
-        <a href="https://www.linkedin.com/shareArticle?url=/post/2018-03-25-extracting-clinical-information-using-the-genomicdatacommons-package/&amp;title=Extracting%20Clinical%20Information%20Using%20the%20Genomicdatacommons%20Package" target="_blank" rel="noopener" class="share-btn-linkedin">
+        <a href="https://www.linkedin.com/shareArticle?url=https://seandavi.github.io/post/2018-03-25-extracting-clinical-information-using-the-genomicdatacommons-package/&amp;title=Extracting%20Clinical%20Information%20Using%20the%20Genomicdatacommons%20Package" target="_blank" rel="noopener" class="share-btn-linkedin">
           <i class="fab fa-linkedin-in"></i>
         </a>
       </li>
@@ -1151,7 +1117,7 @@ repository.</p>
       
       
       <li>
-        <a href="whatsapp://send?text=Extracting%20Clinical%20Information%20Using%20the%20Genomicdatacommons%20Package%20/post/2018-03-25-extracting-clinical-information-using-the-genomicdatacommons-package/" target="_blank" rel="noopener" class="share-btn-whatsapp">
+        <a href="whatsapp://send?text=Extracting%20Clinical%20Information%20Using%20the%20Genomicdatacommons%20Package%20https://seandavi.github.io/post/2018-03-25-extracting-clinical-information-using-the-genomicdatacommons-package/" target="_blank" rel="noopener" class="share-btn-whatsapp">
           <i class="fab fa-whatsapp"></i>
         </a>
       </li>
@@ -1164,7 +1130,7 @@ repository.</p>
       
       
       <li>
-        <a href="https://service.weibo.com/share/share.php?url=/post/2018-03-25-extracting-clinical-information-using-the-genomicdatacommons-package/&amp;title=Extracting%20Clinical%20Information%20Using%20the%20Genomicdatacommons%20Package" target="_blank" rel="noopener" class="share-btn-weibo">
+        <a href="https://service.weibo.com/share/share.php?url=https://seandavi.github.io/post/2018-03-25-extracting-clinical-information-using-the-genomicdatacommons-package/&amp;title=Extracting%20Clinical%20Information%20Using%20the%20Genomicdatacommons%20Package" target="_blank" rel="noopener" class="share-btn-weibo">
           <i class="fab fa-weibo"></i>
         </a>
       </li>
@@ -1198,8 +1164,8 @@ repository.</p>
     
 
     <div class="media-body">
-      <h5 class="card-title"></h5>
-      <h6 class="card-subtitle">Professor, Department of Medicine</h6>
+      <h5 class="card-title"><a href="https://seandavi.github.io/"></a></h5>
+      <h6 class="card-subtitle">Senior Associate Scientist</h6>
       <p class="card-text">My interests include biomedical data science, open data, genomics, and cancer research.</p>
       <ul class="network-icon" aria-hidden="true">
   
@@ -1293,34 +1259,38 @@ repository.</p>
 
 
 
-
-
-
-
-
-
-
+<section id="comments">
+  
+    
+<div id="disqus_thread"></div>
+<script>
+  var disqus_config = function () {
+    
+    
+    
+  };
+  (function() {
+    if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+      document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+      return;
+    }
+    var d = document, s = d.createElement('script'); s.async = true;
+    s.src = 'https://' + "seandavi-github-io" + '.disqus.com/embed.js';
+    s.setAttribute('data-timestamp', +new Date());
+    (d.head || d.body).appendChild(s);
+  })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
 
 
   
-  
-  <div class="article-widget content-widget-hr">
-    <h3>Related</h3>
-    <ul>
-      
-      <li><a href="/post/leveraging-bioconductor-for-somatic-variant-analysis-of-tcga-datarmd/">Leveraging Bioconductor for somatic variant analysis of TCGA data</a></li>
-      
-      <li><a href="/post/2017-03-04-testing-the-genomicdatacommons-package/">Matched tumor/normal pairs--a use case for the GenomicDataCommons Bioconductor package</a></li>
-      
-      <li><a href="/post/build-linux-r-binary-packages/">Building R Binary Packages for Linux</a></li>
-      
-      <li><a href="/post/2019-05-28-single-cell-package-dependencies-in-bioconductor-with-biocpkgtools/">Single cell packages and dependencies in Bioconductor using BiocPkgTools</a></li>
-      
-      <li><a href="/talk/2018-12-03-wake-forest-bioconductor/">Bioconductor: software for interpreting high-throughput biological data</a></li>
-      
-    </ul>
-  </div>
-  
+</section>
+
+
+
+
+
 
 
 
@@ -1328,68 +1298,6 @@ repository.</p>
 
   </div>
 </article>
-  </div>
-
-  <div class="page-footer">
-    
-    
-    <div class="container">
-      <footer class="site-footer">
-  
-
-  <p class="powered-by">
-    
-  </p>
-
-  
-  
-
-
-
-
-
-
-  <p class="powered-by">
-    
-    
-    
-    Published with
-    <a href="https://wowchemy.com/?utm_campaign=poweredby" target="_blank" rel="noopener">Wowchemy</a>  —
-    the free, <a href="https://github.com/wowchemy/wowchemy-hugo-modules" target="_blank" rel="noopener">
-    open source</a> website builder that empowers creators.
-    
-  </p>
-</footer>
-
-    </div>
-    
-  </div>
-
-  
-<div id="modal" class="modal fade" role="dialog">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title">Cite</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-        <pre><code class="tex hljs"></code></pre>
-      </div>
-      <div class="modal-footer">
-        <a class="btn btn-outline-primary my-1 js-copy-cite" href="#" target="_blank">
-          <i class="fas fa-copy"></i> Copy
-        </a>
-        <a class="btn btn-outline-primary my-1 js-download-cite" href="#" target="_blank">
-          <i class="fas fa-download"></i> Download
-        </a>
-        <div id="modal-error"></div>
-      </div>
-    </div>
-  </div>
-</div>
 
       
 
@@ -1397,16 +1305,13 @@ repository.</p>
     
     
       <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
-
-      
-      
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.imagesloaded/4.1.4/imagesloaded.pkgd.min.js" integrity="sha256-lqvxZrPLtfffUl2G/e7szqSvPBILGbwmsGE1MKlOi0Q=" crossorigin="anonymous"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.isotope/3.0.6/isotope.pkgd.min.js" integrity="sha256-CBrpuqrMhXwcLLUd5tvQ4euBHCdh7wGlDfNz8vbu/iI=" crossorigin="anonymous"></script>
-      
-
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.imagesloaded/4.1.4/imagesloaded.pkgd.min.js" integrity="sha256-lqvxZrPLtfffUl2G/e7szqSvPBILGbwmsGE1MKlOi0Q=" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.isotope/3.0.6/isotope.pkgd.min.js" integrity="sha256-CBrpuqrMhXwcLLUd5tvQ4euBHCdh7wGlDfNz8vbu/iI=" crossorigin="anonymous"></script>
       <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js" integrity="sha256-yt2kYMy0w8AbtF89WXb2P1rfjcP/HTHLT7097U8Y5b8=" crossorigin="anonymous"></script>
       <script src="https://cdnjs.cloudflare.com/ajax/libs/instant.page/5.1.0/instantpage.min.js" integrity="sha512-1+qUtKoh9XZW7j+6LhRMAyOrgSQKenQ4mluTR+cvxXjP1Z54RxZuzstR/H9kgPXQsVB8IW7DMDFUJpzLjvhGSQ==" crossorigin="anonymous"></script>
 
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mermaid/8.8.0/mermaid.min.js" integrity="sha512-ja+hSBi4JDtjSqc4LTBsSwuBT3tdZ3oKYKd07lTVYmCnTCor56AnRql00ssqnTOR9Ss4gOP/ROGB3SfcJnZkeg==" crossorigin="anonymous" title="mermaid"></script>
       
 
       
@@ -1415,11 +1320,19 @@ repository.</p>
         
         <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.2.0/languages/r.min.js"></script>
         
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.2.0/languages/python.min.js"></script>
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.2.0/languages/javascript.min.js"></script>
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.2.0/languages/html.min.js"></script>
+        
       
 
     
 
     
+    
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/leaflet.min.js" integrity="sha512-SeiQaaDh73yrb56sTW/RgVdi/mMqNeM2oBwubFHagc5BkixSpP1fvqF47mKzPGWYSSy4RwbBunrJBQ4Co8fRWA==" crossorigin="anonymous"></script>
     
 
     
@@ -1475,12 +1388,13 @@ repository.</p>
 
     
     
-    
 
     
     
 
     
+    
+    <script id="dsq-count-scr" src="https://seandavi-github-io.disqus.com/count.js" async></script>
     
 
     
@@ -1497,7 +1411,7 @@ repository.</p>
     
     
     
-    <script src="/js/wowchemy.min.ffabb05383f1b16d83e7181a605e644c.js"></script>
+    <script src="/js/wowchemy.min.434af0ebce9e15b273b954d65feb39c7.js"></script>
 
     
 
@@ -1505,6 +1419,73 @@ repository.</p>
 
 
 
+
+  
+  
+  <div class="container">
+    <footer class="site-footer">
+  
+
+  <p class="powered-by">
+    © 2016-2020
+  </p>
+
+  
+  
+
+
+
+
+
+
+  <p class="powered-by">
+    
+    Published with
+    <a href="https://wowchemy.com" target="_blank" rel="noopener">Wowchemy</a>  —
+    the free, <a href="https://github.com/wowchemy/wowchemy-hugo-modules" target="_blank" rel="noopener">
+    open source</a> website builder that empowers creators.
+    
+
+    
+    <span class="float-right" aria-hidden="true">
+      <a href="#" class="back-to-top">
+        <span class="button_icon">
+          <i class="fas fa-chevron-up fa-2x"></i>
+        </span>
+      </a>
+    </span>
+    
+  </p>
+</footer>
+
+  </div>
+  
+
+  
+<div id="modal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Cite</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <pre><code class="tex hljs"></code></pre>
+      </div>
+      <div class="modal-footer">
+        <a class="btn btn-outline-primary my-1 js-copy-cite" href="#" target="_blank">
+          <i class="fas fa-copy"></i> Copy
+        </a>
+        <a class="btn btn-outline-primary my-1 js-download-cite" href="#" target="_blank">
+          <i class="fas fa-download"></i> Download
+        </a>
+        <div id="modal-error"></div>
+      </div>
+    </div>
+  </div>
+</div>
 
 </body>
 </html>

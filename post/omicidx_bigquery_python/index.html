@@ -8,7 +8,7 @@
   
   
   
-  <meta name="generator" content="Wowchemy 5.0.0-beta.1 for Hugo">
+  <meta name="generator" content="Wowchemy 4.8.0 for Hugo">
   
 
   
@@ -35,10 +35,10 @@
     
   
   <meta name="description" content="Availability: This ipython notebook is available at https://github.com/seandavi/omicidx_examples.
-OmicIDX is a project to democratize access to omics metadata. As the sizes of omics repositories have grown into the millions of available samples, thinking of the metadata themselves as Big Data seems reasonable.">
+OmicIDX is a project to democratize access to omics metadata. As the sizes of omics repositories have grown into the millions of available samples, thinking of the metadata themselves as Big Data seems reasonable. Additionally, by making the metadata more fit-for-use for text mining, natural language processing, ingestion into machine learning or search engines, OmicIDX aims to facilitate augmentation and analysis of these metadata.">
 
   
-  <link rel="alternate" hreflang="en-us" href="/post/omicidx_bigquery_python/">
+  <link rel="alternate" hreflang="en-us" href="https://seandavi.github.io/post/omicidx_bigquery_python/">
 
   
 
@@ -66,14 +66,15 @@ OmicIDX is a project to democratize access to omics metadata. As the sizes of om
 
   
   
+  
+  <script src="/js/mathjax-config.js"></script>
+  
 
   
   
   
   
     
-    
-      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/academicons/1.9.0/css/academicons.min.css" integrity="sha512-W4yqoT1+8NLkinBLBZko+dFB2ZbHsYLDdr50VElllRcNt2Q4/GSs6u71UHKxB7S6JEMCp5Ve4xjh3eGQl/HRvg==" crossorigin="anonymous">
     
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" integrity="sha256-FMvZuGapsJLjouA6k7Eo2lusoAX9i0ShlWFG6qt7SLc=" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css" integrity="sha256-Vzbj7sDDS/woiFS3uNKo8eIuni59rjyNGtXfstRzStA=" crossorigin="anonymous">
@@ -86,13 +87,13 @@ OmicIDX is a project to democratize access to omics metadata. As the sizes of om
     
       
       
-        
-          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.2.0/styles/github.min.css" crossorigin="anonymous" title="hl-light">
-          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.2.0/styles/dracula.min.css" crossorigin="anonymous" title="hl-dark" disabled>
-        
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.2.0/styles/atom-one-light.min.css" crossorigin="anonymous" title="hl-light">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.2.0/styles/atom-one-light.min.css" crossorigin="anonymous" title="hl-dark" disabled>
       
     
 
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/leaflet.min.css" integrity="sha512-1xoFisiGdy9nvho8EgXuXvnpR5GAMSjFwp40gSRE3NwdUdIMIKuPa7bqoUhLD0O/5tPNhteAsE5XyyMi5reQVA==" crossorigin="anonymous">
     
 
     
@@ -203,9 +204,9 @@ OmicIDX is a project to democratize access to omics metadata. As the sizes of om
 
       
       
-        
-      
 
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" integrity="" crossorigin="anonymous" async></script>
       
     
       
@@ -239,7 +240,7 @@ OmicIDX is a project to democratize access to omics metadata. As the sizes of om
   
   
   
-  <link rel="stylesheet" href="/css/wowchemy.min.8e43d31e888508b173bbc2cc83c6a116.css">
+  <link rel="stylesheet" href="/css/wowchemy.css">
 
   
 
@@ -286,8 +287,6 @@ OmicIDX is a project to democratize access to omics metadata. As the sizes of om
 
   
 
-  
-
 
   
   
@@ -295,10 +294,10 @@ OmicIDX is a project to democratize access to omics metadata. As the sizes of om
   
 
   <link rel="manifest" href="/index.webmanifest">
-  <link rel="icon" type="image/png" href="/images/icon_hu0b7a4cb9992c9ac0e91bd28ffd38dd00_9727_32x32_fill_lanczos_center_2.png">
-  <link rel="apple-touch-icon" type="image/png" href="/images/icon_hu0b7a4cb9992c9ac0e91bd28ffd38dd00_9727_192x192_fill_lanczos_center_2.png">
+  <link rel="icon" type="image/png" href="/images/icon_hu0b7a4cb9992c9ac0e91bd28ffd38dd00_9727_32x32_fill_lanczos_center_3.png">
+  <link rel="apple-touch-icon" type="image/png" href="/images/icon_hu0b7a4cb9992c9ac0e91bd28ffd38dd00_9727_192x192_fill_lanczos_center_3.png">
 
-  <link rel="canonical" href="/post/omicidx_bigquery_python/">
+  <link rel="canonical" href="https://seandavi.github.io/post/omicidx_bigquery_python/">
 
   
   
@@ -317,16 +316,16 @@ OmicIDX is a project to democratize access to omics metadata. As the sizes of om
   <meta property="twitter:creator" content="@seandavis12">
   
   <meta property="og:site_name" content="seandavi(s12)">
-  <meta property="og:url" content="/post/omicidx_bigquery_python/">
+  <meta property="og:url" content="https://seandavi.github.io/post/omicidx_bigquery_python/">
   <meta property="og:title" content="OmicIDX on BigQuery | seandavi(s12)">
   <meta property="og:description" content="Availability: This ipython notebook is available at https://github.com/seandavi/omicidx_examples.
-OmicIDX is a project to democratize access to omics metadata. As the sizes of omics repositories have grown into the millions of available samples, thinking of the metadata themselves as Big Data seems reasonable."><meta property="og:image" content="/images/icon_hu0b7a4cb9992c9ac0e91bd28ffd38dd00_9727_512x512_fill_lanczos_center_2.png">
-  <meta property="twitter:image" content="/images/icon_hu0b7a4cb9992c9ac0e91bd28ffd38dd00_9727_512x512_fill_lanczos_center_2.png"><meta property="og:locale" content="en-us">
+OmicIDX is a project to democratize access to omics metadata. As the sizes of omics repositories have grown into the millions of available samples, thinking of the metadata themselves as Big Data seems reasonable. Additionally, by making the metadata more fit-for-use for text mining, natural language processing, ingestion into machine learning or search engines, OmicIDX aims to facilitate augmentation and analysis of these metadata."><meta property="og:image" content="https://seandavi.github.io/images/icon_hu0b7a4cb9992c9ac0e91bd28ffd38dd00_9727_512x512_fill_lanczos_center_3.png">
+  <meta property="twitter:image" content="https://seandavi.github.io/images/icon_hu0b7a4cb9992c9ac0e91bd28ffd38dd00_9727_512x512_fill_lanczos_center_3.png"><meta property="og:locale" content="en-us">
   
     
       <meta property="article:published_time" content="2019-06-04T00:00:00&#43;00:00">
     
-    <meta property="article:modified_time" content="2019-06-04T00:00:00&#43;00:00">
+    <meta property="article:modified_time" content="2019-10-05T12:47:37-04:00">
   
 
   
@@ -350,22 +349,22 @@ OmicIDX is a project to democratize access to omics metadata. As the sizes of om
   "@type": "BlogPosting",
   "mainEntityOfPage": {
     "@type": "WebPage",
-    "@id": "/post/omicidx_bigquery_python/"
+    "@id": "https://seandavi.github.io/post/omicidx_bigquery_python/"
   },
   "headline": "OmicIDX on BigQuery",
   
   "datePublished": "2019-06-04T00:00:00Z",
-  "dateModified": "2019-06-04T00:00:00Z",
+  "dateModified": "2019-10-05T12:47:37-04:00",
   
   "publisher": {
     "@type": "Organization",
     "name": "seandavi(s12)",
     "logo": {
       "@type": "ImageObject",
-      "url": "/images/icon_hu0b7a4cb9992c9ac0e91bd28ffd38dd00_9727_192x192_fill_lanczos_center_2.png"
+      "url": "https://seandavi.github.io/images/icon_hu0b7a4cb9992c9ac0e91bd28ffd38dd00_9727_192x192_fill_lanczos_center_3.png"
     }
   },
-  "description": "Availability: This ipython notebook is available at https://github.com/seandavi/omicidx_examples.\nOmicIDX is a project to democratize access to omics metadata. As the sizes of omics repositories have grown into the millions of available samples, thinking of the metadata themselves as Big Data seems reasonable."
+  "description": "Availability: This ipython notebook is available at https://github.com/seandavi/omicidx_examples.\nOmicIDX is a project to democratize access to omics metadata. As the sizes of omics repositories have grown into the millions of available samples, thinking of the metadata themselves as Big Data seems reasonable. Additionally, by making the metadata more fit-for-use for text mining, natural language processing, ingestion into machine learning or search engines, OmicIDX aims to facilitate augmentation and analysis of these metadata."
 }
 </script>
 
@@ -388,14 +387,16 @@ OmicIDX is a project to democratize access to omics metadata. As the sizes of om
 </head>
 
 
-<body id="top" data-spy="scroll" data-offset="70" data-target="#TableOfContents" class="page-wrapper  ">
+<body id="top" data-spy="scroll" data-offset="70" data-target="#TableOfContents" class=" ">
 
   
   
   
   
+    <script>const isSiteThemeDark = false;</script>
   
-  <script src="/js/wowchemy-init.js"></script>
+  
+  <script src="/js/load-theme.js"></script>
 
   <aside class="search-results" id="search">
   <div class="container">
@@ -429,8 +430,7 @@ OmicIDX is a project to democratize access to omics metadata. As the sizes of om
 </aside>
 
 
-  <div class="page-header">
-    
+  
 
 
 
@@ -504,7 +504,7 @@ OmicIDX is a project to democratize access to omics metadata. As the sizes of om
         
 
         <li class="nav-item">
-          <a class="nav-link " href="/#about"><span>Home</span></a>
+          <a class="nav-link " href="/#about"><span>About</span></a>
         </li>
 
         
@@ -642,17 +642,10 @@ OmicIDX is a project to democratize access to omics metadata. As the sizes of om
             
           
           
-            
-            
-            
-              
-            
-            
-          
         
 
         <li class="nav-item">
-          <a class="nav-link " href="/#contact"><span>Contact</span></a>
+          <a class="nav-link " href="/project/"><span>Projects</span></a>
         </li>
 
         
@@ -679,10 +672,17 @@ OmicIDX is a project to democratize access to omics metadata. As the sizes of om
             
           
           
+            
+            
+            
+              
+            
+            
+          
         
 
         <li class="nav-item">
-          <a class="nav-link " href="/files/CV.pdf"><span>CV</span></a>
+          <a class="nav-link " href="/#contact"><span>Contact</span></a>
         </li>
 
         
@@ -704,23 +704,6 @@ OmicIDX is a project to democratize access to omics metadata. As the sizes of om
 
       
       
-      <li class="nav-item dropdown theme-dropdown">
-        <a href="#" class="nav-link" data-toggle="dropdown" aria-haspopup="true" aria-label="Display preferences">
-          <i class="fas fa-moon" aria-hidden="true"></i>
-        </a>
-        <div class="dropdown-menu">
-          <a href="#" class="dropdown-item js-set-theme-light">
-            <span>Light</span>
-          </a>
-          <a href="#" class="dropdown-item js-set-theme-dark">
-            <span>Dark</span>
-          </a>
-          <a href="#" class="dropdown-item js-set-theme-auto">
-            <span>Automatic</span>
-          </a>
-        </div>
-      </li>
-      
 
       
 
@@ -730,10 +713,8 @@ OmicIDX is a project to democratize access to omics metadata. As the sizes of om
 </nav>
 
 
-  </div>
 
-  <div class="page-body">
-    <article class="article">
+  <article class="article">
 
   
 
@@ -772,8 +753,10 @@ OmicIDX is a project to democratize access to omics metadata. As the sizes of om
     
     
       
+          Last updated on
+      
     
-    Jun 4, 2019
+    Oct 5, 2019
   </span>
   
 
@@ -782,14 +765,15 @@ OmicIDX is a project to democratize access to omics metadata. As the sizes of om
   
   <span class="middot-divider"></span>
   <span class="article-reading-time">
-    5 min read
+    4 min read
   </span>
   
 
   
   
   
-  
+  <span class="middot-divider"></span>
+  <a href="/post/omicidx_bigquery_python/#disqus_thread"></a>
   
 
   
@@ -820,7 +804,7 @@ OmicIDX is a project to democratize access to omics metadata. As the sizes of om
   <div class="article-container">
 
     <div class="article-style">
-      <p><em>Availability</em>: This ipython notebook is available at <a href="https://github.com/seandavi/omicidx_examples">https://github.com/seandavi/omicidx_examples</a>.</p>
+      <p><em>Availability</em>: This ipython notebook is available at <a href="https://github.com/seandavi/omicidx_examples" target="_blank" rel="noopener">https://github.com/seandavi/omicidx_examples</a>.</p>
 <p>OmicIDX is a project to democratize access to omics <em>metadata</em>. As the sizes of omics
 repositories have grown into the millions of available samples, thinking of the
 metadata themselves as <strong>Big Data</strong> seems reasonable. Additionally, by making the
@@ -842,7 +826,7 @@ BigQuery engine.</p>
 <p><strong>See <a href="https://cloud.google.com/bigquery/docs/quickstarts/quickstart-web-ui" target="_blank" rel="noopener">here</a> for the quickstart
 tutorial. (5 minutes)</strong></p>
 <p>After completing the quickstart, navigate to:</p>
-<p><a href="https://console.cloud.google.com/bigquery?project=isb-cgc-01-0006&amp;folder&amp;organizationId&amp;p=isb-cgc-01-0006&amp;d=omicidx&amp;page=dataset">https://console.cloud.google.com/bigquery?project=isb-cgc-01-0006&amp;folder&amp;organizationId&amp;p=isb-cgc-01-0006&amp;d=omicidx&amp;page=dataset</a></p>
+<p><a href="https://console.cloud.google.com/bigquery?project=isb-cgc-01-0006&amp;folder&amp;organizationId&amp;p=isb-cgc-01-0006&amp;d=omicidx&amp;page=dataset" target="_blank" rel="noopener">https://console.cloud.google.com/bigquery?project=isb-cgc-01-0006&folder&organizationId&p=isb-cgc-01-0006&d=omicidx&page=dataset</a></p>
 <p>On the left panel, you should now see the <code>isb-cgc-01-0006</code> project. Expanding that item, the <code>omicidx</code>
 dataset is available.</p>
 <p>At this point, explore the OmicIDX data via the Google Console. BigQuery uses standard SQL
@@ -856,37 +840,27 @@ go get started.</li>
 many languages. A command-line client (bq) is also available for shell scripting, etc.</p>
 <h1 id="examples">Examples</h1>
 <p>From here on out, the code can speak for itself. For more details on using BigQuery from python, check out the <a href="https://googleapis.github.io/google-cloud-python/latest/bigquery/index.html" target="_blank" rel="noopener">documentation</a></p>
-<pre><code class="language-python">from google.cloud import bigquery
-</code></pre>
-<pre><code class="language-python">import warnings
-warnings.filterwarnings('ignore')
-</code></pre>
-<pre><code class="language-python">client = bigquery.Client()
-</code></pre>
-<h2 id="studies-published-by-year">Studies published by year</h2>
-<pre><code class="language-python">sql_query = &quot;&quot;&quot;
-SELECT 
-    DATE(
-    EXTRACT(YEAR FROM published),
-    EXTRACT(MONTH FROM published),
-    1) as month,
-    count(*) as studies
-FROM `isb-cgc-01-0006.omicidx.sra_study` 
-where published &lt;= CURRENT_TIMESTAMP()
-GROUP BY month
-ORDER BY month desc;
-&quot;&quot;&quot;
-</code></pre>
-<p>Here, use a convenience method to convert results to a pandas dataframe.</p>
-<pre><code class="language-python">res = client.query(sql_query).to_dataframe()
-</code></pre>
-<pre><code class="language-python">res.head()
-</code></pre>
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">from</span> google.cloud <span style="color:#f92672">import</span> bigquery
+</code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">import</span> warnings
+warnings<span style="color:#f92672">.</span>filterwarnings(<span style="color:#e6db74">&#39;ignore&#39;</span>)
+</code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">client <span style="color:#f92672">=</span> bigquery<span style="color:#f92672">.</span>Client()
+</code></pre></div><h2 id="studies-published-by-year">Studies published by year</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">sql_query <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;&#34;&#34;
+</span><span style="color:#e6db74">SELECT 
+</span><span style="color:#e6db74">    DATE(
+</span><span style="color:#e6db74">    EXTRACT(YEAR FROM published),
+</span><span style="color:#e6db74">    EXTRACT(MONTH FROM published),
+</span><span style="color:#e6db74">    1) as month,
+</span><span style="color:#e6db74">    count(*) as studies
+</span><span style="color:#e6db74">FROM `isb-cgc-01-0006.omicidx.sra_study` 
+</span><span style="color:#e6db74">where published &lt;= CURRENT_TIMESTAMP()
+</span><span style="color:#e6db74">GROUP BY month
+</span><span style="color:#e6db74">ORDER BY month desc;
+</span><span style="color:#e6db74">&#34;&#34;&#34;</span>
+</code></pre></div><p>Here, use a convenience method to convert results to a pandas dataframe.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">res <span style="color:#f92672">=</span> client<span style="color:#f92672">.</span>query(sql_query)<span style="color:#f92672">.</span>to_dataframe()
+</code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">res<span style="color:#f92672">.</span>head()
+</code></pre></div><!-- raw HTML omitted -->
 <pre><code>.dataframe tbody tr th {
     vertical-align: top;
 }
@@ -895,70 +869,26 @@ ORDER BY month desc;
     text-align: right;
 }
 </code></pre>
-<p></style></p>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>month</th>
-      <th>studies</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>0</th>
-      <td>2019-08-01</td>
-      <td>319</td>
-    </tr>
-    <tr>
-      <th>1</th>
-      <td>2019-07-01</td>
-      <td>4946</td>
-    </tr>
-    <tr>
-      <th>2</th>
-      <td>2019-06-01</td>
-      <td>2800</td>
-    </tr>
-    <tr>
-      <th>3</th>
-      <td>2019-05-01</td>
-      <td>5595</td>
-    </tr>
-    <tr>
-      <th>4</th>
-      <td>2019-04-01</td>
-      <td>4227</td>
-    </tr>
-  </tbody>
-</table>
-</div>
+<p><!-- raw HTML omitted --></p>
+<!-- raw HTML omitted -->
 <p>The <a href="https://seaborn.pydata.org/" target="_blank" rel="noopener">seaborn</a> library is a high-level plotting library based on matplotlib.</p>
-<pre><code class="language-python">import matplotlib.pyplot as plt
-plt.figure(figsize=(16, 8))
-import seaborn as sns
-sns.scatterplot(x = &quot;month&quot;, y = &quot;studies&quot;, data = res)
-</code></pre>
-<pre><code>&lt;matplotlib.axes._subplots.AxesSubplot at 0x11ee4ba20&gt;
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">import</span> matplotlib.pyplot <span style="color:#66d9ef">as</span> plt
+plt<span style="color:#f92672">.</span>figure(figsize<span style="color:#f92672">=</span>(<span style="color:#ae81ff">16</span>, <span style="color:#ae81ff">8</span>))
+<span style="color:#f92672">import</span> seaborn <span style="color:#66d9ef">as</span> sns
+sns<span style="color:#f92672">.</span>scatterplot(x <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;month&#34;</span>, y <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;studies&#34;</span>, data <span style="color:#f92672">=</span> res)
+</code></pre></div><pre><code>&lt;matplotlib.axes._subplots.AxesSubplot at 0x11ee4ba20&gt;
 </code></pre>
 <h2 id="experiments-by-type">Experiments by type</h2>
 <p>The <code>sra_experiment</code> table contains most of the details about the experimental
 strategies. In particular, the <code>library_strategy</code> column</p>
-<pre><code class="language-python">sql_query = &quot;&quot;&quot;
-SELECT library_strategy, count(*) as count
-FROM `isb-cgc-01-0006.omicidx.sra_experiment`
-GROUP BY library_strategy 
-ORDER BY count desc&quot;&quot;&quot;
-</code></pre>
-<pre><code class="language-python">res = client.query(sql_query).to_dataframe()
-</code></pre>
-<pre><code class="language-python">res.head(15)
-</code></pre>
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">sql_query <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;&#34;&#34;
+</span><span style="color:#e6db74">SELECT library_strategy, count(*) as count
+</span><span style="color:#e6db74">FROM `isb-cgc-01-0006.omicidx.sra_experiment`
+</span><span style="color:#e6db74">GROUP BY library_strategy 
+</span><span style="color:#e6db74">ORDER BY count desc&#34;&#34;&#34;</span>
+</code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">res <span style="color:#f92672">=</span> client<span style="color:#f92672">.</span>query(sql_query)<span style="color:#f92672">.</span>to_dataframe()
+</code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">res<span style="color:#f92672">.</span>head(<span style="color:#ae81ff">15</span>)
+</code></pre></div><!-- raw HTML omitted -->
 <pre><code>.dataframe tbody tr th {
     vertical-align: top;
 }
@@ -967,94 +897,8 @@ ORDER BY count desc&quot;&quot;&quot;
     text-align: right;
 }
 </code></pre>
-<p></style></p>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>library_strategy</th>
-      <th>count</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>0</th>
-      <td>WGS</td>
-      <td>1964510</td>
-    </tr>
-    <tr>
-      <th>1</th>
-      <td>AMPLICON</td>
-      <td>1628660</td>
-    </tr>
-    <tr>
-      <th>2</th>
-      <td>RNA-Seq</td>
-      <td>1470370</td>
-    </tr>
-    <tr>
-      <th>3</th>
-      <td>OTHER</td>
-      <td>606406</td>
-    </tr>
-    <tr>
-      <th>4</th>
-      <td>WXS</td>
-      <td>322459</td>
-    </tr>
-    <tr>
-      <th>5</th>
-      <td>ChIP-Seq</td>
-      <td>142978</td>
-    </tr>
-    <tr>
-      <th>6</th>
-      <td>CLONE</td>
-      <td>135932</td>
-    </tr>
-    <tr>
-      <th>7</th>
-      <td>RAD-Seq</td>
-      <td>78845</td>
-    </tr>
-    <tr>
-      <th>8</th>
-      <td>Targeted-Capture</td>
-      <td>62990</td>
-    </tr>
-    <tr>
-      <th>9</th>
-      <td>POOLCLONE</td>
-      <td>57912</td>
-    </tr>
-    <tr>
-      <th>10</th>
-      <td>Bisulfite-Seq</td>
-      <td>52425</td>
-    </tr>
-    <tr>
-      <th>11</th>
-      <td>miRNA-Seq</td>
-      <td>45051</td>
-    </tr>
-    <tr>
-      <th>12</th>
-      <td>ATAC-seq</td>
-      <td>37000</td>
-    </tr>
-    <tr>
-      <th>13</th>
-      <td>WGA</td>
-      <td>36621</td>
-    </tr>
-    <tr>
-      <th>14</th>
-      <td>SELEX</td>
-      <td>30146</td>
-    </tr>
-  </tbody>
-</table>
-</div>
+<p><!-- raw HTML omitted --></p>
+<!-- raw HTML omitted -->
 <h2 id="number-of-cancer-studies">Number of &ldquo;cancer&rdquo; studies</h2>
 <p>BigQuery is a capable system even for full text searching. In this case,
 the <code>abstract</code>, <code>title</code>, and <code>description</code> fields for a study contain the
@@ -1063,17 +907,14 @@ but BigQuery has a <code>CONCAT</code> operator that can build up a single long 
 for search. Converting that string to all lower-case (using <code>LOWER</code>) facilitates
 case-insensitive search for <code>cancer</code>. Note that in SQL, the wildcard character
 is <code>%</code>.</p>
-<pre><code class="language-python">sql_query = &quot;&quot;&quot;
-SELECT count(*) as count
-FROM `isb-cgc-01-0006.omicidx.sra_study`
-WHERE LOWER(CONCAT(abstract, &quot; &quot;, title, &quot; &quot;, description)) like '%cancer%'
-&quot;&quot;&quot;
-</code></pre>
-<pre><code class="language-python">res = client.query(sql_query).to_dataframe()
-</code></pre>
-<pre><code class="language-python">print(&quot;There are {0} studies in which `cancer`  appears in the title, abstract, or description&quot;.format( res['count'][0]))
-</code></pre>
-<pre><code>There are 770 studies in which `cancer`  appears in the title, abstract, or description
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">sql_query <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;&#34;&#34;
+</span><span style="color:#e6db74">SELECT count(*) as count
+</span><span style="color:#e6db74">FROM `isb-cgc-01-0006.omicidx.sra_study`
+</span><span style="color:#e6db74">WHERE LOWER(CONCAT(abstract, &#34; &#34;, title, &#34; &#34;, description)) like &#39;</span><span style="color:#e6db74">%c</span><span style="color:#e6db74">ancer%&#39;
+</span><span style="color:#e6db74">&#34;&#34;&#34;</span>
+</code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">res <span style="color:#f92672">=</span> client<span style="color:#f92672">.</span>query(sql_query)<span style="color:#f92672">.</span>to_dataframe()
+</code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">print(<span style="color:#e6db74">&#34;There are </span><span style="color:#e6db74">{0}</span><span style="color:#e6db74"> studies in which `cancer`  appears in the title, abstract, or description&#34;</span><span style="color:#f92672">.</span>format( res[<span style="color:#e6db74">&#39;count&#39;</span>][<span style="color:#ae81ff">0</span>]))
+</code></pre></div><pre><code>There are 770 studies in which `cancer`  appears in the title, abstract, or description
 </code></pre>
 <h2 id="distribution-of-number-of-attributes-per-sample">Distribution of number of attributes per sample</h2>
 <p>The <code>sra_sample</code> table contains most of the metadata that are associated with
@@ -1083,24 +924,21 @@ of that the <code>attributes</code> column then gives the number of distinct att
 for each sample. While pulling those results, one-per-sample, back into python
 is one way to proceed, writing a SQL query that creates the histogram for us
 will be more efficient.</p>
-<pre><code class="language-python">sql_query = &quot;&quot;&quot;
-with t as
-  (SELECT array_length(attributes) as attribute_count
-  FROM `isb-cgc-01-0006.omicidx.sra_sample`) 
-SELECT t.attribute_count, count(*) as nbr_of_samples
-  FROM t
-  GROUP BY attribute_count
-  ORDER BY attribute_count asc
-&quot;&quot;&quot;
-</code></pre>
-<pre><code class="language-python">res = client.query(sql_query).to_dataframe()
-</code></pre>
-<pre><code class="language-python">plt.figure(figsize=(16, 8))
-g = sns.scatterplot(x=&quot;attribute_count&quot;, y=&quot;nbr_of_samples&quot;, data=res)
-g.set_yscale('log')
-plt.show()
-</code></pre>
-<p><img src="output_23_0.png" alt="png"></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">sql_query <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;&#34;&#34;
+</span><span style="color:#e6db74">with t as
+</span><span style="color:#e6db74">  (SELECT array_length(attributes) as attribute_count
+</span><span style="color:#e6db74">  FROM `isb-cgc-01-0006.omicidx.sra_sample`) 
+</span><span style="color:#e6db74">SELECT t.attribute_count, count(*) as nbr_of_samples
+</span><span style="color:#e6db74">  FROM t
+</span><span style="color:#e6db74">  GROUP BY attribute_count
+</span><span style="color:#e6db74">  ORDER BY attribute_count asc
+</span><span style="color:#e6db74">&#34;&#34;&#34;</span>
+</code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">res <span style="color:#f92672">=</span> client<span style="color:#f92672">.</span>query(sql_query)<span style="color:#f92672">.</span>to_dataframe()
+</code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">plt<span style="color:#f92672">.</span>figure(figsize<span style="color:#f92672">=</span>(<span style="color:#ae81ff">16</span>, <span style="color:#ae81ff">8</span>))
+g <span style="color:#f92672">=</span> sns<span style="color:#f92672">.</span>scatterplot(x<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;attribute_count&#34;</span>, y<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;nbr_of_samples&#34;</span>, data<span style="color:#f92672">=</span>res)
+g<span style="color:#f92672">.</span>set_yscale(<span style="color:#e6db74">&#39;log&#39;</span>)
+plt<span style="color:#f92672">.</span>show()
+</code></pre></div><p><img src="output_23_0.png" alt="png"></p>
 <h1 id="conclusion">Conclusion</h1>
 <p>This little post is just to whet the appetite. BigQuery is a new technology
 for many informatics folks, but it is quite powerful, extensible, and is
@@ -1108,9 +946,8 @@ nearly free for datasets of even modest size. With libraries for R, python,
 java, as well as a simple command-line client, access to OmicIDX in BigQuery
 is well-supported.</p>
 <p>Other approaches to accessing OmicIDX data are forthcoming.</p>
-<pre><code class="language-python">
-</code></pre>
-
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">
+</code></pre></div>
     </div>
 
     
@@ -1133,7 +970,7 @@ is well-supported.</p>
       
       
       <li>
-        <a href="https://twitter.com/intent/tweet?url=/post/omicidx_bigquery_python/&amp;text=OmicIDX%20on%20BigQuery" target="_blank" rel="noopener" class="share-btn-twitter">
+        <a href="https://twitter.com/intent/tweet?url=https://seandavi.github.io/post/omicidx_bigquery_python/&amp;text=OmicIDX%20on%20BigQuery" target="_blank" rel="noopener" class="share-btn-twitter">
           <i class="fab fa-twitter"></i>
         </a>
       </li>
@@ -1146,7 +983,7 @@ is well-supported.</p>
       
       
       <li>
-        <a href="https://www.facebook.com/sharer.php?u=/post/omicidx_bigquery_python/&amp;t=OmicIDX%20on%20BigQuery" target="_blank" rel="noopener" class="share-btn-facebook">
+        <a href="https://www.facebook.com/sharer.php?u=https://seandavi.github.io/post/omicidx_bigquery_python/&amp;t=OmicIDX%20on%20BigQuery" target="_blank" rel="noopener" class="share-btn-facebook">
           <i class="fab fa-facebook"></i>
         </a>
       </li>
@@ -1159,7 +996,7 @@ is well-supported.</p>
       
       
       <li>
-        <a href="mailto:?subject=OmicIDX%20on%20BigQuery&amp;body=/post/omicidx_bigquery_python/" target="_blank" rel="noopener" class="share-btn-email">
+        <a href="mailto:?subject=OmicIDX%20on%20BigQuery&amp;body=https://seandavi.github.io/post/omicidx_bigquery_python/" target="_blank" rel="noopener" class="share-btn-email">
           <i class="fas fa-envelope"></i>
         </a>
       </li>
@@ -1172,7 +1009,7 @@ is well-supported.</p>
       
       
       <li>
-        <a href="https://www.linkedin.com/shareArticle?url=/post/omicidx_bigquery_python/&amp;title=OmicIDX%20on%20BigQuery" target="_blank" rel="noopener" class="share-btn-linkedin">
+        <a href="https://www.linkedin.com/shareArticle?url=https://seandavi.github.io/post/omicidx_bigquery_python/&amp;title=OmicIDX%20on%20BigQuery" target="_blank" rel="noopener" class="share-btn-linkedin">
           <i class="fab fa-linkedin-in"></i>
         </a>
       </li>
@@ -1185,7 +1022,7 @@ is well-supported.</p>
       
       
       <li>
-        <a href="whatsapp://send?text=OmicIDX%20on%20BigQuery%20/post/omicidx_bigquery_python/" target="_blank" rel="noopener" class="share-btn-whatsapp">
+        <a href="whatsapp://send?text=OmicIDX%20on%20BigQuery%20https://seandavi.github.io/post/omicidx_bigquery_python/" target="_blank" rel="noopener" class="share-btn-whatsapp">
           <i class="fab fa-whatsapp"></i>
         </a>
       </li>
@@ -1198,7 +1035,7 @@ is well-supported.</p>
       
       
       <li>
-        <a href="https://service.weibo.com/share/share.php?url=/post/omicidx_bigquery_python/&amp;title=OmicIDX%20on%20BigQuery" target="_blank" rel="noopener" class="share-btn-weibo">
+        <a href="https://service.weibo.com/share/share.php?url=https://seandavi.github.io/post/omicidx_bigquery_python/&amp;title=OmicIDX%20on%20BigQuery" target="_blank" rel="noopener" class="share-btn-weibo">
           <i class="fab fa-weibo"></i>
         </a>
       </li>
@@ -1232,8 +1069,8 @@ is well-supported.</p>
     
 
     <div class="media-body">
-      <h5 class="card-title"></h5>
-      <h6 class="card-subtitle">Professor, Department of Medicine</h6>
+      <h5 class="card-title"><a href="https://seandavi.github.io/"></a></h5>
+      <h6 class="card-subtitle">Senior Associate Scientist</h6>
       <p class="card-text">My interests include biomedical data science, open data, genomics, and cancer research.</p>
       <ul class="network-icon" aria-hidden="true">
   
@@ -1327,17 +1164,38 @@ is well-supported.</p>
 
 
 
-
-
-
-
-
-
-
+<section id="comments">
+  
+    
+<div id="disqus_thread"></div>
+<script>
+  var disqus_config = function () {
+    
+    
+    
+  };
+  (function() {
+    if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+      document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+      return;
+    }
+    var d = document, s = d.createElement('script'); s.async = true;
+    s.src = 'https://' + "seandavi-github-io" + '.disqus.com/embed.js';
+    s.setAttribute('data-timestamp', +new Date());
+    (d.head || d.body).appendChild(s);
+  })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
 
 
   
-  
+</section>
+
+
+
+
+
 
 
 
@@ -1345,68 +1203,6 @@ is well-supported.</p>
 
   </div>
 </article>
-  </div>
-
-  <div class="page-footer">
-    
-    
-    <div class="container">
-      <footer class="site-footer">
-  
-
-  <p class="powered-by">
-    
-  </p>
-
-  
-  
-
-
-
-
-
-
-  <p class="powered-by">
-    
-    
-    
-    Published with
-    <a href="https://wowchemy.com/?utm_campaign=poweredby" target="_blank" rel="noopener">Wowchemy</a>  —
-    the free, <a href="https://github.com/wowchemy/wowchemy-hugo-modules" target="_blank" rel="noopener">
-    open source</a> website builder that empowers creators.
-    
-  </p>
-</footer>
-
-    </div>
-    
-  </div>
-
-  
-<div id="modal" class="modal fade" role="dialog">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title">Cite</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-        <pre><code class="tex hljs"></code></pre>
-      </div>
-      <div class="modal-footer">
-        <a class="btn btn-outline-primary my-1 js-copy-cite" href="#" target="_blank">
-          <i class="fas fa-copy"></i> Copy
-        </a>
-        <a class="btn btn-outline-primary my-1 js-download-cite" href="#" target="_blank">
-          <i class="fas fa-download"></i> Download
-        </a>
-        <div id="modal-error"></div>
-      </div>
-    </div>
-  </div>
-</div>
 
       
 
@@ -1414,16 +1210,13 @@ is well-supported.</p>
     
     
       <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
-
-      
-      
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.imagesloaded/4.1.4/imagesloaded.pkgd.min.js" integrity="sha256-lqvxZrPLtfffUl2G/e7szqSvPBILGbwmsGE1MKlOi0Q=" crossorigin="anonymous"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.isotope/3.0.6/isotope.pkgd.min.js" integrity="sha256-CBrpuqrMhXwcLLUd5tvQ4euBHCdh7wGlDfNz8vbu/iI=" crossorigin="anonymous"></script>
-      
-
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.imagesloaded/4.1.4/imagesloaded.pkgd.min.js" integrity="sha256-lqvxZrPLtfffUl2G/e7szqSvPBILGbwmsGE1MKlOi0Q=" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.isotope/3.0.6/isotope.pkgd.min.js" integrity="sha256-CBrpuqrMhXwcLLUd5tvQ4euBHCdh7wGlDfNz8vbu/iI=" crossorigin="anonymous"></script>
       <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js" integrity="sha256-yt2kYMy0w8AbtF89WXb2P1rfjcP/HTHLT7097U8Y5b8=" crossorigin="anonymous"></script>
       <script src="https://cdnjs.cloudflare.com/ajax/libs/instant.page/5.1.0/instantpage.min.js" integrity="sha512-1+qUtKoh9XZW7j+6LhRMAyOrgSQKenQ4mluTR+cvxXjP1Z54RxZuzstR/H9kgPXQsVB8IW7DMDFUJpzLjvhGSQ==" crossorigin="anonymous"></script>
 
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mermaid/8.8.0/mermaid.min.js" integrity="sha512-ja+hSBi4JDtjSqc4LTBsSwuBT3tdZ3oKYKd07lTVYmCnTCor56AnRql00ssqnTOR9Ss4gOP/ROGB3SfcJnZkeg==" crossorigin="anonymous" title="mermaid"></script>
       
 
       
@@ -1432,11 +1225,19 @@ is well-supported.</p>
         
         <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.2.0/languages/r.min.js"></script>
         
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.2.0/languages/python.min.js"></script>
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.2.0/languages/javascript.min.js"></script>
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.2.0/languages/html.min.js"></script>
+        
       
 
     
 
     
+    
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/leaflet.min.js" integrity="sha512-SeiQaaDh73yrb56sTW/RgVdi/mMqNeM2oBwubFHagc5BkixSpP1fvqF47mKzPGWYSSy4RwbBunrJBQ4Co8fRWA==" crossorigin="anonymous"></script>
     
 
     
@@ -1492,12 +1293,13 @@ is well-supported.</p>
 
     
     
-    
 
     
     
 
     
+    
+    <script id="dsq-count-scr" src="https://seandavi-github-io.disqus.com/count.js" async></script>
     
 
     
@@ -1514,7 +1316,7 @@ is well-supported.</p>
     
     
     
-    <script src="/js/wowchemy.min.ffabb05383f1b16d83e7181a605e644c.js"></script>
+    <script src="/js/wowchemy.min.434af0ebce9e15b273b954d65feb39c7.js"></script>
 
     
 
@@ -1522,6 +1324,73 @@ is well-supported.</p>
 
 
 
+
+  
+  
+  <div class="container">
+    <footer class="site-footer">
+  
+
+  <p class="powered-by">
+    © 2016-2020
+  </p>
+
+  
+  
+
+
+
+
+
+
+  <p class="powered-by">
+    
+    Published with
+    <a href="https://wowchemy.com" target="_blank" rel="noopener">Wowchemy</a>  —
+    the free, <a href="https://github.com/wowchemy/wowchemy-hugo-modules" target="_blank" rel="noopener">
+    open source</a> website builder that empowers creators.
+    
+
+    
+    <span class="float-right" aria-hidden="true">
+      <a href="#" class="back-to-top">
+        <span class="button_icon">
+          <i class="fas fa-chevron-up fa-2x"></i>
+        </span>
+      </a>
+    </span>
+    
+  </p>
+</footer>
+
+  </div>
+  
+
+  
+<div id="modal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Cite</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <pre><code class="tex hljs"></code></pre>
+      </div>
+      <div class="modal-footer">
+        <a class="btn btn-outline-primary my-1 js-copy-cite" href="#" target="_blank">
+          <i class="fas fa-copy"></i> Copy
+        </a>
+        <a class="btn btn-outline-primary my-1 js-download-cite" href="#" target="_blank">
+          <i class="fas fa-download"></i> Download
+        </a>
+        <div id="modal-error"></div>
+      </div>
+    </div>
+  </div>
+</div>
 
 </body>
 </html>

@@ -1,0 +1,560 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>GenomicDataCommons | seandavi(s12)</title>
+    <link>https://seandavi.github.io/tags/genomicdatacommons/</link>
+      <atom:link href="https://seandavi.github.io/tags/genomicdatacommons/index.xml" rel="self" type="application/rss+xml" />
+    <description>GenomicDataCommons</description>
+    <generator>Wowchemy (https://wowchemy.com)</generator><language>en-us</language><copyright>© 2016-2020</copyright><lastBuildDate>Sun, 25 Mar 2018 11:18:36 -0400</lastBuildDate>
+    <image>
+      <url>https://seandavi.github.io/images/icon_hu0b7a4cb9992c9ac0e91bd28ffd38dd00_9727_512x512_fill_lanczos_center_3.png</url>
+      <title>GenomicDataCommons</title>
+      <link>https://seandavi.github.io/tags/genomicdatacommons/</link>
+    </image>
+    
+    <item>
+      <title>Extracting Clinical Information Using the Genomicdatacommons Package</title>
+      <link>https://seandavi.github.io/post/2018-03-25-extracting-clinical-information-using-the-genomicdatacommons-package/</link>
+      <pubDate>Sun, 25 Mar 2018 11:18:36 -0400</pubDate>
+      <guid>https://seandavi.github.io/post/2018-03-25-extracting-clinical-information-using-the-genomicdatacommons-package/</guid>
+      <description>
+
+
+&lt;p&gt;This short post introducds the &lt;code&gt;gdc_clinical()&lt;/code&gt; function recently
+added to the GenomicDataCommons package.&lt;/p&gt;
+&lt;p&gt;The
+&lt;a href=&#34;https://gdc.cancer.gov/developers/gdc-data-model&#34;&gt;rich data model&lt;/a&gt; at
+the NCI Genomic Data Commons (GDC) includes clinical and biospecimen
+details. A recently added feature to the NCI GDC Data Portal is the
+ability to download tab-delimited files or JSON files for clinical and
+biospecimen details of samples. The details available in these
+simplified formats are also available via the GDC API.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;library(GenomicDataCommons)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;The clinical
+infomation at the GDC is encapsulated in the &lt;code&gt;cases&lt;/code&gt; records. Here, I
+introduce the &lt;code&gt;gdc_clinical()&lt;/code&gt; function from
+the
+&lt;a href=&#34;https://bioconductor.org/packages/GenomicDataCommons&#34;&gt;GenomicDataCommons&lt;/a&gt; package that
+takes as input
+GDC case IDs and returns a set of four related &lt;code&gt;data.frame&lt;/code&gt;s:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;main: important case metadata&lt;/li&gt;
+&lt;li&gt;demographics: basic demographic information&lt;/li&gt;
+&lt;li&gt;exposures: zero or more documented exposures&lt;/li&gt;
+&lt;li&gt;diagnoses: zero or more diagnoses per case&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;As an example application, we will examine the clinical details for
+100 lung adenocarcinoma patients from TCGA (“TCGA-LUAD”). The case ids
+are available through a basic &lt;code&gt;cases()&lt;/code&gt; query, &lt;code&gt;filter&lt;/code&gt;ed to include
+only samples that belong to the project from &lt;code&gt;TCGA-LUAD&lt;/code&gt; (stored in
+the &lt;code&gt;project.project_id&lt;/code&gt; field). The query to get these case_ids,
+then, looks like:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;case_ids = cases() %&amp;gt;%
+    filter(~ project.project_id == &amp;#39;TCGA-LUAD&amp;#39;) %&amp;gt;%
+    results(size=100) %&amp;gt;%
+    ids()
+head(case_ids)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] &amp;quot;ffb0c0b7-165e-4439-b3e6-62431f40b7fe&amp;quot;
+## [2] &amp;quot;f98ecd8a-b878-4f53-b911-20cd8e17281c&amp;quot;
+## [3] &amp;quot;ccfdad76-cc45-447f-bed8-ede8f6a8844d&amp;quot;
+## [4] &amp;quot;9fcdccae-676e-4071-93c3-23d2d3ab0c00&amp;quot;
+## [5] &amp;quot;0232d299-4cdf-4fd7-9a5e-8d13c208b40c&amp;quot;
+## [6] &amp;quot;bc4c4079-b449-485d-84e4-a40496e563e8&amp;quot;&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;These case_ids, each representing a single case (patient) in the GDC,
+can be be fed directly to &lt;code&gt;gdc_clinical&lt;/code&gt;.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;clin_res = gdc_clinical(case_ids)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;The result is a list of data.frames:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;names(clin_res)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] &amp;quot;demographic&amp;quot; &amp;quot;diagnoses&amp;quot;   &amp;quot;exposures&amp;quot;   &amp;quot;main&amp;quot;&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;The the dimensions of these data.frames is instructive.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;sapply(clin_res, dim) %&amp;gt;%
+    t() %&amp;gt;%
+    data.frame() %&amp;gt;%
+    set_names(c(&amp;#39;rows&amp;#39;,&amp;#39;columns&amp;#39;))&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;##             rows columns
+## demographic  100      11
+## diagnoses     82      23
+## exposures     82      13
+## main         100       8&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;And the column names for each are helpful to examine:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;sapply(clin_res, colnames)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## $demographic
+##  [1] &amp;quot;updated_datetime&amp;quot; &amp;quot;created_datetime&amp;quot; &amp;quot;gender&amp;quot;          
+##  [4] &amp;quot;year_of_birth&amp;quot;    &amp;quot;submitter_id&amp;quot;     &amp;quot;state&amp;quot;           
+##  [7] &amp;quot;race&amp;quot;             &amp;quot;demographic_id&amp;quot;   &amp;quot;ethnicity&amp;quot;       
+## [10] &amp;quot;year_of_death&amp;quot;    &amp;quot;case_id&amp;quot;         
+## 
+## $diagnoses
+##  [1] &amp;quot;case_id&amp;quot;                          
+##  [2] &amp;quot;classification_of_tumor&amp;quot;          
+##  [3] &amp;quot;last_known_disease_status&amp;quot;        
+##  [4] &amp;quot;updated_datetime&amp;quot;                 
+##  [5] &amp;quot;primary_diagnosis&amp;quot;                
+##  [6] &amp;quot;submitter_id&amp;quot;                     
+##  [7] &amp;quot;tumor_stage&amp;quot;                      
+##  [8] &amp;quot;age_at_diagnosis&amp;quot;                 
+##  [9] &amp;quot;vital_status&amp;quot;                     
+## [10] &amp;quot;morphology&amp;quot;                       
+## [11] &amp;quot;days_to_death&amp;quot;                    
+## [12] &amp;quot;days_to_last_known_disease_status&amp;quot;
+## [13] &amp;quot;created_datetime&amp;quot;                 
+## [14] &amp;quot;state&amp;quot;                            
+## [15] &amp;quot;days_to_recurrence&amp;quot;               
+## [16] &amp;quot;diagnosis_id&amp;quot;                     
+## [17] &amp;quot;tumor_grade&amp;quot;                      
+## [18] &amp;quot;tissue_or_organ_of_origin&amp;quot;        
+## [19] &amp;quot;days_to_birth&amp;quot;                    
+## [20] &amp;quot;progression_or_recurrence&amp;quot;        
+## [21] &amp;quot;prior_malignancy&amp;quot;                 
+## [22] &amp;quot;site_of_resection_or_biopsy&amp;quot;      
+## [23] &amp;quot;days_to_last_follow_up&amp;quot;           
+## 
+## $exposures
+##  [1] &amp;quot;case_id&amp;quot;            &amp;quot;cigarettes_per_day&amp;quot; &amp;quot;weight&amp;quot;            
+##  [4] &amp;quot;updated_datetime&amp;quot;   &amp;quot;alcohol_history&amp;quot;    &amp;quot;alcohol_intensity&amp;quot; 
+##  [7] &amp;quot;bmi&amp;quot;                &amp;quot;years_smoked&amp;quot;       &amp;quot;submitter_id&amp;quot;      
+## [10] &amp;quot;created_datetime&amp;quot;   &amp;quot;state&amp;quot;              &amp;quot;exposure_id&amp;quot;       
+## [13] &amp;quot;height&amp;quot;            
+## 
+## $main
+## [1] &amp;quot;updated_datetime&amp;quot; &amp;quot;submitter_id&amp;quot;     &amp;quot;case_id&amp;quot;         
+## [4] &amp;quot;id&amp;quot;               &amp;quot;disease_type&amp;quot;     &amp;quot;created_datetime&amp;quot;
+## [7] &amp;quot;state&amp;quot;            &amp;quot;primary_site&amp;quot;&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Note the each data.frame contains a &lt;code&gt;case_id&lt;/code&gt; column by design to
+allow arbitrary joining of the tables to each other. In this case, the
+data relationships are not too complicated, but one might imagine
+situations arising that include many-to-many relationships that are
+hard to handle in a fully general way without some understanding of
+downstream use (what do we want to do with the clinical
+information?). In this relatively simple case, we can create a
+“master” data.frame by joining all the records from each data.frame.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;library(dplyr)
+full_clin = with(clin_res,
+     main %&amp;gt;%
+     left_join(demographic, by = &amp;quot;case_id&amp;quot;) %&amp;gt;%
+     left_join(exposures, by = &amp;quot;case_id&amp;quot;) %&amp;gt;%
+     left_join(diagnoses, by = &amp;quot;case_id&amp;quot;))&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Above, I have used the tidyverse approach, applying &lt;code&gt;dplyr&lt;/code&gt;
+&lt;code&gt;left_join()&lt;/code&gt;s. Using base R &lt;code&gt;merge&lt;/code&gt; would also work.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;dim(full_clin)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] 100  52&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;colnames(full_clin)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;##  [1] &amp;quot;updated_datetime.x&amp;quot;               
+##  [2] &amp;quot;submitter_id.x&amp;quot;                   
+##  [3] &amp;quot;case_id&amp;quot;                          
+##  [4] &amp;quot;id&amp;quot;                               
+##  [5] &amp;quot;disease_type&amp;quot;                     
+##  [6] &amp;quot;created_datetime.x&amp;quot;               
+##  [7] &amp;quot;state.x&amp;quot;                          
+##  [8] &amp;quot;primary_site&amp;quot;                     
+##  [9] &amp;quot;updated_datetime.y&amp;quot;               
+## [10] &amp;quot;created_datetime.y&amp;quot;               
+## [11] &amp;quot;gender&amp;quot;                           
+## [12] &amp;quot;year_of_birth&amp;quot;                    
+## [13] &amp;quot;submitter_id.y&amp;quot;                   
+## [14] &amp;quot;state.y&amp;quot;                          
+## [15] &amp;quot;race&amp;quot;                             
+## [16] &amp;quot;demographic_id&amp;quot;                   
+## [17] &amp;quot;ethnicity&amp;quot;                        
+## [18] &amp;quot;year_of_death&amp;quot;                    
+## [19] &amp;quot;cigarettes_per_day&amp;quot;               
+## [20] &amp;quot;weight&amp;quot;                           
+## [21] &amp;quot;updated_datetime.x.x&amp;quot;             
+## [22] &amp;quot;alcohol_history&amp;quot;                  
+## [23] &amp;quot;alcohol_intensity&amp;quot;                
+## [24] &amp;quot;bmi&amp;quot;                              
+## [25] &amp;quot;years_smoked&amp;quot;                     
+## [26] &amp;quot;submitter_id.x.x&amp;quot;                 
+## [27] &amp;quot;created_datetime.x.x&amp;quot;             
+## [28] &amp;quot;state.x.x&amp;quot;                        
+## [29] &amp;quot;exposure_id&amp;quot;                      
+## [30] &amp;quot;height&amp;quot;                           
+## [31] &amp;quot;classification_of_tumor&amp;quot;          
+## [32] &amp;quot;last_known_disease_status&amp;quot;        
+## [33] &amp;quot;updated_datetime.y.y&amp;quot;             
+## [34] &amp;quot;primary_diagnosis&amp;quot;                
+## [35] &amp;quot;submitter_id.y.y&amp;quot;                 
+## [36] &amp;quot;tumor_stage&amp;quot;                      
+## [37] &amp;quot;age_at_diagnosis&amp;quot;                 
+## [38] &amp;quot;vital_status&amp;quot;                     
+## [39] &amp;quot;morphology&amp;quot;                       
+## [40] &amp;quot;days_to_death&amp;quot;                    
+## [41] &amp;quot;days_to_last_known_disease_status&amp;quot;
+## [42] &amp;quot;created_datetime.y.y&amp;quot;             
+## [43] &amp;quot;state.y.y&amp;quot;                        
+## [44] &amp;quot;days_to_recurrence&amp;quot;               
+## [45] &amp;quot;diagnosis_id&amp;quot;                     
+## [46] &amp;quot;tumor_grade&amp;quot;                      
+## [47] &amp;quot;tissue_or_organ_of_origin&amp;quot;        
+## [48] &amp;quot;days_to_birth&amp;quot;                    
+## [49] &amp;quot;progression_or_recurrence&amp;quot;        
+## [50] &amp;quot;prior_malignancy&amp;quot;                 
+## [51] &amp;quot;site_of_resection_or_biopsy&amp;quot;      
+## [52] &amp;quot;days_to_last_follow_up&amp;quot;&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;In conclusion, the &lt;code&gt;gdc_clinical&lt;/code&gt; functionality from the
+GenomicDataCommons is a high-level function for capturing unified and
+harmonized clinical information for &lt;em&gt;any&lt;/em&gt; case in the NCI GDC
+repository.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;sessionInfo()&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## R version 3.5.1 (2018-07-02)
+## Platform: x86_64-apple-darwin15.6.0 (64-bit)
+## Running under: macOS Sierra 10.12.6
+## 
+## Matrix products: default
+## BLAS: /Library/Frameworks/R.framework/Versions/3.5/Resources/lib/libRblas.0.dylib
+## LAPACK: /Library/Frameworks/R.framework/Versions/3.5/Resources/lib/libRlapack.dylib
+## 
+## locale:
+## [1] en_US.UTF-8/en_US.UTF-8/en_US.UTF-8/C/en_US.UTF-8/en_US.UTF-8
+## 
+## attached base packages:
+## [1] stats     graphics  grDevices utils     datasets  methods   base     
+## 
+## other attached packages:
+## [1] dplyr_0.7.7              GenomicDataCommons_1.4.3
+## [3] magrittr_1.5             knitr_1.20              
+## 
+## loaded via a namespace (and not attached):
+##  [1] SummarizedExperiment_1.10.1 tidyselect_0.2.5           
+##  [3] xfun_0.3                    purrr_0.2.5                
+##  [5] lattice_0.20-35             htmltools_0.3.6            
+##  [7] stats4_3.5.1                yaml_2.2.0                 
+##  [9] rlang_0.3.0.1               pillar_1.3.0               
+## [11] glue_1.3.0                  BiocParallel_1.14.2        
+## [13] rappdirs_0.3.1              BiocGenerics_0.26.0        
+## [15] bindrcpp_0.2.2              matrixStats_0.54.0         
+## [17] GenomeInfoDbData_1.1.0      bindr_0.1.1                
+## [19] stringr_1.3.1               zlibbioc_1.26.0            
+## [21] blogdown_0.8                codetools_0.2-15           
+## [23] evaluate_0.12               Biobase_2.40.0             
+## [25] IRanges_2.14.12             GenomeInfoDb_1.16.0        
+## [27] parallel_3.5.1              curl_3.2                   
+## [29] Rcpp_0.12.19                readr_1.1.1                
+## [31] backports_1.1.2             DelayedArray_0.6.6         
+## [33] S4Vectors_0.18.3            jsonlite_1.5               
+## [35] XVector_0.20.0              hms_0.4.2                  
+## [37] digest_0.6.18               stringi_1.2.4              
+## [39] bookdown_0.7                GenomicRanges_1.32.7       
+## [41] grid_3.5.1                  rprojroot_1.3-2            
+## [43] tools_3.5.1                 bitops_1.0-6               
+## [45] RCurl_1.95-4.11             lazyeval_0.2.1             
+## [47] tibble_1.4.2                crayon_1.3.4               
+## [49] pkgconfig_2.0.2             Matrix_1.2-14              
+## [51] xml2_1.2.0                  assertthat_0.2.0           
+## [53] rmarkdown_1.10              httr_1.3.1                 
+## [55] R6_2.3.0                    compiler_3.5.1&lt;/code&gt;&lt;/pre&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Leveraging Bioconductor for somatic variant analysis of TCGA data</title>
+      <link>https://seandavi.github.io/post/leveraging-bioconductor-for-somatic-variant-analysis-of-tcga-datarmd/</link>
+      <pubDate>Fri, 26 Jan 2018 00:00:00 +0000</pubDate>
+      <guid>https://seandavi.github.io/post/leveraging-bioconductor-for-somatic-variant-analysis-of-tcga-datarmd/</guid>
+      <description>
+
+
+&lt;p&gt;The &lt;a href=&#34;https://gdc.cancer.gov&#34;&gt;NCI Genomic Data Commons (GDC)&lt;/a&gt; now contains the authoritative
+source of data from The Cancer Genome Atlas (TCGA) as well as several
+other projects of import to the cancer research community. One of the
+available assays produces somatic variant calls, formally identified
+by comparing tumor reads and normal reads to identify variants
+relative to the human reference genome that are not present in the
+normal genome of the patient. Unfortunately, this process for
+discovering these variants is less precise relative to finding
+germline variants. Because a gold standard bioinformatics approach for
+somatic variant calling has not been identified, the GDC runs four
+separate pipelines and has two levels of data for each. This post
+demonstrates the use of the Bioconductor &lt;a href=&#34;https://bioconductor.org/packages/GenomicDataCommons&#34;&gt;GenomicDataCommons package&lt;/a&gt;
+to identify and then fetch somatic variant results from the NCI GDC
+and then provide a high-level assessment of those variants using the
+&lt;a href=&#34;https://bioconductor.org/packages/maftools&#34;&gt;maftools package&lt;/a&gt;. The workflow will be:&lt;/p&gt;
+&lt;ol style=&#34;list-style-type: decimal&#34;&gt;
+&lt;li&gt;Install packages if not already installed&lt;/li&gt;
+&lt;li&gt;Load libraries&lt;/li&gt;
+&lt;li&gt;Identify and download somatic variants for a representative TCGA
+dataset, in this case cutaneous melanoma.&lt;/li&gt;
+&lt;li&gt;Use maftools to provide rich summaries of the data.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;Identifying appropriate resources at the GDC starts with a bit of
+browsing on the website or with equivalent browsing using one of the
+GenomicDataCommons introspection functions, &lt;code&gt;available_fields()&lt;/code&gt; and
+&lt;code&gt;available_values()&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;To work through these code examples, the maftools and
+GenomicDataCommons packages must first be installed.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;source(&amp;quot;https://bioconductor.org/biocLite.R&amp;quot;)
+biocLite(c(&amp;quot;GenomicDataCommons&amp;quot;, &amp;quot;maftools&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Once installed, load the packages, as usual.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;library(GenomicDataCommons)
+library(maftools)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;The data model (how data are described and linked to each other) is
+quite complicated, but documentation is available. In general, though,
+linking Bioconductor tools to data involves finding files that meet
+some criteria. Each file in the GDC is identified by a “UUID” that
+carries no meaning other than it is unique. TCGA barcodes are not
+&lt;em&gt;directly&lt;/em&gt; used for identifying files, though filtering files by TCGA
+barcodes is possible (and not shown here). So, the first step is to
+find barcodes associated with a [MAF format file] for TCGA project
+“TCGA-SKCM”. Searching based on &lt;code&gt;data_type&lt;/code&gt;, &lt;code&gt;data_format&lt;/code&gt;, and
+&lt;code&gt;analysis.workflow_type&lt;/code&gt; will limit results to the file of interest,
+namely the &lt;a href=&#34;https://docs.gdc.cancer.gov/Data_Dictionary/viewer/#?view=table-definition-view&amp;amp;id=somatic_aggregation_workflow&amp;amp;_top=1&#34;&gt;MuTect2 workflow&lt;/a&gt; variant calls, converted to MAF format.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;uuids = files() %&amp;gt;% 
+    GenomicDataCommons::filter(~ cases.project.project_id==&amp;#39;TCGA-SKCM&amp;#39; &amp;amp; 
+        data_type==&amp;#39;Masked Somatic Mutation&amp;#39; &amp;amp;
+        data_format==&amp;#39;MAF&amp;#39; &amp;amp;
+        analysis.workflow_type==&amp;#39;MuTect2 Variant Aggregation and Masking&amp;#39;) %&amp;gt;%
+    ids()&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Once the uuids have been identified (in this case, only 4b7a5729-b83e-4837-9b61-a6002dce1c0a),
+the &lt;code&gt;gdcdata()&lt;/code&gt; function downloads the associated files and returns a
+filename for each uuid.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;maffile = gdcdata(uuids)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;The MAF file is now stored locally and the &lt;a href=&#34;https://bioconductor.org/packages/maftools&#34;&gt;maftools package&lt;/a&gt;
+workflow, which starts with a MAF file, can proceed, starting with
+reading the melanoma MAF file.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;melanoma_vars = read.maf(maf = maffile, verbose = FALSE)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;With the data available as a maftools MAF object, a lot of
+functionality is available with little code. While the maftools
+package offers quite a few functions, here are a few
+highlights. Cancer genomics and bioinformatics researchers will
+recognize these plots, most likely.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;plotmafSummary(maf = melanoma_vars, rmOutlier = TRUE,
+               addStat = &amp;#39;median&amp;#39;, dashboard = TRUE,
+               titvRaw = FALSE)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;https://seandavi.github.io/post/2018-01-26-leveraging-bioconductor-for-somatic-variant-analysis-of-tcga-data_files/figure-html/mafsummary-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# exclude a couple of &amp;quot;noise&amp;quot; genes--common practice, unfortunately
+oncoplot(maf = melanoma_vars, top = 15, fontSize = 12,
+         genes = getGeneSummary(melanoma_vars)$Hugo_Symbol[3:20])&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;https://seandavi.github.io/post/2018-01-26-leveraging-bioconductor-for-somatic-variant-analysis-of-tcga-data_files/figure-html/oncoprint-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;braf.lpop = lollipopPlot(maf = melanoma_vars, gene = &amp;#39;BRAF&amp;#39;,
+                           AACol = &amp;#39;HGVSp_Short&amp;#39;, showMutationRate = TRUE,
+                           domainLabelSize = 3, defaultYaxis = FALSE)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Additional functionality is available for both the GenomicDataCommons
+and maftools packages. This post just highlights how one can leverage
+two Bioconductor packages to quickly gain insight into public cancer
+genomics datasets.&lt;/p&gt;
+&lt;div id=&#34;appendix&#34; class=&#34;section level1&#34;&gt;
+&lt;h1&gt;Appendix&lt;/h1&gt;
+&lt;p&gt;Examining available values in the GDC is straightforward, allowing for
+variations on the workflow above.&lt;/p&gt;
+&lt;div id=&#34;available-data_types&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Available data_types:&lt;/h2&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;available_values(&amp;#39;files&amp;#39;,&amp;#39;data_type&amp;#39;)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;##  [1] &amp;quot;Annotated Somatic Mutation&amp;quot;       
+##  [2] &amp;quot;Raw Simple Somatic Mutation&amp;quot;      
+##  [3] &amp;quot;Aligned Reads&amp;quot;                    
+##  [4] &amp;quot;Gene Expression Quantification&amp;quot;   
+##  [5] &amp;quot;Slide Image&amp;quot;                      
+##  [6] &amp;quot;Biospecimen Supplement&amp;quot;           
+##  [7] &amp;quot;Copy Number Segment&amp;quot;              
+##  [8] &amp;quot;Masked Copy Number Segment&amp;quot;       
+##  [9] &amp;quot;Clinical Supplement&amp;quot;              
+## [10] &amp;quot;Methylation Beta Value&amp;quot;           
+## [11] &amp;quot;Isoform Expression Quantification&amp;quot;
+## [12] &amp;quot;miRNA Expression Quantification&amp;quot;  
+## [13] &amp;quot;Raw CGI Variant&amp;quot;                  
+## [14] &amp;quot;Aggregated Somatic Mutation&amp;quot;      
+## [15] &amp;quot;Masked Somatic Mutation&amp;quot;&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;div id=&#34;available-data_formats&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Available data_formats:&lt;/h2&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;available_values(&amp;#39;files&amp;#39;,&amp;#39;data_format&amp;#39;)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;##  [1] &amp;quot;VCF&amp;quot;               &amp;quot;TXT&amp;quot;               &amp;quot;BAM&amp;quot;              
+##  [4] &amp;quot;SVS&amp;quot;               &amp;quot;BCR XML&amp;quot;           &amp;quot;BCR SSF XML&amp;quot;      
+##  [7] &amp;quot;BCR Auxiliary XML&amp;quot; &amp;quot;BCR OMF XML&amp;quot;       &amp;quot;BCR Biotab&amp;quot;       
+## [10] &amp;quot;MAF&amp;quot;               &amp;quot;XLSX&amp;quot;&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;div id=&#34;available-analysis-workflows&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Available analysis workflows:&lt;/h2&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;available_values(&amp;#39;files&amp;#39;,&amp;#39;analysis.workflow_type&amp;#39;)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;##  [1] &amp;quot;DNAcopy&amp;quot;                                      
+##  [2] &amp;quot;BCGSC miRNA Profiling&amp;quot;                        
+##  [3] &amp;quot;BWA with Mark Duplicates and Cocleaning&amp;quot;      
+##  [4] &amp;quot;FM Simple Somatic Mutation&amp;quot;                   
+##  [5] &amp;quot;FoundationOne Annotation&amp;quot;                     
+##  [6] &amp;quot;Liftover&amp;quot;                                     
+##  [7] &amp;quot;STAR 2-Pass&amp;quot;                                  
+##  [8] &amp;quot;HTSeq - Counts&amp;quot;                               
+##  [9] &amp;quot;HTSeq - FPKM&amp;quot;                                 
+## [10] &amp;quot;HTSeq - FPKM-UQ&amp;quot;                              
+## [11] &amp;quot;BWA-aln&amp;quot;                                      
+## [12] &amp;quot;SomaticSniper&amp;quot;                                
+## [13] &amp;quot;SomaticSniper Annotation&amp;quot;                     
+## [14] &amp;quot;MuTect2&amp;quot;                                      
+## [15] &amp;quot;MuTect2 Annotation&amp;quot;                           
+## [16] &amp;quot;VarScan2&amp;quot;                                     
+## [17] &amp;quot;VarScan2 Annotation&amp;quot;                          
+## [18] &amp;quot;MuSE&amp;quot;                                         
+## [19] &amp;quot;MuSE Annotation&amp;quot;                              
+## [20] &amp;quot;BWA with Mark Duplicates and BQSR&amp;quot;            
+## [21] &amp;quot;BWA with BQSR&amp;quot;                                
+## [22] &amp;quot;VCF LiftOver&amp;quot;                                 
+## [23] &amp;quot;MuSE Variant Aggregation and Masking&amp;quot;         
+## [24] &amp;quot;MuTect2 Variant Aggregation and Masking&amp;quot;      
+## [25] &amp;quot;SomaticSniper Variant Aggregation and Masking&amp;quot;
+## [26] &amp;quot;VarScan2 Variant Aggregation and Masking&amp;quot;     
+## [27] &amp;quot;FoundationOne Variant Aggregation and Masking&amp;quot;
+## [28] &amp;quot;_missing&amp;quot;&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Matched tumor/normal pairs--a use case for the GenomicDataCommons Bioconductor package</title>
+      <link>https://seandavi.github.io/post/2017-03-04-testing-the-genomicdatacommons-package/</link>
+      <pubDate>Sat, 04 Mar 2017 00:00:00 +0000</pubDate>
+      <guid>https://seandavi.github.io/post/2017-03-04-testing-the-genomicdatacommons-package/</guid>
+      <description>
+
+
+&lt;div id=&#34;introduction&#34; class=&#34;section level1&#34;&gt;
+&lt;h1&gt;Introduction&lt;/h1&gt;
+&lt;p&gt;The NCI Genomic Data Commons (&lt;a href=&#34;https://gdc.nci.nih.gov&#34;&gt;GDC&lt;/a&gt;) is a reboot of the approach that NCI uses to manage and expose genomic and associated clinical and experimental metadata. I have been working on a &lt;a href=&#34;https://bioconductor.org&#34;&gt;Bioconductor&lt;/a&gt; package that interfaces with the &lt;a href=&#34;https://gdc-api.nci.nih.gov&#34;&gt;GDC API&lt;/a&gt; to provide search and data retrieval from within R.&lt;/p&gt;
+&lt;div id=&#34;testing&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;testing&lt;/h2&gt;
+&lt;p&gt;In the first of what will likely be a set of use cases for the &lt;a href=&#34;https://github.com/Bioconductor/GenomicDataCommons&#34;&gt;GenomicDataCommons&lt;/a&gt;, I am going to address a question that came up on twitter from &lt;a href=&#34;https://twitter.com/sleight82&#34;&gt;@sleight82&lt;/a&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;a href=&#34;https://twitter.com/sleight82/status/837898737540198400&#34;&gt;Asking for a non-tweeter: can you find matched control samples?&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;blockquote class=&#34;twitter-tweet&#34;&gt;&lt;p lang=&#34;en&#34; dir=&#34;ltr&#34;&gt;asking for a non-tweeter: can you find matched control samples?&lt;/p&gt;&amp;mdash; Kenneth Daily (@sleight82) &lt;a href=&#34;https://twitter.com/sleight82/status/837898737540198400?ref_src=twsrc%5Etfw&#34;&gt;March 4, 2017&lt;/a&gt;&lt;/blockquote&gt;
+&lt;script async src=&#34;https://platform.twitter.com/widgets.js&#34; charset=&#34;utf-8&#34;&gt;&lt;/script&gt;
+
+&lt;p&gt;The answer is, “Yes.” I am going to assume that what the “non-tweeter” friend meant was that he or she was interested in finding matched tumor/normal data related to, for example, gene expression, and that the interest is in a specific disease category or TCGA. So, I am going to answer the more specific question:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Can you find matched primary tumor/solid tissue normal samples and associated RNA-Seq gene expression files from TCGA breast cancer cases?&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;library(GenomicDataCommons)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## Loading required package: magrittr&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## 
+## Attaching package: &amp;#39;GenomicDataCommons&amp;#39;&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## The following object is masked from &amp;#39;package:stats&amp;#39;:
+## 
+##     filter&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;library(dplyr)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## 
+## Attaching package: &amp;#39;dplyr&amp;#39;&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## The following objects are masked from &amp;#39;package:GenomicDataCommons&amp;#39;:
+## 
+##     count, filter, select&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## The following objects are masked from &amp;#39;package:stats&amp;#39;:
+## 
+##     filter, lag&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## The following objects are masked from &amp;#39;package:base&amp;#39;:
+## 
+##     intersect, setdiff, setequal, union&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;The GDC API puts some constraints on what can be done directly. But, since we are working in R, we have a toolbox that allows us to build a solution out of component parts. The strategy that I am going to employ is a three-step approach&lt;/p&gt;
+&lt;ol style=&#34;list-style-type: decimal&#34;&gt;
+&lt;li&gt;Find RNA-Seq gene expression files derived from “Solid Tissue Normal”&lt;/li&gt;
+&lt;li&gt;Find RNA-Seq gene expression files derived from “Primary Tumor”&lt;/li&gt;
+&lt;li&gt;Limit cases from #1 and #2 that have gene expression results from both normal and tumor.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;In this code block, find all “HTSeq - Counts” files that are derived from “Solid Tissue Normal” in the project “TCGA-BRCA”. I used a combination of &lt;code&gt;files() %&amp;gt;% select(available_fields(&#39;files&#39;) %&amp;gt;% results()&lt;/code&gt; to get an overview of the data available in the &lt;code&gt;files()&lt;/code&gt; endpoint, followed by &lt;code&gt;grep_fields()&lt;/code&gt; and &lt;code&gt;available_values()&lt;/code&gt; to determine how to build filters.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;nl_ge_files = files() %&amp;gt;%
+    GenomicDataCommons::filter(~   cases.samples.sample_type==&amp;#39;Solid Tissue Normal&amp;#39; &amp;amp;
+               cases.project.project_id == &amp;#39;TCGA-BRCA&amp;#39; &amp;amp;
+               analysis.workflow_type == &amp;quot;HTSeq - Counts&amp;quot;) %&amp;gt;%
+    expand(c(&amp;#39;cases&amp;#39;,&amp;#39;cases.samples&amp;#39;)) %&amp;gt;%
+    results_all() %&amp;gt;%
+    as_tibble()&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;And do the same, but now looking for gene expression from tumors.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;tm_ge_files = files() %&amp;gt;%
+    GenomicDataCommons::filter(~   cases.samples.sample_type==&amp;#39;Primary Tumor&amp;#39; &amp;amp;
+               cases.project.project_id == &amp;#39;TCGA-BRCA&amp;#39; &amp;amp;
+               analysis.workflow_type == &amp;quot;HTSeq - Counts&amp;quot;) %&amp;gt;%
+    expand(c(&amp;#39;cases&amp;#39;,&amp;#39;cases.samples&amp;#39;)) %&amp;gt;%
+    results_all() %&amp;gt;%
+    as_tibble()&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Now, we have two data frames describing the normal- and tumor-derived TCGA-BRCA gene expression files. Note that I asked the GDC to provide &lt;code&gt;cases.case_id&lt;/code&gt; as part of the record using &lt;code&gt;select()&lt;/code&gt;. By looking for the intersection of cases between these two sets of files, we can find cases that contain files derived from both tumor and normal tissue.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;nl_cases = bind_rows(nl_ge_files$cases, .id=&amp;#39;file_id&amp;#39;)
+tm_cases = bind_rows(tm_ge_files$cases, .id=&amp;#39;file_id&amp;#39;)
+matchedcases = intersect(nl_cases$case_id,
+                         tm_cases$case_id)
+# how many matched cases?
+length(matchedcases)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] 112&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;We can now create a &lt;code&gt;data.frame&lt;/code&gt; that contains file information for only the matched samples. Note
+that the names of the matched cases are the file ids.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;matched_nl_files = nl_cases[nl_cases$case_id %in% matchedcases, &amp;#39;file_id&amp;#39;]
+matched_tm_files = tm_cases[tm_cases$case_id %in% matchedcases, &amp;#39;file_id&amp;#39;]
+
+matched_tn_ge_file_info = rbind(subset(nl_ge_files,file_id %in% matched_nl_files),
+                                subset(tm_ge_files,file_id %in% matched_tm_files))
+head(matched_tn_ge_file_info)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## # A tibble: 6 x 17
+##   data_type updated_datetime file_name submitter_id file_id file_size cases
+##   &amp;lt;chr&amp;gt;     &amp;lt;chr&amp;gt;            &amp;lt;chr&amp;gt;     &amp;lt;chr&amp;gt;        &amp;lt;chr&amp;gt;       &amp;lt;int&amp;gt; &amp;lt;lis&amp;gt;
+## 1 Gene Exp… 2018-09-08T01:0… 6598740f… 6598740f-64… 7d62fa…    261441 &amp;lt;dat…
+## 2 Gene Exp… 2018-09-08T01:0… d7047346… d7047346-49… ec3848…    258388 &amp;lt;dat…
+## 3 Gene Exp… 2018-09-08T01:0… e84e835c… e84e835c-ce… af091e…    252106 &amp;lt;dat…
+## 4 Gene Exp… 2018-09-08T01:0… 2c6a02ee… 2c6a02ee-c8… eed6ce…    258278 &amp;lt;dat…
+## 5 Gene Exp… 2018-09-08T01:0… 73bcbb60… 73bcbb60-38… bde7dd…    253859 &amp;lt;dat…
+## 6 Gene Exp… 2018-09-08T01:0… f1afa28b… f1afa28b-fa… 61da65…    259028 &amp;lt;dat…
+## # ... with 10 more variables: id &amp;lt;chr&amp;gt;, created_datetime &amp;lt;chr&amp;gt;,
+## #   md5sum &amp;lt;chr&amp;gt;, data_format &amp;lt;chr&amp;gt;, acl &amp;lt;list&amp;gt;, access &amp;lt;chr&amp;gt;,
+## #   state &amp;lt;chr&amp;gt;, data_category &amp;lt;chr&amp;gt;, type &amp;lt;chr&amp;gt;,
+## #   experimental_strategy &amp;lt;chr&amp;gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Since the gene expression data are not that big, we can use the GDC API to download the data files directly. The GenomicDataCommons uses a cache for files, so the first time the code
+below is run, data will be downloaded. After that, if the cache is in place, the cached
+files will be used.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;fnames = lapply(as.character(matched_tn_ge_file_info$file_id),
+                  function(file_id) {
+                      gdcdata(file_id, progress = FALSE)
+                  })&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Now, &lt;code&gt;fnames&lt;/code&gt; should be a list of file names that can be read into and processed with R.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;sessionInfo()&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## R version 3.5.1 (2018-07-02)
+## Platform: x86_64-apple-darwin15.6.0 (64-bit)
+## Running under: macOS Sierra 10.12.6
+## 
+## Matrix products: default
+## BLAS: /Library/Frameworks/R.framework/Versions/3.5/Resources/lib/libRblas.0.dylib
+## LAPACK: /Library/Frameworks/R.framework/Versions/3.5/Resources/lib/libRlapack.dylib
+## 
+## locale:
+## [1] en_US.UTF-8/en_US.UTF-8/en_US.UTF-8/C/en_US.UTF-8/en_US.UTF-8
+## 
+## attached base packages:
+## [1] stats     graphics  grDevices utils     datasets  methods   base     
+## 
+## other attached packages:
+## [1] dplyr_0.7.7              GenomicDataCommons_1.4.3
+## [3] magrittr_1.5            
+## 
+## loaded via a namespace (and not attached):
+##  [1] SummarizedExperiment_1.10.1 tidyselect_0.2.5           
+##  [3] xfun_0.3                    purrr_0.2.5                
+##  [5] lattice_0.20-35             htmltools_0.3.6            
+##  [7] stats4_3.5.1                yaml_2.2.0                 
+##  [9] utf8_1.1.4                  rlang_0.3.0.1              
+## [11] pillar_1.3.0                glue_1.3.0                 
+## [13] BiocParallel_1.14.2         rappdirs_0.3.1             
+## [15] BiocGenerics_0.26.0         bindrcpp_0.2.2             
+## [17] matrixStats_0.54.0          GenomeInfoDbData_1.1.0     
+## [19] bindr_0.1.1                 stringr_1.3.1              
+## [21] zlibbioc_1.26.0             blogdown_0.8               
+## [23] evaluate_0.12               Biobase_2.40.0             
+## [25] knitr_1.20                  IRanges_2.14.12            
+## [27] GenomeInfoDb_1.16.0         parallel_3.5.1             
+## [29] curl_3.2                    fansi_0.4.0                
+## [31] Rcpp_0.12.19                readr_1.1.1                
+## [33] backports_1.1.2             DelayedArray_0.6.6         
+## [35] S4Vectors_0.18.3            jsonlite_1.5               
+## [37] XVector_0.20.0              hms_0.4.2                  
+## [39] digest_0.6.18               stringi_1.2.4              
+## [41] bookdown_0.7                GenomicRanges_1.32.7       
+## [43] grid_3.5.1                  rprojroot_1.3-2            
+## [45] cli_1.0.1                   tools_3.5.1                
+## [47] bitops_1.0-6                RCurl_1.95-4.11            
+## [49] lazyeval_0.2.1              tibble_1.4.2               
+## [51] crayon_1.3.4                pkgconfig_2.0.2            
+## [53] Matrix_1.2-14               xml2_1.2.0                 
+## [55] assertthat_0.2.0            rmarkdown_1.10             
+## [57] httr_1.3.1                  R6_2.3.0                   
+## [59] compiler_3.5.1&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

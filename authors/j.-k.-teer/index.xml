@@ -2,37 +2,61 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>J. K. Teer | seandavi(s12)</title>
-    <link>/authors/j.-k.-teer/</link>
-      <atom:link href="/authors/j.-k.-teer/index.xml" rel="self" type="application/rss+xml" />
+    <link>https://seandavi.github.io/authors/j.-k.-teer/</link>
+      <atom:link href="https://seandavi.github.io/authors/j.-k.-teer/index.xml" rel="self" type="application/rss+xml" />
     <description>J. K. Teer</description>
-    <generator>Wowchemy (https://wowchemy.com)</generator><language>en-us</language><lastBuildDate>Thu, 01 Aug 2013 00:00:00 +0000</lastBuildDate>
+    <generator>Wowchemy (https://wowchemy.com)</generator><language>en-us</language><copyright>© 2016-2020</copyright><lastBuildDate>Thu, 01 Aug 2013 00:00:00 +0000</lastBuildDate>
     <image>
-      <url>/images/icon_hu0b7a4cb9992c9ac0e91bd28ffd38dd00_9727_512x512_fill_lanczos_center_2.png</url>
+      <url>https://seandavi.github.io/images/icon_hu0b7a4cb9992c9ac0e91bd28ffd38dd00_9727_512x512_fill_lanczos_center_3.png</url>
       <title>J. K. Teer</title>
-      <link>/authors/j.-k.-teer/</link>
+      <link>https://seandavi.github.io/authors/j.-k.-teer/</link>
     </image>
     
     <item>
       <title>Whole-genome sequencing identifies a recurrent functional synonymous mutation in melanoma</title>
-      <link>/publication/pmid-23901115/</link>
+      <link>https://seandavi.github.io/publication/pmid-23901115/</link>
       <pubDate>Thu, 01 Aug 2013 00:00:00 +0000</pubDate>
-      <guid>/publication/pmid-23901115/</guid>
+      <guid>https://seandavi.github.io/publication/pmid-23901115/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Whole-genome sequencing identifies a recurrent functional synonymous mutation in melanoma</title>
+      <link>https://seandavi.github.io/publication2/pmid-23901115/</link>
+      <pubDate>Thu, 01 Aug 2013 00:00:00 +0000</pubDate>
+      <guid>https://seandavi.github.io/publication2/pmid-23901115/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Comparative exome sequencing of metastatic lesions provides insights into the mutational progression of melanoma</title>
-      <link>/publication/pmid-23006843/</link>
+      <link>https://seandavi.github.io/publication/pmid-23006843/</link>
       <pubDate>Sun, 01 Jan 2012 00:00:00 +0000</pubDate>
-      <guid>/publication/pmid-23006843/</guid>
+      <guid>https://seandavi.github.io/publication/pmid-23006843/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Comparative exome sequencing of metastatic lesions provides insights into the mutational progression of melanoma</title>
+      <link>https://seandavi.github.io/publication2/pmid-23006843/</link>
+      <pubDate>Sun, 01 Jan 2012 00:00:00 +0000</pubDate>
+      <guid>https://seandavi.github.io/publication2/pmid-23006843/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Exome sequencing identifies GRIN2A as frequently mutated in melanoma</title>
-      <link>/publication/pmid-21499247/</link>
+      <link>https://seandavi.github.io/publication/pmid-21499247/</link>
       <pubDate>Sun, 01 May 2011 00:00:00 +0000</pubDate>
-      <guid>/publication/pmid-21499247/</guid>
+      <guid>https://seandavi.github.io/publication/pmid-21499247/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Exome sequencing identifies GRIN2A as frequently mutated in melanoma</title>
+      <link>https://seandavi.github.io/publication2/pmid-21499247/</link>
+      <pubDate>Sun, 01 May 2011 00:00:00 +0000</pubDate>
+      <guid>https://seandavi.github.io/publication2/pmid-21499247/</guid>
       <description></description>
     </item>
     

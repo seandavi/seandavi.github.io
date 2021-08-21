@@ -2,21 +2,29 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Ewy Mathe | seandavi(s12)</title>
-    <link>/authors/ewy-mathe/</link>
-      <atom:link href="/authors/ewy-mathe/index.xml" rel="self" type="application/rss+xml" />
+    <link>https://seandavi.github.io/authors/ewy-mathe/</link>
+      <atom:link href="https://seandavi.github.io/authors/ewy-mathe/index.xml" rel="self" type="application/rss+xml" />
     <description>Ewy Mathe</description>
-    <generator>Wowchemy (https://wowchemy.com)</generator><language>en-us</language><lastBuildDate>Fri, 01 Jan 2016 00:00:00 +0000</lastBuildDate>
+    <generator>Wowchemy (https://wowchemy.com)</generator><language>en-us</language><copyright>© 2016-2020</copyright><lastBuildDate>Fri, 01 Jan 2016 00:00:00 +0000</lastBuildDate>
     <image>
-      <url>/images/icon_hu0b7a4cb9992c9ac0e91bd28ffd38dd00_9727_512x512_fill_lanczos_center_2.png</url>
+      <url>https://seandavi.github.io/images/icon_hu0b7a4cb9992c9ac0e91bd28ffd38dd00_9727_512x512_fill_lanczos_center_3.png</url>
       <title>Ewy Mathe</title>
-      <link>/authors/ewy-mathe/</link>
+      <link>https://seandavi.github.io/authors/ewy-mathe/</link>
     </image>
     
     <item>
       <title>Statistical Genomics</title>
-      <link>/publication/springer-book/</link>
+      <link>https://seandavi.github.io/publication/springer-book/</link>
       <pubDate>Fri, 01 Jan 2016 00:00:00 +0000</pubDate>
-      <guid>/publication/springer-book/</guid>
+      <guid>https://seandavi.github.io/publication/springer-book/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Statistical Genomics</title>
+      <link>https://seandavi.github.io/publication2/springer-book/</link>
+      <pubDate>Fri, 01 Jan 2016 00:00:00 +0000</pubDate>
+      <guid>https://seandavi.github.io/publication2/springer-book/</guid>
       <description></description>
     </item>
     

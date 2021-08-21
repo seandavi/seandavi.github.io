@@ -2,21 +2,29 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>S. K. Agarwal | seandavi(s12)</title>
-    <link>/authors/s.-k.-agarwal/</link>
-      <atom:link href="/authors/s.-k.-agarwal/index.xml" rel="self" type="application/rss+xml" />
+    <link>https://seandavi.github.io/authors/s.-k.-agarwal/</link>
+      <atom:link href="https://seandavi.github.io/authors/s.-k.-agarwal/index.xml" rel="self" type="application/rss+xml" />
     <description>S. K. Agarwal</description>
-    <generator>Wowchemy (https://wowchemy.com)</generator><language>en-us</language><lastBuildDate>Sat, 01 Apr 2006 00:00:00 +0000</lastBuildDate>
+    <generator>Wowchemy (https://wowchemy.com)</generator><language>en-us</language><copyright>© 2016-2020</copyright><lastBuildDate>Sat, 01 Apr 2006 00:00:00 +0000</lastBuildDate>
     <image>
-      <url>/images/icon_hu0b7a4cb9992c9ac0e91bd28ffd38dd00_9727_512x512_fill_lanczos_center_2.png</url>
+      <url>https://seandavi.github.io/images/icon_hu0b7a4cb9992c9ac0e91bd28ffd38dd00_9727_512x512_fill_lanczos_center_3.png</url>
       <title>S. K. Agarwal</title>
-      <link>/authors/s.-k.-agarwal/</link>
+      <link>https://seandavi.github.io/authors/s.-k.-agarwal/</link>
     </image>
     
     <item>
       <title>Genome-wide analysis of menin binding provides insights into MEN1 tumorigenesis</title>
-      <link>/publication/pmid-16604156/</link>
+      <link>https://seandavi.github.io/publication/pmid-16604156/</link>
       <pubDate>Sat, 01 Apr 2006 00:00:00 +0000</pubDate>
-      <guid>/publication/pmid-16604156/</guid>
+      <guid>https://seandavi.github.io/publication/pmid-16604156/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Genome-wide analysis of menin binding provides insights into MEN1 tumorigenesis</title>
+      <link>https://seandavi.github.io/publication2/pmid-16604156/</link>
+      <pubDate>Sat, 01 Apr 2006 00:00:00 +0000</pubDate>
+      <guid>https://seandavi.github.io/publication2/pmid-16604156/</guid>
       <description></description>
     </item>
     

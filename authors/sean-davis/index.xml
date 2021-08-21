@@ -2,32 +2,53 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Sean Davis | seandavi(s12)</title>
-    <link>/authors/sean-davis/</link>
-      <atom:link href="/authors/sean-davis/index.xml" rel="self" type="application/rss+xml" />
+    <link>https://seandavi.github.io/authors/sean-davis/</link>
+      <atom:link href="https://seandavi.github.io/authors/sean-davis/index.xml" rel="self" type="application/rss+xml" />
     <description>Sean Davis</description>
-    <generator>Wowchemy (https://wowchemy.com)</generator><language>en-us</language><lastBuildDate>Wed, 16 Dec 2020 00:00:00 -0500</lastBuildDate>
+    <generator>Wowchemy (https://wowchemy.com)</generator><language>en-us</language><copyright>© 2016-2020</copyright><lastBuildDate>Fri, 01 Jan 2021 00:00:00 +0000</lastBuildDate>
     <image>
-      <url>/images/icon_hu0b7a4cb9992c9ac0e91bd28ffd38dd00_9727_512x512_fill_lanczos_center_2.png</url>
+      <url>https://seandavi.github.io/images/icon_hu0b7a4cb9992c9ac0e91bd28ffd38dd00_9727_512x512_fill_lanczos_center_3.png</url>
       <title>Sean Davis</title>
-      <link>/authors/sean-davis/</link>
+      <link>https://seandavi.github.io/authors/sean-davis/</link>
     </image>
     
     <item>
-      <title>Bioconductor: Tools for interpreting high-throughput biological data</title>
-      <link>/talk/2020-12-16-btep-ccr-bioconductor/</link>
-      <pubDate>Wed, 16 Dec 2020 00:00:00 -0500</pubDate>
-      <guid>/talk/2020-12-16-btep-ccr-bioconductor/</guid>
-      <description>&lt;div class=&#34;responsive-wrap&#34;&gt;
-  &lt;iframe src=&#34;https://docs.google.com/presentation/d/e/2PACX-1vSOYTfCyxmUZjPOF7zOvXWpCVLgqFU-Rkrohvu-QH16EiDnKLR8zurmhTelvbP9syqZepPIzzXM5QQe/embed?start=false&amp;amp;loop=false&amp;amp;delayms=3000&#34; frameborder=&#34;0&#34; width=&#34;960&#34; height=&#34;569&#34; allowfullscreen=&#34;true&#34; mozallowfullscreen=&#34;true&#34; webkitallowfullscreen=&#34;true&#34;&gt;&lt;/iframe&gt;
-&lt;/div&gt;
-</description>
+      <title>GenomicSuperSignature: interpretation of RNA-seq experiments through robust, efficient comparison to public databases</title>
+      <link>https://seandavi.github.io/publication/oh-2021-05-26-445900/</link>
+      <pubDate>Fri, 01 Jan 2021 00:00:00 +0000</pubDate>
+      <guid>https://seandavi.github.io/publication/oh-2021-05-26-445900/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Toward a gold standard for benchmarking gene set enrichment analysis</title>
+      <link>https://seandavi.github.io/publication/geistlinger-2021-toward/</link>
+      <pubDate>Fri, 01 Jan 2021 00:00:00 +0000</pubDate>
+      <guid>https://seandavi.github.io/publication/geistlinger-2021-toward/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>HGNChelper: identification and correction of invalid gene symbols for human and mouse</title>
+      <link>https://seandavi.github.io/publication/oh-2020-rt/</link>
+      <pubDate>Tue, 01 Dec 2020 00:00:00 +0000</pubDate>
+      <guid>https://seandavi.github.io/publication/oh-2020-rt/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>HGNChelper: identification and correction of invalid gene symbols for human and mouse</title>
+      <link>https://seandavi.github.io/publication2/oh-2020-rt/</link>
+      <pubDate>Tue, 01 Dec 2020 00:00:00 +0000</pubDate>
+      <guid>https://seandavi.github.io/publication2/oh-2020-rt/</guid>
+      <description></description>
     </item>
     
     <item>
       <title>Bioconductor: Tools for interpreting high-throughput biological data</title>
-      <link>/talk/2019-08-12-cdsl-ccr-bioconductor/</link>
-      <pubDate>Mon, 12 Aug 2019 00:00:00 -0400</pubDate>
-      <guid>/talk/2019-08-12-cdsl-ccr-bioconductor/</guid>
+      <link>https://seandavi.github.io/talk/2019-08-12-cdsl-ccr-bioconductor/</link>
+      <pubDate>Mon, 12 Aug 2019 00:00:00 +0000</pubDate>
+      <guid>https://seandavi.github.io/talk/2019-08-12-cdsl-ccr-bioconductor/</guid>
       <description>&lt;div class=&#34;responsive-wrap&#34;&gt;
   &lt;iframe src=&#34;https://docs.google.com/presentation/d/e/2PACX-1vQQPGPUs8fp0Lw2YdpVyAFNvP5GD41iOKYHdEExXCUmZzssQks4tHsrNiAsxeBZXc0XgUQQv_VinB-l/embed?start=false&amp;amp;loop=false&amp;amp;delayms=3000&#34; frameborder=&#34;0&#34; width=&#34;960&#34; height=&#34;569&#34; allowfullscreen=&#34;true&#34; mozallowfullscreen=&#34;true&#34; webkitallowfullscreen=&#34;true&#34;&gt;&lt;/iframe&gt;
 &lt;/div&gt;
@@ -36,57 +57,97 @@
     
     <item>
       <title>ATAC-Seq workshop</title>
-      <link>/talk/2019-07-07-atac-seq-workshop-cshl/</link>
+      <link>https://seandavi.github.io/talk/2019-07-07-atac-seq-workshop-cshl/</link>
       <pubDate>Mon, 08 Jul 2019 00:00:00 +0000</pubDate>
-      <guid>/talk/2019-07-07-atac-seq-workshop-cshl/</guid>
+      <guid>https://seandavi.github.io/talk/2019-07-07-atac-seq-workshop-cshl/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Statistical Methods in Functional Genomics</title>
-      <link>/talk/2019-07-01-cshl-fungeno-2019/</link>
+      <link>https://seandavi.github.io/talk/2019-07-01-cshl-fungeno-2019/</link>
       <pubDate>Mon, 01 Jul 2019 00:00:00 +0000</pubDate>
-      <guid>/talk/2019-07-01-cshl-fungeno-2019/</guid>
+      <guid>https://seandavi.github.io/talk/2019-07-01-cshl-fungeno-2019/</guid>
       <description></description>
     </item>
     
     <item>
       <title>restfulSE: A semantically rich interface for cloud-scale genomics with Bioconductor</title>
-      <link>/publication/gopaulakrishnan-2019-em/</link>
+      <link>https://seandavi.github.io/publication/gopaulakrishnan-2019-em/</link>
       <pubDate>Tue, 01 Jan 2019 00:00:00 +0000</pubDate>
-      <guid>/publication/gopaulakrishnan-2019-em/</guid>
+      <guid>https://seandavi.github.io/publication/gopaulakrishnan-2019-em/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>restfulSE: A semantically rich interface for cloud-scale genomics with Bioconductor</title>
+      <link>https://seandavi.github.io/publication2/gopaulakrishnan-2019-em/</link>
+      <pubDate>Tue, 01 Jan 2019 00:00:00 +0000</pubDate>
+      <guid>https://seandavi.github.io/publication2/gopaulakrishnan-2019-em/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Orchestrating a community-developed computational workshop and accompanying training materials</title>
-      <link>/publication/davis-2018-jw/</link>
+      <link>https://seandavi.github.io/publication/davis-2018-jw/</link>
       <pubDate>Mon, 01 Oct 2018 00:00:00 +0000</pubDate>
-      <guid>/publication/davis-2018-jw/</guid>
+      <guid>https://seandavi.github.io/publication/davis-2018-jw/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Orchestrating a community-developed computational workshop and accompanying training materials</title>
+      <link>https://seandavi.github.io/publication2/davis-2018-jw/</link>
+      <pubDate>Mon, 01 Oct 2018 00:00:00 +0000</pubDate>
+      <guid>https://seandavi.github.io/publication2/davis-2018-jw/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Pan-cancer genome and transcriptome analyses of 1,699 paediatric leukaemias and solid tumours</title>
-      <link>/publication/ma-2018-an/</link>
+      <link>https://seandavi.github.io/publication/ma-2018-an/</link>
       <pubDate>Mon, 01 Jan 2018 00:00:00 +0000</pubDate>
-      <guid>/publication/ma-2018-an/</guid>
+      <guid>https://seandavi.github.io/publication/ma-2018-an/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Pan-cancer genome and transcriptome analyses of 1,699 paediatric leukaemias and solid tumours</title>
+      <link>https://seandavi.github.io/publication2/ma-2018-an/</link>
+      <pubDate>Mon, 01 Jan 2018 00:00:00 +0000</pubDate>
+      <guid>https://seandavi.github.io/publication2/ma-2018-an/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Software For The Integration Of Multi-Omics Experiments In Bioconductor</title>
-      <link>/publication/sean-davis-33483497/</link>
+      <link>https://seandavi.github.io/publication/sean-davis-33483497/</link>
       <pubDate>Sun, 01 Jan 2017 00:00:00 +0000</pubDate>
-      <guid>/publication/sean-davis-33483497/</guid>
+      <guid>https://seandavi.github.io/publication/sean-davis-33483497/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Software For The Integration Of Multi-Omics Experiments In Bioconductor</title>
+      <link>https://seandavi.github.io/publication2/sean-davis-33483497/</link>
+      <pubDate>Sun, 01 Jan 2017 00:00:00 +0000</pubDate>
+      <guid>https://seandavi.github.io/publication2/sean-davis-33483497/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Statistical Genomics</title>
-      <link>/publication/springer-book/</link>
+      <link>https://seandavi.github.io/publication/springer-book/</link>
       <pubDate>Fri, 01 Jan 2016 00:00:00 +0000</pubDate>
-      <guid>/publication/springer-book/</guid>
+      <guid>https://seandavi.github.io/publication/springer-book/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Statistical Genomics</title>
+      <link>https://seandavi.github.io/publication2/springer-book/</link>
+      <pubDate>Fri, 01 Jan 2016 00:00:00 +0000</pubDate>
+      <guid>https://seandavi.github.io/publication2/springer-book/</guid>
       <description></description>
     </item>
     

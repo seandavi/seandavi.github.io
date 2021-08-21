@@ -1,0 +1,583 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>devops | seandavi(s12)</title>
+    <link>https://seandavi.github.io/tags/devops/</link>
+      <atom:link href="https://seandavi.github.io/tags/devops/index.xml" rel="self" type="application/rss+xml" />
+    <description>devops</description>
+    <generator>Wowchemy (https://wowchemy.com)</generator><language>en-us</language><copyright>© 2016-2020</copyright><lastBuildDate>Fri, 11 Oct 2019 11:08:16 -0400</lastBuildDate>
+    <image>
+      <url>https://seandavi.github.io/images/icon_hu0b7a4cb9992c9ac0e91bd28ffd38dd00_9727_512x512_fill_lanczos_center_3.png</url>
+      <title>devops</title>
+      <link>https://seandavi.github.io/tags/devops/</link>
+    </image>
+    
+    <item>
+      <title>Experimenting with Github Actions</title>
+      <link>https://seandavi.github.io/post/learning-github-actions/</link>
+      <pubDate>Fri, 11 Oct 2019 11:08:16 -0400</pubDate>
+      <guid>https://seandavi.github.io/post/learning-github-actions/</guid>
+      <description>&lt;p&gt;&lt;a href=&#34;https://github.com/features/package-registry&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;GitHub Actions&lt;/a&gt; allow flexible and potentially complicated actions
+that comprise workflows that respond to &lt;a href=&#34;https://developer.github.com/webhooks/#events&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;repository events&lt;/a&gt; on Github. Continuous
+integration, messaging Slack, greeting new contributors, deploying
+applications, and many other templates are ready for customization and
+integration into any repo.&lt;/p&gt;
+&lt;p&gt;As of this writing, GitHub Actions are available as a &lt;em&gt;beta&lt;/em&gt; feature,
+requiring &lt;a href=&#34;https://github.com/features/actions&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;signup&lt;/a&gt;.&lt;/p&gt;
+&lt;h2 id=&#34;definitionshttpshelpgithubcomenarticlesabout-github-actionscore-concepts-for-github-actions&#34;&gt;&lt;a href=&#34;https://help.github.com/en/articles/about-github-actions#core-concepts-for-github-actions&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Definitions&lt;/a&gt;&lt;/h2&gt;
+&lt;h3 id=&#34;action&#34;&gt;Action&lt;/h3&gt;
+&lt;p&gt;An action is the smallest portable building block of a
+workflow. Actions are combined as steps to form a workflow. Actions can be
+created from scratch, modified from &lt;a href=&#34;https://github.com/actions&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;publicly available actions&lt;/a&gt;, and
+shared with others.&lt;/p&gt;
+&lt;h3 id=&#34;workflow&#34;&gt;Workflow&lt;/h3&gt;
+&lt;p&gt;A workflow is a collection of steps (actions) that describe a process
+that will execute in response to GitHub &lt;a href=&#34;https://developer.github.com/webhooks/#events&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;repository events&lt;/a&gt;. A YAML
+file that defines your workflow configuration with at least one
+job. This file lives in the root of your GitHub repository in the
+&lt;code&gt;.github/workflows&lt;/code&gt; directory. Multiple workflow files may exist and
+all will be active.&lt;/p&gt;
+&lt;h3 id=&#34;step&#34;&gt;Step&lt;/h3&gt;
+&lt;p&gt;A step is a set of tasks performed by a job. Each step in a job
+executes in the same virtual environment, allowing the actions in that
+job to share information using the filesystem. Steps can run commands
+(shell commands, etc.) or actions.&lt;/p&gt;
+&lt;h3 id=&#34;virtual-environment&#34;&gt;Virtual environment&lt;/h3&gt;
+&lt;p&gt;GitHub has hosts for Linux, macOS, and Windows that can serve as
+execution environments for workflows.&lt;/p&gt;
+&lt;h3 id=&#34;runner&#34;&gt;Runner&lt;/h3&gt;
+&lt;p&gt;Jobs run on a service that waits in virtual environment that waits for available
+jobs. The runner takes jobs one-at-a-time and runs each, reporting
+logs, etc., back to Github.&lt;/p&gt;
+&lt;h3 id=&#34;event&#34;&gt;Event&lt;/h3&gt;
+&lt;p&gt;Workflows can be triggered by a [repository event] such as a push, a
+new issue, etc.&lt;/p&gt;
+&lt;h3 id=&#34;artifact&#34;&gt;Artifact&lt;/h3&gt;
+&lt;p&gt;Artifacts are the files that are created during a workflow. These can
+be deployed, used in other workflows, published, etc. Additional
+actions allow working with artifacts.&lt;/p&gt;
+&lt;h2 id=&#34;walkthrough&#34;&gt;Walkthrough&lt;/h2&gt;
+&lt;h3 id=&#34;create-repo&#34;&gt;Create repo&lt;/h3&gt;
+&lt;p&gt;Here, I simulate creating a simple python package by forking &lt;a href=&#34;https://github.com/bast/somepackage&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;this
+example repo&lt;/a&gt; by
+&lt;a href=&#34;https://github.com/bast&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;bast&lt;/a&gt;. The package is to exemplify some best
+practices for structuring python code. However, here it serves as a
+simple example of a formal python package that we can build and test.&lt;/p&gt;
+&lt;p&gt;Login to Github, navigate to the &lt;a href=&#34;https://github.com/bast/somepackage&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;example repo&lt;/a&gt;, and &lt;a href=&#34;https://help.github.com/en/articles/fork-a-repo&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;fork the
+repo&lt;/a&gt;.&lt;/p&gt;
+
+
+
+
+
+
+  
+
+
+
+  
+  
+
+
+
+
+
+
+
+
+
+
+
+&lt;figure id=&#34;figure-fork-the-example-repohttpsgithubcombastsomepackage&#34;&gt;
+
+
+  &lt;a data-fancybox=&#34;&#34; href=&#34;https://seandavi.github.io/post/learning-github-actions/fork-repo_hufba7682a0eb300813e1b68b0c8690756_502006_2000x2000_fit_lanczos_3.png&#34; data-caption=&#34;Fork the &amp;lt;a href=&amp;#34;https://github.com/bast/somepackage&amp;#34;&amp;gt;example repo&amp;lt;/a&amp;gt;.&#34;&gt;
+
+
+  &lt;img data-src=&#34;https://seandavi.github.io/post/learning-github-actions/fork-repo_hufba7682a0eb300813e1b68b0c8690756_502006_2000x2000_fit_lanczos_3.png&#34; class=&#34;lazyload&#34; alt=&#34;&#34; width=&#34;3370&#34; height=&#34;1664&#34;&gt;
+&lt;/a&gt;
+
+
+  
+  
+  &lt;figcaption&gt;
+    Fork the &lt;a href=&#34;https://github.com/bast/somepackage&#34;&gt;example repo&lt;/a&gt;.
+  &lt;/figcaption&gt;
+
+
+&lt;/figure&gt;
+
+&lt;p&gt;After forking, a fresh package will be available in your repository.&lt;/p&gt;
+&lt;h3 id=&#34;add-a-github-action&#34;&gt;Add a github action&lt;/h3&gt;
+&lt;p&gt;After ensuring that you have [signed up] for Github Actions and have
+verified that you are &amp;ldquo;in&amp;rdquo; by noticing the &lt;code&gt;Actions&lt;/code&gt; button at the top
+of your github repository:&lt;/p&gt;
+
+
+
+
+
+
+  
+
+
+
+  
+  
+
+
+
+
+
+
+
+
+
+
+
+&lt;figure id=&#34;figure-the-github-actions-button-should-be-present-in-order-to-proceed&#34;&gt;
+
+
+  &lt;a data-fancybox=&#34;&#34; href=&#34;https://seandavi.github.io/post/learning-github-actions/action-button_hufca21c42c756e02db03ecac215a46111_94380_2000x2000_fit_lanczos_3.png&#34; data-caption=&#34;The Github Actions button should be present in order to proceed.&#34;&gt;
+
+
+  &lt;img data-src=&#34;https://seandavi.github.io/post/learning-github-actions/action-button_hufca21c42c756e02db03ecac215a46111_94380_2000x2000_fit_lanczos_3.png&#34; class=&#34;lazyload&#34; alt=&#34;&#34; width=&#34;1792&#34; height=&#34;458&#34;&gt;
+&lt;/a&gt;
+
+
+  
+  
+  &lt;figcaption&gt;
+    The Github Actions button should be present in order to proceed.
+  &lt;/figcaption&gt;
+
+
+&lt;/figure&gt;
+
+&lt;p&gt;Now, we can proceed with adding a workflow from the set of recommended
+workflow templates (or others). Clicking on the &lt;code&gt;Actions&lt;/code&gt; button will
+bring up the following screen.&lt;/p&gt;
+
+
+
+
+
+
+  
+
+
+
+  
+  
+
+
+
+
+
+
+
+
+
+
+
+&lt;figure id=&#34;figure-choose-the-python-package-workflow&#34;&gt;
+
+
+  &lt;a data-fancybox=&#34;&#34; href=&#34;https://seandavi.github.io/post/learning-github-actions/choose-action_hu18fe83e46e92b88e675b257dc24db559_469675_2000x2000_fit_lanczos_3.png&#34; data-caption=&#34;Choose the python package workflow.&#34;&gt;
+
+
+  &lt;img data-src=&#34;https://seandavi.github.io/post/learning-github-actions/choose-action_hu18fe83e46e92b88e675b257dc24db559_469675_2000x2000_fit_lanczos_3.png&#34; class=&#34;lazyload&#34; alt=&#34;&#34; width=&#34;3288&#34; height=&#34;1522&#34;&gt;
+&lt;/a&gt;
+
+
+  
+  
+  &lt;figcaption&gt;
+    Choose the python package workflow.
+  &lt;/figcaption&gt;
+
+
+&lt;/figure&gt;
+
+&lt;p&gt;Click on the &lt;code&gt;Set up this workflow&lt;/code&gt; on the &amp;ldquo;Python package&amp;rdquo;
+card. That will bring up the following screen.&lt;/p&gt;
+
+
+
+
+
+
+  
+
+
+
+  
+  
+
+
+
+
+
+
+
+
+
+
+
+&lt;figure id=&#34;figure-the-workflow-editor&#34;&gt;
+
+
+  &lt;a data-fancybox=&#34;&#34; href=&#34;https://seandavi.github.io/post/learning-github-actions/workflow-editor_hu22857dbc6f1f1e0dcd8dd1accc15cab9_271164_2000x2000_fit_lanczos_3.png&#34; data-caption=&#34;The workflow editor.&#34;&gt;
+
+
+  &lt;img data-src=&#34;https://seandavi.github.io/post/learning-github-actions/workflow-editor_hu22857dbc6f1f1e0dcd8dd1accc15cab9_271164_2000x2000_fit_lanczos_3.png&#34; class=&#34;lazyload&#34; alt=&#34;&#34; width=&#34;2240&#34; height=&#34;1312&#34;&gt;
+&lt;/a&gt;
+
+
+  
+  
+  &lt;figcaption&gt;
+    The workflow editor.
+  &lt;/figcaption&gt;
+
+
+&lt;/figure&gt;
+
+&lt;p&gt;What is happening at this point is that Github is about to add a new
+file to your repository. The file will be located at
+&lt;code&gt;somepackage/.github/workflows&lt;/code&gt;. Edit the filename as you see
+fit.&lt;/p&gt;
+&lt;p&gt;The contents of the workflow file will look like the listing below by
+default and follows &lt;a href=&#34;https://help.github.com/en/articles/workflow-syntax-for-github-actions&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;the workflow
+syntax&lt;/a&gt;.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;name: Python package
+
+on: [push]
+
+jobs:
+  build:
+
+    runs&lt;span style=&#34;color:#f92672&#34;&gt;-&lt;/span&gt;on: ubuntu&lt;span style=&#34;color:#f92672&#34;&gt;-&lt;/span&gt;latest
+    strategy:
+      max&lt;span style=&#34;color:#f92672&#34;&gt;-&lt;/span&gt;parallel: &lt;span style=&#34;color:#ae81ff&#34;&gt;4&lt;/span&gt;
+      matrix:
+        python&lt;span style=&#34;color:#f92672&#34;&gt;-&lt;/span&gt;version: [&lt;span style=&#34;color:#ae81ff&#34;&gt;2.7&lt;/span&gt;, &lt;span style=&#34;color:#ae81ff&#34;&gt;3.5&lt;/span&gt;, &lt;span style=&#34;color:#ae81ff&#34;&gt;3.6&lt;/span&gt;, &lt;span style=&#34;color:#ae81ff&#34;&gt;3.7&lt;/span&gt;]
+
+    steps:
+    &lt;span style=&#34;color:#f92672&#34;&gt;-&lt;/span&gt; uses: actions&lt;span style=&#34;color:#f92672&#34;&gt;/&lt;/span&gt;checkout&lt;span style=&#34;color:#a6e22e&#34;&gt;@v1&lt;/span&gt;
+    &lt;span style=&#34;color:#f92672&#34;&gt;-&lt;/span&gt; name: Set up Python &lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;$&lt;/span&gt;{{ matrix&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;python&lt;span style=&#34;color:#f92672&#34;&gt;-&lt;/span&gt;version }}
+      uses: actions&lt;span style=&#34;color:#f92672&#34;&gt;/&lt;/span&gt;setup&lt;span style=&#34;color:#f92672&#34;&gt;-&lt;/span&gt;python&lt;span style=&#34;color:#a6e22e&#34;&gt;@v1&lt;/span&gt;
+      &lt;span style=&#34;color:#66d9ef&#34;&gt;with&lt;/span&gt;:
+        python&lt;span style=&#34;color:#f92672&#34;&gt;-&lt;/span&gt;version: &lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;$&lt;/span&gt;{{ matrix&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;python&lt;span style=&#34;color:#f92672&#34;&gt;-&lt;/span&gt;version }}
+    &lt;span style=&#34;color:#f92672&#34;&gt;-&lt;/span&gt; name: Install dependencies
+      run: &lt;span style=&#34;color:#f92672&#34;&gt;|&lt;/span&gt;
+        python &lt;span style=&#34;color:#f92672&#34;&gt;-&lt;/span&gt;m pip install &lt;span style=&#34;color:#f92672&#34;&gt;--&lt;/span&gt;upgrade pip
+        pip install &lt;span style=&#34;color:#f92672&#34;&gt;-&lt;/span&gt;r requirements&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;txt
+    &lt;span style=&#34;color:#f92672&#34;&gt;-&lt;/span&gt; name: Lint &lt;span style=&#34;color:#66d9ef&#34;&gt;with&lt;/span&gt; flake8
+      run: &lt;span style=&#34;color:#f92672&#34;&gt;|&lt;/span&gt;
+        pip install flake8
+        &lt;span style=&#34;color:#75715e&#34;&gt;# stop the build if there are Python syntax errors or undefined names&lt;/span&gt;
+        flake8 &lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;--&lt;/span&gt;count &lt;span style=&#34;color:#f92672&#34;&gt;--&lt;/span&gt;select&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;E9,F63,F7,F82 &lt;span style=&#34;color:#f92672&#34;&gt;--&lt;/span&gt;show&lt;span style=&#34;color:#f92672&#34;&gt;-&lt;/span&gt;source &lt;span style=&#34;color:#f92672&#34;&gt;--&lt;/span&gt;statistics
+        &lt;span style=&#34;color:#75715e&#34;&gt;# exit-zero treats all errors as warnings. The GitHub editor is 127 chars wide&lt;/span&gt;
+        flake8 &lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;--&lt;/span&gt;count &lt;span style=&#34;color:#f92672&#34;&gt;--&lt;/span&gt;exit&lt;span style=&#34;color:#f92672&#34;&gt;-&lt;/span&gt;zero &lt;span style=&#34;color:#f92672&#34;&gt;--&lt;/span&gt;max&lt;span style=&#34;color:#f92672&#34;&gt;-&lt;/span&gt;complexity&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;10&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;--&lt;/span&gt;max&lt;span style=&#34;color:#f92672&#34;&gt;-&lt;/span&gt;line&lt;span style=&#34;color:#f92672&#34;&gt;-&lt;/span&gt;length&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;127&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;--&lt;/span&gt;statistics
+    &lt;span style=&#34;color:#f92672&#34;&gt;-&lt;/span&gt; name: Test &lt;span style=&#34;color:#66d9ef&#34;&gt;with&lt;/span&gt; pytest
+      run: &lt;span style=&#34;color:#f92672&#34;&gt;|&lt;/span&gt;
+        pip install pytest
+        pytest
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;commit-new-workflow-file&#34;&gt;Commit new workflow file&lt;/h3&gt;
+&lt;p&gt;Once you have made any edits (no need to, though), go ahead and click
+the &lt;code&gt;Start Commit&lt;/code&gt; button.&lt;/p&gt;
+
+
+
+
+
+
+  
+
+
+
+  
+  
+
+
+
+
+
+
+
+
+
+
+
+&lt;figure id=&#34;figure-make-the-first-commit&#34;&gt;
+
+
+  &lt;a data-fancybox=&#34;&#34; href=&#34;https://seandavi.github.io/post/learning-github-actions/first-commit_hu2a458d7651905bf4de47ef29fe24ce96_153655_2000x2000_fit_lanczos_3.png&#34; data-caption=&#34;Make the first commit.&#34;&gt;
+
+
+  &lt;img data-src=&#34;https://seandavi.github.io/post/learning-github-actions/first-commit_hu2a458d7651905bf4de47ef29fe24ce96_153655_2000x2000_fit_lanczos_3.png&#34; class=&#34;lazyload&#34; alt=&#34;&#34; width=&#34;1074&#34; height=&#34;1282&#34;&gt;
+&lt;/a&gt;
+
+
+  
+  
+  &lt;figcaption&gt;
+    Make the first commit.
+  &lt;/figcaption&gt;
+
+
+&lt;/figure&gt;
+
+&lt;h3 id=&#34;build-results&#34;&gt;Build results&lt;/h3&gt;
+&lt;p&gt;By navigating back to &lt;code&gt;Actions&lt;/code&gt;, you should see that the workflow is
+running or has already completed. An example of what a running
+workflow might look like is below.&lt;/p&gt;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+&lt;figure id=&#34;figure-image-credit-github-bloghttpsgithubblog2019-08-08-github-actions-now-supports-ci-cd&#34;&gt;
+
+
+  &lt;a data-fancybox=&#34;&#34; href=&#34;https://github.blog/wp-content/uploads/2019/08/streaming.gif?w=918&amp;amp;resize=918%2C802&#34; data-caption=&#34;Image Credit: &amp;lt;a href=&amp;#34;https://github.blog/2019-08-08-github-actions-now-supports-ci-cd/&amp;#34;&amp;gt;GitHub Blog&amp;lt;/a&amp;gt;&#34;&gt;
+
+
+  &lt;img src=&#34;https://github.blog/wp-content/uploads/2019/08/streaming.gif?w=918&amp;amp;resize=918%2C802&#34; alt=&#34;&#34;  &gt;
+&lt;/a&gt;
+
+
+  
+  
+  &lt;figcaption&gt;
+    Image Credit: &lt;a href=&#34;https://github.blog/2019-08-08-github-actions-now-supports-ci-cd/&#34;&gt;GitHub Blog&lt;/a&gt;
+  &lt;/figcaption&gt;
+
+
+&lt;/figure&gt;
+
+&lt;p&gt;You are free to investigate the logs, etc.&lt;/p&gt;
+&lt;h3 id=&#34;modifying-the-workflow&#34;&gt;Modifying the workflow&lt;/h3&gt;
+&lt;p&gt;Modifying the workflow is as simple as making edits to the
+&lt;code&gt;.github/workflows/...yaml&lt;/code&gt; file. For example, you might consider
+changing the name of the workflow and modifying the python versions
+that are used for testing.&lt;/p&gt;
+&lt;h3 id=&#34;workflow-status-badge&#34;&gt;Workflow status badge&lt;/h3&gt;
+&lt;p&gt;Follow &lt;a href=&#34;https://help.github.com/en/articles/configuring-a-workflow#adding-a-workflow-status-badge-to-your-repository&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;these
+instructions&lt;/a&gt;
+to add a status badge to your repo that will be updated with each
+workflow execution. Example code is here:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;[![Actions
+Status](https://github.com/seandavi/somepackage/workflows/Python%20package/badge.svg)](https://github.com/seandavi/somepackage/actions)
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Note the &lt;code&gt;%20&lt;/code&gt; that represents a url-encoded &lt;code&gt;space&lt;/code&gt; character. The resulting badge looks like this:&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://github.com/seandavi/somepackage/actions&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;&lt;img src=&#34;https://github.com/seandavi/somepackage/workflows/Python%20package/badge.svg&#34; alt=&#34;Actions Status&#34;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&#34;conclusion&#34;&gt;Conclusion&lt;/h2&gt;
+&lt;p&gt;Github actions and workflows add continuous integration and other
+capabilities that are configurable via text files that are captured
+and versioned alongside code. Therefore, actions can be shared,
+modified, and manipulated with standard text editors, etc.&lt;/p&gt;
+&lt;p&gt;Many actions are &lt;a href=&#34;https://github.com/actions&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;publicly
+available&lt;/a&gt;. Example workflows are also
+&lt;a href=&#34;https://github.com/actions/starter-workflows&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;easy to find&lt;/a&gt;. For
+those who are partial to &lt;em&gt;R&lt;/em&gt;, there is the R-centric
+&lt;a href=&#34;https://r-lib.github.io/ghactions/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;ghactions&lt;/a&gt; package that 1)
+provides workflow templates for common R projects (packages,
+RMarkdown, …) with sensible defaults and 2) wraps and curates relevant
+existing external actions, such as those to deploy to GitHub Pages or
+Netlify.&lt;/p&gt;
+&lt;p&gt;Hardware available as of this writing is &lt;a href=&#34;https://help.github.com/en/articles/virtual-environments-for-github-actions#supported-virtual-environments-and-hardware-resources&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;described
+here&lt;/a&gt;
+and includes Windows, Linux, and MacOS environments. When a workflow
+is running, multiple &lt;a href=&#34;https://help.github.com/en/articles/virtual-environments-for-github-actions#environment-variables&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;environment
+variables&lt;/a&gt;
+are set and accessible to software. Github actions allow the user to
+create
+&lt;a href=&#34;https://help.github.com/en/articles/virtual-environments-for-github-actions#creating-and-using-secrets-encrypted-variables&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;secrets&lt;/a&gt;
+to securely store credentials for use inside run environments. Github
+actions are container-ready, allowing &lt;a href=&#34;https://help.github.com/en/articles/creating-a-docker-container-action&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;containerized
+actions&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;This post, like many of my posts, is very operational, but I have
+found that a worked example is usually more valuable than long
+expository posts. That said, I always appreciate comments and
+suggestions for improvements (see below).&lt;/p&gt;
+&lt;h2 id=&#34;references&#34;&gt;References&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/features/package-registry&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;GitHub Package Registry&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/features/package-registry&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;GitHub Actions&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://help.github.com/en/articles/workflow-syntax-for-github-actions&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Workflow Syntax&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://developer.github.com/webhooks/#events&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;repository events&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/actions&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;publicly available actions&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.community/t5/GitHub-Actions/bd-p/actions&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Community support site&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Container Notes</title>
+      <link>https://seandavi.github.io/docs/container-notes/</link>
+      <pubDate>Fri, 04 Oct 2019 17:04:04 -0400</pubDate>
+      <guid>https://seandavi.github.io/docs/container-notes/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Infrastructure-as-Code: Building the Bioconductor Conference AMI With Packer</title>
+      <link>https://seandavi.github.io/post/2018-07-19-infrastructure-as-code-building-the-bioconductor-conference-ami-with-packer/</link>
+      <pubDate>Thu, 19 Jul 2018 14:35:47 -0400</pubDate>
+      <guid>https://seandavi.github.io/post/2018-07-19-infrastructure-as-code-building-the-bioconductor-conference-ami-with-packer/</guid>
+      <description>
+
+
+&lt;p&gt;One of the main features of the annual &lt;a href=&#34;https://bioc2018.bioconductor.org&#34;&gt;Bioconductor Conference&lt;/a&gt; is the
+proportion of time spent working with code in the form of &lt;a href=&#34;https://github.com/bioconductor/BiocWorkshops&#34;&gt;workshops&lt;/a&gt;.
+To support these workshops, we ask workshop presenters to supply &lt;a href=&#34;https://rmarkdown.rstudio.com/&#34;&gt;Rmarkdown&lt;/a&gt;
+materials which we collate into workshop materials. Using literate programming
+approaches like Rmarkdown ensures that the workflows are self-consistent
+and work as expected.&lt;/p&gt;
+&lt;p&gt;In addition to the Rmarkdown workshop materials, we also need a consistent
+computing environment that can support reasonably large computation, provide
+high-performance network and file system access, and is essentially unlimited
+in scale (we expect to have &amp;gt;150 participants, each with his/her own machine).
+To do so, we use &lt;a href=&#34;https://aws.amazon.com/ec2&#34;&gt;Amazon Web Services EC2&lt;/a&gt;. The EC2 system allows us to prepare
+a &lt;a href=&#34;https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/AMIs.html&#34;&gt;Amazon machine “image”&lt;/a&gt;, or AMI, that contains the operating system, libraries,
+the newest version of R, and all packages needed for the workshops. In the past,
+creating the “image” was a manual process. This year, thanks to the work
+of the workshop organizers, we had a single DESCRIPTION file that contained
+all the necessary packages, allowing us to automate the process of building
+and keeping updated the AMI that would be used by all participants.&lt;/p&gt;
+&lt;p&gt;The &lt;a href=&#34;https://www.packer.io/&#34;&gt;Packer project&lt;/a&gt; is an open source tool for creating identical
+machine images for multiple platforms from a single source
+configuration. Packer is lightweight, runs on every major operating
+system, and is highly performant, creating machine images for multiple
+platforms in parallel. In this context, a machine image is a single
+static unit that contains a pre-configured operating system and
+installed software which is used to quickly create new running
+machines. Machine image formats change for each platform. Some
+examples include AMIs for EC2, VMDK/VMX files for VMware, OVF exports
+for VirtualBox, etc.&lt;/p&gt;
+&lt;p&gt;Biocoductor is cloud-ready and maintains &lt;a href=&#34;https://bioconductor.org/help/bioconductor-cloud-ami/&#34;&gt;basic AMIs for Bioconductor&lt;/a&gt;. Rather
+than needing to start with a generic Linux AMI as the “base” for our
+Bioconductor conference AMI, I will use
+the most recent &lt;a href=&#34;https://bioconductor.org/help/bioconductor-cloud-ami/#ami_ids&#34;&gt;Bioc-devel AMI&lt;/a&gt; as the base. Packer uses a &lt;a href=&#34;https://www.packer.io/intro/getting-started/build-image.html#the-template&#34;&gt;json format file&lt;/a&gt;
+to describe, &lt;em&gt;in code&lt;/em&gt;, the AMI that we want to build. The file for building the image
+is listed below in its entirety. The current version of the packer json file
+is available in this &lt;a href=&#34;https://github.com/seandavi/terraform-can/tree/master/packer&#34;&gt;github repo&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;To build the image, first &lt;a href=&#34;https://www.packer.io/docs/builders/amazon.html#authentication&#34;&gt;set up AWS authentication&lt;/a&gt; as outlined on the
+packer website. If you do not have an AWS account, you will not be able
+to actually build the AMI. Next, &lt;a href=&#34;https://www.packer.io/intro/getting-started/install.html&#34;&gt;install packer&lt;/a&gt; and ensure that it is in the path.
+Finally, save the file below as, for example, &lt;code&gt;bioc_2018.json&lt;/code&gt;. In the
+directory containing the json file, execute packer:&lt;/p&gt;
+&lt;pre class=&#34;sh&#34;&gt;&lt;code&gt;packer build bioc_2018.json&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;This build takes quite some time (perhaps 20 minutes or so).&lt;/p&gt;
+&lt;p&gt;In terms of details, briefly, the &lt;code&gt;instance_type&lt;/code&gt;
+below was chosen to allow multicore installation using 16 threads. AWS [spot pricing]
+is used to minimize costs (see &lt;code&gt;spot_pricing&lt;/code&gt; and &lt;code&gt;spot_pricing_auto_product&lt;/code&gt; below).
+Adding the &lt;code&gt;ami_groups&lt;/code&gt; set to &lt;code&gt;all&lt;/code&gt; will enable public access to the AMI. The &lt;code&gt;source_ami_filter&lt;/code&gt;
+section below chooses the “base” image. In this case, I used the AMI &lt;code&gt;name&lt;/code&gt; and
+specified that the AMI was “owned” by the Bioconductor organization (&lt;code&gt;&amp;quot;owners&amp;quot;: [&amp;quot;555219204010&amp;quot;]&lt;/code&gt;).
+I set the disk size to 128GB of SSD storage in the &lt;code&gt;launch_block_device_mappings&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;The real work is done in the &lt;code&gt;provisioners&lt;/code&gt; block. In this case, the provisioner
+block specifies just two shell commands that install the necessary packages. Note
+that the installation of the “Bioconductor/Biocworkshops” github package will
+install all packages in the &lt;a href=&#34;https://github.com/Bioconductor/BiocWorkshops/blob/master/DESCRIPTION&#34;&gt;DESCRIPTION&lt;/a&gt; file. The final line of the packer
+output will list the AMI ID that can be shared with others (since we made it public).
+The AMI may take a few minutes to become fully public.&lt;/p&gt;
+&lt;pre class=&#34;js&#34;&gt;&lt;code&gt;{
+    &amp;quot;variables&amp;quot;: {
+        &amp;quot;profile&amp;quot;: &amp;quot;default&amp;quot;,
+        &amp;quot;region&amp;quot;:  &amp;quot;us-east-1&amp;quot;
+    },
+    &amp;quot;builders&amp;quot;: [
+        {
+            &amp;quot;access_key&amp;quot;: &amp;quot;{{user `aws_access_key`}}&amp;quot;,
+            &amp;quot;ami_name&amp;quot;: &amp;quot;Bioconductor_Conference_2018-{{timestamp}}&amp;quot;,
+            &amp;quot;instance_type&amp;quot;: &amp;quot;c5.4xlarge&amp;quot;,
+            &amp;quot;region&amp;quot;: &amp;quot;us-east-1&amp;quot;,
+            &amp;quot;secret_key&amp;quot;: &amp;quot;{{user `aws_secret_key`}}&amp;quot;,
+            &amp;quot;source_ami_filter&amp;quot;: {
+                &amp;quot;filters&amp;quot;: {
+                    &amp;quot;virtualization-type&amp;quot;: &amp;quot;hvm&amp;quot;,
+                    &amp;quot;name&amp;quot;: &amp;quot;Bioc 3.8 R 3.5.1&amp;quot;,
+                    &amp;quot;root-device-type&amp;quot;: &amp;quot;ebs&amp;quot;
+                },
+                &amp;quot;owners&amp;quot;: [&amp;quot;555219204010&amp;quot;],
+                &amp;quot;most_recent&amp;quot;: true
+            },
+            &amp;quot;ssh_username&amp;quot;: &amp;quot;ubuntu&amp;quot;,
+            &amp;quot;spot_price&amp;quot;: &amp;quot;auto&amp;quot;,
+            &amp;quot;spot_price_auto_product&amp;quot;: &amp;quot;Linux/UNIX&amp;quot;,
+            &amp;quot;type&amp;quot;: &amp;quot;amazon-ebs&amp;quot;,
+            &amp;quot;ami_groups&amp;quot;: [&amp;quot;all&amp;quot;],
+            &amp;quot;launch_block_device_mappings&amp;quot;: [
+                {
+                    &amp;quot;device_name&amp;quot;: &amp;quot;/dev/sda1&amp;quot;,
+                    &amp;quot;volume_size&amp;quot;: 128,
+                    &amp;quot;volume_type&amp;quot;: &amp;quot;gp2&amp;quot;,
+                    &amp;quot;delete_on_termination&amp;quot;: true
+                }
+            ]
+        }
+    ],
+    &amp;quot;provisioners&amp;quot;: [
+        {
+            &amp;quot;type&amp;quot;: &amp;quot;shell&amp;quot;,
+            &amp;quot;inline&amp;quot;:[
+                &amp;quot;Rscript -e &amp;#39;BiocManager::install(\&amp;quot;remotes\&amp;quot;)&amp;#39;&amp;quot;,
+                &amp;quot;Rscript -e &amp;#39;options(Ncpus=16); BiocManager::install(\&amp;quot;Bioconductor/BiocWorkshops\&amp;quot;)&amp;#39;&amp;quot;,
+            ]
+        }
+    ]
+}
+    &lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;By maintaining the AMI description as code, we can ensure that the AMI is
+fully reproducible (no manual installations, etc.) and, therefore, highly
+reproducible and even reusable.&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://github.com/seandavi/terraform-can/tree/master/packer&#34;&gt;The current version of the packer file is available on github&lt;/a&gt;. Thanks to Levi
+Waldron, Lori Shepherd, Marcel Ramos, Martin Morgan, and multiple workshop
+authors for their contributions.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://seandavi.github.io/post/google-kubernetes-autoscale-with-preemptible-instances/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://seandavi.github.io/post/google-kubernetes-autoscale-with-preemptible-instances/</guid>
+      <description>&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;export POOL_NAME&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;preempt-1&amp;#39;&lt;/span&gt;
+export CLUSTER_NAME&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;cluster-1&amp;#39;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;gcloud beta container node-pools create &lt;span style=&#34;color:#e6db74&#34;&gt;${&lt;/span&gt;POOL_NAME&lt;span style=&#34;color:#e6db74&#34;&gt;}&lt;/span&gt; --preemptible &lt;span style=&#34;color:#ae81ff&#34;&gt;\
+&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;&lt;/span&gt;	   --cluster &lt;span style=&#34;color:#e6db74&#34;&gt;${&lt;/span&gt;CLUSTER_NAME&lt;span style=&#34;color:#e6db74&#34;&gt;}&lt;/span&gt; --enable-autoscaling &lt;span style=&#34;color:#ae81ff&#34;&gt;\
+&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;&lt;/span&gt;	   --min-nodes&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt; --max-nodes&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;50&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;\
+&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;&lt;/span&gt;	   --machine-type&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;n1-standard-2                                    
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-yaml&#34; data-lang=&#34;yaml&#34;&gt;&lt;span style=&#34;color:#f92672&#34;&gt;apiVersion&lt;/span&gt;: &lt;span style=&#34;color:#ae81ff&#34;&gt;v1&lt;/span&gt;
+&lt;span style=&#34;color:#f92672&#34;&gt;kind&lt;/span&gt;: &lt;span style=&#34;color:#ae81ff&#34;&gt;Job&lt;/span&gt;
+&lt;span style=&#34;color:#f92672&#34;&gt;spec&lt;/span&gt;:
+  &lt;span style=&#34;color:#f92672&#34;&gt;nodeSelector&lt;/span&gt;:
+    &lt;span style=&#34;color:#f92672&#34;&gt;cloud.google.com/gke-preemptible&lt;/span&gt;: &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;true&amp;#34;&lt;/span&gt;
+  &lt;span style=&#34;color:#f92672&#34;&gt;template&lt;/span&gt;:
+    &lt;span style=&#34;color:#f92672&#34;&gt;spec&lt;/span&gt;:
+      &lt;span style=&#34;color:#f92672&#34;&gt;containers&lt;/span&gt;:
+      - &lt;span style=&#34;color:#f92672&#34;&gt;name&lt;/span&gt;: &lt;span style=&#34;color:#ae81ff&#34;&gt;pyversion&lt;/span&gt;
+        &lt;span style=&#34;color:#f92672&#34;&gt;image&lt;/span&gt;: &lt;span style=&#34;color:#ae81ff&#34;&gt;python:3.7&lt;/span&gt;
+        &lt;span style=&#34;color:#f92672&#34;&gt;command&lt;/span&gt;: [&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;python&amp;#34;&lt;/span&gt;,  &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;--version&amp;#34;&lt;/span&gt;]
+      &lt;span style=&#34;color:#f92672&#34;&gt;restartPolicy&lt;/span&gt;: &lt;span style=&#34;color:#ae81ff&#34;&gt;Never&lt;/span&gt;
+  &lt;span style=&#34;color:#f92672&#34;&gt;backoffLimit&lt;/span&gt;: &lt;span style=&#34;color:#ae81ff&#34;&gt;4&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -2,21 +2,29 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>L. Sangiorgi | seandavi(s12)</title>
-    <link>/authors/l.-sangiorgi/</link>
-      <atom:link href="/authors/l.-sangiorgi/index.xml" rel="self" type="application/rss+xml" />
+    <link>https://seandavi.github.io/authors/l.-sangiorgi/</link>
+      <atom:link href="https://seandavi.github.io/authors/l.-sangiorgi/index.xml" rel="self" type="application/rss+xml" />
     <description>L. Sangiorgi</description>
-    <generator>Wowchemy (https://wowchemy.com)</generator><language>en-us</language><lastBuildDate>Thu, 01 Jan 2009 00:00:00 +0000</lastBuildDate>
+    <generator>Wowchemy (https://wowchemy.com)</generator><language>en-us</language><copyright>© 2016-2020</copyright><lastBuildDate>Thu, 01 Jan 2009 00:00:00 +0000</lastBuildDate>
     <image>
-      <url>/images/icon_hu0b7a4cb9992c9ac0e91bd28ffd38dd00_9727_512x512_fill_lanczos_center_2.png</url>
+      <url>https://seandavi.github.io/images/icon_hu0b7a4cb9992c9ac0e91bd28ffd38dd00_9727_512x512_fill_lanczos_center_3.png</url>
       <title>L. Sangiorgi</title>
-      <link>/authors/l.-sangiorgi/</link>
+      <link>https://seandavi.github.io/authors/l.-sangiorgi/</link>
     </image>
     
     <item>
       <title>Canine tumor cross-species genomics uncovers targets linked to osteosarcoma progression</title>
-      <link>/publication/pmid-20028558/</link>
+      <link>https://seandavi.github.io/publication/pmid-20028558/</link>
       <pubDate>Thu, 01 Jan 2009 00:00:00 +0000</pubDate>
-      <guid>/publication/pmid-20028558/</guid>
+      <guid>https://seandavi.github.io/publication/pmid-20028558/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Canine tumor cross-species genomics uncovers targets linked to osteosarcoma progression</title>
+      <link>https://seandavi.github.io/publication2/pmid-20028558/</link>
+      <pubDate>Thu, 01 Jan 2009 00:00:00 +0000</pubDate>
+      <guid>https://seandavi.github.io/publication2/pmid-20028558/</guid>
       <description></description>
     </item>
     

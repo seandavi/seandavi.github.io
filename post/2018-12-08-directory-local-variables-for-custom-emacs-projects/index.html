@@ -8,7 +8,7 @@
   
   
   
-  <meta name="generator" content="Wowchemy 5.0.0-beta.1 for Hugo">
+  <meta name="generator" content="Wowchemy 4.8.0 for Hugo">
   
 
   
@@ -34,10 +34,11 @@
   
     
   
-  <meta name="description" content="I use emacs for nearly all my editing and interactive analysis. As one typically does, more than one project is the norm, not the exception. Discovering projectile for project-specific buffers and controls, combined with helm for very fast, fuzzy completions, makes emacs a very convenient and efficient environment for most task.">
+  <meta name="description" content="I use emacs for nearly all my editing and interactive analysis. As one typically does, more than one project is the norm, not the exception. Discovering projectile for project-specific buffers and controls, combined with helm for very fast, fuzzy completions, makes emacs a very convenient and efficient environment for most task.
+One challenge I ran into was the need to have multiple interactive python buffers, typically one per project. However, the out-of-the-box behavior of python-mode is to have only one python interactive buffer named &ldquo;Python&rdquo;.">
 
   
-  <link rel="alternate" hreflang="en-us" href="/post/2018-12-08-directory-local-variables-for-custom-emacs-projects/">
+  <link rel="alternate" hreflang="en-us" href="https://seandavi.github.io/post/2018-12-08-directory-local-variables-for-custom-emacs-projects/">
 
   
 
@@ -65,14 +66,15 @@
 
   
   
+  
+  <script src="/js/mathjax-config.js"></script>
+  
 
   
   
   
   
     
-    
-      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/academicons/1.9.0/css/academicons.min.css" integrity="sha512-W4yqoT1+8NLkinBLBZko+dFB2ZbHsYLDdr50VElllRcNt2Q4/GSs6u71UHKxB7S6JEMCp5Ve4xjh3eGQl/HRvg==" crossorigin="anonymous">
     
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" integrity="sha256-FMvZuGapsJLjouA6k7Eo2lusoAX9i0ShlWFG6qt7SLc=" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css" integrity="sha256-Vzbj7sDDS/woiFS3uNKo8eIuni59rjyNGtXfstRzStA=" crossorigin="anonymous">
@@ -85,13 +87,13 @@
     
       
       
-        
-          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.2.0/styles/github.min.css" crossorigin="anonymous" title="hl-light">
-          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.2.0/styles/dracula.min.css" crossorigin="anonymous" title="hl-dark" disabled>
-        
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.2.0/styles/atom-one-light.min.css" crossorigin="anonymous" title="hl-light">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.2.0/styles/atom-one-light.min.css" crossorigin="anonymous" title="hl-dark" disabled>
       
     
 
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/leaflet.min.css" integrity="sha512-1xoFisiGdy9nvho8EgXuXvnpR5GAMSjFwp40gSRE3NwdUdIMIKuPa7bqoUhLD0O/5tPNhteAsE5XyyMi5reQVA==" crossorigin="anonymous">
     
 
     
@@ -202,9 +204,9 @@
 
       
       
-        
-      
 
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" integrity="" crossorigin="anonymous" async></script>
       
     
       
@@ -238,7 +240,7 @@
   
   
   
-  <link rel="stylesheet" href="/css/wowchemy.min.8e43d31e888508b173bbc2cc83c6a116.css">
+  <link rel="stylesheet" href="/css/wowchemy.css">
 
   
 
@@ -285,8 +287,6 @@
 
   
 
-  
-
 
   
   
@@ -294,10 +294,10 @@
   
 
   <link rel="manifest" href="/index.webmanifest">
-  <link rel="icon" type="image/png" href="/images/icon_hu0b7a4cb9992c9ac0e91bd28ffd38dd00_9727_32x32_fill_lanczos_center_2.png">
-  <link rel="apple-touch-icon" type="image/png" href="/images/icon_hu0b7a4cb9992c9ac0e91bd28ffd38dd00_9727_192x192_fill_lanczos_center_2.png">
+  <link rel="icon" type="image/png" href="/images/icon_hu0b7a4cb9992c9ac0e91bd28ffd38dd00_9727_32x32_fill_lanczos_center_3.png">
+  <link rel="apple-touch-icon" type="image/png" href="/images/icon_hu0b7a4cb9992c9ac0e91bd28ffd38dd00_9727_192x192_fill_lanczos_center_3.png">
 
-  <link rel="canonical" href="/post/2018-12-08-directory-local-variables-for-custom-emacs-projects/">
+  <link rel="canonical" href="https://seandavi.github.io/post/2018-12-08-directory-local-variables-for-custom-emacs-projects/">
 
   
   
@@ -316,15 +316,16 @@
   <meta property="twitter:creator" content="@seandavis12">
   
   <meta property="og:site_name" content="seandavi(s12)">
-  <meta property="og:url" content="/post/2018-12-08-directory-local-variables-for-custom-emacs-projects/">
+  <meta property="og:url" content="https://seandavi.github.io/post/2018-12-08-directory-local-variables-for-custom-emacs-projects/">
   <meta property="og:title" content="Using directory-local variables to customize the emacs project experience | seandavi(s12)">
-  <meta property="og:description" content="I use emacs for nearly all my editing and interactive analysis. As one typically does, more than one project is the norm, not the exception. Discovering projectile for project-specific buffers and controls, combined with helm for very fast, fuzzy completions, makes emacs a very convenient and efficient environment for most task."><meta property="og:image" content="/images/icon_hu0b7a4cb9992c9ac0e91bd28ffd38dd00_9727_512x512_fill_lanczos_center_2.png">
-  <meta property="twitter:image" content="/images/icon_hu0b7a4cb9992c9ac0e91bd28ffd38dd00_9727_512x512_fill_lanczos_center_2.png"><meta property="og:locale" content="en-us">
+  <meta property="og:description" content="I use emacs for nearly all my editing and interactive analysis. As one typically does, more than one project is the norm, not the exception. Discovering projectile for project-specific buffers and controls, combined with helm for very fast, fuzzy completions, makes emacs a very convenient and efficient environment for most task.
+One challenge I ran into was the need to have multiple interactive python buffers, typically one per project. However, the out-of-the-box behavior of python-mode is to have only one python interactive buffer named &ldquo;Python&rdquo;."><meta property="og:image" content="https://seandavi.github.io/images/icon_hu0b7a4cb9992c9ac0e91bd28ffd38dd00_9727_512x512_fill_lanczos_center_3.png">
+  <meta property="twitter:image" content="https://seandavi.github.io/images/icon_hu0b7a4cb9992c9ac0e91bd28ffd38dd00_9727_512x512_fill_lanczos_center_3.png"><meta property="og:locale" content="en-us">
   
     
       <meta property="article:published_time" content="2018-12-08T00:00:00&#43;00:00">
     
-    <meta property="article:modified_time" content="2018-12-08T00:00:00&#43;00:00">
+    <meta property="article:modified_time" content="2020-06-04T14:18:03-04:00">
   
 
   
@@ -348,22 +349,22 @@
   "@type": "BlogPosting",
   "mainEntityOfPage": {
     "@type": "WebPage",
-    "@id": "/post/2018-12-08-directory-local-variables-for-custom-emacs-projects/"
+    "@id": "https://seandavi.github.io/post/2018-12-08-directory-local-variables-for-custom-emacs-projects/"
   },
   "headline": "Using directory-local variables to customize the emacs project experience",
   
   "datePublished": "2018-12-08T00:00:00Z",
-  "dateModified": "2018-12-08T00:00:00Z",
+  "dateModified": "2020-06-04T14:18:03-04:00",
   
   "publisher": {
     "@type": "Organization",
     "name": "seandavi(s12)",
     "logo": {
       "@type": "ImageObject",
-      "url": "/images/icon_hu0b7a4cb9992c9ac0e91bd28ffd38dd00_9727_192x192_fill_lanczos_center_2.png"
+      "url": "https://seandavi.github.io/images/icon_hu0b7a4cb9992c9ac0e91bd28ffd38dd00_9727_192x192_fill_lanczos_center_3.png"
     }
   },
-  "description": "I use emacs for nearly all my editing and interactive analysis. As one typically does, more than one project is the norm, not the exception. Discovering projectile for project-specific buffers and controls, combined with helm for very fast, fuzzy completions, makes emacs a very convenient and efficient environment for most task."
+  "description": "I use emacs for nearly all my editing and interactive analysis. As one typically does, more than one project is the norm, not the exception. Discovering projectile for project-specific buffers and controls, combined with helm for very fast, fuzzy completions, makes emacs a very convenient and efficient environment for most task.\nOne challenge I ran into was the need to have multiple interactive python buffers, typically one per project. However, the out-of-the-box behavior of python-mode is to have only one python interactive buffer named \u0026ldquo;Python\u0026rdquo;."
 }
 </script>
 
@@ -386,14 +387,16 @@
 </head>
 
 
-<body id="top" data-spy="scroll" data-offset="70" data-target="#TableOfContents" class="page-wrapper  ">
+<body id="top" data-spy="scroll" data-offset="70" data-target="#TableOfContents" class=" ">
 
   
   
   
   
+    <script>const isSiteThemeDark = false;</script>
   
-  <script src="/js/wowchemy-init.js"></script>
+  
+  <script src="/js/load-theme.js"></script>
 
   <aside class="search-results" id="search">
   <div class="container">
@@ -427,8 +430,7 @@
 </aside>
 
 
-  <div class="page-header">
-    
+  
 
 
 
@@ -502,7 +504,7 @@
         
 
         <li class="nav-item">
-          <a class="nav-link " href="/#about"><span>Home</span></a>
+          <a class="nav-link " href="/#about"><span>About</span></a>
         </li>
 
         
@@ -640,17 +642,10 @@
             
           
           
-            
-            
-            
-              
-            
-            
-          
         
 
         <li class="nav-item">
-          <a class="nav-link " href="/#contact"><span>Contact</span></a>
+          <a class="nav-link " href="/project/"><span>Projects</span></a>
         </li>
 
         
@@ -677,10 +672,17 @@
             
           
           
+            
+            
+            
+              
+            
+            
+          
         
 
         <li class="nav-item">
-          <a class="nav-link " href="/files/CV.pdf"><span>CV</span></a>
+          <a class="nav-link " href="/#contact"><span>Contact</span></a>
         </li>
 
         
@@ -702,23 +704,6 @@
 
       
       
-      <li class="nav-item dropdown theme-dropdown">
-        <a href="#" class="nav-link" data-toggle="dropdown" aria-haspopup="true" aria-label="Display preferences">
-          <i class="fas fa-moon" aria-hidden="true"></i>
-        </a>
-        <div class="dropdown-menu">
-          <a href="#" class="dropdown-item js-set-theme-light">
-            <span>Light</span>
-          </a>
-          <a href="#" class="dropdown-item js-set-theme-dark">
-            <span>Dark</span>
-          </a>
-          <a href="#" class="dropdown-item js-set-theme-auto">
-            <span>Automatic</span>
-          </a>
-        </div>
-      </li>
-      
 
       
 
@@ -728,10 +713,8 @@
 </nav>
 
 
-  </div>
 
-  <div class="page-body">
-    <article class="article">
+  <article class="article">
 
   
 
@@ -770,8 +753,10 @@
     
     
       
+          Last updated on
+      
     
-    Dec 8, 2018
+    Jun 4, 2020
   </span>
   
 
@@ -787,14 +772,15 @@
   
   
   
-  
+  <span class="middot-divider"></span>
+  <a href="/post/2018-12-08-directory-local-variables-for-custom-emacs-projects/#disqus_thread"></a>
   
 
   
   
   <span class="middot-divider"></span>
   <span class="article-categories">
-    <i class="fas fa-folder mr-1"></i><a href="/category/notes/">Notes</a></span>
+    <i class="fas fa-folder mr-1"></i><a href="/categories/notes/">Notes</a></span>
   
 
 </div>
@@ -858,7 +844,6 @@ the project will use the same project-specific</p>
 ((python-mode
   (python-shell-buffer-name . &quot;Python[MyProjectName]&quot;)))
 </code></pre>
-
     </div>
 
     
@@ -870,11 +855,11 @@ the project will use the same project-specific</p>
 
 <div class="article-tags">
   
-  <a class="badge badge-light" href="/tag/programming/">programming</a>
+  <a class="badge badge-light" href="/tags/programming/">programming</a>
   
-  <a class="badge badge-light" href="/tag/emacs/">emacs</a>
+  <a class="badge badge-light" href="/tags/emacs/">emacs</a>
   
-  <a class="badge badge-light" href="/tag/python/">python</a>
+  <a class="badge badge-light" href="/tags/python/">python</a>
   
 </div>
 
@@ -891,7 +876,7 @@ the project will use the same project-specific</p>
       
       
       <li>
-        <a href="https://twitter.com/intent/tweet?url=/post/2018-12-08-directory-local-variables-for-custom-emacs-projects/&amp;text=Using%20directory-local%20variables%20to%20customize%20the%20emacs%20project%20experience" target="_blank" rel="noopener" class="share-btn-twitter">
+        <a href="https://twitter.com/intent/tweet?url=https://seandavi.github.io/post/2018-12-08-directory-local-variables-for-custom-emacs-projects/&amp;text=Using%20directory-local%20variables%20to%20customize%20the%20emacs%20project%20experience" target="_blank" rel="noopener" class="share-btn-twitter">
           <i class="fab fa-twitter"></i>
         </a>
       </li>
@@ -904,7 +889,7 @@ the project will use the same project-specific</p>
       
       
       <li>
-        <a href="https://www.facebook.com/sharer.php?u=/post/2018-12-08-directory-local-variables-for-custom-emacs-projects/&amp;t=Using%20directory-local%20variables%20to%20customize%20the%20emacs%20project%20experience" target="_blank" rel="noopener" class="share-btn-facebook">
+        <a href="https://www.facebook.com/sharer.php?u=https://seandavi.github.io/post/2018-12-08-directory-local-variables-for-custom-emacs-projects/&amp;t=Using%20directory-local%20variables%20to%20customize%20the%20emacs%20project%20experience" target="_blank" rel="noopener" class="share-btn-facebook">
           <i class="fab fa-facebook"></i>
         </a>
       </li>
@@ -917,7 +902,7 @@ the project will use the same project-specific</p>
       
       
       <li>
-        <a href="mailto:?subject=Using%20directory-local%20variables%20to%20customize%20the%20emacs%20project%20experience&amp;body=/post/2018-12-08-directory-local-variables-for-custom-emacs-projects/" target="_blank" rel="noopener" class="share-btn-email">
+        <a href="mailto:?subject=Using%20directory-local%20variables%20to%20customize%20the%20emacs%20project%20experience&amp;body=https://seandavi.github.io/post/2018-12-08-directory-local-variables-for-custom-emacs-projects/" target="_blank" rel="noopener" class="share-btn-email">
           <i class="fas fa-envelope"></i>
         </a>
       </li>
@@ -930,7 +915,7 @@ the project will use the same project-specific</p>
       
       
       <li>
-        <a href="https://www.linkedin.com/shareArticle?url=/post/2018-12-08-directory-local-variables-for-custom-emacs-projects/&amp;title=Using%20directory-local%20variables%20to%20customize%20the%20emacs%20project%20experience" target="_blank" rel="noopener" class="share-btn-linkedin">
+        <a href="https://www.linkedin.com/shareArticle?url=https://seandavi.github.io/post/2018-12-08-directory-local-variables-for-custom-emacs-projects/&amp;title=Using%20directory-local%20variables%20to%20customize%20the%20emacs%20project%20experience" target="_blank" rel="noopener" class="share-btn-linkedin">
           <i class="fab fa-linkedin-in"></i>
         </a>
       </li>
@@ -943,7 +928,7 @@ the project will use the same project-specific</p>
       
       
       <li>
-        <a href="whatsapp://send?text=Using%20directory-local%20variables%20to%20customize%20the%20emacs%20project%20experience%20/post/2018-12-08-directory-local-variables-for-custom-emacs-projects/" target="_blank" rel="noopener" class="share-btn-whatsapp">
+        <a href="whatsapp://send?text=Using%20directory-local%20variables%20to%20customize%20the%20emacs%20project%20experience%20https://seandavi.github.io/post/2018-12-08-directory-local-variables-for-custom-emacs-projects/" target="_blank" rel="noopener" class="share-btn-whatsapp">
           <i class="fab fa-whatsapp"></i>
         </a>
       </li>
@@ -956,7 +941,7 @@ the project will use the same project-specific</p>
       
       
       <li>
-        <a href="https://service.weibo.com/share/share.php?url=/post/2018-12-08-directory-local-variables-for-custom-emacs-projects/&amp;title=Using%20directory-local%20variables%20to%20customize%20the%20emacs%20project%20experience" target="_blank" rel="noopener" class="share-btn-weibo">
+        <a href="https://service.weibo.com/share/share.php?url=https://seandavi.github.io/post/2018-12-08-directory-local-variables-for-custom-emacs-projects/&amp;title=Using%20directory-local%20variables%20to%20customize%20the%20emacs%20project%20experience" target="_blank" rel="noopener" class="share-btn-weibo">
           <i class="fab fa-weibo"></i>
         </a>
       </li>
@@ -990,8 +975,8 @@ the project will use the same project-specific</p>
     
 
     <div class="media-body">
-      <h5 class="card-title"></h5>
-      <h6 class="card-subtitle">Professor, Department of Medicine</h6>
+      <h5 class="card-title"><a href="https://seandavi.github.io/"></a></h5>
+      <h6 class="card-subtitle">Senior Associate Scientist</h6>
       <p class="card-text">My interests include biomedical data science, open data, genomics, and cancer research.</p>
       <ul class="network-icon" aria-hidden="true">
   
@@ -1085,30 +1070,38 @@ the project will use the same project-specific</p>
 
 
 
-
-
-
-
-
-
-
+<section id="comments">
+  
+    
+<div id="disqus_thread"></div>
+<script>
+  var disqus_config = function () {
+    
+    
+    
+  };
+  (function() {
+    if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+      document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+      return;
+    }
+    var d = document, s = d.createElement('script'); s.async = true;
+    s.src = 'https://' + "seandavi-github-io" + '.disqus.com/embed.js';
+    s.setAttribute('data-timestamp', +new Date());
+    (d.head || d.body).appendChild(s);
+  })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
 
 
   
-  
-  <div class="article-widget content-widget-hr">
-    <h3>Related</h3>
-    <ul>
-      
-      <li><a href="/post/protect-against-secrets-in-git-repositories/">Protect Against Secrets in Git Repositories</a></li>
-      
-      <li><a href="/post/message-queues-to-orchestrate-hpc-batch-runs/">Experimenting with Github Actions</a></li>
-      
-      <li><a href="/post/learning-github-actions/">Experimenting with Github Actions</a></li>
-      
-    </ul>
-  </div>
-  
+</section>
+
+
+
+
+
 
 
 
@@ -1116,68 +1109,6 @@ the project will use the same project-specific</p>
 
   </div>
 </article>
-  </div>
-
-  <div class="page-footer">
-    
-    
-    <div class="container">
-      <footer class="site-footer">
-  
-
-  <p class="powered-by">
-    
-  </p>
-
-  
-  
-
-
-
-
-
-
-  <p class="powered-by">
-    
-    
-    
-    Published with
-    <a href="https://wowchemy.com/?utm_campaign=poweredby" target="_blank" rel="noopener">Wowchemy</a>  —
-    the free, <a href="https://github.com/wowchemy/wowchemy-hugo-modules" target="_blank" rel="noopener">
-    open source</a> website builder that empowers creators.
-    
-  </p>
-</footer>
-
-    </div>
-    
-  </div>
-
-  
-<div id="modal" class="modal fade" role="dialog">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title">Cite</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-        <pre><code class="tex hljs"></code></pre>
-      </div>
-      <div class="modal-footer">
-        <a class="btn btn-outline-primary my-1 js-copy-cite" href="#" target="_blank">
-          <i class="fas fa-copy"></i> Copy
-        </a>
-        <a class="btn btn-outline-primary my-1 js-download-cite" href="#" target="_blank">
-          <i class="fas fa-download"></i> Download
-        </a>
-        <div id="modal-error"></div>
-      </div>
-    </div>
-  </div>
-</div>
 
       
 
@@ -1185,16 +1116,13 @@ the project will use the same project-specific</p>
     
     
       <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
-
-      
-      
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.imagesloaded/4.1.4/imagesloaded.pkgd.min.js" integrity="sha256-lqvxZrPLtfffUl2G/e7szqSvPBILGbwmsGE1MKlOi0Q=" crossorigin="anonymous"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.isotope/3.0.6/isotope.pkgd.min.js" integrity="sha256-CBrpuqrMhXwcLLUd5tvQ4euBHCdh7wGlDfNz8vbu/iI=" crossorigin="anonymous"></script>
-      
-
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.imagesloaded/4.1.4/imagesloaded.pkgd.min.js" integrity="sha256-lqvxZrPLtfffUl2G/e7szqSvPBILGbwmsGE1MKlOi0Q=" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.isotope/3.0.6/isotope.pkgd.min.js" integrity="sha256-CBrpuqrMhXwcLLUd5tvQ4euBHCdh7wGlDfNz8vbu/iI=" crossorigin="anonymous"></script>
       <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js" integrity="sha256-yt2kYMy0w8AbtF89WXb2P1rfjcP/HTHLT7097U8Y5b8=" crossorigin="anonymous"></script>
       <script src="https://cdnjs.cloudflare.com/ajax/libs/instant.page/5.1.0/instantpage.min.js" integrity="sha512-1+qUtKoh9XZW7j+6LhRMAyOrgSQKenQ4mluTR+cvxXjP1Z54RxZuzstR/H9kgPXQsVB8IW7DMDFUJpzLjvhGSQ==" crossorigin="anonymous"></script>
 
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mermaid/8.8.0/mermaid.min.js" integrity="sha512-ja+hSBi4JDtjSqc4LTBsSwuBT3tdZ3oKYKd07lTVYmCnTCor56AnRql00ssqnTOR9Ss4gOP/ROGB3SfcJnZkeg==" crossorigin="anonymous" title="mermaid"></script>
       
 
       
@@ -1203,11 +1131,19 @@ the project will use the same project-specific</p>
         
         <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.2.0/languages/r.min.js"></script>
         
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.2.0/languages/python.min.js"></script>
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.2.0/languages/javascript.min.js"></script>
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.2.0/languages/html.min.js"></script>
+        
       
 
     
 
     
+    
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/leaflet.min.js" integrity="sha512-SeiQaaDh73yrb56sTW/RgVdi/mMqNeM2oBwubFHagc5BkixSpP1fvqF47mKzPGWYSSy4RwbBunrJBQ4Co8fRWA==" crossorigin="anonymous"></script>
     
 
     
@@ -1263,12 +1199,13 @@ the project will use the same project-specific</p>
 
     
     
-    
 
     
     
 
     
+    
+    <script id="dsq-count-scr" src="https://seandavi-github-io.disqus.com/count.js" async></script>
     
 
     
@@ -1285,7 +1222,7 @@ the project will use the same project-specific</p>
     
     
     
-    <script src="/js/wowchemy.min.ffabb05383f1b16d83e7181a605e644c.js"></script>
+    <script src="/js/wowchemy.min.434af0ebce9e15b273b954d65feb39c7.js"></script>
 
     
 
@@ -1293,6 +1230,73 @@ the project will use the same project-specific</p>
 
 
 
+
+  
+  
+  <div class="container">
+    <footer class="site-footer">
+  
+
+  <p class="powered-by">
+    © 2016-2020
+  </p>
+
+  
+  
+
+
+
+
+
+
+  <p class="powered-by">
+    
+    Published with
+    <a href="https://wowchemy.com" target="_blank" rel="noopener">Wowchemy</a>  —
+    the free, <a href="https://github.com/wowchemy/wowchemy-hugo-modules" target="_blank" rel="noopener">
+    open source</a> website builder that empowers creators.
+    
+
+    
+    <span class="float-right" aria-hidden="true">
+      <a href="#" class="back-to-top">
+        <span class="button_icon">
+          <i class="fas fa-chevron-up fa-2x"></i>
+        </span>
+      </a>
+    </span>
+    
+  </p>
+</footer>
+
+  </div>
+  
+
+  
+<div id="modal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Cite</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <pre><code class="tex hljs"></code></pre>
+      </div>
+      <div class="modal-footer">
+        <a class="btn btn-outline-primary my-1 js-copy-cite" href="#" target="_blank">
+          <i class="fas fa-copy"></i> Copy
+        </a>
+        <a class="btn btn-outline-primary my-1 js-download-cite" href="#" target="_blank">
+          <i class="fas fa-download"></i> Download
+        </a>
+        <div id="modal-error"></div>
+      </div>
+    </div>
+  </div>
+</div>
 
 </body>
 </html>
