@@ -75,13 +75,7 @@ email: "seandavi@gmail.com"
 #- Researchers
 #- Visitors
 ---
-
-I am a Senior Associate Scientist at the [Center for Cancer
-Research](https://ccr.cancer.gov/) at the [National Cancer
-Institute](https://www.cancer.gov/), part of the [Intramural Research
-Program at the National Institutes of Health](https://irp.nih.gov/).
-
-I received my B.S. in [Mechanical and Aerospace
+I received my B.S.E. in [Mechanical and Aerospace
 Engineering](https://mae.princeton.edu/) from [Princeton
 University](https://www.princeton.edu/), my M.D. and Ph.D. from the
 University of Pittsburgh in the Schools of
