@@ -3,10 +3,10 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://seandavi.github.io/publication_types/2/</loc>
-    <lastmod>2021-08-21T13:58:58-06:00</lastmod>
+    <lastmod>2021-08-21T14:26:33-06:00</lastmod>
   </url><url>
     <loc>https://seandavi.github.io/authors/</loc>
-    <lastmod>2021-08-21T13:58:58-06:00</lastmod>
+    <lastmod>2021-08-21T14:26:33-06:00</lastmod>
   </url><url>
     <loc>https://seandavi.github.io/authors/casey-greene/</loc>
     <lastmod>2021-08-21T11:12:17-06:00</lastmod>
@@ -27,13 +27,13 @@
     <lastmod>2021-08-21T13:52:37-06:00</lastmod>
   </url><url>
     <loc>https://seandavi.github.io/publication_types/</loc>
-    <lastmod>2021-08-21T13:58:58-06:00</lastmod>
+    <lastmod>2021-08-21T14:26:33-06:00</lastmod>
   </url><url>
     <loc>https://seandavi.github.io/authors/sean-davis/</loc>
-    <lastmod>2021-08-21T13:58:58-06:00</lastmod>
+    <lastmod>2021-08-21T14:26:33-06:00</lastmod>
   </url><url>
     <loc>https://seandavi.github.io/</loc>
-    <lastmod>2021-08-21T13:58:58-06:00</lastmod>
+    <lastmod>2021-08-21T14:26:33-06:00</lastmod>
   </url><url>
     <loc>https://seandavi.github.io/authors/sehyun-oh/</loc>
     <lastmod>2021-08-21T11:12:17-06:00</lastmod>
@@ -69,7 +69,7 @@
     <lastmod>2021-05-08T15:13:09-06:00</lastmod>
   </url><url>
     <loc>https://seandavi.github.io/tags/</loc>
-    <lastmod>2021-05-08T15:13:09-06:00</lastmod>
+    <lastmod>2021-08-21T14:26:33-06:00</lastmod>
   </url><url>
     <loc>https://seandavi.github.io/talk/2020-06-04-bioc-techboard-big-data/</loc>
     <lastmod>2020-06-04T14:18:03-04:00</lastmod>
@@ -311,13 +311,31 @@
     <loc>https://seandavi.github.io/talk/2019-05-14-artificial-intelligence-for-data-discovery-reuse-data-engineering-bioconductor/</loc>
     <lastmod>2020-06-04T14:18:03-04:00</lastmod>
   </url><url>
+    <loc>https://seandavi.github.io/tags/bioconductor-bioinformatics-r-reproducible-research-software/</loc>
+    <lastmod>2021-08-21T14:26:33-06:00</lastmod>
+  </url><url>
+    <loc>https://seandavi.github.io/publication/su-2019-wp/</loc>
+    <lastmod>2021-08-21T14:26:33-06:00</lastmod>
+  </url><url>
+    <loc>https://seandavi.github.io/authors/lori-shepherd/</loc>
+    <lastmod>2021-08-21T14:26:33-06:00</lastmod>
+  </url><url>
+    <loc>https://seandavi.github.io/authors/martin-t-morgan/</loc>
+    <lastmod>2021-08-21T14:26:33-06:00</lastmod>
+  </url><url>
+    <loc>https://seandavi.github.io/authors/matthew-ritchie/</loc>
+    <lastmod>2021-08-21T14:26:33-06:00</lastmod>
+  </url><url>
+    <loc>https://seandavi.github.io/authors/shian-su/</loc>
+    <lastmod>2021-08-21T14:26:33-06:00</lastmod>
+  </url><url>
+    <loc>https://seandavi.github.io/authors/vincent-j-carey/</loc>
+    <lastmod>2021-08-21T14:26:33-06:00</lastmod>
+  </url><url>
     <loc>https://seandavi.github.io/tags/bigquery-bioconductor-bioinformatics-hdf5-rest-apis/</loc>
     <lastmod>2021-05-08T15:13:09-06:00</lastmod>
   </url><url>
     <loc>https://seandavi.github.io/authors/b-j-stubbs/</loc>
-    <lastmod>2021-05-08T15:13:09-06:00</lastmod>
-  </url><url>
-    <loc>https://seandavi.github.io/publication/10-12688-f-1000-research-19410-1/</loc>
     <lastmod>2021-05-08T15:13:09-06:00</lastmod>
   </url><url>
     <loc>https://seandavi.github.io/authors/herve-pages/</loc>
@@ -326,31 +344,13 @@
     <loc>https://seandavi.github.io/authors/john-readey/</loc>
     <lastmod>2021-05-08T15:13:09-06:00</lastmod>
   </url><url>
-    <loc>https://seandavi.github.io/authors/l-shepherd/</loc>
-    <lastmod>2021-05-08T15:13:09-06:00</lastmod>
-  </url><url>
-    <loc>https://seandavi.github.io/authors/m-ritchie/</loc>
-    <lastmod>2021-05-08T15:13:09-06:00</lastmod>
-  </url><url>
-    <loc>https://seandavi.github.io/authors/mt-morgan/</loc>
-    <lastmod>2021-05-08T15:13:09-06:00</lastmod>
-  </url><url>
     <loc>https://seandavi.github.io/publication/gopaulakrishnan-2019-em/</loc>
-    <lastmod>2021-05-08T15:13:09-06:00</lastmod>
-  </url><url>
-    <loc>https://seandavi.github.io/authors/s-davis/</loc>
-    <lastmod>2021-05-08T15:13:09-06:00</lastmod>
-  </url><url>
-    <loc>https://seandavi.github.io/authors/s-su/</loc>
     <lastmod>2021-05-08T15:13:09-06:00</lastmod>
   </url><url>
     <loc>https://seandavi.github.io/authors/samuela-pollack/</loc>
     <lastmod>2021-05-08T15:13:09-06:00</lastmod>
   </url><url>
     <loc>https://seandavi.github.io/authors/shweta-gopaulakrishnan/</loc>
-    <lastmod>2021-05-08T15:13:09-06:00</lastmod>
-  </url><url>
-    <loc>https://seandavi.github.io/authors/vj-carey/</loc>
     <lastmod>2021-05-08T15:13:09-06:00</lastmod>
   </url><url>
     <loc>https://seandavi.github.io/tags/emacs/</loc>
@@ -399,12 +399,6 @@
     <lastmod>2021-05-08T15:13:09-06:00</lastmod>
   </url><url>
     <loc>https://seandavi.github.io/authors/benjamin-haibe-kains/</loc>
-    <lastmod>2021-05-08T15:13:09-06:00</lastmod>
-  </url><url>
-    <loc>https://seandavi.github.io/authors/lori-shepherd/</loc>
-    <lastmod>2021-05-08T15:13:09-06:00</lastmod>
-  </url><url>
-    <loc>https://seandavi.github.io/authors/martin-t-morgan/</loc>
     <lastmod>2021-05-08T15:13:09-06:00</lastmod>
   </url><url>
     <loc>https://seandavi.github.io/publication/davis-2018-jw/</loc>

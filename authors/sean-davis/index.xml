@@ -72,6 +72,14 @@
     </item>
     
     <item>
+      <title>BiocPkgTools: Toolkit for mining the Bioconductor package ecosystem</title>
+      <link>https://seandavi.github.io/publication/su-2019-wp/</link>
+      <pubDate>Wed, 01 May 2019 00:00:00 +0000</pubDate>
+      <guid>https://seandavi.github.io/publication/su-2019-wp/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>restfulSE: A semantically rich interface for cloud-scale genomics with Bioconductor</title>
       <link>https://seandavi.github.io/publication/gopaulakrishnan-2019-em/</link>
       <pubDate>Tue, 01 Jan 2019 00:00:00 +0000</pubDate>
