@@ -10,12 +10,12 @@ authors:
 superuser: true
 
 # Role/position
-role: Senior Associate Scientist
+role: Professor of Medicine
 
 # Organizations/Affiliations
 organizations:
-- name: National Cancer Institute, National Institutes of Health
-  url: "https://cancer.gov/"
+- name: University of Colorado Anschutz School of Medicine
+  url: "https://medschool.cuanschutz.edu"
 
 # Short bio (displayed in user profile at end of posts)
 bio: My interests include biomedical data science, open data, genomics, and cancer research.

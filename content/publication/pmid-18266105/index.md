@@ -16,7 +16,7 @@ authors:
 tags: []
 categories: []
 date: '2009-01-01'
-lastmod: 2021-05-08T11:20:28-06:00
+lastmod: 2021-08-21T11:08:45-06:00
 featured: false
 draft: false
 
@@ -34,7 +34,7 @@ image:
 #   E.g. `projects = ["internal-project"]` references `content/project/deep-learning/index.md`.
 #   Otherwise, set `projects = []`.
 projects: []
-publishDate: '2021-05-08T17:20:28.293389Z'
+publishDate: '2021-08-21T20:26:28.929102Z'
 publication_types:
 - '2'
 abstract: Tumor necrosis factor-related apoptosis-inducing ligand (TRAIL) induces

@@ -24,7 +24,7 @@ authors:
 tags: []
 categories: []
 date: '2016-07-01'
-lastmod: 2021-05-08T11:20:18-06:00
+lastmod: 2021-08-21T11:08:37-06:00
 featured: false
 draft: false
 
@@ -42,7 +42,7 @@ image:
 #   E.g. `projects = ["internal-project"]` references `content/project/deep-learning/index.md`.
 #   Otherwise, set `projects = []`.
 projects: []
-publishDate: '2021-05-08T17:20:18.161114Z'
+publishDate: '2021-08-21T20:26:20.464277Z'
 publication_types:
 - '2'
 abstract: Molecular interrogation of a biological sample through DNA sequencing, RNA

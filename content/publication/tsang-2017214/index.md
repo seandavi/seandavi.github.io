@@ -11,7 +11,7 @@ authors:
 tags: []
 categories: []
 date: '2017-01-01'
-lastmod: 2021-05-08T11:20:16-06:00
+lastmod: 2021-08-21T11:08:36-06:00
 featured: false
 draft: false
 
@@ -29,7 +29,7 @@ image:
 #   E.g. `projects = ["internal-project"]` references `content/project/deep-learning/index.md`.
 #   Otherwise, set `projects = []`.
 projects: []
-publishDate: '2021-05-08T17:20:16.090857Z'
+publishDate: '2021-08-21T20:26:18.693013Z'
 publication_types:
 - '2'
 abstract: Precision genomic oncology--applying high throughput sequencing (HTS) at

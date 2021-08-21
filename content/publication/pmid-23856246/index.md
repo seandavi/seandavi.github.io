@@ -24,7 +24,7 @@ authors:
 tags: []
 categories: []
 date: '2013-07-01'
-lastmod: 2021-05-08T11:20:22-06:00
+lastmod: 2021-08-21T11:08:41-06:00
 featured: false
 draft: false
 
@@ -42,7 +42,7 @@ image:
 #   E.g. `projects = ["internal-project"]` references `content/project/deep-learning/index.md`.
 #   Otherwise, set `projects = []`.
 projects: []
-publishDate: '2021-05-08T17:20:22.761016Z'
+publishDate: '2021-08-21T20:26:23.943585Z'
 publication_types:
 - '2'
 abstract: The NCI-60 cell lines are the most frequently studied human tumor cell lines

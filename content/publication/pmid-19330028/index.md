@@ -33,7 +33,7 @@ authors:
 tags: []
 categories: []
 date: '2009-05-01'
-lastmod: 2021-05-08T11:20:27-06:00
+lastmod: 2021-08-21T11:08:44-06:00
 featured: false
 draft: false
 
@@ -51,7 +51,7 @@ image:
 #   E.g. `projects = ["internal-project"]` references `content/project/deep-learning/index.md`.
 #   Otherwise, set `projects = []`.
 projects: []
-publishDate: '2021-05-08T17:20:27.075368Z'
+publishDate: '2021-08-21T20:26:27.841823Z'
 publication_types:
 - '2'
 abstract: A mutational analysis of the matrix metalloproteinase (MMP) gene family

@@ -18,7 +18,7 @@ authors:
 tags: []
 categories: []
 date: '2012-01-01'
-lastmod: 2021-05-08T11:20:23-06:00
+lastmod: 2021-08-21T11:08:41-06:00
 featured: false
 draft: false
 
@@ -36,7 +36,7 @@ image:
 #   E.g. `projects = ["internal-project"]` references `content/project/deep-learning/index.md`.
 #   Otherwise, set `projects = []`.
 projects: []
-publishDate: '2021-05-08T17:20:23.609764Z'
+publishDate: '2021-08-21T20:26:24.713842Z'
 publication_types:
 - '2'
 abstract: Metastasis is characterized by spreading of neoplastic cells to an organ

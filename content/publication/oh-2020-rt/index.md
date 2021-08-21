@@ -17,11 +17,11 @@ authors:
 tags:
 - '"gene symbols"'
 - '"molecular biology"'
-- '"HGNC"'
-- '"MGI"'
+- '"hgnc"'
+- '"mgi"'
 categories: []
 date: '2020-12-01'
-lastmod: 2021-05-08T11:20:14-06:00
+lastmod: 2021-08-21T11:08:34-06:00
 featured: false
 draft: false
 
@@ -39,7 +39,7 @@ image:
 #   E.g. `projects = ["internal-project"]` references `content/project/deep-learning/index.md`.
 #   Otherwise, set `projects = []`.
 projects: []
-publishDate: '2021-05-08T17:20:14.490891Z'
+publishDate: '2021-08-21T20:26:17.599616Z'
 publication_types:
 - '2'
 abstract: Gene symbols are recognizable identifiers for gene names but are unstable

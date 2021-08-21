@@ -90,27 +90,27 @@ phone = ""
 
 # Address
 # For country_code, use the 2-letter ISO code (see https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2 )
-address = {street = "Building 37, Room 6138", city = "Bethesda", region = "MD", postcode = "21046", country = "United States", country_code = "US"}
+address = {street = "Research Complex 1 South, Room 8115", city = "Aurora", region = "CO", postcode = "80230", country = "United States", country_code = "US"}
 
 # Geographic coordinates
 # To get your coordinates, right-click on Google Maps and choose "What's here?". The coords will show up at the bottom.
-coordinates = {latitude = "38.999542", longitude = "-77.108016"}
+coordinates = {latitude = "39.74394397648806", longitude = "-104.83951030407307"}
 
 # Directions for visitors to locate you.
-directions = "See the [NIH visitor instructions](https://cnn.com)"
+# directions = ""
 
 # Office hours
 # A list of your office hours. To remove, set to an empty list `[]`.
 office_hours = []
 
 # Enter an optional link for booking appointments (e.g. calendly.com).
-appointment_url = "https://calendly.com/seandavi"
+# appointment_url = "https://calendly.com/seandavi"
 
 # Contact links
 #   Set to `[]` to disable, or comment out unwanted lines with a hash `#`.
 contact_links = [
   {icon = "twitter", icon_pack = "fab", name = "DM Me", link = "https://twitter.com/seandavis12"},
-  {icon = "skype", icon_pack = "fab", name = "Skype Me", link = "skype:seandavi_2?call"},
+  # {icon = "skype", icon_pack = "fab", name = "Skype Me", link = "skype:seandavi_2?call"},
   # {icon = "keybase", icon_pack = "fab", name = "Chat on Keybase", link = "https://keybase.io/"},
   # {icon = "comments", icon_pack = "fas", name = "Discuss on Forum", link = "https://discourse.gohugo.io"},
   # {icon = "telegram", icon_pack = "fab", name = "Telegram Me", link = "https://telegram.me/@Telegram"},
@@ -254,3 +254,7 @@ plugins_js  = []
 [marketing]
   google_analytics = "UA-93043521-1"
   google_tag_manager = ""
+
+[icon.pack]
+  ai = true
+

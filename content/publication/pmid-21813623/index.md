@@ -25,7 +25,7 @@ authors:
 tags: []
 categories: []
 date: '2011-11-01'
-lastmod: 2021-05-08T11:20:24-06:00
+lastmod: 2021-08-21T11:08:42-06:00
 featured: false
 draft: false
 
@@ -43,7 +43,7 @@ image:
 #   E.g. `projects = ["internal-project"]` references `content/project/deep-learning/index.md`.
 #   Otherwise, set `projects = []`.
 projects: []
-publishDate: '2021-05-08T17:20:24.649240Z'
+publishDate: '2021-08-21T20:26:25.654316Z'
 publication_types:
 - '2'
 abstract: This report investigates the mechanisms by which mammalian cells coordinate

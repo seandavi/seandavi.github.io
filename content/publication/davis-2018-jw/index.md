@@ -19,15 +19,15 @@ tags:
 - '"software"'
 - '"informatics"'
 - '"bioinformatics"'
-- '"Bioconductor"'
-- '"R"'
+- '"bioconductor"'
+- '"r"'
 - '"literate programming"'
 - '"markdown"'
 - '"github"'
 - '"open source"'
 categories: []
 date: '2018-10-01'
-lastmod: 2021-05-08T11:20:15-06:00
+lastmod: 2021-08-21T11:08:35-06:00
 featured: false
 draft: false
 
@@ -45,7 +45,7 @@ image:
 #   E.g. `projects = ["internal-project"]` references `content/project/deep-learning/index.md`.
 #   Otherwise, set `projects = []`.
 projects: []
-publishDate: '2021-05-08T17:20:15.549370Z'
+publishDate: '2021-08-21T20:26:18.224121Z'
 publication_types:
 - '2'
 abstract: The importance of bioinformatics, computational biology, and data science

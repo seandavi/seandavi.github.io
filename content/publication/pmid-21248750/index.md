@@ -1,7 +1,7 @@
 ---
 # Documentation: https://wowchemy.com/docs/managing-content/
 
-title: Interferon-γ links ultraviolet radiation to melanomagenesis in mice
+title: Interferon-$γ$ links ultraviolet radiation to melanomagenesis in mice
 subtitle: ''
 summary: ''
 authors:
@@ -24,7 +24,7 @@ authors:
 tags: []
 categories: []
 date: '2011-01-01'
-lastmod: 2021-05-08T11:20:25-06:00
+lastmod: 2021-08-21T11:08:43-06:00
 featured: false
 draft: false
 
@@ -42,7 +42,7 @@ image:
 #   E.g. `projects = ["internal-project"]` references `content/project/deep-learning/index.md`.
 #   Otherwise, set `projects = []`.
 projects: []
-publishDate: '2021-05-08T17:20:25.691495Z'
+publishDate: '2021-08-21T20:26:26.601346Z'
 publication_types:
 - '2'
 abstract: Cutaneous malignant melanoma is a highly aggressive and frequently chemoresistant

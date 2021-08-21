@@ -25,7 +25,7 @@ authors:
 tags: []
 categories: []
 date: '2013-01-01'
-lastmod: 2021-05-08T11:20:23-06:00
+lastmod: 2021-08-21T11:08:41-06:00
 featured: false
 draft: false
 
@@ -43,7 +43,7 @@ image:
 #   E.g. `projects = ["internal-project"]` references `content/project/deep-learning/index.md`.
 #   Otherwise, set `projects = []`.
 projects: []
-publishDate: '2021-05-08T17:20:23.442720Z'
+publishDate: '2021-08-21T20:26:24.559715Z'
 publication_types:
 - '2'
 abstract: The Gene Expression Omnibus (GEO, http://www.ncbi.nlm.nih.gov/geo/) is an

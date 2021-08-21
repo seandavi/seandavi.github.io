@@ -11,7 +11,7 @@ authors:
 tags: []
 categories: []
 date: '1997-01-01'
-lastmod: 2021-05-08T11:20:33-06:00
+lastmod: 2021-08-21T11:08:50-06:00
 featured: false
 draft: false
 
@@ -29,7 +29,7 @@ image:
 #   E.g. `projects = ["internal-project"]` references `content/project/deep-learning/index.md`.
 #   Otherwise, set `projects = []`.
 projects: []
-publishDate: '2021-05-08T17:20:33.244301Z'
+publishDate: '2021-08-21T20:26:33.312158Z'
 publication_types:
 - '2'
 abstract: Our analysis of GAW10 problem 2 data set consisted of linear regression

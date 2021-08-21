@@ -22,7 +22,7 @@ authors:
 tags: []
 categories: []
 date: '2010-06-01'
-lastmod: 2021-05-08T11:20:31-06:00
+lastmod: 2021-08-21T11:08:48-06:00
 featured: false
 draft: false
 
@@ -40,7 +40,7 @@ image:
 #   E.g. `projects = ["internal-project"]` references `content/project/deep-learning/index.md`.
 #   Otherwise, set `projects = []`.
 projects: []
-publishDate: '2021-05-08T17:20:31.820363Z'
+publishDate: '2021-08-21T20:26:32.074868Z'
 publication_types:
 - '2'
 abstract: Limited information is available regarding epigenomic events mediating initiation

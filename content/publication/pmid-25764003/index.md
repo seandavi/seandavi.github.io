@@ -26,7 +26,7 @@ authors:
 tags: []
 categories: []
 date: '2015-01-01'
-lastmod: 2021-05-08T11:20:19-06:00
+lastmod: 2021-08-21T11:08:38-06:00
 featured: false
 draft: false
 
@@ -44,7 +44,7 @@ image:
 #   E.g. `projects = ["internal-project"]` references `content/project/deep-learning/index.md`.
 #   Otherwise, set `projects = []`.
 projects: []
-publishDate: '2021-05-08T17:20:19.574592Z'
+publishDate: '2021-08-21T20:26:21.405387Z'
 publication_types:
 - '2'
 abstract: Ionizing radiation is an established risk factor for breast cancer. Epidemiologic

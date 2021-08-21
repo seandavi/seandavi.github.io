@@ -21,7 +21,7 @@ authors:
 tags: []
 categories: []
 date: '2012-05-01'
-lastmod: 2021-05-08T11:20:24-06:00
+lastmod: 2021-08-21T11:08:42-06:00
 featured: false
 draft: false
 
@@ -39,7 +39,7 @@ image:
 #   E.g. `projects = ["internal-project"]` references `content/project/deep-learning/index.md`.
 #   Otherwise, set `projects = []`.
 projects: []
-publishDate: '2021-05-08T17:20:24.289087Z'
+publishDate: '2021-08-21T20:26:25.339871Z'
 publication_types:
 - '2'
 abstract: The microphthalmia-associated transcription factor (MITF) is a basic helix-loop-helix

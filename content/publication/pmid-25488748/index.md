@@ -21,7 +21,7 @@ authors:
 tags: []
 categories: []
 date: '2015-01-01'
-lastmod: 2021-05-08T11:20:20-06:00
+lastmod: 2021-08-21T11:08:39-06:00
 featured: false
 draft: false
 
@@ -39,7 +39,7 @@ image:
 #   E.g. `projects = ["internal-project"]` references `content/project/deep-learning/index.md`.
 #   Otherwise, set `projects = []`.
 projects: []
-publishDate: '2021-05-08T17:20:20.705528Z'
+publishDate: '2021-08-21T20:26:22.185978Z'
 publication_types:
 - '2'
 abstract: Anaplastic thyroid cancer (ATC) is one of the most lethal human malignancies,

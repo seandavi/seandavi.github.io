@@ -20,7 +20,7 @@ authors:
 tags: []
 categories: []
 date: '2013-11-01'
-lastmod: 2021-05-08T11:20:22-06:00
+lastmod: 2021-08-21T11:08:40-06:00
 featured: false
 draft: false
 
@@ -38,7 +38,7 @@ image:
 #   E.g. `projects = ["internal-project"]` references `content/project/deep-learning/index.md`.
 #   Otherwise, set `projects = []`.
 projects: []
-publishDate: '2021-05-08T17:20:22.216321Z'
+publishDate: '2021-08-21T20:26:23.471524Z'
 publication_types:
 - '2'
 abstract: Deregulated E2F transcription factor activity occurs in the vast majority

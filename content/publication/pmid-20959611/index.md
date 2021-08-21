@@ -25,7 +25,7 @@ authors:
 tags: []
 categories: []
 date: '2010-11-01'
-lastmod: 2021-05-08T11:20:26-06:00
+lastmod: 2021-08-21T11:08:43-06:00
 featured: false
 draft: false
 
@@ -43,7 +43,7 @@ image:
 #   E.g. `projects = ["internal-project"]` references `content/project/deep-learning/index.md`.
 #   Otherwise, set `projects = []`.
 projects: []
-publishDate: '2021-05-08T17:20:25.860417Z'
+publishDate: '2021-08-21T20:26:26.753119Z'
 publication_types:
 - '2'
 abstract: Microarray technologies provide high-resolution maps of chromosome imbalances

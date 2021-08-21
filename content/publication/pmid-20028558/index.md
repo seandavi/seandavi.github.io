@@ -19,7 +19,7 @@ authors:
 tags: []
 categories: []
 date: '2009-01-01'
-lastmod: 2021-05-08T11:20:26-06:00
+lastmod: 2021-08-21T11:08:44-06:00
 featured: false
 draft: false
 
@@ -37,7 +37,7 @@ image:
 #   E.g. `projects = ["internal-project"]` references `content/project/deep-learning/index.md`.
 #   Otherwise, set `projects = []`.
 projects: []
-publishDate: '2021-05-08T17:20:26.389241Z'
+publishDate: '2021-08-21T20:26:27.213576Z'
 publication_types:
 - '2'
 abstract: Pulmonary metastasis continues to be the most common cause of death in osteosarcoma.

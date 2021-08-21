@@ -23,7 +23,7 @@ authors:
 tags: []
 categories: []
 date: '1997-11-01'
-lastmod: 2021-05-08T11:20:33-06:00
+lastmod: 2021-08-21T11:08:50-06:00
 featured: false
 draft: false
 
@@ -41,7 +41,7 @@ image:
 #   E.g. `projects = ["internal-project"]` references `content/project/deep-learning/index.md`.
 #   Otherwise, set `projects = []`.
 projects: []
-publishDate: '2021-05-08T17:20:33.043707Z'
+publishDate: '2021-08-21T20:26:33.158624Z'
 publication_types:
 - '2'
 abstract: Hypertension is a significant risk factor for heart attack and stroke and

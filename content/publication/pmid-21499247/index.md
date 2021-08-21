@@ -22,7 +22,7 @@ authors:
 tags: []
 categories: []
 date: '2011-05-01'
-lastmod: 2021-05-08T11:20:25-06:00
+lastmod: 2021-08-21T11:08:43-06:00
 featured: false
 draft: false
 
@@ -40,7 +40,7 @@ image:
 #   E.g. `projects = ["internal-project"]` references `content/project/deep-learning/index.md`.
 #   Otherwise, set `projects = []`.
 projects: []
-publishDate: '2021-05-08T17:20:25.344840Z'
+publishDate: '2021-08-21T20:26:26.285308Z'
 publication_types:
 - '2'
 abstract: The incidence of melanoma is increasing more than any other cancer, and

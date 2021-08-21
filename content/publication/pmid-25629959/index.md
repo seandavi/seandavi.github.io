@@ -29,7 +29,7 @@ authors:
 tags: []
 categories: []
 date: '2015-01-01'
-lastmod: 2021-05-08T11:20:20-06:00
+lastmod: 2021-08-21T11:08:39-06:00
 featured: false
 draft: false
 
@@ -47,7 +47,7 @@ image:
 #   E.g. `projects = ["internal-project"]` references `content/project/deep-learning/index.md`.
 #   Otherwise, set `projects = []`.
 projects: []
-publishDate: '2021-05-08T17:20:20.332557Z'
+publishDate: '2021-08-21T20:26:21.874322Z'
 publication_types:
 - '2'
 abstract: Melanoma is the most fatal skin cancer, but the etiology of this devastating

@@ -22,7 +22,7 @@ authors:
 tags: []
 categories: []
 date: '2014-02-01'
-lastmod: 2021-05-08T11:20:21-06:00
+lastmod: 2021-08-21T11:08:39-06:00
 featured: false
 draft: false
 
@@ -40,7 +40,7 @@ image:
 #   E.g. `projects = ["internal-project"]` references `content/project/deep-learning/index.md`.
 #   Otherwise, set `projects = []`.
 projects: []
-publishDate: '2021-05-08T17:20:21.347230Z'
+publishDate: '2021-08-21T20:26:22.660435Z'
 publication_types:
 - '2'
 abstract: Aberrant DNA methylation is known to be a major factor in oncogenesis and

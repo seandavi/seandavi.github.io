@@ -11,7 +11,7 @@ authors:
 tags: []
 categories: []
 date: '1997-12-01'
-lastmod: 2021-05-08T11:20:33-06:00
+lastmod: 2021-08-21T11:08:49-06:00
 featured: false
 draft: false
 
@@ -29,7 +29,7 @@ image:
 #   E.g. `projects = ["internal-project"]` references `content/project/deep-learning/index.md`.
 #   Otherwise, set `projects = []`.
 projects: []
-publishDate: '2021-05-08T17:20:32.863749Z'
+publishDate: '2021-08-21T20:26:33.005317Z'
 publication_types:
 - '2'
 abstract: 'We have evaluated 23 different statistics, from a total of 10 popular software

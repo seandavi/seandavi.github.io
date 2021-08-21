@@ -19,7 +19,7 @@ authors:
 tags: []
 categories: []
 date: '2015-04-01'
-lastmod: 2021-05-08T11:20:19-06:00
+lastmod: 2021-08-21T11:08:38-06:00
 featured: false
 draft: false
 
@@ -37,7 +37,7 @@ image:
 #   E.g. `projects = ["internal-project"]` references `content/project/deep-learning/index.md`.
 #   Otherwise, set `projects = []`.
 projects: []
-publishDate: '2021-05-08T17:20:19.328468Z'
+publishDate: '2021-08-21T20:26:21.245721Z'
 publication_types:
 - '2'
 abstract: Identification of prognostic gene expression signatures may enable improved

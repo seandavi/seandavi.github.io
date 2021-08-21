@@ -15,10 +15,10 @@ authors:
 - Martin Morgan
 - Vincent Carey
 tags:
-- '"BigQuery; Bioconductor; Bioinformatics; HDF5; REST APIs"'
+- '"bigquery; bioconductor; bioinformatics; hdf5; rest apis"'
 categories: []
 date: '2019-01-01'
-lastmod: 2021-05-08T11:20:15-06:00
+lastmod: 2021-08-21T11:08:35-06:00
 featured: false
 draft: false
 
@@ -36,7 +36,7 @@ image:
 #   E.g. `projects = ["internal-project"]` references `content/project/deep-learning/index.md`.
 #   Otherwise, set `projects = []`.
 projects: []
-publishDate: '2021-05-08T17:20:15.353482Z'
+publishDate: '2021-08-21T20:26:18.068514Z'
 publication_types:
 - '2'
 abstract: Bioconductor's SummarizedExperiment class unites numerical assay quantifications
