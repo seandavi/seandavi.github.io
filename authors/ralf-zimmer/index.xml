@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Ralf Zimmer | seandavi(s12)</title>
+    <link>https://seandavi.github.io/authors/ralf-zimmer/</link>
+      <atom:link href="https://seandavi.github.io/authors/ralf-zimmer/index.xml" rel="self" type="application/rss+xml" />
+    <description>Ralf Zimmer</description>
+    <generator>Wowchemy (https://wowchemy.com)</generator><language>en-us</language><copyright>© 2016-2020</copyright><lastBuildDate>Sun, 01 Mar 2020 00:00:00 +0000</lastBuildDate>
+    <image>
+      <url>https://seandavi.github.io/images/icon_hu0b7a4cb9992c9ac0e91bd28ffd38dd00_9727_512x512_fill_lanczos_center_3.png</url>
+      <title>Ralf Zimmer</title>
+      <link>https://seandavi.github.io/authors/ralf-zimmer/</link>
+    </image>
+    
+    <item>
+      <title>Toward a gold standard for benchmarking gene set enrichment analysis</title>
+      <link>https://seandavi.github.io/publication/10-1093-bibbbz-158/</link>
+      <pubDate>Sun, 01 Mar 2020 00:00:00 +0000</pubDate>
+      <guid>https://seandavi.github.io/publication/10-1093-bibbbz-158/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>

@@ -2,68 +2,44 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://seandavi.github.io/authors/others/</loc>
-    <lastmod>2021-08-21T11:08:34-06:00</lastmod>
-  </url><url>
     <loc>https://seandavi.github.io/publication_types/2/</loc>
-    <lastmod>2021-08-21T11:12:17-06:00</lastmod>
+    <lastmod>2021-08-21T13:52:37-06:00</lastmod>
   </url><url>
     <loc>https://seandavi.github.io/authors/</loc>
-    <lastmod>2021-08-21T11:12:17-06:00</lastmod>
+    <lastmod>2021-08-21T13:52:37-06:00</lastmod>
   </url><url>
     <loc>https://seandavi.github.io/authors/casey-greene/</loc>
     <lastmod>2021-08-21T11:12:17-06:00</lastmod>
   </url><url>
-    <loc>https://seandavi.github.io/authors/charity-law/</loc>
-    <lastmod>2021-08-21T11:08:34-06:00</lastmod>
-  </url><url>
     <loc>https://seandavi.github.io/publication/oh-2021-05-26-445900/</loc>
     <lastmod>2021-08-21T11:12:17-06:00</lastmod>
-  </url><url>
-    <loc>https://seandavi.github.io/authors/gergely-csaba/</loc>
-    <lastmod>2021-08-21T11:08:34-06:00</lastmod>
   </url><url>
     <loc>https://seandavi.github.io/authors/jaclyn-n.-taroni/</loc>
     <lastmod>2021-08-21T11:12:17-06:00</lastmod>
   </url><url>
     <loc>https://seandavi.github.io/authors/levi-waldron/</loc>
-    <lastmod>2021-08-21T11:12:17-06:00</lastmod>
-  </url><url>
-    <loc>https://seandavi.github.io/authors/lucas-schiffer/</loc>
-    <lastmod>2021-08-21T11:08:34-06:00</lastmod>
+    <lastmod>2021-08-21T13:52:37-06:00</lastmod>
   </url><url>
     <loc>https://seandavi.github.io/authors/ludwig-geistlinger/</loc>
-    <lastmod>2021-08-21T11:12:17-06:00</lastmod>
-  </url><url>
-    <loc>https://seandavi.github.io/authors/mara-santarelli/</loc>
-    <lastmod>2021-08-21T11:08:34-06:00</lastmod>
+    <lastmod>2021-08-21T13:52:37-06:00</lastmod>
   </url><url>
     <loc>https://seandavi.github.io/authors/marcel-ramos/</loc>
-    <lastmod>2021-08-21T11:12:17-06:00</lastmod>
-  </url><url>
-    <loc>https://seandavi.github.io/authors/martin-morgan/</loc>
-    <lastmod>2021-08-21T11:08:34-06:00</lastmod>
-  </url><url>
-    <loc>https://seandavi.github.io/authors/nitesh-turaga/</loc>
-    <lastmod>2021-08-21T11:08:34-06:00</lastmod>
+    <lastmod>2021-08-21T13:52:37-06:00</lastmod>
   </url><url>
     <loc>https://seandavi.github.io/publication_types/</loc>
-    <lastmod>2021-08-21T11:12:17-06:00</lastmod>
+    <lastmod>2021-08-21T13:52:37-06:00</lastmod>
   </url><url>
     <loc>https://seandavi.github.io/authors/sean-davis/</loc>
-    <lastmod>2021-08-21T11:12:17-06:00</lastmod>
+    <lastmod>2021-08-21T13:52:37-06:00</lastmod>
   </url><url>
     <loc>https://seandavi.github.io/</loc>
-    <lastmod>2021-08-21T11:12:17-06:00</lastmod>
+    <lastmod>2021-08-21T13:52:37-06:00</lastmod>
   </url><url>
     <loc>https://seandavi.github.io/authors/sehyun-oh/</loc>
     <lastmod>2021-08-21T11:12:17-06:00</lastmod>
   </url><url>
-    <loc>https://seandavi.github.io/publication/geistlinger-2021-toward/</loc>
-    <lastmod>2021-08-21T11:08:34-06:00</lastmod>
-  </url><url>
     <loc>https://seandavi.github.io/authors/vincent-carey/</loc>
-    <lastmod>2021-08-21T11:12:17-06:00</lastmod>
+    <lastmod>2021-08-21T13:52:37-06:00</lastmod>
   </url><url>
     <loc>https://seandavi.github.io/tags/gene-symbols/</loc>
     <lastmod>2021-05-08T15:13:09-06:00</lastmod>
@@ -151,6 +127,33 @@
   </url><url>
     <loc>https://seandavi.github.io/tags/serverless/</loc>
     <lastmod>2020-06-04T14:18:03-04:00</lastmod>
+  </url><url>
+    <loc>https://seandavi.github.io/authors/charity-law/</loc>
+    <lastmod>2021-08-21T13:52:37-06:00</lastmod>
+  </url><url>
+    <loc>https://seandavi.github.io/authors/gergely-csaba/</loc>
+    <lastmod>2021-08-21T13:52:37-06:00</lastmod>
+  </url><url>
+    <loc>https://seandavi.github.io/authors/lucas-schiffer/</loc>
+    <lastmod>2021-08-21T13:52:37-06:00</lastmod>
+  </url><url>
+    <loc>https://seandavi.github.io/authors/mara-santarelli/</loc>
+    <lastmod>2021-08-21T13:52:37-06:00</lastmod>
+  </url><url>
+    <loc>https://seandavi.github.io/authors/martin-morgan/</loc>
+    <lastmod>2021-08-21T13:52:37-06:00</lastmod>
+  </url><url>
+    <loc>https://seandavi.github.io/authors/nitesh-turaga/</loc>
+    <lastmod>2021-08-21T13:52:37-06:00</lastmod>
+  </url><url>
+    <loc>https://seandavi.github.io/authors/ralf-zimmer/</loc>
+    <lastmod>2021-08-21T13:52:37-06:00</lastmod>
+  </url><url>
+    <loc>https://seandavi.github.io/publication/10-1093-bibbbz-158/</loc>
+    <lastmod>2021-08-21T13:52:37-06:00</lastmod>
+  </url><url>
+    <loc>https://seandavi.github.io/authors/others/</loc>
+    <lastmod>2021-05-08T15:13:09-06:00</lastmod>
   </url><url>
     <loc>https://seandavi.github.io/authors/aleksandra-m-michalowski/</loc>
     <lastmod>2021-05-08T15:13:09-06:00</lastmod>
