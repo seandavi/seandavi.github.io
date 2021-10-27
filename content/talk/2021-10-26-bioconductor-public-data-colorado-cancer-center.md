@@ -1,5 +1,5 @@
 +++
-title = "Bioconductor: Tools for interpreting high-throughput biological data"
+title = "Bioconductor: Increasing the Value of Public Data with Software and Data Engineering"
 date = 2021-10-26T12:00:00  # Schedule page publish date.
 
 # Talk start and end times.
