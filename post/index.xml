@@ -13,6 +13,14 @@
     </image>
     
     <item>
+      <title>2021 10 27 Bigquery Export to Json</title>
+      <link>https://seandavi.github.io/post/2021-10-27-bigquery-export-to-json/</link>
+      <pubDate>Wed, 27 Oct 2021 12:55:39 -0600</pubDate>
+      <guid>https://seandavi.github.io/post/2021-10-27-bigquery-export-to-json/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>Build and deploy an NCBI GEO metadata fetch API</title>
       <link>https://seandavi.github.io/post/cloud-run-notes/</link>
       <pubDate>Thu, 05 Mar 2020 00:00:00 +0000</pubDate>

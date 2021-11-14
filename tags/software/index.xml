@@ -5,12 +5,23 @@
     <link>https://seandavi.github.io/tags/software/</link>
       <atom:link href="https://seandavi.github.io/tags/software/index.xml" rel="self" type="application/rss+xml" />
     <description>Software</description>
-    <generator>Wowchemy (https://wowchemy.com)</generator><language>en-us</language><copyright>© 2016-2020</copyright><lastBuildDate>Mon, 01 Oct 2018 00:00:00 +0000</lastBuildDate>
+    <generator>Wowchemy (https://wowchemy.com)</generator><language>en-us</language><copyright>© 2016-2020</copyright><lastBuildDate>Sun, 14 Nov 2021 16:30:00 -0400</lastBuildDate>
     <image>
       <url>https://seandavi.github.io/images/icon_hu0b7a4cb9992c9ac0e91bd28ffd38dd00_9727_512x512_fill_lanczos_center_3.png</url>
       <title>Software</title>
       <link>https://seandavi.github.io/tags/software/</link>
     </image>
+    
+    <item>
+      <title>GenomicSuperSignature: Interpretation of RNA-Seq Experiments through Robust, Efficient Comparison to Public Databases</title>
+      <link>https://seandavi.github.io/talk/2021-11-14-genomicsupersignature-at-supercomputer-cafcw/</link>
+      <pubDate>Sun, 14 Nov 2021 16:30:00 -0400</pubDate>
+      <guid>https://seandavi.github.io/talk/2021-11-14-genomicsupersignature-at-supercomputer-cafcw/</guid>
+      <description>&lt;div class=&#34;responsive-wrap&#34;&gt;
+  &lt;iframe src=&#34;https://docs.google.com/presentation/d/e/2PACX-1vT-qEQ7dJgx15fcwWNoHsxDe0MAbBzrR4ggM5UBxgymHL3duh_vFrpc9Ishg5AiMPpkBar5AHJw_xY_/embed?start=false&amp;amp;loop=false&amp;amp;delayms=3000&#34; frameborder=&#34;0&#34; width=&#34;960&#34; height=&#34;569&#34; allowfullscreen=&#34;true&#34; mozallowfullscreen=&#34;true&#34; webkitallowfullscreen=&#34;true&#34;&gt;&lt;/iframe&gt;
+&lt;/div&gt;
+</description>
+    </item>
     
     <item>
       <title>Orchestrating a community-developed computational workshop and accompanying training materials</title>
