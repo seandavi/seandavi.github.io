@@ -2,23 +2,26 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>https://seandavi.github.io/tags/education/</loc>
+    <lastmod>2021-11-18T06:14:06-07:00</lastmod>
+  </url><url>
     <loc>https://seandavi.github.io/authors/</loc>
-    <lastmod>2021-11-14T16:41:02-07:00</lastmod>
+    <lastmod>2021-11-18T06:14:06-07:00</lastmod>
+  </url><url>
+    <loc>https://seandavi.github.io/talk/2021-11-17-supercomputer21-bioinformatics-hpc-ai/</loc>
+    <lastmod>2021-11-18T06:14:06-07:00</lastmod>
+  </url><url>
+    <loc>https://seandavi.github.io/</loc>
+    <lastmod>2021-11-18T06:14:06-07:00</lastmod>
+  </url><url>
+    <loc>https://seandavi.github.io/tags/</loc>
+    <lastmod>2021-11-18T06:14:06-07:00</lastmod>
   </url><url>
     <loc>https://seandavi.github.io/talk/2021-11-14-genomicsupersignature-at-supercomputer-cafcw/</loc>
     <lastmod>2021-11-14T16:41:02-07:00</lastmod>
   </url><url>
-    <loc>https://seandavi.github.io/</loc>
-    <lastmod>2021-11-14T16:41:02-07:00</lastmod>
-  </url><url>
     <loc>https://seandavi.github.io/tags/software/</loc>
     <lastmod>2021-11-14T16:41:02-07:00</lastmod>
-  </url><url>
-    <loc>https://seandavi.github.io/tags/</loc>
-    <lastmod>2021-11-14T16:41:02-07:00</lastmod>
-  </url><url>
-    <loc>https://seandavi.github.io/post/2021-10-27-bigquery-export-to-json/</loc>
-    <lastmod>2021-10-27T12:55:39-06:00</lastmod>
   </url><url>
     <loc>https://seandavi.github.io/tags/bioconductor/</loc>
     <lastmod>2021-10-27T09:38:56-06:00</lastmod>
@@ -29,11 +32,8 @@
     <loc>https://seandavi.github.io/authors/sean-davis/</loc>
     <lastmod>2021-10-27T09:38:56-06:00</lastmod>
   </url><url>
-    <loc>https://seandavi.github.io/tags/education/</loc>
-    <lastmod>2021-10-11T15:00:00-06:00</lastmod>
-  </url><url>
     <loc>https://seandavi.github.io/talk/2021-10-11-training-education-and-workforce-development-cu-osi/</loc>
-    <lastmod>2021-10-11T15:00:00-06:00</lastmod>
+    <lastmod>2021-11-14T18:37:43-07:00</lastmod>
   </url><url>
     <loc>https://seandavi.github.io/publication_types/2/</loc>
     <lastmod>2021-08-21T14:36:41-06:00</lastmod>

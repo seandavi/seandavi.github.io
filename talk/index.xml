@@ -13,6 +13,17 @@
     </image>
     
     <item>
+      <title>Bioinformatics, HPC and AI</title>
+      <link>https://seandavi.github.io/talk/2021-11-17-supercomputer21-bioinformatics-hpc-ai/</link>
+      <pubDate>Wed, 17 Nov 2021 14:30:00 -0600</pubDate>
+      <guid>https://seandavi.github.io/talk/2021-11-17-supercomputer21-bioinformatics-hpc-ai/</guid>
+      <description>&lt;div class=&#34;responsive-wrap&#34;&gt;
+  &lt;iframe src=&#34;https://docs.google.com/presentation/d/e/2PACX-1vSK87pWxpO5k_ri1e83sj_kZnfY3gTVSPkBMY2Wxu8GLuLxC0P3Na2Ui1j9og0r0g/embed?start=false&amp;amp;loop=false&amp;amp;delayms=3000&#34; frameborder=&#34;0&#34; width=&#34;960&#34; height=&#34;569&#34; allowfullscreen=&#34;true&#34; mozallowfullscreen=&#34;true&#34; webkitallowfullscreen=&#34;true&#34;&gt;&lt;/iframe&gt;
+&lt;/div&gt;
+</description>
+    </item>
+    
+    <item>
       <title>GenomicSuperSignature: Interpretation of RNA-Seq Experiments through Robust, Efficient Comparison to Public Databases</title>
       <link>https://seandavi.github.io/talk/2021-11-14-genomicsupersignature-at-supercomputer-cafcw/</link>
       <pubDate>Sun, 14 Nov 2021 16:30:00 -0400</pubDate>
