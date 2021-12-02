@@ -53,6 +53,12 @@ projects: []
 math: true
 ---
 
-Organized by the folks at [VIB](https://www.bits.vib.be/bioit-at-vib).
+- Organized by the folks at [VIB](https://www.bits.vib.be/bioit-at-vib).
+
+Links of interest:
+
+- https://app.orchestra.cancerdatasci.org
+- https://github.com/seandavi/Orchestra
 
 {{< gdocs src="https://docs.google.com/presentation/d/e/2PACX-1vQQwVLPJskLF5OdYtVBRbVPfmHVpq_8TNRStXrEF3lxep87eGfibEL6PqaDpHDFgQ/embed?start=false&loop=false&delayms=3000" >}}
+
