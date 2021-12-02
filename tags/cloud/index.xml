@@ -5,12 +5,24 @@
     <link>https://seandavi.github.io/tags/cloud/</link>
       <atom:link href="https://seandavi.github.io/tags/cloud/index.xml" rel="self" type="application/rss+xml" />
     <description>cloud</description>
-    <generator>Wowchemy (https://wowchemy.com)</generator><language>en-us</language><copyright>© 2016-2020</copyright><lastBuildDate>Thu, 05 Mar 2020 00:00:00 +0000</lastBuildDate>
+    <generator>Wowchemy (https://wowchemy.com)</generator><language>en-us</language><copyright>© 2016-2020</copyright><lastBuildDate>Thu, 02 Dec 2021 08:00:00 -0700</lastBuildDate>
     <image>
       <url>https://seandavi.github.io/images/icon_hu0b7a4cb9992c9ac0e91bd28ffd38dd00_9727_512x512_fill_lanczos_center_3.png</url>
       <title>cloud</title>
       <link>https://seandavi.github.io/tags/cloud/</link>
     </image>
+    
+    <item>
+      <title>Orchestra: A cloud platform for hosting hands-on computational workshop environments</title>
+      <link>https://seandavi.github.io/talk/2021-12-02-orchestra-europe-container-talk/</link>
+      <pubDate>Thu, 02 Dec 2021 08:00:00 -0700</pubDate>
+      <guid>https://seandavi.github.io/talk/2021-12-02-orchestra-europe-container-talk/</guid>
+      <description>&lt;p&gt;Organized by the folks at &lt;a href=&#34;https://www.bits.vib.be/bioit-at-vib&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;VIB&lt;/a&gt;.&lt;/p&gt;
+&lt;div class=&#34;responsive-wrap&#34;&gt;
+  &lt;iframe src=&#34;https://docs.google.com/presentation/d/e/2PACX-1vQQwVLPJskLF5OdYtVBRbVPfmHVpq_8TNRStXrEF3lxep87eGfibEL6PqaDpHDFgQ/embed?start=false&amp;amp;loop=false&amp;amp;delayms=3000&#34; frameborder=&#34;0&#34; width=&#34;960&#34; height=&#34;569&#34; allowfullscreen=&#34;true&#34; mozallowfullscreen=&#34;true&#34; webkitallowfullscreen=&#34;true&#34;&gt;&lt;/iframe&gt;
+&lt;/div&gt;
+</description>
+    </item>
     
     <item>
       <title>Build and deploy an NCBI GEO metadata fetch API</title>
